@@ -2,6 +2,8 @@
 
 Copyright (c) 2026 Sumo1311, for the original contributions published by this project.
 
+本项目以非商业的学习、技术研究与交流为目的，尊重原游戏厂商、开发者及其他权利人的权益。这是项目目的说明，不为原作素材新增授权，也不改变原创代码或第三方依赖的许可证条款；不表示获得原厂商或平台的授权、认可。
+
 The root `LICENSE` contains the MIT License. It applies only to the project author's original PSP implementation code, release tools and original documentation, including the corresponding original portions of compiled programs and relinkable object files. This release repository does not include the complete game development source trees.
 
 以下内容不由根目录的 MIT 协议重新授权。

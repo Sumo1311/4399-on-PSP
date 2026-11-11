@@ -2,6 +2,8 @@
 
 This is an unofficial PSP port collection. All original game credits and third-party notices remain applicable. The author's MIT grant is limited as described in `LICENSE_SCOPE.md`.
 
+本项目用于非商业的学习、技术研究与交流。感谢原游戏厂商、开发者及素材创作者；原作名称、商标、画面、音频等权利归各自权利人所有。学习用途说明不替代原作素材的使用或分发许可，也不表示原厂商、作者或平台对本项目的授权与认可。
+
 ## Original games and media
 
 | Game | Original attribution | Content excluded from MIT |
