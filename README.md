@@ -18,20 +18,18 @@
 
 原创移植实现、发布工具和文档采用 [MIT 协议](LICENSE)，不覆盖原游戏素材；依赖库保留各自协议。学习用途说明不构成原作素材的授权，也不代表原厂商或平台认可本项目。
 
-本仓库提供成品包，未包含完整游戏工程源码。详见[协议范围](LICENSE_SCOPE.md)、[第三方声明](THIRD_PARTY_NOTICES.md)及[依赖库重新链接说明](RELINKING.md)。如权利人对相关内容有异议，可通过 [Issues](https://github.com/Sumo1311/4399-on-PSP/issues) 联系核实处理。
+本仓库用于发布成品包，目前暂无已发布的发行包，未包含完整游戏工程源码。详见[协议范围](LICENSE_SCOPE.md)、[第三方声明](THIRD_PARTY_NOTICES.md)及[依赖库重新链接说明](RELINKING.md)。如权利人对相关内容有异议，可通过 [Issues](https://github.com/Sumo1311/4399-on-PSP/issues) 联系核实处理。
 
 ## 游戏下载
 
-[四款游戏合集](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.11/Flash-to-PSP-Collection-2026.11.11.zip) · [全部发行版本](https://github.com/Sumo1311/4399-on-PSP/releases)
+现有全部发行版本及附件已移除，当前暂无可下载的发行包。
 
-| 游戏 | 安装包 |
+| 游戏 | 发布状态 |
 | --- | --- |
-| 勇者之路：精灵物语 | [1.0.1](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.11/ElfStory_PSP-1.0.1.zip) |
-| 森林冰火人：森林神殿 | [构建 11](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.11/ForestTemple_PSP-build11.zip) |
-| 双人旋转赛车 · Flipside | [1.0.3](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.11/Flipside_PSP-1.0.3.zip) |
-| 火柴人羽毛球 2 | [1.0.18](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.11/Badminton2_PSP-1.0.18.zip) |
-| 战争进化史 2（单人） | [1.0.3 正式版](https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-v1.0.3) · [1.0.4 防御塔修复测试版](https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-v1.0.4-test) |
+| 勇者之路：精灵物语 | 暂无发行包 |
+| 森林冰火人：森林神殿 | 暂无发行包 |
+| 双人旋转赛车 · Flipside | 暂无发行包 |
+| 火柴人羽毛球 2 | 暂无发行包 |
+| 战争进化史 2（单人） | 暂无发行包 |
 
-战争进化史2的1.0.4是测试修正版，仍需PSP真机复测；1.0.3正式版存在远处静止敌人可能不受炮塔伤害的已知问题。
-
-更新时，先备份并保留个人 `SUSPEND.DAT`，同时替换 `EBOOT.PBP`、整个 `data` 目录及随包说明；切换正式版或测试版时，以对应版本的安装说明为准。
+[发行版本页面](https://github.com/Sumo1311/4399-on-PSP/releases)
