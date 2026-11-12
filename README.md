@@ -37,7 +37,7 @@
 
 | 游戏 | 测试版下载与说明 | 当前状态 |
 | --- | --- | --- |
-| 战争进化史 2（单人） | [1.0.2 测试版](https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-v1.0.2-test) | 尚未完成同机真机复测 |
+| 战争进化史 2（单人） | [1.0.3 测试版](https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-v1.0.3-test) | 显示异常候选修订与美术更新，待同机真机复测 |
 
 更新本测试版时，请备份并保留个人 `SUSPEND.DAT`，同时替换 `EBOOT.PBP` 与整个 `data` 目录。测试范围和问题反馈方式见发布页。
 
