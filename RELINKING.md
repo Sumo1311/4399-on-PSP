@@ -1,6 +1,8 @@
 # Replacing the LGPL thread library
 
-`Relink-Materials-2026.11.11.zip`, attached to the same GitHub Release as the games, contains the exact application object files used by the delivered runtimes, their link configurations, EBOOT templates, the complete pthread-embedded corresponding source archive and a copy of `tools/relink.py`. Game asset packs are obtained from the normal installation ZIPs. These materials are distributed alongside the binaries rather than on request.
+> Release availability: All GitHub Releases and their attached game/relinking archives were removed on 2026-11-12. The instructions below describe the previously distributed materials and remain applicable to existing local copies.
+
+`Relink-Materials-2026.11.11.zip`, previously attached to a GitHub Release, contained the exact application object files used by the delivered runtimes, their link configurations, EBOOT templates, the complete pthread-embedded corresponding source archive and a copy of `tools/relink.py`. Game asset packs were obtained from the normal installation ZIPs. These materials were distributed alongside the binaries rather than on request.
 
 The thread library's original PSP source is pinned at [97fe4ce006b420894f2bcaeb530d1f1f53111fc2](https://github.com/pspdev/pthread-embedded/tree/97fe4ce006b420894f2bcaeb530d1f1f53111fc2). Its LGPL and other original notices are retained. The application objects preserve relocations, and the included Box2D static archive is independently relinkable.
 
