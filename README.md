@@ -30,14 +30,6 @@
 | 森林冰火人：森林神殿 | [构建 11](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.11/ForestTemple_PSP-build11.zip) |
 | 双人旋转赛车 · Flipside | [1.0.3](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.11/Flipside_PSP-1.0.3.zip) |
 | 火柴人羽毛球 2 | [1.0.18](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.11/Badminton2_PSP-1.0.18.zip) |
+| 战争进化史 2（单人） | [1.0.3 正式版](https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-v1.0.3) |
 
-## 测试版本（仍需真机验证）
-
-**下列版本为测试版（Pre-release），非正式版本。** 清晰度、流畅度及卡顿改善仍需 PSP 真机复测确认。
-
-| 游戏 | 测试版下载与说明 | 当前状态 |
-| --- | --- | --- |
-| 战争进化史 2（单人） | [1.0.3 测试版](https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-v1.0.3-test) | 显示异常候选修订与美术更新，待同机真机复测 |
-
-更新本测试版时，请备份并保留个人 `SUSPEND.DAT`，同时替换 `EBOOT.PBP` 与整个 `data` 目录。测试范围和问题反馈方式见发布页。
-
+战争进化史2更新时，备份并保留个人 `SUSPEND.DAT`，同时更新 `EBOOT.PBP` 与整个 `data` 目录；从测试版更新请同步安装说明并移除旧的 `CANDIDATE.txt`。
