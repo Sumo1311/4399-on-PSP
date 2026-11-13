@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild BVN37 1.0.0 xmb1 using the data from its installation ZIP."""
+"""Rebuild BVN37 1.0.0 hwd1 using the data from its installation ZIP."""
 import argparse
 import hashlib
 import json
@@ -35,7 +35,8 @@ env = {**os.environ, 'PSPDEV': str(sdk),
        'SOURCE_DATE_EPOCH': os.environ.get('SOURCE_DATE_EPOCH', '1793232000')}
 subprocess.run([cmake, '-S', str(root), '-B', str(args.build_dir.resolve()),
                 '-DCMAKE_TOOLCHAIN_FILE=' + str(sdk / 'psp/share/pspdev.cmake'),
-                '-DCMAKE_BUILD_TYPE=Release'], env=env, check=True)
+                '-DCMAKE_BUILD_TYPE=Release',
+                '-DBVN_RESOURCE_DIAGNOSTICS=' + ('ON' if manifest.get('resource_diagnostics', False) else 'OFF')], env=env, check=True)
 subprocess.run([cmake, '--build', str(args.build_dir.resolve()), '--target', 'bvn_versus',
                 '--parallel', os.environ.get('BUILD_JOBS', '4')], env=env, check=True)
 

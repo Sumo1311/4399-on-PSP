@@ -1,3 +1,5 @@
+#include "resource_diagnostics.hpp"
+#include <cerrno>
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "arcade_run.hpp"
 #include "fighter_cpu.hpp"
@@ -276,6 +278,10 @@ private:
     void battleMusic(unsigned side, unsigned seed);
     void clearBattle();
     void showLoadError();
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    void recordResourceDiagnostics();
+    unsigned loadStartSerial_ = 0, loggedResourceSerial_ = 0, diagnosticEntries_ = 0;
+#endif
     void leaveFight();
     std::optional<unsigned> teamChoice(unsigned side, FighterPick pick, unsigned seed) const;
     std::optional<unsigned> stepPick(unsigned side, bool assists, unsigned pressed);
@@ -370,6 +376,13 @@ private:
 
 bool Game::start() {
     if (!installGameAllocationRecovery(renderer_)) return false;
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    if (auto* log = std::fopen((folder_ + "BVN_DIAG.LOG").c_str(), "w")) {
+        std::fprintf(log, "BVN37 1.0.0 HWD1\nreader=%s\nfirmware=0x%08x\n",
+                     resourceDiagnostics.synchronousOnly ? "stdio-only" : "original-readahead", sceKernelDevkitVersion());
+        std::fclose(log);
+    }
+#endif
     const char* drive=folder_.starts_with("ef0:")?"ef0:":"ms0:";
     settingsFolder_=std::string(drive)+"/PSP/SAVEDATA/BVN37C001";
     settingsLoaded_=settingsStore_.load(settingsFolder_.c_str(),settings_);
@@ -439,6 +452,9 @@ unsigned Game::decisionSeed() const {
 }
 
 void Game::beginFight() {
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    loadStartSerial_ = resourceDiagnostics.failures;
+#endif
     const auto config=battleSettings();
     const auto* encounter = isArcadeMode(mode_) ? arcadeEncounter_ : nullptr;
     arena_ = encounter ? encounter->map : map_;
@@ -662,13 +678,44 @@ void Game::clearBattle() {
     for (auto& assist : assistAssets_) assist = {};
 }
 
+
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+void Game::recordResourceDiagnostics() {
+    const auto& failure = resourceDiagnostics;
+    if (!failure.failures || failure.failures == loggedResourceSerial_ || diagnosticEntries_ >= 16) return;
+    loggedResourceSerial_ = failure.failures;
+    ++diagnosticEntries_;
+    if (auto* log = std::fopen((folder_ + "BVN_DIAG.LOG").c_str(), "a")) {
+        SceIoStat stat{};
+        const int statResult = sceIoGetstat(failure.failed, &stat);
+        std::fprintf(log, "\nERROR %u tick=%llu operation=%s errno=%d\nfile=%s\nstat=0x%08x file_bytes=%lld texture=%u request_bytes=%u\nheap_free_at_failure=%u partition_free_at_failure=%u largest_partition_at_failure=%u\n",
+                     failure.failures, sceKernelGetSystemTimeWide(), failure.operation, failure.error,
+                     failure.failed, unsigned(statResult), static_cast<long long>(stat.st_size),
+                     failure.texture, failure.bytes, failure.heapFree, failure.partitionFree, failure.largestPartition);
+        for (unsigned side = 0; side < 2; ++side) {
+            std::fprintf(log, "side%u fighter=%s assist=%s\n", side,
+                         roster_.fighter(active_[side]).file, assistRoster_.fighter(activeAssists_[side]).file);
+        }
+        if (arena_ < maps_.size()) std::fprintf(log, "map=%s\n", maps_[arena_].file.c_str());
+        std::fclose(log);
+    }
+}
+#endif
+
 void Game::showLoadError() {
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    if (resourceDiagnostics.failures == loadStartSerial_)
+        diagnosticFailure(resourceDiagnostics.attempted, "ASSET BIND", errno);
+#endif
     if (wlan_.active()) {
         wlan_.close();
         leaveWlan(Screen::LoadError);
         return;
     }
     clearBattle();
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    recordResourceDiagnostics();
+#endif
     audio_.music("select");
     screen_ = Screen::LoadError;
 }
@@ -2161,7 +2208,12 @@ void Game::draw() {
     } else {
         renderer_.beginUi();
         switch (screen_) {
-        case Screen::Title: drawTitle(); break;
+        case Screen::Title:
+            drawTitle();
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+            renderer_.diagnosticText(resourceDiagnostics.synchronousOnly ? "HWD1: STDIO ONLY" : "HWD1: ORIGINAL IO", 2, 2);
+#endif
+            break;
         case Screen::Credits: drawCredits(); break;
         case Screen::Settings:
         case Screen::Keys:drawSettings();break;
@@ -2183,12 +2235,26 @@ void Game::draw() {
             drawMap();
             renderer_.box(193, 203, 414, 188, Panel);
             centered("label-load-error", 400, 269);
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+            {
+                const char* name = diagnosticFileName();
+                renderer_.diagnosticText(name, (800 * StageTextureScale - std::strlen(name) * 8) / 2, 140);
+                char code[40];
+                std::snprintf(code, sizeof(code), "ERR=%d  %s", resourceDiagnostics.error, resourceDiagnostics.operation);
+                renderer_.diagnosticText(code, (800 * StageTextureScale - std::strlen(code) * 8) / 2, 151);
+            }
+            centered("label-confirm", 400, 369);
+#else
             centered("label-confirm", 400, 332);
+#endif
             break;
         default: break;
         }
     }
     renderer_.end();
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    recordResourceDiagnostics();
+#endif
     ++stats_.draws;
     record();
 }
@@ -2214,6 +2280,14 @@ int main(int argc, char** argv) {
     const int thread = sceKernelCreateThread("BVN callbacks", bvn::callbacks, 17, 0x1000, 0, nullptr);
     if (thread >= 0) sceKernelStartThread(thread, 0, nullptr);
     scePowerSetClockFrequency(333, 333, 166);
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    SceCtrlData startupPad{};
+    sceCtrlPeekBufferPositive(&startupPad, 1);
+    const auto diagnosticFolder = slash == std::string::npos ? std::string{} : launch.substr(0, slash + 1);
+    SceIoStat syncStat{};
+    bvn::resourceDiagnostics.synchronousOnly = (startupPad.Buttons & PSP_CTRL_RTRIGGER) ||
+        sceIoGetstat((diagnosticFolder + "BVN_SYNC.IO").c_str(), &syncStat) == 0;
+#endif
     static bvn::Game game(slash == std::string::npos ? "" : launch.substr(0, slash + 1));
     if (!game.start()) {
         pspDebugScreenInit();

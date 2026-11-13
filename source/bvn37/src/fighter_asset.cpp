@@ -1,3 +1,5 @@
+#include "resource_diagnostics.hpp"
+#include <cerrno>
 #include "fighter_asset.hpp"
 #include "object_area_data.hpp"
 
@@ -94,6 +96,13 @@ bool valid(const ProjectileAxis& axis) {
 } // namespace
 
 bool FighterAsset::open(const char* path, TextureResidency residency) {
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    diagnosticAttempt(path);
+    const unsigned beforeFailure = resourceDiagnostics.failures;
+    errno = 0;
+    const auto load = [&]() -> bool {
+#endif
+
     std::unique_ptr<FILE, decltype(&std::fclose)> file(std::fopen(path, "rb"), std::fclose);
     if (!file || std::fseek(file.get(), 0, SEEK_END)) return false;
     const long length = std::ftell(file.get());
@@ -115,18 +124,33 @@ bool FighterAsset::open(const char* path, TextureResidency residency) {
         if (!(version == 2 ? next.readLegacy(file.get(), length) :
                             next.readCurrent(file.get(), length, version, residency))) return false;
     }
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    std::snprintf(next.diagnosticPath_.data(), next.diagnosticPath_.size(), "%s", path);
+#endif
     next.initializeAiHits();
     if (next.streamedStart_) {
         next.streamed_ = std::move(file);
 #ifdef __PSP__
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+        if (!resourceDiagnostics.synchronousOnly) {
+#endif
         const auto window = residency == TextureResidency::LowMemory ? 128 * 1024 : TextureStream::DefaultWindowBytes;
         std::unique_ptr<TextureStream> reader(new (std::nothrow) TextureStream(
             path, next.streamedStart_, length - next.streamedStart_, next.streamedBuffer_.size(), window));
         if (reader && reader->ready()) next.readAhead_ = std::move(reader);
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+        }
+#endif
 #endif
     }
     *this = std::move(next);
     return true;
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    };
+    const bool loaded = load();
+    if (!loaded && resourceDiagnostics.failures == beforeFailure) diagnosticFailure(path, "FIGHTER OPEN", errno);
+    return loaded;
+#endif
 }
 
 std::uint32_t FighterAsset::aiHitCommands(std::uint32_t hitKey) {

@@ -1,0 +1,92 @@
+[
+  {
+    "bank": "before",
+    "clips": [
+      {
+        "clip": 0,
+        "parent": 1,
+        "frames": 12,
+        "visible_pixels": [
+          214,
+          214,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          213,
+          213,
+          213,
+          214
+        ],
+        "transparent_frames": 6
+      },
+      {
+        "clip": 2,
+        "parent": 45,
+        "frames": 12,
+        "visible_pixels": [
+          97,
+          97,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          99,
+          99,
+          99,
+          97
+        ],
+        "transparent_frames": 6
+      }
+    ]
+  },
+  {
+    "bank": "after",
+    "clips": [
+      {
+        "clip": 0,
+        "parent": 1,
+        "frames": 12,
+        "visible_pixels": [
+          214,
+          214,
+          213,
+          213,
+          213,
+          213,
+          213,
+          213,
+          213,
+          213,
+          213,
+          214
+        ],
+        "transparent_frames": 0
+      },
+      {
+        "clip": 2,
+        "parent": 45,
+        "frames": 12,
+        "visible_pixels": [
+          97,
+          97,
+          99,
+          99,
+          99,
+          102,
+          102,
+          102,
+          99,
+          99,
+          99,
+          97
+        ],
+        "transparent_frames": 0
+      }
+    ]
+  }
+]

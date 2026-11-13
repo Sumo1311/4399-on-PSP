@@ -1,3 +1,5 @@
+#include "resource_diagnostics.hpp"
+#include <cerrno>
 #include "psp_stage_renderer.hpp"
 #include "shadow_pixels.hpp"
 
@@ -10,6 +12,9 @@
 #include <pspgu.h>
 #include <pspkernel.h>
 
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+extern "C" unsigned char msx[];
+#endif
 extern "C" {
 volatile struct RendererQA {
     unsigned frames, additive, darken, color, alpha;
@@ -238,6 +243,9 @@ const void* StageRenderer::fighterTexture(const FighterAsset& asset, const Fight
         ~CacheMutation() { active = false; }
     } mutation(cacheMutation_);
     const auto miss=[&](unsigned reason,std::size_t requested)->const void*{
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+        diagnosticFailure(asset.diagnosticPath(), reason == 1 ? "CACHE BUDGET" : reason == 2 ? "CACHE ALLOCATION" : "TEXTURE READ", errno, pose.offset, requested);
+#endif
         g_rendererQa.textureMisses=g_rendererQa.textureMisses+1;
         if(reason==1)g_textureCacheQa.budget=g_textureCacheQa.budget+1;
         else if(reason==2)g_textureCacheQa.allocation=g_textureCacheQa.allocation+1;
@@ -627,6 +635,35 @@ void StageRenderer::box(float x, float y, float width, float height, std::uint32
     if (width <= 0 || height <= 0) return;
     drawBox(x * StageTextureScale, y * StageTextureScale, width * StageTextureScale, height * StageTextureScale, color);
 }
+
+
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+void StageRenderer::diagnosticText(const char* text, float x, float y) {
+    alignas(64) static std::array<std::uint16_t, 128 * 128> atlas{};
+    static bool ready = false;
+    if (!ready) {
+        for (unsigned c = 0; c < 256; ++c) for (unsigned row = 0; row < 8; ++row)
+            for (unsigned col = 0; col < 8; ++col)
+                atlas[((c / 16) * 8 + row) * 128 + (c % 16) * 8 + col] =
+                    msx[c * 8 + row] & (0x80 >> col) ? 0xffff : 0;
+        sceKernelDcacheWritebackRange(atlas.data(), sizeof(atlas));
+        ready = true;
+    }
+    sceGuTexMode(GU_PSM_4444, 0, 0, GU_FALSE);
+    sceGuTexFunc(GU_TFX_MODULATE, GU_TCC_RGBA);
+    sceGuTexFilter(GU_NEAREST, GU_NEAREST);
+    sceGuTexImage(0, 128, 128, 128, atlas.data());
+    sceGuTexFlush();
+    x += Pillar;
+    for (const unsigned char* c = reinterpret_cast<const unsigned char*>(text); *c; ++c, x += 8) {
+        const float u = (*c % 16) * 8, v = (*c / 16) * 8;
+        auto* vertices = static_cast<Vertex*>(sceGuGetMemory(2 * sizeof(Vertex)));
+        vertices[0] = {u, v, 0xffffffff, x, y, 0};
+        vertices[1] = {u + 8, v + 8, 0xffffffff, x + 8, y + 8, 0};
+        sceGuDrawArray(GU_SPRITES, VertexFormat, 2, nullptr, vertices);
+    }
+}
+#endif
 
 void StageRenderer::end() {
     sceGuFinish();

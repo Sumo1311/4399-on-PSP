@@ -186,8 +186,14 @@ public:
         return textures_.empty() ? pixels_.data() + pose.offset / 16 : nullptr;
     }
     bool decodePixels(const FighterPose& pose, std::span<std::byte> output) const;
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    const char* diagnosticPath() const { return diagnosticPath_.data(); }
+#endif
 
 private:
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    std::array<char, 192> diagnosticPath_{};
+#endif
     struct alignas(16) PixelBlock { std::array<std::byte, 16> bytes; };
     struct PackedTexture { std::uint32_t offset, packedSize, rawSize; };
     bool readLegacy(std::FILE* stream, std::size_t length);

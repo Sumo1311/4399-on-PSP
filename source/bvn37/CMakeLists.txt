@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
 project(BleachVsNaruto5DPlayPSP VERSION 0.1.0 LANGUAGES C CXX)
 
+option(BVN_RESOURCE_DIAGNOSTICS "Record physical PSP resource failures (local diagnostic build)" OFF)
+if(BVN_RESOURCE_DIAGNOSTICS)
+    add_compile_definitions(BVN_RESOURCE_DIAGNOSTICS=1)
+endif()
+
 add_library(bvn_stage STATIC src/stage_asset.cpp src/stage_motion.cpp src/map_optical_asset.cpp src/transition_asset.cpp)
 target_include_directories(bvn_stage PUBLIC src)
 target_compile_features(bvn_stage PUBLIC cxx_std_20)
@@ -309,6 +314,9 @@ if(PSP)
                     OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/map-blur-render")
     target_compile_options(bvn_renderer PRIVATE -Wall -Wextra)
     target_link_libraries(bvn_renderer PUBLIC bvn_fighter pspgu pspge pspdisplay)
+    if(BVN_RESOURCE_DIAGNOSTICS)
+        target_link_libraries(bvn_renderer PUBLIC pspdebug)
+    endif()
 
     add_executable(bvn_status_tint_qa tests/status_tint_psp.cpp)
     target_compile_options(bvn_status_tint_qa PRIVATE -Wall -Wextra -ffp-contract=off)
@@ -360,7 +368,11 @@ if(PSP)
         "-Wl,-u,sceUtilityGetSystemParamInt")
     target_link_libraries(bvn_versus PRIVATE bvn_fighter bvn_renderer pspctrl pspdebug psppower pspaudio
         pspnet pspnet_adhoc pspnet_adhocctl pspwlan psputility)
-    create_pbp_file(TARGET bvn_versus TITLE "Bleach vs Naruto 3.7 Alpha" VERSION 01.00
+    set(BVN_GAME_TITLE "Bleach vs Naruto 3.7 Alpha")
+    if(BVN_RESOURCE_DIAGNOSTICS)
+        set(BVN_GAME_TITLE "BVN37 HWD1 PSP Test")
+    endif()
+    create_pbp_file(TARGET bvn_versus TITLE "${BVN_GAME_TITLE}" VERSION 01.00
                     ICON_PATH "${CMAKE_CURRENT_SOURCE_DIR}/artwork/xmb/ICON0.PNG"
                     BACKGROUND_PATH "${CMAKE_CURRENT_SOURCE_DIR}/artwork/xmb/PIC1.PNG"
                     OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/versus")

@@ -47,6 +47,10 @@ public:
     void imageFillBottom(const UiAsset& ui, const char* key, float x, float y, float width, float height,
                          bool flip, float fill);
     void box(float x, float y, float width, float height, std::uint32_t color);
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    // Diagnostic ASCII in native pixels; uses the linked PSPSDK font.
+    void diagnosticText(const char* text, float x, float y);
+#endif
     void shine(SceneEffects effects);
     void end();
     void clearFighterTextures();

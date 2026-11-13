@@ -1,0 +1,259 @@
+{
+  "before_sha256": "c7ebb810d45476d27bdd803fe768cc9d5aa01404105a40deb9aa5916dd80d5c8",
+  "after_sha256": "817a7b64c9883c044765e97812206c3d13234b594c5161c23b06667ee75465c0",
+  "before_metadata_identity": "7466edc65decc5a3",
+  "after_metadata_identity": "e1d2ef18e98e8e69",
+  "replaced_poses": [
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 0,
+      "frame": 0,
+      "offset": 822,
+      "pose_sha256": "760926d2096544e02dde89b7b8937ba3cde8ee75fe220f82c2f1ebc84f7292fb"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 1,
+      "frame": 1,
+      "offset": 870,
+      "pose_sha256": "760926d2096544e02dde89b7b8937ba3cde8ee75fe220f82c2f1ebc84f7292fb"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 2,
+      "frame": 2,
+      "offset": 918,
+      "pose_sha256": "2b76f8ecd2b07eabc2c23c322b8342bf43dd94709a24a4f632d592b64b5a2729"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 3,
+      "frame": 3,
+      "offset": 966,
+      "pose_sha256": "2b76f8ecd2b07eabc2c23c322b8342bf43dd94709a24a4f632d592b64b5a2729"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 4,
+      "frame": 4,
+      "offset": 1014,
+      "pose_sha256": "2b76f8ecd2b07eabc2c23c322b8342bf43dd94709a24a4f632d592b64b5a2729"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 5,
+      "frame": 5,
+      "offset": 1062,
+      "pose_sha256": "4e8f0acac0489d5d72ca3fae1c43c50b9f8c7fa3a0fc713dd49e831c2ef23974"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 6,
+      "frame": 6,
+      "offset": 1110,
+      "pose_sha256": "4e8f0acac0489d5d72ca3fae1c43c50b9f8c7fa3a0fc713dd49e831c2ef23974"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 7,
+      "frame": 7,
+      "offset": 1158,
+      "pose_sha256": "4e8f0acac0489d5d72ca3fae1c43c50b9f8c7fa3a0fc713dd49e831c2ef23974"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 8,
+      "frame": 8,
+      "offset": 1206,
+      "pose_sha256": "2b76f8ecd2b07eabc2c23c322b8342bf43dd94709a24a4f632d592b64b5a2729"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 9,
+      "frame": 9,
+      "offset": 1254,
+      "pose_sha256": "2b76f8ecd2b07eabc2c23c322b8342bf43dd94709a24a4f632d592b64b5a2729"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 10,
+      "frame": 10,
+      "offset": 1302,
+      "pose_sha256": "2b76f8ecd2b07eabc2c23c322b8342bf43dd94709a24a4f632d592b64b5a2729"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 11,
+      "frame": 11,
+      "offset": 1350,
+      "pose_sha256": "760926d2096544e02dde89b7b8937ba3cde8ee75fe220f82c2f1ebc84f7292fb"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 0,
+      "frame": 29,
+      "offset": 2214,
+      "pose_sha256": "bb8b6e8ffddfcdbeb86dddad969b90b34fd2ada57d4329c03bbaefdaee3d1441"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 1,
+      "frame": 30,
+      "offset": 2262,
+      "pose_sha256": "bb8b6e8ffddfcdbeb86dddad969b90b34fd2ada57d4329c03bbaefdaee3d1441"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 2,
+      "frame": 31,
+      "offset": 2310,
+      "pose_sha256": "761bc1c3e01b120302fa348699f8884bba3a949ad10b994e858371546a645519"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 3,
+      "frame": 32,
+      "offset": 2358,
+      "pose_sha256": "761bc1c3e01b120302fa348699f8884bba3a949ad10b994e858371546a645519"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 4,
+      "frame": 33,
+      "offset": 2406,
+      "pose_sha256": "761bc1c3e01b120302fa348699f8884bba3a949ad10b994e858371546a645519"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 5,
+      "frame": 34,
+      "offset": 2454,
+      "pose_sha256": "b1189868e965f7f878daa555b531519f7d67df11c519839679900a0b392826dc"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 6,
+      "frame": 35,
+      "offset": 2502,
+      "pose_sha256": "b1189868e965f7f878daa555b531519f7d67df11c519839679900a0b392826dc"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 7,
+      "frame": 36,
+      "offset": 2550,
+      "pose_sha256": "b1189868e965f7f878daa555b531519f7d67df11c519839679900a0b392826dc"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 8,
+      "frame": 37,
+      "offset": 2598,
+      "pose_sha256": "761bc1c3e01b120302fa348699f8884bba3a949ad10b994e858371546a645519"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 9,
+      "frame": 38,
+      "offset": 2646,
+      "pose_sha256": "761bc1c3e01b120302fa348699f8884bba3a949ad10b994e858371546a645519"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 10,
+      "frame": 39,
+      "offset": 2694,
+      "pose_sha256": "761bc1c3e01b120302fa348699f8884bba3a949ad10b994e858371546a645519"
+    },
+    {
+      "clip": 2,
+      "parent_frame": 45,
+      "phase": 11,
+      "frame": 40,
+      "offset": 2742,
+      "pose_sha256": "bb8b6e8ffddfcdbeb86dddad969b90b34fd2ada57d4329c03bbaefdaee3d1441"
+    }
+  ],
+  "new_textures": 6,
+  "all_original_texture_records_and_compressed_bytes_retained": true,
+  "all_combat_events_boxes_commands_and_clip_timings_identical": true,
+  "object_area_binding": {
+    "old_signatures_retained": 206,
+    "new_signature_geometry_identical": true,
+    "geometry_first": 197,
+    "geometry_count": 0
+  },
+  "previously_visible_poses_pixels_and_placement_identical": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      9
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      2,
+      11
+    ]
+  ]
+}

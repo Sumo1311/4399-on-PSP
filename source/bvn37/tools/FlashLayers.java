@@ -2,6 +2,10 @@ import com.jpexs.decompiler.flash.SWF;
 import com.jpexs.decompiler.flash.exporters.commonshape.ExportRectangle;
 import com.jpexs.decompiler.flash.exporters.commonshape.Matrix;
 import com.jpexs.decompiler.flash.tags.base.BoundedTag;
+import com.jpexs.decompiler.flash.tags.base.PlaceObjectTypeTag;
+import com.jpexs.decompiler.flash.tags.DefineSpriteTag;
+import com.jpexs.decompiler.flash.tags.ShowFrameTag;
+import com.jpexs.decompiler.flash.tags.Tag;
 import com.jpexs.decompiler.flash.timeline.DepthState;
 import com.jpexs.decompiler.flash.timeline.Frame;
 import com.jpexs.decompiler.flash.timeline.Timeline;
@@ -14,6 +18,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 final class FlashLayers {
@@ -23,8 +29,40 @@ final class FlashLayers {
 
     static SWF open(Path path) throws Exception {
         try (var stream = Files.newInputStream(path)) {
-            return new SWF(stream, false);
+            var movie = new SWF(stream, false);
+            restoreShadowedPlacements(movie);
+            return movie;
         }
+    }
+
+    private static void restoreShadowedPlacements(SWF movie) {
+        for (var tag : movie.getTags()) if (tag instanceof DefineSpriteTag sprite) {
+            var valid = new HashMap<Integer, PlaceObjectTypeTag>();
+            var ignored = new ArrayList<Tag>();
+            int frame = 0;
+            for (var inner : sprite.getTags()) {
+                if (inner instanceof ShowFrameTag) { valid.clear(); ++frame; continue; }
+                if (!(inner instanceof PlaceObjectTypeTag place)) continue;
+                int id = place.getCharacterId();
+                var previous = valid.get(place.getDepth());
+                // Some legacy packs shadow a real same-frame shape with an
+                // impossible self-placement. Dropping the entire depth loses
+                // the authored shape (Deidara old: idle shapes 552/305/475).
+                // Remove only that duplicate tag in the in-memory export;
+                // preserve the real placement's transform and timing.
+                if (id == sprite.getCharacterId() && previous != null) {
+                    ignored.add(inner);
+                    System.err.println("Ignore recursive duplicate sprite=" + id +
+                        " depth=" + place.getDepth() + " frame=" + frame +
+                        " retain=" + previous.getCharacterId());
+                } else if (id >= 0 && id != sprite.getCharacterId() && movie.getCharacter(id) != null) {
+                    valid.put(place.getDepth(), place);
+                }
+            }
+            for (var inner : ignored) sprite.removeTag(inner);
+            if (!ignored.isEmpty()) sprite.resetTimeline();
+        }
+        movie.resetTimeline();
     }
 
     static DepthState named(Frame frame, String name) {

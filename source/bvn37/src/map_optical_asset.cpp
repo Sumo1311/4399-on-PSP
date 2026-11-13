@@ -1,3 +1,5 @@
+#include "resource_diagnostics.hpp"
+#include <cerrno>
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "map_optical_asset.hpp"
 #include <bit>
@@ -16,6 +18,12 @@ static_assert(sizeof(Header)==32&&sizeof(OpticalRect)==32&&sizeof(OpticalTile)==
 template<class T,std::size_t N>bool read(FILE* file,std::span<T,N> items){return items.empty()||std::fread(items.data(),sizeof(T),items.size(),file)==items.size();}
 }
 bool MapOpticalAsset::open(const char* path,unsigned expectedChildren){
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    diagnosticAttempt(path);
+    errno = 0;
+    const auto load = [&]() -> bool {
+#endif
+
     const std::unique_ptr<FILE,decltype(&std::fclose)> file(std::fopen(path,"rb"),std::fclose);
     if(!file||std::fseek(file.get(),0,SEEK_END))return false;
     const auto length=std::ftell(file.get());std::rewind(file.get());Header header{};
@@ -48,6 +56,12 @@ bool MapOpticalAsset::open(const char* path,unsigned expectedChildren){
     if(first!=header.indices)return false;
     for(auto value:next.indices_)if(value!=OpticalView::Missing&&value>=header.palette)return false;
     *this=std::move(next);return true;
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    };
+    const bool loaded = load();
+    if (!loaded) diagnosticFailure(path, "MAP PALETTE", errno);
+    return loaded;
+#endif
 }
 unsigned MapOpticalAsset::texture(const OpticalTile& tile,unsigned mask)const{
     unsigned local=0,index=0,dependencies=tile.dependencies;

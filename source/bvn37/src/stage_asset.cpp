@@ -1,3 +1,5 @@
+#include "resource_diagnostics.hpp"
+#include <cerrno>
 #include "stage_asset.hpp"
 
 #include <algorithm>
@@ -43,6 +45,13 @@ bool valid(const StageTile& tile, std::size_t expectedOffset, std::size_t payloa
 } // namespace
 
 bool StageAsset::open(const char* path, bool paletteForeground) {
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    diagnosticAttempt(path);
+    const unsigned beforeFailure = resourceDiagnostics.failures;
+    errno = 0;
+    const auto load = [&]() -> bool {
+#endif
+
     const std::unique_ptr<FILE, decltype(&std::fclose)> file(std::fopen(path, "rb"), std::fclose);
     if (!file || std::fseek(file.get(), 0, SEEK_END)) return false;
     const long length = std::ftell(file.get());
@@ -132,6 +141,12 @@ bool StageAsset::open(const char* path, bool paletteForeground) {
     next.cameraWidth_ = cameraWidth;
     *this = std::move(next);
     return true;
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    };
+    const bool loaded = load();
+    if (!loaded && resourceDiagnostics.failures == beforeFailure) diagnosticFailure(path, "STAGE OPEN", errno);
+    return loaded;
+#endif
 }
 
 StageGeometry StageAsset::geometry() const {
