@@ -12,7 +12,7 @@ This is an unofficial PSP port collection. All original game credits and third-p
 | Fireboy and Watergirl: Forest Temple | Oslo Albet; original Armor Games presentation and credits retained | Original characters, artwork, audio, level layouts, terrain geometry and derived asset data |
 | Flipside | Nitrome; Jon Annal, artwork; Chris Burt-Brown, programming; Dave Cowen, music; original MTV Arcade presentation | Original artwork, audio, animation, track layouts, geometry and derived asset data |
 | Stick Figure Badminton 2 | Effing Games and the original game's credited contributors | Original artwork, animation, sound, font renderings, character designs and extracted collision data |
-| Bleach vs Naruto 3.7 Alpha / 死神 vs 火影 | [5DPLAY Game Studio](https://github.com/5DPLAY-Game-Studio/BleachVsNaruto), pinned baseline `3.7.0.0.10292026_alpha`; corresponding source and notices are attached to the 1.0.0 Release | Source-derived code under the archive's GPL-3.0/per-file notices, original characters, names, artwork, animation, sound, maps and derived data |
+| Bleach vs Naruto 3.7 Alpha / 死神 vs 火影 | [5DPLAY Game Studio](https://github.com/5DPLAY-Game-Studio/BleachVsNaruto), pinned baseline `3.7.0.0.10292026_alpha`; corresponding native source and notices are in [`source/bvn37`](source/bvn37) | Source-derived code under the archive's GPL-3.0/per-file notices, original characters, names, artwork, animation, sound, maps and derived data |
 
 Original publication references include the [Nitrome Flipside page](https://www.nitrome.com/games/flipside/) and [Effing Games' Kongregate page](https://www.kongregate.com/en/games/effinggames/stick-figure-badminton-2). These are attribution references, not evidence of an MIT license for the games.
 
@@ -34,8 +34,8 @@ Menu artwork added for this collection includes generated fan illustrations. Exi
 
 The Flipside Box2D implementation is an altered version of Erin Catto's original. Its proxy capacity, maximum polygon vertices, finite-value checks, allocation alignment and combined normal/friction impulse order were adapted for the PSP/source-game port. It must not be represented as an unmodified upstream Box2D distribution.
 
-pthread-embedded corresponding source is the unmodified PSP fork at commit `97fe4ce006b420894f2bcaeb530d1f1f53111fc2`, included in the Release's relinking archive. The original game object files and a relinking tool are supplied with it. PSPSDK build provenance is recorded in that archive. The GCC runtime exception remains attached to the eligible compiler runtime portions; it is not used to relicense pthread-embedded.
+pthread-embedded corresponding source is the unmodified PSP fork at commit `97fe4ce006b420894f2bcaeb530d1f1f53111fc2`, included in the repository's [relinking archive](materials/Relink-Materials-2026.11.13.zip). The original game object files and a relinking tool are supplied with it. PSPSDK build provenance is recorded in that archive. The GCC runtime exception remains attached to the eligible compiler runtime portions; it is not used to relicense pthread-embedded.
 
 Build-only reference tools such as JPEXS, Ruffle and PPSSPP are not bundled as runtime components of these installation packages.
 
-The Bleach vs Naruto 1.0.0 `xmb1` update adds companion XMB illustrations generated with the built-in image_gen tool for this port. Masters, packaging PNGs and generation prompts are included in its Source and Artwork attachments. Original character and trademark rights remain with their respective owners.
+The Bleach vs Naruto 1.0.0 `xmb1` update adds companion XMB illustrations generated with the built-in image_gen tool for this port. Masters, packaging PNGs and generation prompts are included in [`source/bvn37/artwork`](source/bvn37/artwork). Original character and trademark rights remain with their respective owners.

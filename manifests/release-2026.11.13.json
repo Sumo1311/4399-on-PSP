@@ -1076,10 +1076,6 @@
       "bytes": 96705611,
       "sha256": "e0ca941c7309ebfc43b16f42f10dc04e1c393a17a63ac3cfd4ad85a0ad3b0525"
     },
-    "Flash-to-PSP-Collection-2026.11.13.zip": {
-      "bytes": 154079517,
-      "sha256": "8da904ea587c9985e9f0984071e8a089167688a8b2bb06788c948003153e86a9"
-    },
     "Flipside_PSP-1.0.3.zip": {
       "bytes": 15463440,
       "sha256": "88ab7f2f49dfeb157879b35cfb0e24606b710e18e936eb317d14262e4d7a07d9"
@@ -1087,10 +1083,6 @@
     "ForestTemple_PSP-build11.zip": {
       "bytes": 9859387,
       "sha256": "72b0ebd7429c36dc1747e7fe1280be5d67a75af273f36ade7f62a83fa5a7a91d"
-    },
-    "Relink-Materials-2026.11.13.zip": {
-      "bytes": 3530941,
-      "sha256": "2b4453ef9506027f13520da81982e5931e9c5eb70dae570da19912eda1694567"
     }
   },
   "validation": {
@@ -1120,5 +1112,10 @@
         "status": "byte_identical"
       }
     ]
+  },
+  "release_assets_policy": "game-installers-only",
+  "support_materials": {
+    "native_source": "source/bvn37",
+    "relinking": "materials/Relink-Materials-2026.11.13.zip"
   }
 }

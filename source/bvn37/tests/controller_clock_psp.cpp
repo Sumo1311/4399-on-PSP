@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+#include "controller_clock.hpp"
+#include <pspdisplay.h>
+#include <pspkernel.h>
+#include <psppower.h>
+PSP_MODULE_INFO("BVN Controller Clock QA",PSP_MODULE_USER,0,51);
+PSP_MAIN_THREAD_ATTR(PSP_THREAD_ATTR_USER|PSP_THREAD_ATTR_VFPU);
+PSP_MAIN_THREAD_STACK_SIZE_KB(128);
+PSP_HEAP_SIZE_KB(8192);
+extern "C" {struct ControllerClockQA {unsigned status,error,rows,display,actor,effect,split,matches,paused,knockouts,musou,hashLow,hashHigh;}g_controllerClockQa;}
+int main(int argc,char** argv){
+ std::string path=argc?argv[0]:"";const auto slash=path.find_last_of('/');path=slash==std::string::npos?"":path.substr(0,slash+1);
+ scePowerSetClockFrequency(333,333,166);g_controllerClockQa.status=1;
+ bvn::controller_clock_qa::Checks c;const bool pass=c.run(path);
+ g_controllerClockQa={pass?2u:3u,c.error,c.rows,c.display,c.actor,c.effect,c.split,c.matches,c.paused,c.knockouts,c.musouCases,unsigned(c.hash),unsigned(c.hash>>32)};
+ sceKernelDcacheWritebackAll();for(;;)sceDisplayWaitVblankStart();
+}

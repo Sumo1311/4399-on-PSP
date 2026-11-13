@@ -1,0 +1,572 @@
+{
+  "base_geometry_proof": {
+    "banks": 131,
+    "unique_metadata_signatures": 130,
+    "source_object_areas": 282,
+    "compiled_areas": 280,
+    "empty_areas": 65,
+    "sha256": {
+      "OBJECT_AREA_JOBS.json": "070b9d88e8ed950422ea4d7354d0a766dc96298ecf2737a41bf549ea69aacc82",
+      "OBJECT_AREAS.tsv": "38faf752f323f6ed19b2e292068c491227c86c580d1c4281973772c075710e22",
+      "map-optical-source/src/object_area_data.hpp": "2b3d3696d3f1777454fa1692b7fe1d1e125b5ac5407f0167c881bec200580854",
+      "OBJECTAREAS.IN": "ceaf3c7d16fc7a0e41176586205d92b823fb5b9bff1c9fc5fc9772d169a5a3a0"
+    },
+    "scope": "Source constructor-time local geometry for all 282 attached-attacker/assist objects in 131 byte-bound actor banks. Metadata signatures bind the untouched native assets to generated double-precision rectangles; duplicate signatures require identical areas. BaseGameSprite optical areas translate their initial local rectangle without facing reflection. Actual engine area-call cadence and Flash getBounds raster/mask details remain separate verification."
+  },
+  "base_header_sha256": "2b3d3696d3f1777454fa1692b7fe1d1e125b5ac5407f0167c881bec200580854",
+  "header_sha256": "6da3906a283b048a8bc2608fb7d476cff1f8c1b67967a33de7bc9de5c778e238",
+  "methods_sha256": "6fc0469b9094cb43c95fe7aa75983eef80ba06a8c7969b604406b00d0775c3b7",
+  "banks": 78,
+  "retained_signatures": 130,
+  "signatures": 206,
+  "new_signatures": 76,
+  "bindings": [
+    {
+      "bank": "ICHIGO.BVF",
+      "before": "a284305a3e93ae3b",
+      "after": "c17af97f52555be8",
+      "first": 197,
+      "count": 0
+    },
+    {
+      "bank": "ICHIGOB.BVF",
+      "before": "5f71c98983381e8d",
+      "after": "f60fee5012602790",
+      "first": 127,
+      "count": 0
+    },
+    {
+      "bank": "ICHIGOH.BVF",
+      "before": "2bfa36c63961d969",
+      "after": "683708a1a73afe5f",
+      "first": 60,
+      "count": 0
+    },
+    {
+      "bank": "ICHIGOV.BVF",
+      "before": "5f5d202a3765c5b0",
+      "after": "1bd6e552792fd819",
+      "first": 127,
+      "count": 0
+    },
+    {
+      "bank": "NARUTO.BVF",
+      "before": "867611f138a678f5",
+      "after": "a3346f7cb6590336",
+      "first": 160,
+      "count": 4
+    },
+    {
+      "bank": "NARUTO1.BVF",
+      "before": "ea87c722c6a9140d",
+      "after": "bdfb7c90a9d8acb3",
+      "first": 241,
+      "count": 0
+    },
+    {
+      "bank": "NARUTO4.BVF",
+      "before": "9890da6c4e608635",
+      "after": "d8f0d83994a8b040",
+      "first": 173,
+      "count": 2
+    },
+    {
+      "bank": "RUKIA.BVF",
+      "before": "9dc66b8a9ec6127c",
+      "after": "432a1891853282b7",
+      "first": 182,
+      "count": 0
+    },
+    {
+      "bank": "RUKIAS.BVF",
+      "before": "bec480dffe874761",
+      "after": "078d3e8881c92823",
+      "first": 222,
+      "count": 0
+    },
+    {
+      "bank": "RENJI.BVF",
+      "before": "c029e4278578ce35",
+      "after": "85c4795d0abf8446",
+      "first": 222,
+      "count": 2
+    },
+    {
+      "bank": "KENPACHI.BVF",
+      "before": "6dc94a47a1a411b5",
+      "after": "c5466c5dc4bb7b62",
+      "first": 143,
+      "count": 0
+    },
+    {
+      "bank": "GRIMMJOW.BVF",
+      "before": "50ee45a18a7e7cce",
+      "after": "7ce9c0b0cc00bf19",
+      "first": 109,
+      "count": 0
+    },
+    {
+      "bank": "SASUKE.BVF",
+      "before": "53138a92d8eed76d",
+      "after": "62c79992c12aa986",
+      "first": 111,
+      "count": 1
+    },
+    {
+      "bank": "SASUKEM.BVF",
+      "before": "9fd35a93f18eb3b9",
+      "after": "2dc3295fae1b8230",
+      "first": 185,
+      "count": 2
+    },
+    {
+      "bank": "SAKURA.BVF",
+      "before": "4d25b12a6fa7c2d7",
+      "after": "c980888c7474e417",
+      "first": 108,
+      "count": 1
+    },
+    {
+      "bank": "SAKURASR.BVF",
+      "before": "a84c28730748e39b",
+      "after": "f054786ea1c08eaf",
+      "first": 197,
+      "count": 2
+    },
+    {
+      "bank": "NEJI.BVF",
+      "before": "63c4ccd3948d6c9c",
+      "after": "1578b3e244374bdf",
+      "first": 127,
+      "count": 0
+    },
+    {
+      "bank": "LEE.BVF",
+      "before": "6f7bb725a7f221ba",
+      "after": "143313ce9800977d",
+      "first": 145,
+      "count": 1
+    },
+    {
+      "bank": "LEEDOMEN.BVF",
+      "before": "f16e0df77c9d9e64",
+      "after": "b781bdf177dd0262",
+      "first": 244,
+      "count": 0
+    },
+    {
+      "bank": "OROCHIM.BVF",
+      "before": "6f7b2702c1f8d632",
+      "after": "d94ee1d927d4b9ed",
+      "first": 143,
+      "count": 2
+    },
+    {
+      "bank": "GIN.BVF",
+      "before": "9feaf32979c15e90",
+      "after": "570a1b81b9237d4f",
+      "first": 187,
+      "count": 0
+    },
+    {
+      "bank": "PAIN.BVF",
+      "before": "0027ad930a07134f",
+      "after": "a7a2c044a6b6b163",
+      "first": 0,
+      "count": 14
+    },
+    {
+      "bank": "TOSHIRO.BVF",
+      "before": "8ea6278074396a6e",
+      "after": "9530eed820903af9",
+      "first": 165,
+      "count": 1
+    },
+    {
+      "bank": "CHAD.BVF",
+      "before": "9e6ec4ff68b1aada",
+      "after": "c14c14917d504ff5",
+      "first": 183,
+      "count": 0
+    },
+    {
+      "bank": "IKKAKU.BVF",
+      "before": "5cbe2445a6d0dc4a",
+      "after": "e8dd51af56094e49",
+      "first": 119,
+      "count": 0
+    },
+    {
+      "bank": "JIRAIYA.BVF",
+      "before": "549f6cd92a8a78f1",
+      "after": "2877833cfabcb1ae",
+      "first": 112,
+      "count": 1
+    },
+    {
+      "bank": "KAKASHI.BVF",
+      "before": "99f7200b12812516",
+      "after": "b58fb8941b3769a1",
+      "first": 176,
+      "count": 4
+    },
+    {
+      "bank": "KIMIMARO.BVF",
+      "before": "346db35f3bd6df4a",
+      "after": "986333812464b76e",
+      "first": 64,
+      "count": 2
+    },
+    {
+      "bank": "DEIDARA.BVF",
+      "before": "a1dd7f3acfa3aeb8",
+      "after": "bda980b519ff1f27",
+      "first": 187,
+      "count": 10
+    },
+    {
+      "bank": "ORIHIME.BVF",
+      "before": "f1da2dccc2237da7",
+      "after": "db66f2ae417a2b00",
+      "first": 244,
+      "count": 0
+    },
+    {
+      "bank": "TEMARI.BVF",
+      "before": "b7b0173430099d04",
+      "after": "309cfde3f71f875f",
+      "first": 218,
+      "count": 1
+    },
+    {
+      "bank": "URYUU.BVF",
+      "before": "9adc47be31807986",
+      "after": "33b9b43d1399763d",
+      "first": 180,
+      "count": 2
+    },
+    {
+      "bank": "BYAKUYA.BVF",
+      "before": "dbf1ea95bdbadb32",
+      "after": "f46d2ff76b58f4ae",
+      "first": 235,
+      "count": 3
+    },
+    {
+      "bank": "KILLERBE.BVF",
+      "before": "02328f0faa60d63c",
+      "after": "b5b998450f6dcf60",
+      "first": 29,
+      "count": 0
+    },
+    {
+      "bank": "GAARA.BVF",
+      "before": "3a9ccd5497ca4428",
+      "after": "329efe63a948c633",
+      "first": 67,
+      "count": 24
+    },
+    {
+      "bank": "SASUKESU.BVF",
+      "before": "5d195d268e228065",
+      "after": "42024a636c37d375",
+      "first": 119,
+      "count": 8
+    },
+    {
+      "bank": "KARIN.BVF",
+      "before": "72f1aae2d9826484",
+      "after": "d4126ac6cefc1697",
+      "first": 147,
+      "count": 3
+    },
+    {
+      "bank": "JUGGO.BVF",
+      "before": "1942350315a63cf2",
+      "after": "2f80ce3eb4fe4042",
+      "first": 37,
+      "count": 4
+    },
+    {
+      "bank": "ITACHI.BVF",
+      "before": "65f0fabd8d42022d",
+      "after": "9a71478ef883affd",
+      "first": 128,
+      "count": 7
+    },
+    {
+      "bank": "ICHIGOZ.BVF",
+      "before": "3e8e7e819bddcfff",
+      "after": "0863a385a02ab017",
+      "first": 93,
+      "count": 0
+    },
+    {
+      "bank": "OGIHCI.BVF",
+      "before": "1d9c89d2694c8dfe",
+      "after": "5bae5f6d0e010e78",
+      "first": 44,
+      "count": 2
+    },
+    {
+      "bank": "OGIHCIB.BVF",
+      "before": "a353512cbda9e1df",
+      "after": "eb7e39df7220ca59",
+      "first": 197,
+      "count": 0
+    },
+    {
+      "bank": "SOIFON.BVF",
+      "before": "94f942c2d519bcb6",
+      "after": "eeb4f8635cf755d2",
+      "first": 169,
+      "count": 3
+    },
+    {
+      "bank": "BYAKUYB.BVF",
+      "before": "00d51a5df2de892f",
+      "after": "9f7c1c5ba5276899",
+      "first": 14,
+      "count": 15
+    },
+    {
+      "bank": "BYAKUYNS.BVF",
+      "before": "2bc06c57213646f7",
+      "after": "2bc06c57213646f7",
+      "first": 56,
+      "count": 3
+    },
+    {
+      "bank": "MAYURI.BVF",
+      "before": "9f9f502c92d52b52",
+      "after": "4c734ca275c9ef29",
+      "first": 183,
+      "count": 2
+    },
+    {
+      "bank": "KONAN.BVF",
+      "before": "6d5ab78ce0af649b",
+      "after": "2ed45d041150e30b",
+      "first": 139,
+      "count": 4
+    },
+    {
+      "bank": "MADARA.BVF",
+      "before": "5b7bf97db640f3d0",
+      "after": "bdb9e5636fab40c3",
+      "first": 119,
+      "count": 0
+    },
+    {
+      "bank": "ULQUIOR.BVF",
+      "before": "d0209cfc7bc1ca46",
+      "after": "7c6d99b4db049d7b",
+      "first": 232,
+      "count": 0
+    },
+    {
+      "bank": "ULQUIORR.BVF",
+      "before": "05d54839c7d9aecc",
+      "after": "71f3f75181cfa1f1",
+      "first": 29,
+      "count": 4
+    },
+    {
+      "bank": "STARRK.BVF",
+      "before": "b8c2bddb685c4873",
+      "after": "4ad7bf52be7a32b0",
+      "first": 219,
+      "count": 3
+    },
+    {
+      "bank": "AIZEN.BVF",
+      "before": "b15c343cffdc16f7",
+      "after": "d8d333abb79fa59f",
+      "first": 202,
+      "count": 11
+    },
+    {
+      "bank": "AIZENGZ.BVF",
+      "before": "4cb3d7bd9e2574d5",
+      "after": "ade6f0a7cc3f1a2f",
+      "first": 106,
+      "count": 2
+    },
+    {
+      "bank": "OBITO.BVF",
+      "before": "828f0ec8ffcc2f72",
+      "after": "02b4310656cc7779",
+      "first": 155,
+      "count": 2
+    },
+    {
+      "bank": "OBITOTC.BVF",
+      "before": "58f2cfc6b3168b68",
+      "after": "b184cd0d01b36be2",
+      "first": 118,
+      "count": 1
+    },
+    {
+      "bank": "KAKASHIK.BVF",
+      "before": "fc842e80143cbd97",
+      "after": "bab4866a154c71a1",
+      "first": 275,
+      "count": 4
+    },
+    {
+      "bank": "NARUTOHM.BVF",
+      "before": "696d46805b398e43",
+      "after": "47d3712732fdb407",
+      "first": 137,
+      "count": 1
+    },
+    {
+      "bank": "SASUKES2.BVF",
+      "before": "9fd35a93f18eb3b9",
+      "after": "2dc3295fae1b8230",
+      "first": 185,
+      "count": 2
+    },
+    {
+      "bank": "TOSHIROB.BVF",
+      "before": "2bddd074aab9beba",
+      "after": "a2ff4a4cc0bd7b37",
+      "first": 59,
+      "count": 1
+    },
+    {
+      "bank": "KENSHIN.BVF",
+      "before": "111d8b5bd82c39e8",
+      "after": "ef149ecc9ab5b103",
+      "first": 37,
+      "count": 0
+    },
+    {
+      "bank": "KENSHINS.BVF",
+      "before": "7c547cd6f7fa48b4",
+      "after": "dbf45dce14544fd2",
+      "first": 154,
+      "count": 0
+    },
+    {
+      "bank": "SUIGETSU.BVF",
+      "before": "253ad13b3d85b836",
+      "after": "5e22c199b5571c5d",
+      "first": 48,
+      "count": 5
+    },
+    {
+      "bank": "HINATA.BVF",
+      "before": "918fa5dcc67af24a",
+      "after": "93faebdb0bf68067",
+      "first": 166,
+      "count": 3
+    },
+    {
+      "bank": "NARUTOK.BVF",
+      "before": "f62b6fbd5e99cde8",
+      "after": "ad10aa4e0d089436",
+      "first": 244,
+      "count": 22
+    },
+    {
+      "bank": "TENSA.BVF",
+      "before": "f67677a72411c460",
+      "after": "9fcea0a4a65777f1",
+      "first": 266,
+      "count": 7
+    },
+    {
+      "bank": "YORUICHI.BVF",
+      "before": "7e4b75aa6936d885",
+      "after": "948bcb51c8662a8e",
+      "first": 154,
+      "count": 1
+    },
+    {
+      "bank": "URYUUG.BVF",
+      "before": "589dc360e8ab4ff5",
+      "after": "25d3b83721a727a8",
+      "first": 113,
+      "count": 5
+    },
+    {
+      "bank": "DEIDARAO.BVF",
+      "before": "a66f5ad5deaedfa0",
+      "after": "7466edc65decc5a3",
+      "first": 197,
+      "count": 0
+    },
+    {
+      "bank": "ITACHIO.BVF",
+      "before": "853903cac65d6350",
+      "after": "db3f8faf9073d007",
+      "first": 157,
+      "count": 3
+    },
+    {
+      "bank": "JUGGOO.BVF",
+      "before": "b430feae5f20488f",
+      "after": "33715cda8b2f30e4",
+      "first": 213,
+      "count": 2
+    },
+    {
+      "bank": "SASUKESO.BVF",
+      "before": "96596f4b363e5df9",
+      "after": "d3b010353b4750c1",
+      "first": 172,
+      "count": 1
+    },
+    {
+      "bank": "BYAKUYBO.BVF",
+      "before": "93fa480d76d15676",
+      "after": "c8f6cb897341bd27",
+      "first": 169,
+      "count": 0
+    },
+    {
+      "bank": "GAARAO.BVF",
+      "before": "ec62d6737b295540",
+      "after": "1a9cb1d4d121050f",
+      "first": 241,
+      "count": 3
+    },
+    {
+      "bank": "SOIFONO.BVF",
+      "before": "ff3fa224d4aeb637",
+      "after": "464e47d639e30ee3",
+      "first": 279,
+      "count": 1
+    },
+    {
+      "bank": "PAINO.BVF",
+      "before": "09eeb564837cc698",
+      "after": "601ee54ddc6ffa8c",
+      "first": 34,
+      "count": 2
+    },
+    {
+      "bank": "ULQUIRO.BVF",
+      "before": "7588ffd57efc3958",
+      "after": "ba8e18722e0e83f4",
+      "first": 152,
+      "count": 0
+    },
+    {
+      "bank": "OBITOO.BVF",
+      "before": "0b4199d9f37ca25b",
+      "after": "4e8486b70b48250c",
+      "first": 36,
+      "count": 1
+    },
+    {
+      "bank": "NARUTOO.BVF",
+      "before": "a0e739271d2f4f30",
+      "after": "df6c959d0d9c3086",
+      "first": 187,
+      "count": 0
+    }
+  ],
+  "scope": "The 78 actor metadata identities changed only through 321 original end-method command bytes. Each new identity aliases exactly the original first/count geometry span. All 130 earlier signatures and the complete ObjectAreas array remain unchanged, including empty areas. Native typed-bank acceptance must also pass hasObjectAreas(), the production load gate."
+}

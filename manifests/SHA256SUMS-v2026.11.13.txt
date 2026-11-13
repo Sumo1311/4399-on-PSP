@@ -1,0 +1,4 @@
+fb6e05e538e97943206d6e9275ed3f58cece6c6abb52b6d0077ff03b4b7d30a5  Badminton2_PSP-1.0.18.zip
+e0ca941c7309ebfc43b16f42f10dc04e1c393a17a63ac3cfd4ad85a0ad3b0525  ElfStory_PSP-1.0.1.zip
+88ab7f2f49dfeb157879b35cfb0e24606b710e18e936eb317d14262e4d7a07d9  Flipside_PSP-1.0.3.zip
+72b0ebd7429c36dc1747e7fe1280be5d67a75af273f36ade7f62a83fa5a7a91d  ForestTemple_PSP-build11.zip

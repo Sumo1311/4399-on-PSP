@@ -1,0 +1,9 @@
+{
+  "psp_gcc": "15.2.0",
+  "cmake": "3.31.10",
+  "source_date_epoch": 1793232000,
+  "cmake_type": "Release",
+  "target": "bvn_versus",
+  "sfo_app_version": "01.00",
+  "wlan_protocol": 100
+}

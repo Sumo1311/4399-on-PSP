@@ -4,7 +4,7 @@ Copyright (c) 2026 Sumo1311, for the original contributions published by this pr
 
 本项目以非商业的学习、技术研究与交流为目的，尊重原游戏厂商、开发者及其他权利人的权益。这是项目目的说明，不为原作素材新增授权，也不改变原创代码或第三方依赖的许可证条款；不表示获得原厂商或平台的授权、认可。
 
-The root `LICENSE` contains the MIT License. It applies only to the project author's original PSP implementation code, release tools and original documentation, including the corresponding original portions of compiled programs and relinkable object files. The Bleach vs Naruto 3.7 Alpha PSP 1.0.0 Release also provides matching full native source as a separate archive. That source is governed by its included GPL-3.0 text and per-file notices; the root MIT grant does not relicense separately licensed source.
+The root `LICENSE` contains the MIT License. It applies only to the project author's original PSP implementation code, release tools and original documentation, including the corresponding original portions of compiled programs and relinkable object files. Matching native source for Bleach vs Naruto 3.7 Alpha PSP 1.0.0 is available in [`source/bvn37`](source/bvn37). It rebuilds with the game data supplied in the installation ZIP. That source is governed by its included GPL-3.0 text and per-file notices; the root MIT grant does not relicense separately licensed source.
 
 以下内容不由根目录的 MIT 协议重新授权。
 
@@ -15,6 +15,6 @@ The root `LICENSE` contains the MIT License. It applies only to the project auth
 
 The original games' copyright and credit screens are retained in the game content. No ownership of those original games is claimed. Attribution and the presence of a file in a public release do not establish an open-source license or a general redistribution license for its third-party content. Any permissions from original rightsholders remain subject to their own terms.
 
-此项目不对 LGPL 库的修改、替换，或为调试此类修改而进行的逆向工程施加额外限制。可以依照相应库的许可证和 `RELINKING.md` 使用发行附带的源码与对象文件重新链接程序。
+此项目不对 LGPL 库的修改、替换，或为调试此类修改而进行的逆向工程施加额外限制。可以依照相应库的许可证和 `RELINKING.md` 使用仓库提供的源码与对象文件重新链接程序。
 
 No additional noncommercial restriction is added to the author's MIT-licensed original code. The MIT grant does not override the separate conditions governing third-party game content.

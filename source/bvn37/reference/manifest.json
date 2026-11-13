@@ -1,0 +1,62 @@
+{
+  "version": "3.7.0.0.10292026_alpha",
+  "main": {
+    "url": "https://github.com/5DPLAY-Game-Studio/BleachVsNaruto",
+    "commit": "d51f13dc36cac8e7622328bf4a9afc94156fb79f"
+  },
+  "flash_source": {
+    "url": "https://github.com/5DPLAY-Game-Studio/BleachVsNaruto_FlashSrc",
+    "commit": "50a886552940334c013637c97b4b1c56521b18e3",
+    "archive": "BleachVsNaruto_FlashSrc-master.zip",
+    "archive_sha256": "d719363c50d3cacff10a539fdbb8e033163782ae28f58543aec13a8f5e89b189"
+  },
+  "libraries": {
+    "LIB_KyoLib": "3725df156630aab2c13e7c522bd9a98d04abf201",
+    "LIB_Other": "5ab238fa20716dd548fce22e8bbdc00e9fb7da9b"
+  },
+  "tag_assets": {
+    "url": "https://github.com/5DPLAY-Game-Studio/BleachVsNaruto_TagAssets",
+    "commit": "53dd55b6c98c0877f054b1b36cff3313602880eb",
+    "verified_files": {
+      "shared/assets/assets/packs/assists/naruto/naruto.swf": {
+        "git_blob": "79ca84a89b43d11cd19edcbf7ad4c374bbc5267f",
+        "sha256": "7b736c2efdb953f9a04ea12d5fb158c1b1c9d162995e7604713d6598e63da651",
+        "bytes": 25257
+      },
+      "shared/assets/assets/packs/fighters/ichigo/ichigo.swf": {
+        "git_blob": "aeab6d48e866e57d5bf1b3fc27ba9a6960b028b4",
+        "sha256": "1164164ca917707e4afc16989d5c1a0eab6fb3659a42c1b895f9fa76700c6911",
+        "bytes": 1810568
+      },
+      "shared/assets/assets/packs/fighters/ichigo/meta.json": {
+        "git_blob": "14a5079b01ef2577f1674a9d79401a49a3551192",
+        "sha256": "85e9b812dd8275ccafc82e4165b7a7ebd1e3cd4a658bee4ed9b7d2389f28864d",
+        "bytes": 3074
+      },
+      "shared/assets/assets/packs/fighters/naruto/naruto.swf": {
+        "git_blob": "a453633b70d05ca0939344caaf530102a5c262b9",
+        "sha256": "eb29f3aa41879529927a54bd0faed59e8555082ec1139d13430de8c6ddf0b25d",
+        "bytes": 1487356
+      },
+      "shared/assets/assets/packs/maps/jianchang/jianchang.swf": {
+        "git_blob": "0e68301b3b07612e44399f8b3958ab148366305b",
+        "sha256": "c1954d28cdf4450f0557fc60362656f511726c0d46446c5f66c0564d5deef370",
+        "bytes": 57996
+      },
+      "shared/assets/assets/packs/maps/senlin/meta.json": {
+        "git_blob": "b053842d8955fe769649d4dea749fad9b5bb45a9",
+        "sha256": "baf0c62b5f0a93fc32bbfe4d4e3f442f6f37990b49854fe2c0e088b0f5e11367",
+        "bytes": 219
+      },
+      "shared/assets/assets/packs/maps/senlin/senlin.swf": {
+        "git_blob": "2f2b9000384f1fec15e2685acfb07183d57733f5",
+        "sha256": "15fbc0078444228431efe0553270a889c6ece3e2188e6651321fe23bbb18bd41",
+        "bytes": 297355
+      }
+    },
+    "verified_blob_count": 698,
+    "tree_file": "../work/tag-assets-tree.json",
+    "tree_sha256": "ef1065ebc56ea4aa7f6abcc0a67fc1212993a2e925e3081475dfa6ca2c6e6dc8"
+  },
+  "catalog": "source_catalog.json"
+}
