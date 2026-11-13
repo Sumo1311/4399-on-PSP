@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Rebuild BVN37 1.0.0 hwd1 using the data from its installation ZIP."""
+"""Rebuild the integrated BVN37 hwd2 formal package with its verified synchronous-reader default."""
 import argparse
+from contextlib import ExitStack
 import hashlib
 import json
 import os
@@ -13,6 +14,7 @@ root = Path(__file__).resolve().parent
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--install-zip', type=Path, required=True,
                     help='BVN37_PSP_1.0.0_Install.zip from the bvn37-v1.0.0 Release')
+parser.add_argument('--patch-zip', type=Path, help='Optional HWD2 targeted patch applied over the full installation ZIP')
 parser.add_argument('--build-dir', type=Path, default=root / 'build/psp')
 parser.add_argument('--output', type=Path, default=root / 'build/install/PSP/GAME/BVN37')
 parser.add_argument('--require-identical', action='store_true',
@@ -21,12 +23,24 @@ args = parser.parse_args()
 manifest = json.loads((root / 'CONTENT_MANIFEST.json').read_text())
 expected = manifest['files']
 data_files = {name: digest for name, digest in expected.items() if name != 'EBOOT.PBP'}
-assert len(data_files) == 199
+assert len(data_files) == manifest.get('install_files', 200) - 1
 
-with zipfile.ZipFile(args.install_zip) as archive:
-    for name, digest in data_files.items():
-        content = archive.read('PSP/GAME/BVN37/' + name)
-        assert hashlib.sha256(content).hexdigest() == digest, 'Installation data mismatch: ' + name
+def asset_contents():
+    with ExitStack() as stack:
+        base = stack.enter_context(zipfile.ZipFile(args.install_zip))
+        patch = stack.enter_context(zipfile.ZipFile(args.patch_zip)) if args.patch_zip else None
+        patch_names = set(patch.namelist()) if patch else set()
+        for name in data_files:
+            assert Path(name).name == name
+            key = 'PSP/GAME/BVN37/' + name
+            archive = patch if key in patch_names else base
+            if name == 'BVN_SYNC.IO' and key not in base.namelist() and key not in patch_names and manifest.get('default_reader') == 'stdio-only':
+                yield name, b''
+            else:
+                yield name, archive.read(key)
+
+for name, content in asset_contents():
+    assert hashlib.sha256(content).hexdigest() == data_files[name], 'Installation data mismatch: ' + name
 
 sdk = Path(os.environ['PSPDEV']).expanduser().resolve()
 cmake = os.environ.get('CMAKE', 'cmake')
@@ -41,10 +55,8 @@ subprocess.run([cmake, '--build', str(args.build_dir.resolve()), '--target', 'bv
                 '--parallel', os.environ.get('BUILD_JOBS', '4')], env=env, check=True)
 
 args.output.mkdir(parents=True, exist_ok=True)
-with zipfile.ZipFile(args.install_zip) as archive:
-    for name in data_files:
-        assert Path(name).name == name
-        (args.output / name).write_bytes(archive.read('PSP/GAME/BVN37/' + name))
+for name, content in asset_contents():
+    (args.output / name).write_bytes(content)
 shutil.copy2(args.build_dir / 'versus/EBOOT.PBP', args.output / 'EBOOT.PBP')
 actual = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
           for p in args.output.iterdir() if p.is_file()}
@@ -52,4 +64,4 @@ assert {n: h for n, h in actual.items() if n != 'EBOOT.PBP'} == data_files
 identical = actual == expected
 if args.require_identical:
     assert identical, 'Use the recorded PSPDEV toolchain for byte-identical EBOOT.PBP'
-print('Built 200 install files; release bytes identical:', identical, 'output:', args.output)
+print(f'Built {len(actual)} install files; release bytes identical:', identical, 'output:', args.output)

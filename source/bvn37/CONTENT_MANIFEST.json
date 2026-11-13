@@ -1907,7 +1907,7 @@
     "ASSISTS.BVR": "e36f5c411b0193f3ec4c0438baacef50d534a4cb2b0259d8e57ac763b77ac8c1",
     "ASTARRK.BVS": "f66d422e2bbb90c613336233ec6b510de4e4e7091df458eeb4efad1ec43bc45f",
     "MUSOU.PTS": "a2629d733ace3360a70a902e5cd51dcdec5615e5937b398a4887c8de3f4c0e22",
-    "GIN.BVF": "7310c81dc12edcace29cd3342ae7850109d9e11bc57fbbe052bda645be567e9b",
+    "GIN.BVF": "640ebd74296fbcc27ef439bca709571db1587af3f373a5746fffeff1c1f10eda",
     "MUYECUN.BVN": "68142accc19bf0b5dc547f61e23c63e394375c34de9ef16d822c1b648fa0f40a",
     "IKKAKU.BVF": "826e7c732dc6bef2dfd468137e35b98c3f75e3cc2ae541e1f7d287bc5cc3b2de",
     "YORUICHI.BVF": "690ef183dfdde8c9ab143629e1135200a0f76bdcc759369cb06a175e7f0cc8ea",
@@ -1920,6 +1920,7 @@
     "SENLIN.BVO": "fc55af9ebb35c0fa9b90365b6e84fa2492181cd65d88d58cf7368c0e74d31abc",
     "CREDITS.BVU": "3e8de566a3452470de2d4e5bbe99d2bb2cc19886d422b4d13e40ecde9fe8989e",
     "SOIFON.BVF": "227e8de725f2d474066ffd0a5af4a871bf787b1b7e66af51cdb8c5de5e5147a7",
+    "BVN_SYNC.IO": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "ASHIKA.BVS": "4223d566e503702993c61a9e5a00315882fdcb1f2691e6e7d416baa49fb0e224",
     "ITACHIO.BVF": "50f9be22f1fd6e453b6be7e6600dab34659a6c977b0a78a3c262fb623ed145b7",
     "KENSHINS.BVF": "ba3f74bbc79b722405e005be90f7d47d32e0324e9421a8d864b79317e0147462",
@@ -1939,7 +1940,7 @@
     "ICHIGOZ.BVF": "be8fc600d29c8fa243ff7cdfa9f052fe9b94aba9ca352e845dcf8abe66fba3b9",
     "AYORUIC.BVS": "a5c499f740d2e13d65093079d5fadf684430007e624e501cdf97386612a73227",
     "ARENJI.BVS": "8caeb693f922eb869ea7b0fec0863214540a11606072dd1ead1d7454640cc341",
-    "EBOOT.PBP": "81c8f348709c3403daf4d35cc0f99829686692d257d6a5a20072b8d0414dafc6",
+    "EBOOT.PBP": "c2f5ec9fe27e283359124424bc1883cc47324b590331fab2b0651af2cbbb98dd",
     "XIANSHI.BVB": "4fb12a23764ef2332b25dd5f81da50e8de20c83d72ae3de6c36c617782564822",
     "ROSTER.BVR": "15d50bed628b6143b266f19083d1cb7747e3ec87bc9103ffd4449236ec5c166e",
     "XBNEART1.BVF": "7dccf0c256c72791622c63b13377a224e961a1b7ace62de9fd260ed6d68a8573",
@@ -1950,7 +1951,7 @@
     "ULQUIORR.BVF": "a3e197156954d80c718512b3d3297c3a57fd99bfdff2712dc73a2e80d6e68528",
     "KILLERBE.BVF": "92e5affcd030bce40b2db395edf052fae66cbedf629426370a034ba3e1309fcf"
   },
-  "package_revision": "hwd1",
+  "package_revision": "hwd2-final",
   "xmb_artwork": {
     "ICON0.PNG": {
       "width": 144,
@@ -1965,6 +1966,9 @@
   },
   "status": "official",
   "resource_diagnostics": true,
-  "eboot_sha256": "81c8f348709c3403daf4d35cc0f99829686692d257d6a5a20072b8d0414dafc6",
-  "program_sha256": "a5cee3d369fb02e0e05c1854d68ffd606960231c5d3cac481adc9771470a5c3a"
+  "eboot_sha256": "c2f5ec9fe27e283359124424bc1883cc47324b590331fab2b0651af2cbbb98dd",
+  "program_sha256": "1704b146f650b0ef9a12780c5d054e3a0215782ec82adf397f1ba87c90b0f180",
+  "install_files": 201,
+  "default_reader": "stdio-only",
+  "user_acceptance": "USER_ACCEPTANCE.json"
 }

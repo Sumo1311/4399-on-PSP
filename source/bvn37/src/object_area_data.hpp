@@ -6,7 +6,7 @@
 #include <cstdint>
 namespace bvn {
 struct ObjectAreaBank {std::uint64_t signature;unsigned first,count;};
-inline constexpr std::array<ObjectAreaBank,207> ObjectAreaBanks{{
+inline constexpr std::array<ObjectAreaBank,208> ObjectAreaBanks{{
     {0x0027ad930a07134full,0,14},
     {0x00d51a5df2de892full,14,15},
     {0x02328f0faa60d63cull,29,0},
@@ -119,6 +119,7 @@ inline constexpr std::array<ObjectAreaBank,207> ObjectAreaBanks{{
     {0x87991763703d18d5ull,164,1},
     {0x8ea6278074396a6eull,165,1},
     {0x918fa5dcc67af24aull,166,3},
+    {0x939d4c09fbb8ef11ull,187,0},
     {0x93fa480d76d15676ull,169,0},
     {0x93faebdb0bf68067ull,166,3},
     {0x948bcb51c8662a8eull,154,1},

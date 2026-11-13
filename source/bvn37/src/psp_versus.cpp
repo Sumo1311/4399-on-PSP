@@ -1,4 +1,8 @@
 #include "resource_diagnostics.hpp"
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+#include "resource_manifest.hpp"
+#include <zlib.h>
+#endif
 #include <cerrno>
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "arcade_run.hpp"
@@ -378,7 +382,7 @@ bool Game::start() {
     if (!installGameAllocationRecovery(renderer_)) return false;
 #ifdef BVN_RESOURCE_DIAGNOSTICS
     if (auto* log = std::fopen((folder_ + "BVN_DIAG.LOG").c_str(), "w")) {
-        std::fprintf(log, "BVN37 1.0.0 HWD1\nreader=%s\nfirmware=0x%08x\n",
+        std::fprintf(log, "BVN37 1.0.0 HWD2\nreader=%s\nfirmware=0x%08x\n",
                      resourceDiagnostics.synchronousOnly ? "stdio-only" : "original-readahead", sceKernelDevkitVersion());
         std::fclose(log);
     }
@@ -692,6 +696,13 @@ void Game::recordResourceDiagnostics() {
                      failure.failures, sceKernelGetSystemTimeWide(), failure.operation, failure.error,
                      failure.failed, unsigned(statResult), static_cast<long long>(stat.st_size),
                      failure.texture, failure.bytes, failure.heapFree, failure.partitionFree, failure.largestPartition);
+        const auto& context = failure.failedLoad;
+        std::fprintf(log, "load_step=%s item=%u opened_bytes=%ld last_read_expected=%u last_read_actual=%u last_read_position=%ld stream_error=%d eof=%d metadata=%016llx\n",
+                     context.step, context.index, context.fileLength, context.expected, context.actual,
+                     context.position, context.streamError, context.eof, context.metadata);
+        std::fprintf(log, "integrity=%d expected_bytes=%u verified_bytes=%u expected_crc=%08x actual_crc=%08x verify_errno=%d\n",
+                     failure.integrity, failure.expectedFileBytes, failure.verifiedBytes,
+                     failure.expectedCrc, failure.actualCrc, failure.verifyErrno);
         for (unsigned side = 0; side < 2; ++side) {
             std::fprintf(log, "side%u fighter=%s assist=%s\n", side,
                          roster_.fighter(active_[side]).file, assistRoster_.fighter(activeAssists_[side]).file);
@@ -699,6 +710,33 @@ void Game::recordResourceDiagnostics() {
         if (arena_ < maps_.size()) std::fprintf(log, "map=%s\n", maps_[arena_].file.c_str());
         std::fclose(log);
     }
+}
+#endif
+
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+// Run only after battle assets/read-ahead descriptors have been released, so
+// the integrity probe cannot overlap their queued reads or change failure data.
+void verifyFailedResource() {
+    auto& failure = resourceDiagnostics;
+    const char* name = diagnosticFileName();
+    const auto found = std::ranges::find_if(ResourceFileIdentities, [&](const auto& item) {
+        return std::strcmp(name, item.name) == 0;
+    });
+    if (found == ResourceFileIdentities.end()) return;
+    failure.expectedFileBytes = found->bytes; failure.expectedCrc = found->crc;
+    errno = 0;
+    auto* file = std::fopen(failure.failed, "rb");
+    if (!file) { failure.integrity = -1; failure.verifyErrno = errno; return; }
+    std::array<unsigned char, 4096> buffer{};
+    uLong crc = crc32(0, Z_NULL, 0);
+    while (const auto count = std::fread(buffer.data(), 1, buffer.size(), file)) {
+        crc = crc32(crc, buffer.data(), count);
+        failure.verifiedBytes += count;
+    }
+    const bool readError = std::ferror(file);
+    failure.verifyErrno = errno; failure.actualCrc = crc;
+    failure.integrity = !readError && failure.verifiedBytes == found->bytes && crc == found->crc ? 1 : 2;
+    std::fclose(file);
 }
 #endif
 
@@ -714,6 +752,7 @@ void Game::showLoadError() {
     }
     clearBattle();
 #ifdef BVN_RESOURCE_DIAGNOSTICS
+    verifyFailedResource();
     recordResourceDiagnostics();
 #endif
     audio_.music("select");
@@ -984,6 +1023,15 @@ void Game::stepGame(unsigned held, unsigned pressed, WlanPad second) {
     }
     switch (screen_) {
     case Screen::Title: {
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+        if (pressed & PSP_CTRL_RTRIGGER) {
+            resourceDiagnostics.synchronousOnly = !resourceDiagnostics.synchronousOnly;
+            if (auto* log = std::fopen((folder_ + "BVN_DIAG.LOG").c_str(), "a")) {
+                std::fprintf(log, "reader-change=%s\n", resourceDiagnostics.synchronousOnly ? "stdio-only" : "original-readahead");
+                std::fclose(log);
+            }
+        }
+#endif
         const auto modes = titleModes(musou_.ready());
         const auto count = modes.size();
         if (pressed & (PSP_CTRL_UP | PSP_CTRL_DOWN)) {
@@ -2211,7 +2259,7 @@ void Game::draw() {
         case Screen::Title:
             drawTitle();
 #ifdef BVN_RESOURCE_DIAGNOSTICS
-            renderer_.diagnosticText(resourceDiagnostics.synchronousOnly ? "HWD1: STDIO ONLY" : "HWD1: ORIGINAL IO", 2, 2);
+            renderer_.diagnosticText(resourceDiagnostics.synchronousOnly ? "HWD2: STDIO ONLY  [R: SWITCH]" : "HWD2: ORIGINAL IO  [R: SWITCH]", 2, 2);
 #endif
             break;
         case Screen::Credits: drawCredits(); break;
@@ -2233,7 +2281,11 @@ void Game::draw() {
         case Screen::ArcadeMissing: drawArcadeResult(); break;
         case Screen::LoadError:
             drawMap();
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+            renderer_.box(193, 203, 414, 216, Panel);
+#else
             renderer_.box(193, 203, 414, 188, Panel);
+#endif
             centered("label-load-error", 400, 269);
 #ifdef BVN_RESOURCE_DIAGNOSTICS
             {
@@ -2243,7 +2295,12 @@ void Game::draw() {
                 std::snprintf(code, sizeof(code), "ERR=%d  %s", resourceDiagnostics.error, resourceDiagnostics.operation);
                 renderer_.diagnosticText(code, (800 * StageTextureScale - std::strlen(code) * 8) / 2, 151);
             }
-            centered("label-confirm", 400, 369);
+            {
+                const char* status = resourceDiagnostics.integrity == 1 ? "FILE CRC OK" :
+                    resourceDiagnostics.integrity == 2 ? "FILE CRC DIFFERENT" : "FILE CHECK FAILED";
+                renderer_.diagnosticText(status, (800 * StageTextureScale - std::strlen(status) * 8) / 2, 162);
+            }
+            centered("label-confirm", 400, 399);
 #else
             centered("label-confirm", 400, 332);
 #endif
@@ -2281,8 +2338,10 @@ int main(int argc, char** argv) {
     if (thread >= 0) sceKernelStartThread(thread, 0, nullptr);
     scePowerSetClockFrequency(333, 333, 166);
 #ifdef BVN_RESOURCE_DIAGNOSTICS
+    sceCtrlSetSamplingCycle(0);
+    sceCtrlSetSamplingMode(PSP_CTRL_MODE_DIGITAL);
     SceCtrlData startupPad{};
-    sceCtrlPeekBufferPositive(&startupPad, 1);
+    sceCtrlReadBufferPositive(&startupPad, 1);
     const auto diagnosticFolder = slash == std::string::npos ? std::string{} : launch.substr(0, slash + 1);
     SceIoStat syncStat{};
     bvn::resourceDiagnostics.synchronousOnly = (startupPad.Buttons & PSP_CTRL_RTRIGGER) ||

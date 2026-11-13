@@ -1,0 +1,106 @@
+{
+  "before_sha256": "7310c81dc12edcace29cd3342ae7850109d9e11bc57fbbe052bda645be567e9b",
+  "after_sha256": "640ebd74296fbcc27ef439bca709571db1587af3f373a5746fffeff1c1f10eda",
+  "before_metadata_identity": "570a1b81b9237d4f",
+  "after_metadata_identity": "939d4c09fbb8ef11",
+  "replaced_poses": [
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 2,
+      "frame": 2,
+      "offset": 910,
+      "pose_sha256": "76a591304258b746fdf2ce3cb9ec957b67da069f7daae7ef1f7814f4bc7a276f"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 3,
+      "frame": 3,
+      "offset": 958,
+      "pose_sha256": "76a591304258b746fdf2ce3cb9ec957b67da069f7daae7ef1f7814f4bc7a276f"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 4,
+      "frame": 4,
+      "offset": 1006,
+      "pose_sha256": "76a591304258b746fdf2ce3cb9ec957b67da069f7daae7ef1f7814f4bc7a276f"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 5,
+      "frame": 5,
+      "offset": 1054,
+      "pose_sha256": "0703ae3899a39882582820ac7f849757d9797b000489e937cac5fb1665c2b41b"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 6,
+      "frame": 6,
+      "offset": 1102,
+      "pose_sha256": "0703ae3899a39882582820ac7f849757d9797b000489e937cac5fb1665c2b41b"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 7,
+      "frame": 7,
+      "offset": 1150,
+      "pose_sha256": "0703ae3899a39882582820ac7f849757d9797b000489e937cac5fb1665c2b41b"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 8,
+      "frame": 8,
+      "offset": 1198,
+      "pose_sha256": "e82c4aeedf4b55db48485451d03a540e8d2d705f6d7019fb8af7139a1f8455c3"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 9,
+      "frame": 9,
+      "offset": 1246,
+      "pose_sha256": "e82c4aeedf4b55db48485451d03a540e8d2d705f6d7019fb8af7139a1f8455c3"
+    },
+    {
+      "clip": 0,
+      "parent_frame": 1,
+      "phase": 10,
+      "frame": 10,
+      "offset": 1294,
+      "pose_sha256": "e82c4aeedf4b55db48485451d03a540e8d2d705f6d7019fb8af7139a1f8455c3"
+    }
+  ],
+  "new_textures": 3,
+  "previously_visible_held_poses_retained_byte_identically": [
+    {
+      "clip": 0,
+      "phase": 0,
+      "frame": 0
+    },
+    {
+      "clip": 0,
+      "phase": 1,
+      "frame": 1
+    },
+    {
+      "clip": 0,
+      "phase": 11,
+      "frame": 11
+    }
+  ],
+  "all_original_texture_records_and_compressed_bytes_retained": true,
+  "all_combat_events_boxes_commands_and_clip_timings_identical": true,
+  "object_area_binding": {
+    "old_signatures_retained": 207,
+    "new_signature_geometry_identical": true,
+    "geometry_first": 187,
+    "geometry_count": 0
+  }
+}
