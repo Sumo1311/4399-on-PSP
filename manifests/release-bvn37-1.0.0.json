@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/Sumo1311/4399-on-PSP",
+  "tag": "bvn37-v1.0.0",
+  "title": "死神 vs 火影 3.7 Alpha PSP 1.0.0",
+  "version": "1.0.0",
+  "software_content_qualified": true,
+  "watch_modes_excluded": true,
+  "physical_psp_verified": false,
+  "full_flash_fidelity_claimed": false,
+  "license": "Source GPL-3.0 text and per-file/third-party notices apply; root MIT does not relicense these contents",
+  "install_path": "PSP/GAME/BVN37/EBOOT.PBP",
+  "counts": {
+    "selectable_forms": 76,
+    "internal_forms": 2,
+    "assists": 42,
+    "musou_minions": 11,
+    "maps": 19
+  },
+  "assets": [
+    {
+      "name": "BVN37_PSP_1.0.0_Install.zip",
+      "bytes": 281847683,
+      "sha256": "11d33cf7be496a5308cd0e18b7dcf99545a47ea9e40c3e00eb1afa1c4d45cb0c",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/BVN37_PSP_1.0.0_Install.zip"
+    },
+    {
+      "name": "BVN37_PSP_1.0.0_Source.zip",
+      "bytes": 517177786,
+      "sha256": "b5ee5fdce780d2729c4fc0e4d1818c26da04cb7bcd019b8fac42f85070b618d6",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/BVN37_PSP_1.0.0_Source.zip"
+    },
+    {
+      "name": "BVN37_PSP_1.0.0_Verification.zip",
+      "bytes": 4780202,
+      "sha256": "655840c3a0536b47a9253586d476df1afd8e9f5dc06ae011cbc5c89771b42fe6",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/BVN37_PSP_1.0.0_Verification.zip"
+    },
+    {
+      "name": "VERIFICATION.md",
+      "bytes": 13649,
+      "sha256": "359f24158b0ade1dfc99f8297c6e03c4d62c948c4247d1e893a1c482dcd1e57f",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/VERIFICATION.md"
+    },
+    {
+      "name": "VERIFICATION.json",
+      "bytes": 46597,
+      "sha256": "6ee037c7015958081eaf5e068ca8c92475ed0c127e3a057fe776beaac00a2fe1",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/VERIFICATION.json"
+    },
+    {
+      "name": "CONTENT_MANIFEST.json",
+      "bytes": 52778,
+      "sha256": "25c408bed0beb1cc90ff53c5ad9154069977e12fe7d8eff9afc853709e281d2f",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/CONTENT_MANIFEST.json"
+    },
+    {
+      "name": "KNOWN_LIMITS.md",
+      "bytes": 822,
+      "sha256": "b270b4976ffd6da400a84fb453654c9de89f8828da91c3269a7751ccc94d5ba5",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/KNOWN_LIMITS.md"
+    },
+    {
+      "name": "RELEASE.json",
+      "bytes": 18268,
+      "sha256": "13425e0c20e81eb2770bf3367888ace5eaf746cf59d603ea41218446e232ff15",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/RELEASE.json"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 701,
+      "sha256": "1a67adc66135b8209a85f72369395ec2038c6559d1551907c5c648bd685219cc",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/SHA256SUMS.txt"
+    }
+  ]
+}

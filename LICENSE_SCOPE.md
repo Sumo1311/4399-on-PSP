@@ -4,7 +4,7 @@ Copyright (c) 2026 Sumo1311, for the original contributions published by this pr
 
 本项目以非商业的学习、技术研究与交流为目的，尊重原游戏厂商、开发者及其他权利人的权益。这是项目目的说明，不为原作素材新增授权，也不改变原创代码或第三方依赖的许可证条款；不表示获得原厂商或平台的授权、认可。
 
-The root `LICENSE` contains the MIT License. It applies only to the project author's original PSP implementation code, release tools and original documentation, including the corresponding original portions of compiled programs and relinkable object files. This release repository does not include the complete game development source trees.
+The root `LICENSE` contains the MIT License. It applies only to the project author's original PSP implementation code, release tools and original documentation, including the corresponding original portions of compiled programs and relinkable object files. The Bleach vs Naruto 3.7 Alpha PSP 1.0.0 Release also provides matching full native source as a separate archive. That source is governed by its included GPL-3.0 text and per-file notices; the root MIT grant does not relicense separately licensed source.
 
 以下内容不由根目录的 MIT 协议重新授权。
 

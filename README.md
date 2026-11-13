@@ -18,11 +18,11 @@
 
 原创移植实现、发布工具和文档采用 [MIT 协议](LICENSE)，不覆盖原游戏素材；依赖库保留各自协议。学习用途说明不构成原作素材的授权，也不代表原厂商或平台认可本项目。
 
-本仓库提供成品包，未包含完整游戏工程源码。详见[协议范围](LICENSE_SCOPE.md)、[第三方声明](THIRD_PARTY_NOTICES.md)及[依赖库重新链接说明](RELINKING.md)。如权利人对相关内容有异议，可通过 [Issues](https://github.com/Sumo1311/4399-on-PSP/issues) 联系核实处理。
+本仓库通过 Release 提供安装包；《死神 vs 火影 3.7 Alpha》1.0.0 同时提供可独立重建的源码与核验资料，其源码许可按包内 GPL-3.0 文本及各文件声明执行。根目录 MIT 协议不覆盖另行许可的源码和原作素材。详见[协议范围](LICENSE_SCOPE.md)、[第三方声明](THIRD_PARTY_NOTICES.md)及[依赖库重新链接说明](RELINKING.md)。如权利人对相关内容有异议，可通过 [Issues](https://github.com/Sumo1311/4399-on-PSP/issues) 联系核实处理。
 
 ## 游戏下载
 
-当前正式版为 **2026.11.13**，收录四款游戏的 2026-11-11 性能优化构建。程序与配套资源按定版身份保留。
+现有发行包括下列四款游戏的 **2026.11.13** 正式合集（采用 2026-11-11 性能优化构建），以及独立发布的《死神 vs 火影 3.7 Alpha》1.0.0。程序与配套资源按各发行版本身份保留。
 
 [四款游戏合集](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.13/Flash-to-PSP-Collection-2026.11.13.zip) · [本次正式发行](https://github.com/Sumo1311/4399-on-PSP/releases/tag/v2026.11.13) · [SHA-256 校验和](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.13/SHA256SUMS)
 
@@ -32,9 +32,12 @@
 | 勇者之路：精灵物语 | [1.0.1 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.13/ElfStory_PSP-1.0.1.zip) |
 | 双人旋转赛车 · Flipside | [1.0.3 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.13/Flipside_PSP-1.0.3.zip) |
 | 火柴人羽毛球 2 | [1.0.18 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.13/Badminton2_PSP-1.0.18.zip) |
+| 死神 vs 火影 3.7 Alpha（5DPLAY） | [1.0.0 独立正式包](https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.0) |
 
 四款完整 EBOOT.PBP 均已从保留源码重建并逐字节核对。实际 PSP 帧率和两台真机 WLAN 仍需分别验证，正式版本身份不代替设备测试。
 
 [构建与重新链接材料](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.13/Relink-Materials-2026.11.13.zip)包含本次程序对应的对象文件、链接参数、修改源码和线程库对应源码。
 
 [发行版本页面](https://github.com/Sumo1311/4399-on-PSP/releases)
+
+死神 vs 火影 1.0.0：76 个可选形态、2 个内部形态、42 名援助、11 种无双杂兵、19 张场景，默认简体中文，不添加观战模式。模拟器资源、操作、存档及双实例 WLAN 检查已通过；实体 PSP 和完整原版细节仍有待验证项，详见发行页的核验报告与已知边界。
