@@ -90,7 +90,7 @@ void textures(const FighterAsset& asset,Counts& n){
             ++n.poses;
             for(const auto& pose:asset.poseTiles(asset.frame(clip,f).pose)){
                 if(!pose.width||!pose.height||!done.insert(pose.offset).second)continue;
-                std::vector<std::byte> pixels(FighterAsset::textureSize(pose));
+                std::vector<std::byte> pixels(asset.pixelBytes(pose));
                 require(asset.decodePixels(pose,pixels),"texture-decode");
                 ++n.textures;n.bytes+=pixels.size();
                 for(auto b:pixels)n.hash=(n.hash^std::to_integer<unsigned>(b))*1099511628211ull;

@@ -1,10 +1,10 @@
 {
-  "accepted_at": "2026-11-13T17:02:21.472510+08:00",
-  "user_report": "打好补丁后的游戏目前正常，发现的问题都已修复，可以合并发布正式版",
-  "confirmed_reader": "HWD2: STDIO ONLY",
-  "hardware": "PSP-2000",
-  "scope": "user-confirmed resolution of previously reported resource-load error and character flicker",
-  "physical_test_by_agent": false,
-  "approved_patch_sha256": "4a002c3541623fd268d2ab5f8aef011ab7009977c7d64525cf235c9ecd4b5960",
-  "approved_program_sha256": "1704b146f650b0ef9a12780c5d054e3a0215782ec82adf397f1ba87c90b0f180"
+  "version": "1.0.3",
+  "release_authorized_by_user": true,
+  "authorization": "再优化一下画质，让画面清晰一些，然后把正式包上传到github以及卡里面",
+  "baseline_hardware_acceptance": "BASELINE_RENDER_USER_ACCEPTANCE.json",
+  "baseline_user_confirmed_black_rectangles_absent": true,
+  "physical_clarity_retest_performed": false,
+  "exact_root_cause_isolated": false,
+  "emulator_regressions_passed": true
 }

@@ -12,7 +12,7 @@ Flash 游戏的非官方 PSP 移植项目，支持单人游玩，部分游戏支
 | 勇者之路：精灵物语 | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/elf-story-v1.0.1) | [1.0.1 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/elf-story-v1.0.1/ElfStory_PSP-1.0.1.zip) |
 | 双人旋转赛车 · Flipside | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/flipside-v1.0.3) | [1.0.3 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/flipside-v1.0.3/Flipside_PSP-1.0.3.zip) |
 | 火柴人羽毛球 2 | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/badminton2-v1.0.18) | [1.0.18 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/badminton2-v1.0.18/Badminton2_PSP-1.0.18.zip) |
-| 死神 vs 火影 3.7 Alpha（5DPLAY） | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.0) | [1.0.0 HWD2 整合正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/BVN37_PSP_1.0.0_Install.zip) |
+| 死神 vs 火影 3.7 Alpha（5DPLAY） | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.3) | [1.0.3 清晰画质正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.3/BVN37_PSP_1.0.3_Install.zip) |
 
 ## 安装
 
@@ -22,7 +22,7 @@ Flash 游戏的非官方 PSP 移植项目，支持单人游玩，部分游戏支
 
 PPSSPP 可直接打开游戏目录内的 `EBOOT.PBP`。
 
-四款优化版采用 2026-11-11 的定版构建。《死神 vs 火影》包含 76 个可选形态、42 名援助、19 张场景，默认简体中文，按约定排除观战模式，并已嵌入配套封面与菜单背景。当前整合版默认采用用户在 PSP-2000 实机验证通过的同步素材读取。实体 PSP 持续性能和双机 WLAN 仍需分别验证。
+四款优化版采用 2026-11-11 的定版构建。《死神 vs 火影》1.0.3 保留 76 个可选形态、42 名援助和 19 张场景，默认简体中文，排除无双及观战模式，已嵌入封面与菜单背景。角色/援助贴图及原尺寸文字更加清晰，保留用户已确认黑块消失的 HWD3 基准修复。清晰度更新已完成模拟器回归；实体 PSP 新画质、持续性能及双机 WLAN 的验证范围见源码说明。
 
 ![死神 vs 火影 PSP 封面](source/bvn37/artwork/cover-master.png)
 

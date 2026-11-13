@@ -352,7 +352,6 @@ if(PSP)
     create_pbp_file(TARGET bvn_fighter_qa TITLE "BVN 3.7 Action QA" VERSION 00.07
                     OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/fighter")
 
-    option(BVN_MUSOU_QA "Use a deterministic Musou seed for replay verification" OFF)
     add_executable(bvn_transition_gpu_qa tests/transition_render_psp.cpp)
     target_compile_options(bvn_transition_gpu_qa PRIVATE -Wall -Wextra -ffp-contract=off)
     target_link_options(bvn_transition_gpu_qa PRIVATE "-Wl,-Map,${CMAKE_CURRENT_BINARY_DIR}/transition_gpu.map")
@@ -360,8 +359,7 @@ if(PSP)
     create_pbp_file(TARGET bvn_transition_gpu_qa TITLE "BVN Transition GPU QA" VERSION 00.57
                     OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/transition-gpu")
 
-    add_executable(bvn_versus src/psp_versus.cpp src/psp_audio.cpp src/psp_musou.cpp src/wlan_link.cpp)
-    target_compile_definitions(bvn_versus PRIVATE $<$<BOOL:${BVN_MUSOU_QA}>:BVN_MUSOU_QA=1>)
+    add_executable(bvn_versus src/psp_versus.cpp src/psp_audio.cpp src/wlan_link.cpp)
     target_compile_options(bvn_versus PRIVATE -Wall -Wextra)
     # Newlib also imports this function. Keep all sceUtility stubs together.
     target_link_options(bvn_versus PRIVATE "-Wl,-Map,${CMAKE_CURRENT_BINARY_DIR}/versus.map"
@@ -369,10 +367,16 @@ if(PSP)
     target_link_libraries(bvn_versus PRIVATE bvn_fighter bvn_renderer pspctrl pspdebug psppower pspaudio
         pspnet pspnet_adhoc pspnet_adhocctl pspwlan psputility)
     set(BVN_GAME_TITLE "Bleach vs Naruto 3.7 Alpha")
-    create_pbp_file(TARGET bvn_versus TITLE "${BVN_GAME_TITLE}" VERSION 01.00
+    create_pbp_file(TARGET bvn_versus TITLE "${BVN_GAME_TITLE}" VERSION 01.03
                     ICON_PATH "${CMAKE_CURRENT_SOURCE_DIR}/artwork/xmb/ICON0.PNG"
                     BACKGROUND_PATH "${CMAKE_CURRENT_SOURCE_DIR}/artwork/xmb/PIC1.PNG"
                     OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/versus")
+    add_executable(bvn_live_render_qa src/psp_versus.cpp src/psp_audio.cpp src/wlan_link.cpp)
+    target_compile_definitions(bvn_live_render_qa PRIVATE BVN_LIVE_RENDER_QA=1)
+    target_compile_options(bvn_live_render_qa PRIVATE -Wall -Wextra -ffp-contract=off)
+    target_link_options(bvn_live_render_qa PRIVATE "-Wl,-Map,${CMAKE_CURRENT_BINARY_DIR}/live_render.map" "-Wl,-u,sceUtilityGetSystemParamInt")
+    target_link_libraries(bvn_live_render_qa PRIVATE bvn_fighter bvn_renderer pspctrl pspdebug psppower pspaudio pspnet pspnet_adhoc pspnet_adhocctl pspwlan psputility)
+    create_pbp_file(TARGET bvn_live_render_qa TITLE "BVN37 Live Render Check" VERSION 00.02 OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/live-render")
 endif()
 
 if(PSP)

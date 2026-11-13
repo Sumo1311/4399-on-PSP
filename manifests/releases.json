@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "Sumo1311/4399-on-PSP",
-  "updated_at": "2026-11-13T17:26:39.040719+08:00",
+  "updated_at": "2026-11-13T17:47:41.457531+00:00",
   "publication_layout": "one-game-per-release",
   "release_assets_policy": "one-complete-game-installer-per-release",
   "games": [
@@ -64,17 +64,17 @@
     {
       "id": "bvn37",
       "package_id": "BVN37",
-      "title": "死神 vs 火影 3.7 Alpha PSP 1.0.0（HWD2 整合正式版）",
-      "version": "1.0.0",
-      "package_revision": "hwd2-final",
-      "tag": "bvn37-v1.0.0",
-      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.0",
-      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/BVN37_PSP_1.0.0_Install.zip",
-      "asset_name": "BVN37_PSP_1.0.0_Install.zip",
-      "bytes": 282079319,
-      "sha256": "79171f974ffdeb8922f24be953ddb545ee25aee96c72fb1000bdedf95f8d8045",
-      "eboot_sha256": "c2f5ec9fe27e283359124424bc1883cc47324b590331fab2b0651af2cbbb98dd",
-      "program_sha256": "1704b146f650b0ef9a12780c5d054e3a0215782ec82adf397f1ba87c90b0f180"
+      "title": "死神 vs 火影 3.7 Alpha PSP 1.0.3（清晰画质正式版）",
+      "version": "1.0.3",
+      "package_revision": "hwd3-native-clarity",
+      "tag": "bvn37-v1.0.3",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.3",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.3/BVN37_PSP_1.0.3_Install.zip",
+      "asset_name": "BVN37_PSP_1.0.3_Install.zip",
+      "bytes": 517767950,
+      "sha256": "c62dcc331c1921b15cbe5aa05a66356167db0455729474d0ba405f1088218df9",
+      "eboot_sha256": "2090e106222bc7945bc658231e43526dff6cd1874a3980bfc0f63c3e41ea118a",
+      "program_sha256": "984e42f331a6219152795fce787173e0b5d99a3e31d139569c8b7a7d54e8a034"
     }
   ]
 }

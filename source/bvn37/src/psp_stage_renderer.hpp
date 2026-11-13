@@ -28,6 +28,10 @@ struct FighterView {
 class StageRenderer {
 public:
     void start(bool synchronized = false);
+    // Change submission policy only between completed frames.
+    void deferred(bool value) { deferred_ = value; }
+    bool deferred() const { return deferred_; }
+    bool readback(std::span<std::uint32_t> output);
     void quality(unsigned value){smooth_=value==3;}
     void begin();
     // Whole GameStage translation, including its UI and shine children, in Flash units.
@@ -76,12 +80,16 @@ private:
                               EffectSurface surface=EffectSurface::Color);
 
     bool synchronized_ = false;
+    bool deferred_ = true;
     void* drawBuffer_ = nullptr;
+    void* renderedBuffer_ = nullptr;
     bool smooth_=false;
     bool cacheMutation_ = false, listInFlight_ = false;
     std::vector<CachedTexture> fighterTextures_;
     std::size_t textureBytes_ = 0;
     std::uint64_t frame_ = 0;
+    void beginList();
+    void finishList();
 };
 
 } // namespace bvn

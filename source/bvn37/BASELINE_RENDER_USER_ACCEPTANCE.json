@@ -1,0 +1,15 @@
+{
+  "version": "1.0.2",
+  "revision": "hwd3-queued-ge-candidate",
+  "user_report": "检查和普通游戏都没有",
+  "report_context": "Asked whether black rectangles remained in automatic check and ordinary game",
+  "user_confirmed_reported_black_rectangles_absent": true,
+  "hardware_live_report": "work/queued-ge-20261114/hardware-live-20261114/LIVE_RENDER_REPORT.TXT",
+  "hardware_report_sha256": "088bb97e4871e12b016b6eaca36bd9632e1756bceb752eb119f8ecfc7b6b74fa",
+  "frame_pairs": 264,
+  "pixel_samples": 34467840,
+  "differences": 0,
+  "exact_root_cause_isolated": false,
+  "new_user_request": "Improve image clarity, then upload formal game to GitHub and copy onto card",
+  "accepted_at": "2026-11-14T01:14:20.801528+08:00"
+}

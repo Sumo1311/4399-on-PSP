@@ -131,7 +131,7 @@ bool FighterAsset::open(const char* path, TextureResidency residency) {
     if (!file) return false;
     loadStep("SEEK SIZE");
     if (std::fseek(file.get(), 0, SEEK_END)) return false;
-    const long length = std::ftell(file.get());
+    long length = std::ftell(file.get());
 #ifdef BVN_RESOURCE_DIAGNOSTICS
     resourceDiagnostics.loading.fileLength = length;
 #endif
@@ -144,17 +144,30 @@ bool FighterAsset::open(const char* path, TextureResidency residency) {
     std::rewind(file.get());
 
     FighterAsset next;
-    if (std::memcmp(magic.data(), "BVNASST1", 8) == 0) {
+    next.denseTextures_ = std::memcmp(magic.data(), "BVNFGH", 6) == 0 ||
+                          std::memcmp(magic.data(), "BVNASSTH", 8) == 0 || std::memcmp(magic.data(), "BVNASSTL", 8) == 0;
+    std::uint64_t originalMetadata = 0;
+    if (next.denseTextures_) {
+        if (length < long(sizeof(Header) + sizeof(originalMetadata))) return false;
+        length -= sizeof(originalMetadata);
+        if (std::fseek(file.get(),length,SEEK_SET) ||
+            std::fread(&originalMetadata,sizeof(originalMetadata),1,file.get()) != 1 || !originalMetadata) return false;
+        std::rewind(file.get());
+    }
+    if (std::memcmp(magic.data(), "BVNASST1", 8) == 0 || std::memcmp(magic.data(), "BVNASSTH", 8) == 0 || std::memcmp(magic.data(), "BVNASSTL", 8) == 0) {
         next.assister_ = true;
-        if (!next.readCurrent(file.get(), length, 11, residency)) return false;
+        if (!next.readCurrent(file.get(), length, 11, residency, std::memcmp(magic.data(), "BVNASSTL", 8) == 0)) return false;
     } else {
-        if (std::memcmp(magic.data(), "BVNFGT", 6) != 0 ||
+        if ((std::memcmp(magic.data(), "BVNFGT", 6) != 0 && std::memcmp(magic.data(), "BVNFGH", 6) != 0) ||
             magic[6] < '0' || magic[6] > '1' || magic[7] < '0' || magic[7] > '9') return false;
         const unsigned version = (magic[6] - '0') * 10 + magic[7] - '0';
         if (version < 2 || version > 15) return false;
         if (!(version == 2 ? next.readLegacy(file.get(), length) :
                             next.readCurrent(file.get(), length, version, residency))) return false;
     }
+    // Presentation-only density changes retain the qualified script/object-area
+    // identity; all logical tables are copied unchanged by the raster converter.
+    if (next.denseTextures_) next.metadataIdentity_ = originalMetadata;
 #ifdef BVN_RESOURCE_DIAGNOSTICS
     std::snprintf(next.diagnosticPath_.data(), next.diagnosticPath_.size(), "%s", path);
 #endif
@@ -210,7 +223,7 @@ void FighterAsset::initializeAiHits() {
     }
 }
 
-bool FighterAsset::readCurrent(std::FILE* stream, std::size_t length, unsigned version, TextureResidency residency) {
+bool FighterAsset::readCurrent(std::FILE* stream, std::size_t length, unsigned version, TextureResidency residency, bool forceLz4) {
     loadStep("HEADER");
     Header header{};
     if (loadRead(&header, sizeof(header), 1, stream) != 1 ||
@@ -226,7 +239,7 @@ bool FighterAsset::readCurrent(std::FILE* stream, std::size_t length, unsigned v
     const bool compressed = version >= 10;
     const bool namedAttackers = version >= 11;
     const bool hasHurtEscape = version >= 14;
-    lz4Textures_ = version == 13 || version == 15;
+    lz4Textures_ = forceLz4 || version == 13 || version == 15;
     loadStep("COUNTS");
     std::uint16_t projectileCount = 0, attackerCount = 0;
     std::uint32_t textureCount = 0, tileCount = 0;
@@ -461,7 +474,10 @@ bool FighterAsset::validate(std::size_t payload) const {
             pose.width > pose.stride || pose.height > pose.rows) return false;
         return textures_.empty() ? pose.offset % sizeof(PixelBlock) == 0 &&
             validSpan(pose.offset, textureSize(pose), payload) :
-            pose.offset < textures_.size() && textures_[pose.offset].rawSize == textureSize(pose);
+            pose.offset < textures_.size() &&
+            (textures_[pose.offset].rawSize == textureSize(pose) ||
+             (denseTextures_ && pose.stride <= 256 && pose.rows <= 256 &&
+              textures_[pose.offset].rawSize == 4 * textureSize(pose)));
     };
     if (!std::ranges::all_of(tiles_, validPose)) return false;
     for (const FighterFrame& frame : frames_) {

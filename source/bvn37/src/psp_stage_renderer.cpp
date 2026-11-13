@@ -29,6 +29,7 @@ volatile struct TextureCacheQA {
 } g_textureCacheQa;
 volatile struct TextureStreamQA {unsigned barriers,completedBytes;} g_textureStreamQa;
 volatile struct PaintRendererQA {unsigned frames,players,roots,missing,hashLow,hashHigh,sprites,combat,ground,reactions,shadows,blackBack,backgrounds;} g_paintRendererQa;
+volatile struct GeSubmissionQA {unsigned lists,maxBytes,submitErrors,deferredLists;} g_geSubmissionQa;
 }
 
 namespace bvn {
@@ -54,15 +55,15 @@ struct Vertex {
 
 void drawTexture(const void* pixels, int stride, int rows, float x, float y, int width, int height,
                  float outputWidth, float outputHeight, bool flip = false, std::uint32_t color = 0xffffffff,
-                 float cropTop = 0) {
+                 float cropTop = 0, unsigned density = 1) {
     x += rootShift.x; y += rootShift.y;
     const float right = x + outputWidth;
     const float bottom = y + outputHeight;
     if (x >= ViewWidth || right <= 0 || y >= Height || bottom <= 0) return;
-    sceGuTexImage(0, stride, rows, stride, pixels);
+    sceGuTexImage(0, stride * density, rows * density, stride * density, pixels);
     auto* vertices = static_cast<Vertex*>(sceGuGetMemory(2 * sizeof(Vertex)));
-    vertices[0] = {flip ? float(width) : 0, height * cropTop, color, x + Pillar, y + outputHeight * cropTop, 0};
-    vertices[1] = {flip ? 0 : float(width), float(height), color, right + Pillar, bottom, 0};
+    vertices[0] = {flip ? float(width * density) : 0, height * cropTop * density, color, x + Pillar, y + outputHeight * cropTop, 0};
+    vertices[1] = {flip ? 0 : float(width * density), float(height * density), color, right + Pillar, bottom, 0};
     sceGuDrawArray(GU_SPRITES, VertexFormat, 2, nullptr, vertices);
 }
 
@@ -96,7 +97,7 @@ void drawBox(float x, float y, float width, float height, std::uint32_t color) {
     sceGuEnable(GU_TEXTURE_2D);
 }
 
-void drawPortrait(SceneEffects effects, double zoom, const void* pixels) {
+void drawPortrait(SceneEffects effects, double zoom, const void* pixels, unsigned density) {
     // Position and squash keys from effect/LIBRARY/_AS链接/元件/bisha_face_mc.xml.
     const float frame = effects.portraitFrame;
     const float opening = std::clamp(frame / 3, 0.0f, 1.0f);
@@ -115,7 +116,7 @@ void drawPortrait(SceneEffects effects, double zoom, const void* pixels) {
     sceGuTexFunc(GU_TFX_ADD, GU_TCC_RGBA);
     drawTexture(pixels, pose.stride, pose.rows, x * StageTextureScale,
                 y * StageTextureScale, pose.width, pose.height, width * StageTextureScale, height * StageTextureScale,
-                effects.portraitRight, color);
+                effects.portraitRight, color, 0, density);
     sceGuTexFunc(GU_TFX_MODULATE, GU_TCC_RGBA);
 }
 
@@ -136,6 +137,10 @@ void StageRenderer::start(bool synchronized) {
     sceGuDisable(GU_CULL_FACE);
     sceGuEnable(GU_BLEND);
     sceGuBlendFunc(GU_ADD, GU_SRC_ALPHA, GU_ONE_MINUS_SRC_ALPHA, 0, 0);
+    // Fully transparent texels must not reach color-based blend passes.
+    // Keep every nonzero alpha level for antialiasing and fading effects.
+    sceGuEnable(GU_ALPHA_TEST);
+    sceGuAlphaFunc(GU_GREATER, 0, 0xff);
     sceGuEnable(GU_TEXTURE_2D);
     sceGuTexMode(GU_PSM_8888, 0, 0, GU_FALSE);
     sceGuTexFunc(GU_TFX_MODULATE, GU_TCC_RGBA);
@@ -201,10 +206,15 @@ void StageRenderer::begin() {
     ++frame_;
     listInFlight_ = true;
     g_rendererQa.frames = g_rendererQa.frames + 1;
-    sceGuStart(GU_DIRECT, list);
+    beginList();
     sceGuScissor(0, 0, Width, Height);
     sceGuClearColor(0xff000000);
     sceGuClear(GU_COLOR_BUFFER_BIT);
+    sceGuEnable(GU_BLEND);
+    sceGuEnable(GU_ALPHA_TEST);
+    sceGuAlphaFunc(GU_GREATER, 0, 0xff);
+    sceGuBlendFunc(GU_ADD, GU_SRC_ALPHA, GU_ONE_MINUS_SRC_ALPHA, 0, 0);
+    sceGuTexFunc(GU_TFX_MODULATE, GU_TCC_RGBA);
     // Clip the centered Flash stage by pixel centers, excluding both fractional
     // pillar columns even when a translated world sprite extends past the stage.
     const int left=int(std::ceil(double(Pillar)-.5)),right=int(std::ceil(double(Pillar+ViewWidth)-.5));
@@ -264,7 +274,7 @@ const void* StageRenderer::fighterTexture(const FighterAsset& asset, const Fight
         }
     }
 
-    const std::size_t size = FighterAsset::textureSize(pose);
+    const std::size_t size = asset.pixelBytes(pose);
     const auto evict=[&] {
         auto oldest = std::ranges::min_element(fighterTextures_, {}, &CachedTexture::lastFrame);
         if (oldest == fighterTextures_.end()) return false;
@@ -273,10 +283,9 @@ const void* StageRenderer::fighterTexture(const FighterAsset& asset, const Fight
             // assist plus the blurred map). Finish those GE reads before
             // recycling their textures, then continue the same framebuffer
             // with its existing render state. Do not clear or swap it here.
-            sceGuFinish();
-            sceGuSync(GU_SYNC_FINISH, GU_SYNC_WHAT_DONE);
+            finishList();
             ++frame_;
-            sceGuStart(GU_DIRECT, list);
+            beginList();
             sceGuTexFlush();
             g_textureStreamQa.barriers = g_textureStreamQa.barriers + 1;
             g_textureStreamQa.completedBytes = textureBytes_;
@@ -335,12 +344,13 @@ void StageRenderer::effectPose(const FighterAsset& asset,const FighterPose& laye
         for(const auto& pose:asset.poseTiles(layer)) {
             const auto* pixels=fighterTexture(asset,pose,{},surface);if(!pixels)continue;
             g_rendererQa.combatTiles=g_rendererQa.combatTiles+1;
-            sceGuTexImage(0,pose.stride,pose.rows,pose.stride,pixels);
+            const auto density=asset.textureScale(pose);
+            sceGuTexImage(0,pose.stride*density,pose.rows*density,pose.stride*density,pixels);
             auto* vertices=static_cast<Vertex*>(sceGuGetMemory(4*sizeof(Vertex)));
             for(unsigned i=0;i<4;++i) {
                 const float u=i&1?pose.width:0,v=i&2?pose.height:0;
                 const double x=(pose.x+u)*facing,y=pose.y+v;
-                vertices[i]={u,v,0xffffffff,float(origin.x+(cosine*x-sine*y)*zoom+Pillar+rootShift.x),
+                vertices[i]={u*density,v*density,0xffffffff,float(origin.x+(cosine*x-sine*y)*zoom+Pillar+rootShift.x),
                              float(origin.y+(sine*x+cosine*y)*zoom+rootShift.y),0};
             }
             sceGuDrawArray(GU_TRIANGLE_STRIP,VertexFormat,4,nullptr,vertices);
@@ -439,7 +449,7 @@ void StageRenderer::arena(const StageAsset& stage, CameraView camera, std::span<
             const float x=float(((shadow.position.x-camera.origin.x)*StageTextureScale+(flipped?-pose.x-pose.width:pose.x))*camera.zoom);
             const float y=float(((shadow.position.y-camera.origin.y)*StageTextureScale+pose.y)*camera.zoom);
             if(const auto* pixels=fighterTexture(*shadow.asset,pose,negative?tint:ShadowTint{}))
-                drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,float(pose.width*camera.zoom),float(pose.height*camera.zoom),flipped,color);
+                drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,float(pose.width*camera.zoom),float(pose.height*camera.zoom),flipped,color,0,shadow.asset->textureScale(pose));
         }
         material(false);
     };
@@ -453,7 +463,7 @@ void StageRenderer::arena(const StageAsset& stage, CameraView camera, std::span<
                 const float width=float(pose.width*camera.zoom),height=float(pose.height*camera.zoom);
                 if(x+rootShift.x>=ViewWidth||x+width+rootShift.x<=0||y+rootShift.y>=Height||y+height+rootShift.y<=0)continue;
                 if(const auto* pixels=fighterTexture(fighter.asset,pose,fighter.tint))
-                    drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,width,height,flipped,(fighter.alpha<<24)|0x00ffffffu);
+                    drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,width,height,flipped,(fighter.alpha<<24)|0x00ffffffu,0,fighter.asset.textureScale(pose));
             }
         };
         drawPose(fighter.pose);
@@ -467,7 +477,7 @@ void StageRenderer::arena(const StageAsset& stage, CameraView camera, std::span<
         if(effect.cue==ReactionCue::GhostFoot)sceGuBlendFunc(GU_ADD,GU_SRC_ALPHA,GU_FIX,0,0xffffff);
         for(const auto& pose:reactionArt->poseTiles(layer)){
             const float x=float((originX+(flipped?-pose.x-pose.width:pose.x))*camera.zoom),y=float((originY+pose.y)*camera.zoom);
-            if(const auto* pixels=fighterTexture(*reactionArt,pose))drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,float(pose.width*camera.zoom),float(pose.height*camera.zoom),flipped);
+            if(const auto* pixels=fighterTexture(*reactionArt,pose))drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,float(pose.width*camera.zoom),float(pose.height*camera.zoom),flipped,0xffffffff,0,reactionArt->textureScale(pose));
         }
         material(true);
     };
@@ -480,7 +490,7 @@ void StageRenderer::arena(const StageAsset& stage, CameraView camera, std::span<
     };
     const auto blackBack=[&]{
         material(false);drawBox(0,0,ViewWidth,Height,0xff000000|effects.backdropColor);
-        if(effects.portrait&&effects.portraitFrame<69)if(const auto* pixels=fighterTexture(*effects.portraitAsset,*effects.portrait))drawPortrait(effects,camera.zoom,pixels);
+        if(effects.portrait&&effects.portraitFrame<69)if(const auto* pixels=fighterTexture(*effects.portraitAsset,*effects.portrait))drawPortrait(effects,camera.zoom,pixels,effects.portraitAsset->textureScale(*effects.portrait));
     };
     const auto front=[&]{if(!effects.hideMap){mapLayer(StageLayer::FrontFixed);mapLayer(StageLayer::Front);}};
     if(effects.paint){
@@ -519,7 +529,7 @@ void StageRenderer::arena(const StageAsset& stage, CameraView camera, std::span<
         for(const auto& view:effects.backgrounds)drawCombat(view,true);
         if(effects.hideMap){
             if(effects.fillBackdrop||effects.backdropColor)blackBack();
-            else if(effects.portrait&&effects.portraitFrame<69)if(const auto* pixels=fighterTexture(*effects.portraitAsset,*effects.portrait))drawPortrait(effects,camera.zoom,pixels);
+            else if(effects.portrait&&effects.portraitFrame<69)if(const auto* pixels=fighterTexture(*effects.portraitAsset,*effects.portrait))drawPortrait(effects,camera.zoom,pixels,effects.portraitAsset->textureScale(*effects.portrait));
         }else{mapLayer(StageLayer::Background);mapLayer(StageLayer::Map);for(const auto& cue:effects.ground)if(cue.cue<GroundCue::Rush)drawCue(cue);}
         for(const auto& shadow:effects.shadows)drawShadow(shadow);
         for(const auto& fighter:fighters)drawFighter(fighter);
@@ -553,7 +563,7 @@ void StageRenderer::blurLayer(const FighterAsset& asset,StageLayer layer,unsigne
         }
         if(const auto* pixels=fighterTexture(asset,pose)) {
             g_blurRendererQa.tiles=g_blurRendererQa.tiles+1;
-            drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,width,height,false,color);
+            drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,width,height,false,color,0,asset.textureScale(pose));
         } else g_blurRendererQa.missing=g_blurRendererQa.missing+1;
     }
 }
@@ -576,7 +586,7 @@ void StageRenderer::opticalLayer(const MapOpticalAsset& info,const FighterAsset&
         if(x+rootShift.x>=ViewWidth||x+rootShift.x+width<=0||y+rootShift.y>=Height||y+rootShift.y+height<=0)continue;
         if(const auto* pixels=fighterTexture(art,pose)){
             g_opticalRendererQa.tiles=g_opticalRendererQa.tiles+1;
-            drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,width,height,false,color);
+            drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,width,height,false,color,0,art.textureScale(pose));
         }else g_opticalRendererQa.missing=g_opticalRendererQa.missing+1;
     }
 }
@@ -602,10 +612,14 @@ bool StageRenderer::transition(TransitionAsset& asset,unsigned frame){
 
 void StageRenderer::image(const UiAsset& ui, const char* key, float x, float y, float width, float height, bool flip) {
     if (const auto* sprite = ui.find(key)) {
+        const float outputWidth=width>0?width*StageTextureScale:sprite->width;
+        const float outputHeight=height>0?height*StageTextureScale:sprite->height;
+        const bool native=std::abs(outputWidth-sprite->width)<.05f&&std::abs(outputHeight-sprite->height)<.05f;
+        float px=x*StageTextureScale,py=y*StageTextureScale;
+        if(native){px=std::round(px+Pillar+rootShift.x)-Pillar-rootShift.x;py=std::round(py+rootShift.y)-rootShift.y;}
+        sceGuTexFilter(native?GU_NEAREST:GU_LINEAR,native?GU_NEAREST:GU_LINEAR);
         drawTexture(ui.pixels(*sprite), sprite->stride, sprite->rows,
-                    x * StageTextureScale, y * StageTextureScale, sprite->width, sprite->height,
-                    width > 0 ? width * StageTextureScale : sprite->width,
-                    height > 0 ? height * StageTextureScale : sprite->height, flip);
+                    px, py, sprite->width, sprite->height,outputWidth,outputHeight,flip);
     }
 }
 
@@ -665,12 +679,46 @@ void StageRenderer::diagnosticText(const char* text, float x, float y) {
 }
 #endif
 
-void StageRenderer::end() {
-    sceGuFinish();
+void StageRenderer::beginList() {
+    sceGuStart(deferred_ ? GU_SEND : GU_DIRECT, list);
+    // GU_SEND does not inherit the SDK's automatic per-frame buffer command.
+    // Rebind the actual current target, including after a cache-eviction fence.
+    if (deferred_) sceGuDrawBufferList(GU_PSM_8888, drawBuffer_, Stride);
+    // A streamed continuation must retain the stage's clipping boundary even
+    // after finishing/submitting another GU context to recycle texture memory.
+    const int left=int(std::ceil(double(Pillar)-.5)),right=int(std::ceil(double(Pillar+ViewWidth)-.5));
+    sceGuScissor(left,0,right-left,Height);
+    sceGuEnable(GU_SCISSOR_TEST);
+}
+
+void StageRenderer::finishList() {
+    const int used = sceGuFinish();
+    g_geSubmissionQa.lists = g_geSubmissionQa.lists + 1;
+    if (used > 0) g_geSubmissionQa.maxBytes = std::max(unsigned(g_geSubmissionQa.maxBytes),unsigned(used));
+    if (deferred_) {
+        const auto* completed = reinterpret_cast<const void*>(reinterpret_cast<std::uintptr_t>(list) | 0x40000000u);
+        if (sceGuSendList(GU_TAIL, completed, nullptr) < 0) g_geSubmissionQa.submitErrors = g_geSubmissionQa.submitErrors + 1;
+        g_geSubmissionQa.deferredLists = g_geSubmissionQa.deferredLists + 1;
+    }
     sceGuSync(GU_SYNC_FINISH, GU_SYNC_WHAT_DONE);
+}
+
+void StageRenderer::end() {
+    finishList();
+    renderedBuffer_ = drawBuffer_;
     listInFlight_ = false;
     drawBuffer_ = sceGuSwapBuffers();
     if (synchronized_) sceDisplayWaitVblankStart();
+}
+
+bool StageRenderer::readback(std::span<std::uint32_t> output) {
+    if (listInFlight_ || output.size() < Stride * Height) return false;
+    sceKernelDcacheWritebackInvalidateRange(output.data(), Stride * Height * 4);
+    sceGuStart(GU_DIRECT, list);
+    auto* source = static_cast<std::byte*>(sceGeEdramGetAddr()) + reinterpret_cast<std::uintptr_t>(renderedBuffer_);
+    sceGuCopyImage(GU_PSM_8888, 0, 0, Width, Height, Stride, source, 0, 0, Stride, output.data());
+    sceGuTexSync(); sceGuFinish(); sceGuSync(GU_SYNC_FINISH, GU_SYNC_WHAT_DONE);
+    return true;
 }
 
 void StageRenderer::draw(const StageAsset& stage, CameraView camera, std::span<const FighterView> fighters, SceneEffects effects) {

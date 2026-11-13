@@ -1,0 +1,80 @@
+{
+  "version": "1.0.3",
+  "program_sha256": "984e42f331a6219152795fce787173e0b5d99a3e31d139569c8b7a7d54e8a034",
+  "eboot_sha256": "2090e106222bc7945bc658231e43526dff6cd1874a3980bfc0f63c3e41ea118a",
+  "all_tests_passed": true,
+  "native_texture_count": 27213,
+  "decoded_textures": 31435,
+  "decoded_bytes": 3469191040,
+  "sanitizers": "ASan+UBSan passed",
+  "all_120_bank_metadata_identities_and_logical_texture_sizes_unchanged": true,
+  "host_report": "PASS banks=120 textures=31435 native2x=27213 decoded_bytes=3469191040",
+  "live_compare": {
+    "pass": true,
+    "status": {
+      "status": 2,
+      "error": 0,
+      "scene": 3,
+      "step": 359,
+      "pairs": 264,
+      "pixels": 34467840,
+      "differingPixels": 0,
+      "directBlack": 0,
+      "queuedBlack": 0,
+      "maxError": 0,
+      "guardFrames": 96,
+      "complexFrames": 47,
+      "pillarPixels": 0
+    },
+    "textureCache": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      219
+    ],
+    "textureStream": [
+      0,
+      0
+    ],
+    "ge": [
+      1704,
+      7820,
+      0,
+      1440
+    ],
+    "physicalPspTested": false,
+    "package": {
+      "EBOOT.PBP": "4671d93f80309a9dfb709e341fcc7143cc5f3ced3d8ce040990fb3805829057d"
+    }
+  },
+  "blend": {
+    "status": 2,
+    "error": 0,
+    "frames": 1024,
+    "cases": 5120,
+    "pixels": 2623488,
+    "maxError": 1,
+    "firstFrame": 0,
+    "mode": 0,
+    "alpha": 0,
+    "x": 0,
+    "expected": 0,
+    "actual": 0,
+    "quality": 0,
+    "parity": 0
+  },
+  "psp2000_emulated_load_cases": 5,
+  "psp1000_emulated_load_cases": 2,
+  "native_clarity_physical_tested": false,
+  "baseline_user_acceptance": "work/queued-ge-20261114/USER_ACCEPTANCE.json",
+  "complete_install_rebuild": {
+    "byte_identical": true,
+    "files": 196,
+    "log": "rebuild-verification.log"
+  }
+}

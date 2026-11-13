@@ -9,7 +9,6 @@
 #include "fighter_cpu.hpp"
 #include "game_settings.hpp"
 #include "psp_audio.hpp"
-#include "psp_musou.hpp"
 #include "psp_stage_renderer.hpp"
 #include "psp_allocation_recovery.hpp"
 #include "roster_asset.hpp"
@@ -21,6 +20,7 @@
 #include <cctype>
 #include <cstdio>
 #include <cstring>
+#include <cstdarg>
 #include <iterator>
 #include "source_scene_qa.hpp"
 #include "source_paint_qa.hpp"
@@ -38,6 +38,12 @@
 PSP_MODULE_INFO("Bleach vs Naruto 3.7", PSP_MODULE_USER, 1, 0);
 PSP_MAIN_THREAD_ATTR(PSP_THREAD_ATTR_USER | PSP_THREAD_ATTR_VFPU);
 PSP_HEAP_SIZE_KB(-1024);
+#ifdef BVN_LIVE_RENDER_QA
+extern "C" {
+struct LiveRenderQA {unsigned status,error,scene,step,pairs,pixels,differingPixels,directBlack,queuedBlack,maxError,guardFrames,complexFrames,pillarPixels;} g_liveRenderQa;
+extern volatile struct GeSubmissionQA {unsigned lists,maxBytes,submitErrors,deferredLists;} g_geSubmissionQa;
+}
+#endif
 
 extern "C" {
 bvn::SourceSceneQa g_sceneGameQa;
@@ -204,21 +210,18 @@ namespace {
 
 enum class Screen : unsigned {
     Title, FirstFighter, SecondFighter, Stage, Fight, Pause, LoadError, FirstAssist, SecondAssist, FirstOrder, SecondOrder,
-    ArcadeWinner, ArcadeContinue, ArcadeOver, ArcadeClear, ArcadeMissing, Musou, WlanMenu, WlanRoom, Credits, Settings, Keys
+    ArcadeWinner, ArcadeContinue, ArcadeOver, ArcadeClear, ArcadeMissing,
+    WlanMenu = 17, WlanRoom, Credits, Settings, Keys
 };
 
 constexpr std::uint32_t Panel = 0xe51d1224, Accent = 0xffe0bb48, Rival = 0xffc14afe;
 constexpr unsigned ConfirmButtons = PSP_CTRL_CROSS | PSP_CTRL_START;
 constexpr std::array TitleModes{BattleMode::Versus, BattleMode::Training, BattleMode::Arcade,
-                                BattleMode::TeamArcade, BattleMode::TeamVersus, BattleMode::Wlan, BattleMode::Musou,
-                                BattleMode::Credits, BattleMode::Settings};
-constexpr std::array TitleModesWithoutMusou{BattleMode::Versus, BattleMode::Training, BattleMode::Arcade,
                                 BattleMode::TeamArcade, BattleMode::TeamVersus, BattleMode::Wlan,
                                 BattleMode::Credits, BattleMode::Settings};
 
-std::span<const BattleMode> titleModes(bool musou) {
-    if (musou) return TitleModes;
-    return TitleModesWithoutMusou;
+std::span<const BattleMode> titleModes() {
+    return TitleModes;
 }
 
 unsigned titleIndex(std::span<const BattleMode> modes, BattleMode mode) {
@@ -263,6 +266,11 @@ public:
     bool start();
     void step(unsigned held, unsigned pressed);
     void draw();
+    void deferred(bool value) { renderer_.deferred(value); }
+    bool deferred() const { return renderer_.deferred(); }
+#ifdef BVN_LIVE_RENDER_QA
+    bool liveRenderProbe(const std::string& reportFolder);
+#endif
 
 private:
     void stepGame(unsigned held, unsigned pressed, WlanPad second = {});
@@ -347,7 +355,6 @@ private:
     FighterAsset mapOpticalArt_;
     unsigned creditsPage_ = 0, creditsPages_ = 0, creditsEntries_ = 0;
     RosterAsset roster_, assistRoster_;
-    PspMusou musou_;
     std::vector<MapChoice> maps_;
     ArcadeRun arcade_;
     const ArcadeStage* arcadeEncounter_ = nullptr;
@@ -382,7 +389,7 @@ bool Game::start() {
     if (!installGameAllocationRecovery(renderer_)) return false;
 #ifdef BVN_RESOURCE_DIAGNOSTICS
     if (auto* log = std::fopen((folder_ + "BVN_DIAG.LOG").c_str(), "w")) {
-        std::fprintf(log, "BVN37 1.0.0 HWD2\nreader=%s\nfirmware=0x%08x\n",
+        std::fprintf(log, "BVN37 1.0.3 HWD3 HD QUEUED-GE\nreader=%s\nfirmware=0x%08x\n",
                      resourceDiagnostics.synchronousOnly ? "stdio-only" : "original-readahead", sceKernelDevkitVersion());
         std::fclose(log);
     }
@@ -425,8 +432,6 @@ bool Game::start() {
     catalog_ = *catalog;
     defaultMap_ = map_;
     if (!arcade_.open((folder_ + "ARCADE.BVM").c_str(), roster_, assistRoster_, maps_.size())) return false;
-    musou_.presentationAssets(hudArt_,transitionArt_,comboArt_);
-    musou_.open(folder_, roster_);
     if (!reactionArt_.open((folder_ + "REACTION.BVF").c_str(), FighterAsset::TextureResidency::LowMemory)) return false;
     constexpr unsigned reactionFrames[]{34,17,15,14,16};
     for (unsigned cue=0;cue<std::size(reactionFrames);++cue)
@@ -1032,7 +1037,7 @@ void Game::stepGame(unsigned held, unsigned pressed, WlanPad second) {
             }
         }
 #endif
-        const auto modes = titleModes(musou_.ready());
+        const auto modes = titleModes();
         const auto count = modes.size();
         if (pressed & (PSP_CTRL_UP | PSP_CTRL_DOWN)) {
             const unsigned step = pressed & PSP_CTRL_DOWN ? 1 : count - 1;
@@ -1044,11 +1049,6 @@ void Game::stepGame(unsigned held, unsigned pressed, WlanPad second) {
             if (mode_ == BattleMode::Wlan) {
                 wlanOption_ = 0;
                 screen_ = Screen::WlanMenu;
-                audio_.music("select");
-                break;
-            }
-            if (mode_ == BattleMode::Musou) {
-                screen_ = Screen::Musou;
                 audio_.music("select");
                 break;
             }
@@ -1075,12 +1075,6 @@ void Game::stepGame(unsigned held, unsigned pressed, WlanPad second) {
             creditsPage_ = changeChoice(creditsPage_, creditsPages_, pressed);
             audio_.play(Sound::Select);
         }
-        break;
-    case Screen::Musou:
-#ifdef BVN_MUSOU_QA
-        musou_.replayPad(held, pressed);
-#endif
-        if (!musou_.step(pressed, humanControls(0,held,pressed), audio_, renderer_, held)) screen_ = Screen::Title;
         break;
     case Screen::FirstFighter:
     case Screen::SecondFighter:
@@ -1261,7 +1255,7 @@ void Game::centered(const char* key, float x, float y, float width, float height
 
 void Game::drawTitle() {
     image("title", 0, 0, 800, 600);
-    const auto modes = titleModes(musou_.ready());
+    const auto modes = titleModes();
     const unsigned selected = titleIndex(modes, mode_);
     constexpr unsigned visible = 7;
     const unsigned first = selected >= visible ? selected - visible + 1 : 0;
@@ -1285,7 +1279,7 @@ void Game::drawTitle() {
             break;
         case BattleMode::Training: centered("training", 400, y, 149, 30); break;
         case BattleMode::Wlan: centered("label-wlan", 400, y); break;
-        case BattleMode::Musou: musou_.titleLabel(renderer_, y); break;
+        default: break;
         case BattleMode::Watch: centered("label-watch-single", 400, y); break;
         case BattleMode::TeamWatch: centered("label-watch-team", 400, y); break;
         case BattleMode::Credits: centered("label-credits", 400, y); break;
@@ -1306,7 +1300,6 @@ void Game::applySettings() {
     cpuLevel_=settings_.difficulty;aiGameHz_=settings_.gameHz();
     audio_.volumes(settings_.soundPercent(),settings_.musicPercent());
     renderer_.quality(settings_.quality);
-    musou_.gameHz(settings_.gameHz(),settings_.shineHz());
 }
 
 FighterControls Game::humanControls(unsigned side,unsigned held,unsigned pressed) {
@@ -2249,9 +2242,7 @@ void Game::record() {
 
 void Game::draw() {
     renderer_.begin();
-    if (screen_ == Screen::Musou) {
-        musou_.draw(renderer_, ui_, &reactionArt_, &combatArt_);
-    } else if (round_) {
+    if (round_) {
         drawFight();
     } else {
         renderer_.beginUi();
@@ -2259,7 +2250,8 @@ void Game::draw() {
         case Screen::Title:
             drawTitle();
 #ifdef BVN_RESOURCE_DIAGNOSTICS
-            renderer_.diagnosticText(resourceDiagnostics.synchronousOnly ? "HWD2: STDIO ONLY  [R: SWITCH]" : "HWD2: ORIGINAL IO  [R: SWITCH]", 2, 2);
+            renderer_.diagnosticText(resourceDiagnostics.synchronousOnly ? "HD 1.0.3: STDIO ONLY" : "HD 1.0.3: ORIGINAL IO", 2, 2);
+            renderer_.diagnosticText(renderer_.deferred() ? "GE: QUEUED FRAME" : "GE: ORIGINAL DIRECT", 2, 12);
 #endif
             break;
         case Screen::Credits: drawCredits(); break;
@@ -2316,6 +2308,10 @@ void Game::draw() {
     record();
 }
 
+#ifdef BVN_LIVE_RENDER_QA
+#include "../tests/live_render_probe.inc"
+#endif
+
 int exitGame(int, int, void*) {
     sceKernelExitGame();
     return 0;
@@ -2347,13 +2343,41 @@ int main(int argc, char** argv) {
     bvn::resourceDiagnostics.synchronousOnly = (startupPad.Buttons & PSP_CTRL_RTRIGGER) ||
         sceIoGetstat((diagnosticFolder + "BVN_SYNC.IO").c_str(), &syncStat) == 0;
 #endif
-    static bvn::Game game(slash == std::string::npos ? "" : launch.substr(0, slash + 1));
+    const auto launchFolder = slash == std::string::npos ? std::string{} : launch.substr(0, slash + 1);
+#ifdef BVN_LIVE_RENDER_QA
+    bvn::resourceDiagnostics.synchronousOnly = true;
+    static bvn::Game game(launchFolder + "../BVN37/");
+#else
+    static bvn::Game game(launchFolder);
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    game.deferred(!(startupPad.Buttons & PSP_CTRL_LTRIGGER));
+#endif
+#endif
+    {
+        const auto path=launchFolder+"BVN_HWD3.LOG";
+        const int boot=sceIoOpen(path.c_str(),PSP_O_WRONLY|PSP_O_CREAT|PSP_O_TRUNC,0777);
+        if(boot>=0){
+            char line[384];const int n=std::snprintf(line,sizeof(line),"BVN37 1.0.3 HWD3 HD\nGE=%s\nfirmware=0x%08x\nlaunch=%s\n",game.deferred()?"queued-frame":"original-direct",sceKernelDevkitVersion(),launch.c_str());
+            if(n>0)sceIoWrite(boot,line,std::min(n,int(sizeof(line)-1)));
+            sceIoClose(boot);sceIoSync(launchFolder.starts_with("ef0:")?"ef0:":"ms0:",0);
+        }
+    }
     if (!game.start()) {
         pspDebugScreenInit();
         pspDebugScreenPrintf("Missing or invalid game data. Copy the full game folder.\n");
         sceKernelSleepThread();
         return 1;
     }
+#ifdef BVN_LIVE_RENDER_QA
+    g_liveRenderQa.status = 1;
+    bool complete=false;
+    try { complete=game.liveRenderProbe(launchFolder); } catch (...) {g_liveRenderQa.error=99;}
+    g_liveRenderQa.status=complete?2:3;
+    pspDebugScreenInit();
+    pspDebugScreenPrintf("BVN37 LIVE RENDER CHECK\n\nREPORT SAVED\n\nPress X to exit and reconnect card.\n");
+    for(;;){SceCtrlData pad{};sceCtrlReadBufferPositive(&pad,1);if(pad.Buttons&PSP_CTRL_CROSS)break;sceDisplayWaitVblankStart();}
+    sceKernelExitGame();return 0;
+#endif
     unsigned previous = 0;
     unsigned previousVblank = sceDisplayGetVcount();
     for (;;) {

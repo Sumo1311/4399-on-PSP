@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild the integrated BVN37 hwd2 formal package with its verified synchronous-reader default."""
+"""Rebuild BVN37 1.0.3 using the matching verified high-density installation data."""
 import argparse
 from contextlib import ExitStack
 import hashlib
@@ -13,8 +13,7 @@ import zipfile
 root = Path(__file__).resolve().parent
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--install-zip', type=Path, required=True,
-                    help='BVN37_PSP_1.0.0_Install.zip from the bvn37-v1.0.0 Release')
-parser.add_argument('--patch-zip', type=Path, help='Optional HWD2 targeted patch applied over the full installation ZIP')
+                    help='Complete BVN37_PSP_1.0.3_Install.zip')
 parser.add_argument('--build-dir', type=Path, default=root / 'build/psp')
 parser.add_argument('--output', type=Path, default=root / 'build/install/PSP/GAME/BVN37')
 parser.add_argument('--require-identical', action='store_true',
@@ -28,16 +27,13 @@ assert len(data_files) == manifest.get('install_files', 200) - 1
 def asset_contents():
     with ExitStack() as stack:
         base = stack.enter_context(zipfile.ZipFile(args.install_zip))
-        patch = stack.enter_context(zipfile.ZipFile(args.patch_zip)) if args.patch_zip else None
-        patch_names = set(patch.namelist()) if patch else set()
         for name in data_files:
             assert Path(name).name == name
             key = 'PSP/GAME/BVN37/' + name
-            archive = patch if key in patch_names else base
-            if name == 'BVN_SYNC.IO' and key not in base.namelist() and key not in patch_names and manifest.get('default_reader') == 'stdio-only':
+            if name == 'BVN_SYNC.IO' and key not in base.namelist() and manifest.get('default_reader') == 'stdio-only':
                 yield name, b''
             else:
-                yield name, archive.read(key)
+                yield name, base.read(key)
 
 for name, content in asset_contents():
     assert hashlib.sha256(content).hexdigest() == data_files[name], 'Installation data mismatch: ' + name

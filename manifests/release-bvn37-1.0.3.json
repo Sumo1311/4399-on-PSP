@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/Sumo1311/4399-on-PSP",
+  "tag": "bvn37-v1.0.3",
+  "title": "死神 vs 火影 3.7 Alpha PSP 1.0.3（清晰画质正式版）",
+  "version": "1.0.3",
+  "package_revision": "hwd3-native-clarity",
+  "install_path": "PSP/GAME/BVN37/EBOOT.PBP",
+  "install_files": 196,
+  "default_reader": "stdio-only",
+  "watch_modes_excluded": true,
+  "musou_mode_excluded": true,
+  "counts": {
+    "selectable_forms": 76,
+    "internal_forms": 2,
+    "assists": 42,
+    "maps": 19,
+    "native_2x_textures": 27213
+  },
+  "eboot_sha256": "2090e106222bc7945bc658231e43526dff6cd1874a3980bfc0f63c3e41ea118a",
+  "program_sha256": "984e42f331a6219152795fce787173e0b5d99a3e31d139569c8b7a7d54e8a034",
+  "source_and_install_rebuild": "byte-identical all 196 files",
+  "physical_psp_clarity_tested": false,
+  "baseline_physical_user_feedback": {
+    "version": "1.0.2 HWD3",
+    "statement": "检查和普通游戏都没有",
+    "scope": "previously reported black rectangles"
+  },
+  "full_flash_fidelity_claimed": false,
+  "sustained_hardware_60fps_claimed": false,
+  "release_assets_policy": "game-installers-only",
+  "publication_layout": "one-game-per-release",
+  "support_materials": {
+    "native_source": "source/bvn37",
+    "verification": "source/bvn37/CLARITY_VERIFICATION.json"
+  },
+  "assets": [
+    {
+      "name": "BVN37_PSP_1.0.3_Install.zip",
+      "bytes": 517767950,
+      "sha256": "c62dcc331c1921b15cbe5aa05a66356167db0455729474d0ba405f1088218df9",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.3/BVN37_PSP_1.0.3_Install.zip"
+    }
+  ]
+}

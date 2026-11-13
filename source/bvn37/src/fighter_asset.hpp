@@ -182,6 +182,14 @@ public:
         return pose.tiled() ? std::span(tiles_).subspan(pose.offset, pose.width) : std::span(&pose, 1);
     }
     static std::size_t textureSize(const FighterPose& pose) { return 4u * pose.stride * pose.rows; }
+    unsigned textureScale(const FighterPose& pose) const {
+        return denseTextures_ && pose.offset < textures_.size() &&
+            textures_[pose.offset].rawSize == 4 * textureSize(pose) ? 2 : 1;
+    }
+    std::size_t pixelBytes(const FighterPose& pose) const {
+        const auto scale = textureScale(pose);
+        return textureSize(pose) * scale * scale;
+    }
     const void* pixels(const FighterPose& pose) const {
         return textures_.empty() ? pixels_.data() + pose.offset / 16 : nullptr;
     }
@@ -197,7 +205,7 @@ private:
     struct alignas(16) PixelBlock { std::array<std::byte, 16> bytes; };
     struct PackedTexture { std::uint32_t offset, packedSize, rawSize; };
     bool readLegacy(std::FILE* stream, std::size_t length);
-    bool readCurrent(std::FILE* stream, std::size_t length, unsigned version, TextureResidency residency);
+    bool readCurrent(std::FILE* stream, std::size_t length, unsigned version, TextureResidency residency, bool forceLz4 = false);
     bool readPixels(std::FILE* stream, std::size_t length, std::size_t start,
                     TextureResidency residency = TextureResidency::Standard);
     bool validate(std::size_t payload) const;
@@ -205,6 +213,7 @@ private:
     std::uint64_t metadataIdentity_=0;
 
     bool assister_ = false;
+    bool denseTextures_ = false;
     FighterStats stats_{};
     unsigned defenseType_ = 0;
     std::uint32_t aiUnusedBreaks_ = 0, aiUnusedKnockdowns_ = 0;

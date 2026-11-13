@@ -1,0 +1,737 @@
+{
+  "density": 2,
+  "native_texture_count": 27213,
+  "total_texture_count": 31437,
+  "fighter_banks": 78,
+  "assist_banks": 42,
+  "banks_with_native_rasters": 119,
+  "unmatched_bank_rasters": [
+    "AMINATO.BVS"
+  ],
+  "decoder": "LZ4",
+  "logical_metadata_preserved": true,
+  "metadata_identity_preserved": true,
+  "texture_memory_budget_bytes": 3145728,
+  "per_bank": {
+    "ITACHI.BVF": {
+      "textures": 494,
+      "native_2x": 374,
+      "original_metadata": "11128754833589514237",
+      "final_sha256": "01d037c2f95170df943ffb42b297c9a2b1f2f0174dd8e963ff95c607e55e4b29"
+    },
+    "ICHIGO.BVF": {
+      "textures": 399,
+      "native_2x": 364,
+      "original_metadata": "13941729921716280296",
+      "final_sha256": "e8024db0227d33d9d97755f9c72d6130283661772f719e20374b3d1c6406f926"
+    },
+    "NARUTO.BVF": {
+      "textures": 515,
+      "native_2x": 475,
+      "original_metadata": "11760147108397122358",
+      "final_sha256": "09eaa41b589c138540533a59745965a4a44e38493319d5cfa9354f27e27e874e"
+    },
+    "ICHIGOB.BVF": {
+      "textures": 314,
+      "native_2x": 281,
+      "original_metadata": "17730652285654017936",
+      "final_sha256": "a27b8f6c0b4994c13e89619dd1aef48d10568f1b359a8d15cf04da90e4678fa0"
+    },
+    "ICHIGOH.BVF": {
+      "textures": 447,
+      "native_2x": 363,
+      "original_metadata": "7509480394052009567",
+      "final_sha256": "0d258141c1f7c40e0899679824636048e72d456b5769f7bde2bebbd899412485"
+    },
+    "ICHIGOV.BVF": {
+      "textures": 302,
+      "native_2x": 257,
+      "original_metadata": "2006042826423392281",
+      "final_sha256": "180b236eeec30948f44664c360a19d42b3a7da9f17cb983249f9b554317c8d60"
+    },
+    "RUKIA.BVF": {
+      "textures": 222,
+      "native_2x": 214,
+      "original_metadata": "4839707762847023799",
+      "final_sha256": "838094fdee0155870b6350b0d6609e4a514324fedec8bb59b03dc5d69e96ea23"
+    },
+    "RUKIAS.BVF": {
+      "textures": 294,
+      "native_2x": 284,
+      "original_metadata": "544159885995616291",
+      "final_sha256": "193378b68eabe03949003216c40e901dff9317873e0e3063029970af0464d2fa"
+    },
+    "RENJI.BVF": {
+      "textures": 357,
+      "native_2x": 290,
+      "original_metadata": "9638962542998946886",
+      "final_sha256": "654869497cea382ba9ee390c7fc48afa3c2895e026fad6bbf5b6395379549148"
+    },
+    "HINATA.BVF": {
+      "textures": 680,
+      "native_2x": 677,
+      "original_metadata": "10663094393784139879",
+      "final_sha256": "d77a96e78af954aa4e4603b6521b7486e65b0b68e10e3af36722ae0e5dc89329"
+    },
+    "SUIGETSU.BVF": {
+      "textures": 414,
+      "native_2x": 413,
+      "original_metadata": "6783196854689930333",
+      "final_sha256": "34121e32ea807c116f5a8ef232d0433354b5ff40bc918a089e014044b58cb0fd"
+    },
+    "SASUKE.BVF": {
+      "textures": 337,
+      "native_2x": 331,
+      "original_metadata": "7117826591667431814",
+      "final_sha256": "619a3d516a1649763a46463814877d734a64683adf8f2dc13b89ccff756866d9"
+    },
+    "SASUKEM.BVF": {
+      "textures": 312,
+      "native_2x": 306,
+      "original_metadata": "3297524843085005360",
+      "final_sha256": "cf906f7e8f88606fbb4ffe0de3dd09163017cf221e1a8287c8697cc471439f33"
+    },
+    "SAKURA.BVF": {
+      "textures": 320,
+      "native_2x": 306,
+      "original_metadata": "14519755335473095703",
+      "final_sha256": "20ea960e12814e02e4f995cf6a2ad4a24e85f36bea63637e0ec2ee1b6cd955ff"
+    },
+    "SAKURASR.BVF": {
+      "textures": 381,
+      "native_2x": 369,
+      "original_metadata": "17317598883701886639",
+      "final_sha256": "af9a51efc4654d78034051906b50484ae10c58262f58db7d37b6bb6416f7f994"
+    },
+    "NARUTO1.BVF": {
+      "textures": 322,
+      "native_2x": 245,
+      "original_metadata": "13689672453089438899",
+      "final_sha256": "6bf9814580b3170cf9535d5ebf24e1e92f27ae528ade11ed215db45e9d8a95d0"
+    },
+    "NARUTO4.BVF": {
+      "textures": 387,
+      "native_2x": 369,
+      "original_metadata": "15632232048421810240",
+      "final_sha256": "b2120d768b2b799740ef0e0a2f2ce54d11d806c12adf9855eb55ac3a757b6f0e"
+    },
+    "KENPACHI.BVF": {
+      "textures": 272,
+      "native_2x": 254,
+      "original_metadata": "14215168423829928802",
+      "final_sha256": "7593cb29d2bdb1fc1b79ad8df0fb620424713ae4b03887b52ef5f5ee9d0b32c3"
+    },
+    "IKKAKU.BVF": {
+      "textures": 191,
+      "native_2x": 168,
+      "original_metadata": "16779657600156913225",
+      "final_sha256": "510028d1e9bc0fe9629dbb8d3d28cf879e03efda5df7997267fa8b14c762bb2d"
+    },
+    "GIN.BVF": {
+      "textures": 263,
+      "native_2x": 228,
+      "original_metadata": "10636741500680597265",
+      "final_sha256": "fe1e1e8ba78d769dfd488534b7dd5dbec2b9ee8c2088465f2ab32eef2897222d"
+    },
+    "CHAD.BVF": {
+      "textures": 284,
+      "native_2x": 283,
+      "original_metadata": "13928530362655330293",
+      "final_sha256": "b48bd4c7208d2ad105818a2145a9d927400509332e97d0b316a0a9103d6da2bf"
+    },
+    "URYUU.BVF": {
+      "textures": 340,
+      "native_2x": 295,
+      "original_metadata": "3727208341040625213",
+      "final_sha256": "9897b07adfc5ca4617e3502e63aa9f4f68edaae21beae2652f1a28c87e58aaff"
+    },
+    "URYUUG.BVF": {
+      "textures": 401,
+      "native_2x": 383,
+      "original_metadata": "2725724746416596904",
+      "final_sha256": "21d34bb1e3a69c27dca069fefbce78e91256dfc3d58e4fada1cf8540e5e6851d"
+    },
+    "DEIDARA.BVF": {
+      "textures": 342,
+      "native_2x": 320,
+      "original_metadata": "13666596059546066727",
+      "final_sha256": "3ce69eedc143ba7ab06a14090f0f0f81ba01a2c7d819d9761e6e5296877a2586"
+    },
+    "DEIDARAO.BVF": {
+      "textures": 393,
+      "native_2x": 380,
+      "original_metadata": "16272331293919710825",
+      "final_sha256": "16392d86b95d8a3749caa5f3bc096761fae49f7e9507141e727fca4da122b83a"
+    },
+    "ITACHIO.BVF": {
+      "textures": 309,
+      "native_2x": 182,
+      "original_metadata": "15798504002044547079",
+      "final_sha256": "8af6d20850a5cf218272917f0f76f9e5737925d4ca2beb0916ba324ca25ace52"
+    },
+    "JUGGO.BVF": {
+      "textures": 387,
+      "native_2x": 348,
+      "original_metadata": "3422962485521432642",
+      "final_sha256": "c2ebac7e674d3387de376bb068a3da953a9c8ced61a2ae829f455ba96d844f4a"
+    },
+    "JUGGOO.BVF": {
+      "textures": 303,
+      "native_2x": 302,
+      "original_metadata": "3706846062010380516",
+      "final_sha256": "eedfb0c6954a6f28032a324ce2c476bf499ea1508ef2dfbdc5d1b8315a302b7b"
+    },
+    "KARIN.BVF": {
+      "textures": 226,
+      "native_2x": 225,
+      "original_metadata": "15281393887730210455",
+      "final_sha256": "762ff721d2ef3ef2753b7ea140e12c0f1fe03f6550544d3e3915a83ed18fa494"
+    },
+    "SASUKESU.BVF": {
+      "textures": 431,
+      "native_2x": 426,
+      "original_metadata": "4756445947334480757",
+      "final_sha256": "543314958e6ea93068400faa6eba1fb484870c4bc8e5651bda260bada6802b4f"
+    },
+    "SASUKESO.BVF": {
+      "textures": 455,
+      "native_2x": 354,
+      "original_metadata": "15253709758717710529",
+      "final_sha256": "ef79f88df0925f06bb0509b1b101a2a03df1ed9535f15b875dcf130ae4b83213"
+    },
+    "TOSHIRO.BVF": {
+      "textures": 356,
+      "native_2x": 321,
+      "original_metadata": "10750354922560043769",
+      "final_sha256": "59737ba56b612c581f523186cb6b574c0e486c411046131d0c2371e3586cdd82"
+    },
+    "TOSHIROB.BVF": {
+      "textures": 314,
+      "native_2x": 310,
+      "original_metadata": "11745188046717156151",
+      "final_sha256": "64123567bc13dbc4cd7ff58e7ee327f8b4ae30c5cc1d2c435e76beb5262ab06d"
+    },
+    "BYAKUYA.BVF": {
+      "textures": 446,
+      "native_2x": 395,
+      "original_metadata": "17612786457420297390",
+      "final_sha256": "1599e7e60df3ab86e88e1ed743960feb9189af0506ba208cc1ae9daab1dd9b9c"
+    },
+    "BYAKUYB.BVF": {
+      "textures": 645,
+      "native_2x": 514,
+      "original_metadata": "11492091529081088153",
+      "final_sha256": "dc9fbae59c15b35bebeb8b72153a1f15297abd4ff2aeeb544aeca53eafc02875"
+    },
+    "BYAKUYBO.BVF": {
+      "textures": 321,
+      "native_2x": 236,
+      "original_metadata": "14480985443061054759",
+      "final_sha256": "5805bac64a78090f79584affb2f1005dc8e2ed5c33791852ff6c56796a3c5508"
+    },
+    "MAYURI.BVF": {
+      "textures": 353,
+      "native_2x": 349,
+      "original_metadata": "5508831029848829737",
+      "final_sha256": "788628ee92549bb17aabaf43a81ca5594da0a5145e9aea003ed00d001d1bc0e3"
+    },
+    "TENSA.BVF": {
+      "textures": 422,
+      "native_2x": 403,
+      "original_metadata": "11515317926258767857",
+      "final_sha256": "b5949cde0c1434fcb477253eb547e1d537a1aa5597a0b82fec8818145ac84e21"
+    },
+    "TEMARI.BVF": {
+      "textures": 355,
+      "native_2x": 238,
+      "original_metadata": "3502953765732845407",
+      "final_sha256": "7ed4ea4647aa36acdebec9b39a2a062bea59c02e3995ebcd4819b4bbfd43f5f4"
+    },
+    "GAARA.BVF": {
+      "textures": 711,
+      "native_2x": 674,
+      "original_metadata": "3647632452212016691",
+      "final_sha256": "0c476a2f2014c8dd93da5b4004e5aa5882dbf171ed5d3d3d4bab76ec80dcd406"
+    },
+    "GAARAO.BVF": {
+      "textures": 336,
+      "native_2x": 299,
+      "original_metadata": "1917603068952773903",
+      "final_sha256": "d432f2ce86fd1ab1f694c8204e5c4b85e1f2fa3fb473478b9f11a496015c0687"
+    },
+    "NEJI.BVF": {
+      "textures": 277,
+      "native_2x": 276,
+      "original_metadata": "1547184256390220767",
+      "final_sha256": "043a27f65bd51dcbe31e9a5d7ac1758ebc5ea874143ddd63a75436bc26fac7d6"
+    },
+    "LEE.BVF": {
+      "textures": 306,
+      "native_2x": 305,
+      "original_metadata": "1455528882605168509",
+      "final_sha256": "b235eea3398b55756a6f3833e583eaed66d3b771331e041e41bed74071a6c22d"
+    },
+    "LEEDOMEN.BVF": {
+      "textures": 452,
+      "native_2x": 451,
+      "original_metadata": "13223058825732227682",
+      "final_sha256": "a57a20f4aacc2cb000db4bda089168a4451fa1d7bdff5fab5d56084cac557ef4"
+    },
+    "KAKASHI.BVF": {
+      "textures": 430,
+      "native_2x": 429,
+      "original_metadata": "13082878388785867169",
+      "final_sha256": "cbf3cbe5db68e3517a4d08a38fab39e8557b235b0d5b36b733d586769c038f5f"
+    },
+    "KAKASHIK.BVF": {
+      "textures": 411,
+      "native_2x": 394,
+      "original_metadata": "13453525777044500897",
+      "final_sha256": "cfa97842d2e58af4db3052cbeb819513a04aaa1e04b67a7997933b321c70532b"
+    },
+    "ICHIGOZ.BVF": {
+      "textures": 156,
+      "native_2x": 156,
+      "original_metadata": "604506569310908439",
+      "final_sha256": "d919a9b65d96b09a128e852d0323ee7e659840b6f352a83af837e15fe02646bc"
+    },
+    "OGIHCI.BVF": {
+      "textures": 409,
+      "native_2x": 375,
+      "original_metadata": "6606322625390120568",
+      "final_sha256": "171ecea721acfc0c1e98a5b4c0edd7abe9a4dc697b7825233039df86d328f82d"
+    },
+    "OGIHCIB.BVF": {
+      "textures": 302,
+      "native_2x": 203,
+      "original_metadata": "16969064077833849433",
+      "final_sha256": "fe91eaefa78729701a740e5d0e4396e60a418f8940101abc077408835211909f"
+    },
+    "ORIHIME.BVF": {
+      "textures": 340,
+      "native_2x": 334,
+      "original_metadata": "15809590372167461632",
+      "final_sha256": "11819afff444c740060cc9e7a20bf923bfcc80e09c83a4373c8d0c61d4233f37"
+    },
+    "SOIFON.BVF": {
+      "textures": 318,
+      "native_2x": 283,
+      "original_metadata": "17200645982479930834",
+      "final_sha256": "0e0eeef4f298c30730c826f6b667f3dcd84e92b73440c14c3fc2956c7a2757f9"
+    },
+    "SOIFONO.BVF": {
+      "textures": 301,
+      "native_2x": 268,
+      "original_metadata": "5066065616258141923",
+      "final_sha256": "041ff2395d57d3312e15a0fa7c046b80a001b49b5a2b8dc23aaa8bce029a4ec3"
+    },
+    "YORUICHI.BVF": {
+      "textures": 399,
+      "native_2x": 382,
+      "original_metadata": "10703872491491043982",
+      "final_sha256": "9a101aff96ca9f35d64f3808d24e28ae2bdc9b90734eab79abc9b731b6805249"
+    },
+    "KONAN.BVF": {
+      "textures": 353,
+      "native_2x": 345,
+      "original_metadata": "3374424292859110155",
+      "final_sha256": "7922a5b81d6ba5162a13e62ea55ab2b63108c7c3008407140521ff9b848ac6d6"
+    },
+    "PAIN.BVF": {
+      "textures": 446,
+      "native_2x": 428,
+      "original_metadata": "12079428551648391523",
+      "final_sha256": "02ecc809ac101592b4bb61295853156ccb38b7b209d67190d749ff63f835d5b4"
+    },
+    "PAINO.BVF": {
+      "textures": 499,
+      "native_2x": 467,
+      "original_metadata": "6926225399515970188",
+      "final_sha256": "7385c68aa4e426d7329f0cd0ee9aa8c045187a1d849b28504fe844975c4db655"
+    },
+    "KIMIMARO.BVF": {
+      "textures": 329,
+      "native_2x": 328,
+      "original_metadata": "10980676946213779310",
+      "final_sha256": "20b0a99fc2e57497caaa05b1d7dd3bc8e6bb1ddc4ba72576eda26a3cad17d6b5"
+    },
+    "OROCHIM.BVF": {
+      "textures": 393,
+      "native_2x": 360,
+      "original_metadata": "15658701277206198765",
+      "final_sha256": "1456fd7707c6796ac184661b39cc15df9f30babe00ba853ae02e815485cf8f5f"
+    },
+    "JIRAIYA.BVF": {
+      "textures": 307,
+      "native_2x": 222,
+      "original_metadata": "2915943581673632174",
+      "final_sha256": "5b80a42872b6e289d66eec731faf66f47e4fbf2b19f553e409586ef5592c4dde"
+    },
+    "GRIMMJOW.BVF": {
+      "textures": 235,
+      "native_2x": 234,
+      "original_metadata": "9000937195846024985",
+      "final_sha256": "02cf35db295d44d2fc5ab7e60305f55e8dcf5526d475f3271243dc1c53706b77"
+    },
+    "ULQUIOR.BVF": {
+      "textures": 485,
+      "native_2x": 306,
+      "original_metadata": "8965991435212201339",
+      "final_sha256": "e8a9855fef390d6eecd5316002b1afa654b3c0a9d46bfd273e07a9e4fad46a0f"
+    },
+    "ULQUIORR.BVF": {
+      "textures": 417,
+      "native_2x": 297,
+      "original_metadata": "8211178475068826097",
+      "final_sha256": "3dd6a6f7c29b20b271b7ce545675ea2c87bc2daf7137951a75e488538966a919"
+    },
+    "ULQUIRO.BVF": {
+      "textures": 239,
+      "native_2x": 237,
+      "original_metadata": "13442708816425550836",
+      "final_sha256": "77d15939259bc56b95859666c396a5effd47d54787086527e7da89bbb7eeef60"
+    },
+    "STARRK.BVF": {
+      "textures": 352,
+      "native_2x": 265,
+      "original_metadata": "5392989440903361200",
+      "final_sha256": "6a8dce7f916ad2f05dc2a976d31d28618e609f4936bc156ead1665ec6a60fa72"
+    },
+    "OBITO.BVF": {
+      "textures": 364,
+      "native_2x": 292,
+      "original_metadata": "194834587179579257",
+      "final_sha256": "29c3dcd91828d489b08ffc49baa7e685b89afee7926c3cf3d94bfc06cc210509"
+    },
+    "OBITOTC.BVF": {
+      "textures": 355,
+      "native_2x": 244,
+      "original_metadata": "12791574297385855970",
+      "final_sha256": "9fd5331a5f02de5d22b62388750edbad3d2eea9ba53e2fe41e11ff2e60b18079"
+    },
+    "OBITOO.BVF": {
+      "textures": 264,
+      "native_2x": 226,
+      "original_metadata": "5657795152610600204",
+      "final_sha256": "f269fdc36dab7c5e34c6dfff54b025ada8f54ec3f134ba161c4c6a3edfb5efbd"
+    },
+    "KILLERBE.BVF": {
+      "textures": 362,
+      "native_2x": 287,
+      "original_metadata": "13094664813935447904",
+      "final_sha256": "2b3fd7e30fb2a94e543198dc9e1ff3bf905dcf5499a13380693d31f0d3fe38b1"
+    },
+    "NARUTOHM.BVF": {
+      "textures": 544,
+      "native_2x": 396,
+      "original_metadata": "5175604809951982599",
+      "final_sha256": "45b2cb0670645bb8fe3da1dcc08bf269ab09092ab1b24a9709f86a200d2ec747"
+    },
+    "NARUTOK.BVF": {
+      "textures": 573,
+      "native_2x": 500,
+      "original_metadata": "12470654620391740470",
+      "final_sha256": "62f971599ed8c5a7ea2984fef500beb41a0695ff8b867d3ab9324b5b298511c5"
+    },
+    "NARUTOO.BVF": {
+      "textures": 740,
+      "native_2x": 668,
+      "original_metadata": "16099407269713424518",
+      "final_sha256": "1694d01aee0dc816285547f6ed086632d625b3ee70ae2481249e1b40e3f33012"
+    },
+    "AIZEN.BVF": {
+      "textures": 741,
+      "native_2x": 652,
+      "original_metadata": "15623888344891499935",
+      "final_sha256": "45e9cb9fbffed328a0f468d496cb0f7aa3981b23360fa59121943d412879a3b6"
+    },
+    "AIZENGZ.BVF": {
+      "textures": 730,
+      "native_2x": 257,
+      "original_metadata": "12530967616681876015",
+      "final_sha256": "fd3351d45266039a17ae42b9440d62e67f97c060b980b7d5c479cb08fdacbb8b"
+    },
+    "KENSHIN.BVF": {
+      "textures": 330,
+      "native_2x": 316,
+      "original_metadata": "17227569076205105411",
+      "final_sha256": "e19c285d59a47fa2af9a7b319667514ce55aaf3a33012499bd4c607350c8362b"
+    },
+    "KENSHINS.BVF": {
+      "textures": 435,
+      "native_2x": 217,
+      "original_metadata": "15849396128309333970",
+      "final_sha256": "047607a364a71a4250fa73d3164938eacbaa19cfa79d7fb99e729a1680bcfb27"
+    },
+    "MADARA.BVF": {
+      "textures": 598,
+      "native_2x": 418,
+      "original_metadata": "13671210359097868483",
+      "final_sha256": "aed07bc6fa620e24b6e54936861c03dedcccd248cb3560e56b10846b65d37869"
+    },
+    "SASUKES2.BVF": {
+      "textures": 312,
+      "native_2x": 306,
+      "original_metadata": "3297524843085005360",
+      "final_sha256": "cf906f7e8f88606fbb4ffe0de3dd09163017cf221e1a8287c8697cc471439f33"
+    },
+    "BYAKUYNS.BVF": {
+      "textures": 279,
+      "native_2x": 261,
+      "original_metadata": "3152638860634506999",
+      "final_sha256": "4af407f45e3458bd24d1b0dae51d52a9ce6ead26e4dd93a57b15ee00ccfdecb6"
+    },
+    "AGIN.BVS": {
+      "textures": 15,
+      "native_2x": 14,
+      "original_metadata": "9770866582409255125",
+      "final_sha256": "2af0be6084310c5ed675fa944c8823be56990598675b74f1cc73774b59dbdab1"
+    },
+    "AHINATA.BVS": {
+      "textures": 18,
+      "native_2x": 17,
+      "original_metadata": "3341076146675535700",
+      "final_sha256": "820be8aefdd786fec4aecfd43371ab170f085f7b00719753513f86fe42d1af28"
+    },
+    "AKON.BVS": {
+      "textures": 24,
+      "native_2x": 23,
+      "original_metadata": "4445978185613182067",
+      "final_sha256": "7e897354745c48bc2fe80dac215eb738bfe1c6bce1c22314f89410321ba6a6eb"
+    },
+    "AORIHIME.BVS": {
+      "textures": 30,
+      "native_2x": 29,
+      "original_metadata": "1854664155612614101",
+      "final_sha256": "d25eaaec137a9155c71fa8237e8315ab869490ec2bd6db5b3521f06547d2f1aa"
+    },
+    "AYORUIC.BVS": {
+      "textures": 10,
+      "native_2x": 9,
+      "original_metadata": "17988729326764231408",
+      "final_sha256": "9017771705e03cc107774a9422206bdf0fc8ff0cc3de9848435737c45bc17397"
+    },
+    "AURYUU.BVS": {
+      "textures": 30,
+      "native_2x": 27,
+      "original_metadata": "3517942202554709108",
+      "final_sha256": "e0c43344b5a9127a9429278fd56a4ebfd80bd468b444b18c0d2327b87b3041b8"
+    },
+    "AKENP.BVS": {
+      "textures": 33,
+      "native_2x": 32,
+      "original_metadata": "16217857865177344650",
+      "final_sha256": "e2ed484455f17a5177e5c1f0c51bea63da1b7be60ba9389da3aa1bed9baf61f2"
+    },
+    "AITACHI.BVS": {
+      "textures": 38,
+      "native_2x": 35,
+      "original_metadata": "7379233137244947007",
+      "final_sha256": "e49b68ef2eeba64ce75bff8a2100ff66a63857047f0f579cb39816f144861c17"
+    },
+    "ATENTEN.BVS": {
+      "textures": 14,
+      "native_2x": 13,
+      "original_metadata": "3448678943977908922",
+      "final_sha256": "d8c3b787666f4276be0e70eb1cb19ed2e95563c0205d2514804cd20548118d68"
+    },
+    "AINO.BVS": {
+      "textures": 49,
+      "native_2x": 28,
+      "original_metadata": "2542068952603382186",
+      "final_sha256": "8bee5a46969dada146e0239cfc9148bc67afb3bcc183b85a1ef0edb1cb86ee96"
+    },
+    "ATEMARI.BVS": {
+      "textures": 122,
+      "native_2x": 16,
+      "original_metadata": "4446246111382548276",
+      "final_sha256": "f30b2f30e2073cf89f7acf649b5b3874dd383d42769ca47dbc04abfdf3d3434e"
+    },
+    "AGAARA.BVS": {
+      "textures": 31,
+      "native_2x": 30,
+      "original_metadata": "5026627851448702674",
+      "final_sha256": "75d3cdd43b9472df8961a38ed086c8832f89c475beed7f52156fb1d186363e09"
+    },
+    "AHOLLOW.BVS": {
+      "textures": 22,
+      "native_2x": 21,
+      "original_metadata": "8676937307441083266",
+      "final_sha256": "c47b12faf6e87b2881e7d96a4425abaa81de125018cd2b2885d4a02898761cda"
+    },
+    "AYACHIRU.BVS": {
+      "textures": 31,
+      "native_2x": 30,
+      "original_metadata": "13006868989219756060",
+      "final_sha256": "31c1078cb8c41c22da80afa14c93aee5f924bbeaed85fd963b6238f7b2de8343"
+    },
+    "ASTARRK.BVS": {
+      "textures": 50,
+      "native_2x": 41,
+      "original_metadata": "11064788304248659931",
+      "final_sha256": "af5917d706f5f6ed8fccb66c232f523f017be62e449b18f6969529dcd469024f"
+    },
+    "AHALIBEL.BVS": {
+      "textures": 17,
+      "native_2x": 16,
+      "original_metadata": "7273980495191461598",
+      "final_sha256": "dd2d2cf70c8dd71b221a6c28e37553a55f55fec88d9a91706979d99b75c7c320"
+    },
+    "AGRIM.BVS": {
+      "textures": 17,
+      "native_2x": 16,
+      "original_metadata": "688567530795845128",
+      "final_sha256": "fbcfea926331af04d232e9e86dd3e0ef7dc08cc6d82202c083a16e80b7d9269d"
+    },
+    "AJIRAIYA.BVS": {
+      "textures": 23,
+      "native_2x": 22,
+      "original_metadata": "7623671511176074338",
+      "final_sha256": "7e315df371e3e96db0d9a3f3a0ac47c8173f2f8b327b0029f013616f79ed0d5f"
+    },
+    "AMINATO.BVS": {
+      "textures": 45,
+      "native_2x": 0,
+      "original_metadata": "12250975316277094720",
+      "final_sha256": "5104cbeb574f6239f17a621ecf75397713afa96bdb965ae8397bc5748d65840e"
+    },
+    "ATSUCHI.BVS": {
+      "textures": 31,
+      "native_2x": 30,
+      "original_metadata": "8163478602723976766",
+      "final_sha256": "3e7a090713ae8f9b1cf517ab9f4cf306a59f8d70a6d73fbe08a774235fca270c"
+    },
+    "ATSUNATE.BVS": {
+      "textures": 37,
+      "native_2x": 36,
+      "original_metadata": "17829714160377517753",
+      "final_sha256": "8ff1f37b0b0e17156024c7475a0ba2896ee8a7455b3b59d3fad9750b60c02ee3"
+    },
+    "ASOIFON.BVS": {
+      "textures": 30,
+      "native_2x": 17,
+      "original_metadata": "8457337202319353136",
+      "final_sha256": "5975d03620cd6f2eaf27887dc6b6bca198c3da705424dc192f3dc1bbdf98e17c"
+    },
+    "ANEMU.BVS": {
+      "textures": 18,
+      "native_2x": 17,
+      "original_metadata": "15443106689577159968",
+      "final_sha256": "62397d8266d227e86615eb53b854d4f213101732b72a9d20dee31d257e086e55"
+    },
+    "APADIP.BVS": {
+      "textures": 13,
+      "native_2x": 7,
+      "original_metadata": "1947169557969388730",
+      "final_sha256": "613ee3f419e073df3703575eff970723cb3e34f63a882d2ce45723325c27c782"
+    },
+    "ARANGIKU.BVS": {
+      "textures": 21,
+      "native_2x": 20,
+      "original_metadata": "13226207376493891568",
+      "final_sha256": "c33be63095fc98d0e2296c3c312b07f38328ff8addb604a296d2d0b7e33a1891"
+    },
+    "AOBITO.BVS": {
+      "textures": 18,
+      "native_2x": 17,
+      "original_metadata": "3065837370061788181",
+      "final_sha256": "6f0a9be1e3e480325b89750d62a6a8394a264be8fded6c512277b8153fee0e56"
+    },
+    "ASHIKA.BVS": {
+      "textures": 24,
+      "native_2x": 23,
+      "original_metadata": "12424914626366094598",
+      "final_sha256": "92fe0733ad3100fd6ff336d58de577c587ff848eb25fcfc837448558bc4ca332"
+    },
+    "AKIMI.BVS": {
+      "textures": 26,
+      "native_2x": 25,
+      "original_metadata": "1915867378133054609",
+      "final_sha256": "9227e62d047b5fbadaaf1c471eec72fe469a0670d41bf78936c7a03124d802c6"
+    },
+    "ASAI.BVS": {
+      "textures": 14,
+      "native_2x": 13,
+      "original_metadata": "15133758934742197025",
+      "final_sha256": "ef91ced82023bc0d495101d28e665a99a67162d25b6da41d1fcedf24766f12a5"
+    },
+    "ASUIGET.BVS": {
+      "textures": 18,
+      "native_2x": 17,
+      "original_metadata": "11399804840249929089",
+      "final_sha256": "6e06a592154e7f4114b2d451b307e4ab45db61d615ce4a0acbe295bd68b4dff3"
+    },
+    "ABYAKUY.BVS": {
+      "textures": 21,
+      "native_2x": 7,
+      "original_metadata": "4531503342211021379",
+      "final_sha256": "b5505ba72978f0c94f51bd6c42c7bdd109fbe1d3fc6afd368a23617ac3353393"
+    },
+    "AIKKAKU.BVS": {
+      "textures": 29,
+      "native_2x": 28,
+      "original_metadata": "14698566160770151704",
+      "final_sha256": "4356355fa8e2904368ade7b47aa6e7695f6f3136f601d2a340b95b0fbca01e6a"
+    },
+    "ARENJI.BVS": {
+      "textures": 28,
+      "native_2x": 27,
+      "original_metadata": "3018906275367430502",
+      "final_sha256": "a86cdc2b9a61da637835c24e75ff7301fed06ada73a07b719f51673fbdf9ecfd"
+    },
+    "ANARUTO.BVS": {
+      "textures": 62,
+      "native_2x": 61,
+      "original_metadata": "5411316430514825681",
+      "final_sha256": "3d1a9aa0faab8e1b19da76ed3a351d165ee7249f1f5b6ea5291581f606d3dd45"
+    },
+    "AKABUTO.BVS": {
+      "textures": 66,
+      "native_2x": 65,
+      "original_metadata": "3316910986719934514",
+      "final_sha256": "a001bfe86bf09879db2b1e90ce7ba765e608152be48cec20a63340fba7642d41"
+    },
+    "AUTAKATA.BVS": {
+      "textures": 38,
+      "native_2x": 33,
+      "original_metadata": "8880058876880567969",
+      "final_sha256": "df9f7361a4edc9bac1844f3908a88be702bacb85e1bbe30a77aaa6a630582fe1"
+    },
+    "AHIRUKO.BVS": {
+      "textures": 18,
+      "native_2x": 17,
+      "original_metadata": "16685918786874095056",
+      "final_sha256": "aacd75799326f0155eaf11b406c2b04593ce993f0586a9838a69a3d3a52a671f"
+    },
+    "ASAKURA.BVS": {
+      "textures": 13,
+      "native_2x": 12,
+      "original_metadata": "4014913424794544162",
+      "final_sha256": "3eee6f302ed05a23484473ce6c13583968fed2a416ee1df11e66274987d083d0"
+    },
+    "AYLS.BVS": {
+      "textures": 55,
+      "native_2x": 54,
+      "original_metadata": "14234668638241606681",
+      "final_sha256": "0d197fc5810823d57c57c8d0882a56c085503102f3094346883d82cfdbea029a"
+    },
+    "AYAMAMOT.BVS": {
+      "textures": 27,
+      "native_2x": 5,
+      "original_metadata": "16593619647766425458",
+      "final_sha256": "8b54268cf6655fbbd8a3caccf316ce19fc29eda54ce3441488a4f2440c1d4c03"
+    },
+    "ASHISHIO.BVS": {
+      "textures": 27,
+      "native_2x": 26,
+      "original_metadata": "2204869293666597333",
+      "final_sha256": "3639ba4ada7df83e90b013e85b5c10afa802cb093e71c866cbc82c1e3a3922e9"
+    },
+    "AMADARA.BVS": {
+      "textures": 48,
+      "native_2x": 47,
+      "original_metadata": "5881726249532034505",
+      "final_sha256": "bafad1c536d4d9c3996b004bf1deb4f5bb232444ac6e3250f9a2dbfcf19a75e0"
+    }
+  }
+}
