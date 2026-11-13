@@ -37,3 +37,5 @@ The Flipside Box2D implementation is an altered version of Erin Catto's original
 pthread-embedded corresponding source is the unmodified PSP fork at commit `97fe4ce006b420894f2bcaeb530d1f1f53111fc2`, included in the Release's relinking archive. The original game object files and a relinking tool are supplied with it. PSPSDK build provenance is recorded in that archive. The GCC runtime exception remains attached to the eligible compiler runtime portions; it is not used to relicense pthread-embedded.
 
 Build-only reference tools such as JPEXS, Ruffle and PPSSPP are not bundled as runtime components of these installation packages.
+
+The Bleach vs Naruto 1.0.0 `xmb1` update adds companion XMB illustrations generated with the built-in image_gen tool for this port. Masters, packaging PNGs and generation prompts are included in its Source and Artwork attachments. Original character and trademark rights remain with their respective owners.

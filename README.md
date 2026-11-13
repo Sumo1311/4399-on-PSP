@@ -32,7 +32,7 @@
 | 勇者之路：精灵物语 | [1.0.1 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.13/ElfStory_PSP-1.0.1.zip) |
 | 双人旋转赛车 · Flipside | [1.0.3 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.13/Flipside_PSP-1.0.3.zip) |
 | 火柴人羽毛球 2 | [1.0.18 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/v2026.11.13/Badminton2_PSP-1.0.18.zip) |
-| 死神 vs 火影 3.7 Alpha（5DPLAY） | [1.0.0 独立正式包](https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.0) |
+| 死神 vs 火影 3.7 Alpha（5DPLAY） | [1.0.0 封面背景更新版](https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.0) |
 
 四款完整 EBOOT.PBP 均已从保留源码重建并逐字节核对。实际 PSP 帧率和两台真机 WLAN 仍需分别验证，正式版本身份不代替设备测试。
 
@@ -41,3 +41,7 @@
 [发行版本页面](https://github.com/Sumo1311/4399-on-PSP/releases)
 
 死神 vs 火影 1.0.0：76 个可选形态、2 个内部形态、42 名援助、11 种无双杂兵、19 张场景，默认简体中文，不添加观战模式。模拟器资源、操作、存档及双实例 WLAN 检查已通过；实体 PSP 和完整原版细节仍有待验证项，详见发行页的核验报告与已知边界。
+
+1.0.0 的 `xmb1` 修订已加入一护与鸣人的封面和 PSP 菜单背景。安装包、完整源码和图片附件见同一发行页；运行程序与 199 个游戏数据文件逐字节一致，已重新执行源码压缩包独立重建及安装包冷启动实战检查。
+
+![死神 vs 火影 PSP 封面](https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/BVN37_Cover.png)
