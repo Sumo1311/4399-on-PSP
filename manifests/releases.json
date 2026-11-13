@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "repository": "Sumo1311/4399-on-PSP",
+  "updated_at": "2026-11-13T17:26:39.040719+08:00",
+  "publication_layout": "one-game-per-release",
+  "release_assets_policy": "one-complete-game-installer-per-release",
+  "games": [
+    {
+      "id": "forest-temple",
+      "package_id": "ForestTemple_PSP",
+      "title": "森林冰火人：森林神殿 PSP 构建 11（优化正式版）",
+      "version": "build11 + 2026-11-11 优化版",
+      "tag": "forest-temple-build11",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/forest-temple-build11",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/forest-temple-build11/ForestTemple_PSP-build11.zip",
+      "asset_name": "ForestTemple_PSP-build11.zip",
+      "bytes": 9859387,
+      "sha256": "72b0ebd7429c36dc1747e7fe1280be5d67a75af273f36ade7f62a83fa5a7a91d",
+      "eboot_sha256": "77a0dcff99c82fe0024c8a160bc4383d8cd367cd982ce957782735e416ea1999",
+      "program_sha256": "b3e0ccc2b0f01014fdee07ac7950acca642cfbf3ac4d3716d787ffb700d455cb"
+    },
+    {
+      "id": "elf-story",
+      "package_id": "ElfStory_PSP",
+      "title": "勇者之路：精灵物语 PSP 1.0.1（优化正式版）",
+      "version": "1.0.1 + 2026-11-11 优化版",
+      "tag": "elf-story-v1.0.1",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/elf-story-v1.0.1",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/elf-story-v1.0.1/ElfStory_PSP-1.0.1.zip",
+      "asset_name": "ElfStory_PSP-1.0.1.zip",
+      "bytes": 96705611,
+      "sha256": "e0ca941c7309ebfc43b16f42f10dc04e1c393a17a63ac3cfd4ad85a0ad3b0525",
+      "eboot_sha256": "700d70058f51b1561942766d6872e67bdc89e963227b9f8940d56eccc43048d3",
+      "program_sha256": "b3686b7d7b2afc62ff25b3e784e9118d4188115009df958bf37815650c8fb5ac"
+    },
+    {
+      "id": "flipside",
+      "package_id": "Flipside_PSP",
+      "title": "双人旋转赛车 Flipside PSP 1.0.3（优化正式版）",
+      "version": "1.0.3 + 2026-11-11 优化版",
+      "tag": "flipside-v1.0.3",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/flipside-v1.0.3",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/flipside-v1.0.3/Flipside_PSP-1.0.3.zip",
+      "asset_name": "Flipside_PSP-1.0.3.zip",
+      "bytes": 15463440,
+      "sha256": "88ab7f2f49dfeb157879b35cfb0e24606b710e18e936eb317d14262e4d7a07d9",
+      "eboot_sha256": "1a9f34153eab9be158590acfc0b731253b405e9f500d47e918608b71c09138eb",
+      "program_sha256": "63da604349b53ba89376f7dfdbbac1fbf1fb912a1b9078ba1c5cbe9ce9c4bc26"
+    },
+    {
+      "id": "badminton",
+      "package_id": "Badminton2_PSP",
+      "title": "火柴人羽毛球 2 PSP 1.0.18（优化正式版）",
+      "version": "1.0.18 + 2026-11-11 优化版",
+      "tag": "badminton2-v1.0.18",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/badminton2-v1.0.18",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/badminton2-v1.0.18/Badminton2_PSP-1.0.18.zip",
+      "asset_name": "Badminton2_PSP-1.0.18.zip",
+      "bytes": 32050742,
+      "sha256": "fb6e05e538e97943206d6e9275ed3f58cece6c6abb52b6d0077ff03b4b7d30a5",
+      "eboot_sha256": "17179b00c9f2c6d4a781a5d6f090d53ce231d4675728020426447df629f78fae",
+      "program_sha256": "e88236e4e762ddb41226a30f2fee5f5d3dbb61dbc122044d2ad645164df78ff9"
+    },
+    {
+      "id": "bvn37",
+      "package_id": "BVN37",
+      "title": "死神 vs 火影 3.7 Alpha PSP 1.0.0（HWD2 整合正式版）",
+      "version": "1.0.0",
+      "package_revision": "hwd2-final",
+      "tag": "bvn37-v1.0.0",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.0",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/BVN37_PSP_1.0.0_Install.zip",
+      "asset_name": "BVN37_PSP_1.0.0_Install.zip",
+      "bytes": 282079319,
+      "sha256": "79171f974ffdeb8922f24be953ddb545ee25aee96c72fb1000bdedf95f8d8045",
+      "eboot_sha256": "c2f5ec9fe27e283359124424bc1883cc47324b590331fab2b0651af2cbbb98dd",
+      "program_sha256": "1704b146f650b0ef9a12780c5d054e3a0215782ec82adf397f1ba87c90b0f180"
+    }
+  ]
+}

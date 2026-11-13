@@ -2,7 +2,7 @@
   "schema_version": 1,
   "repository": "https://github.com/Sumo1311/4399-on-PSP",
   "tag": "bvn37-v1.0.0",
-  "title": "死神 vs 火影 3.7 Alpha PSP 1.0.0",
+  "title": "死神 vs 火影 3.7 Alpha PSP 1.0.0（HWD2 整合正式版）",
   "version": "1.0.0",
   "software_content_qualified": true,
   "watch_modes_excluded": true,
@@ -20,14 +20,14 @@
   "assets": [
     {
       "name": "BVN37_PSP_1.0.0_Install.zip",
-      "bytes": 282090369,
-      "sha256": "43d81a534299627b93986eb120a8248d77eccd73faaf7323053dda85ece36686",
+      "bytes": 282079319,
+      "sha256": "79171f974ffdeb8922f24be953ddb545ee25aee96c72fb1000bdedf95f8d8045",
       "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.0/BVN37_PSP_1.0.0_Install.zip"
     }
   ],
-  "package_revision": "xmb1",
-  "runtime_unchanged": true,
-  "program_sha256": "326f8a16f1136488419a2156acbdf0a0d609b8e3028f9dd8955278fc97f0fdcb",
+  "package_revision": "hwd2-final",
+  "runtime_unchanged": false,
+  "program_sha256": "1704b146f650b0ef9a12780c5d054e3a0215782ec82adf397f1ba87c90b0f180",
   "xmb_artwork": {
     "icon0": [
       144,
@@ -43,5 +43,13 @@
   "support_materials": {
     "native_source": "source/bvn37",
     "relinking": "materials/Relink-Materials-2026.11.13.zip"
-  }
+  },
+  "runtime_unchanged_from_user_accepted_hwd2_patch": true,
+  "eboot_sha256": "c2f5ec9fe27e283359124424bc1883cc47324b590331fab2b0651af2cbbb98dd",
+  "install_files": 201,
+  "default_reader": "stdio-only",
+  "physical_psp_user_reported_pass": true,
+  "physical_psp_user_report_scope": "PSP-2000 / STDIO ONLY / previously reported issues",
+  "physical_psp_tested_by_agent": false,
+  "publication_layout": "one-game-per-release"
 }

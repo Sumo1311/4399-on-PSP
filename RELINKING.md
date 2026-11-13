@@ -1,6 +1,6 @@
 # Replacing the LGPL thread library
 
-[`Relink-Materials-2026.11.13.zip`](materials/Relink-Materials-2026.11.13.zip), stored in this repository, contains the application object files for the four current official programs, link configurations, EBOOT templates, the complete pthread-embedded corresponding source archive, modified application files and `relink.py`. Obtain external game assets from the installation ZIPs attached to the same release.
+[`Relink-Materials-2026.11.13.zip`](materials/Relink-Materials-2026.11.13.zip), stored in this repository, contains the application object files for the four current official programs, link configurations, EBOOT templates, the complete pthread-embedded corresponding source archive, modified application files and `relink.py`. Obtain external game assets from the corresponding per-game installation ZIP linked in README.md. Each game has its own Release.
 
 Extract the archive to obtain the `Performance-Build-Materials` directory. `toolchain.json` records the verification toolchain and static-library identities. All four complete EBOOT.PBP files were reproduced byte for byte from the retained complete local source after applying the retained SFO and XMB resources.
 
