@@ -62,9 +62,33 @@ constexpr std::size_t SmallTextureBudget = 512 * 1024;
 constexpr std::size_t StreamedTextureLimit = 32 * 1024 * 1024;
 constexpr std::size_t RequiredClips = static_cast<unsigned>(MoveClip::Hurt) + 1;
 
+void loadStep(const char* step, unsigned index = 0) {
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    std::snprintf(resourceDiagnostics.loading.step, sizeof(resourceDiagnostics.loading.step), "%s", step);
+    resourceDiagnostics.loading.index = index;
+#else
+    (void)step; (void)index;
+#endif
+}
+
+std::size_t loadRead(void* target, std::size_t size, std::size_t count, std::FILE* stream) {
+    const auto actual = std::fread(target, size, count, stream);
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    auto& context = resourceDiagnostics.loading;
+    context.expected = size * count; context.actual = size * actual;
+    if (actual != count) {
+        const int error = errno;
+        context.streamError = std::ferror(stream); context.eof = std::feof(stream);
+        context.position = std::ftell(stream);
+        errno = error;
+    }
+#endif
+    return actual;
+}
+
 template<class Container>
 bool read(std::FILE* stream, Container& items) {
-    return std::fread(items.data(), sizeof(typename Container::value_type), items.size(), stream) == items.size();
+    return loadRead(items.data(), sizeof(typename Container::value_type), items.size(), stream) == items.size();
 }
 
 bool textureExtent(unsigned n) {
@@ -104,10 +128,17 @@ bool FighterAsset::open(const char* path, TextureResidency residency) {
 #endif
 
     std::unique_ptr<FILE, decltype(&std::fclose)> file(std::fopen(path, "rb"), std::fclose);
-    if (!file || std::fseek(file.get(), 0, SEEK_END)) return false;
+    if (!file) return false;
+    loadStep("SEEK SIZE");
+    if (std::fseek(file.get(), 0, SEEK_END)) return false;
     const long length = std::ftell(file.get());
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    resourceDiagnostics.loading.fileLength = length;
+#endif
+    loadStep("FILE LENGTH");
     if (length < long(sizeof(Header))) return false;
     std::rewind(file.get());
+    loadStep("MAGIC");
     std::array<char, 8> magic{};
     if (!read(file.get(), magic)) return false;
     std::rewind(file.get());
@@ -148,7 +179,7 @@ bool FighterAsset::open(const char* path, TextureResidency residency) {
 #ifdef BVN_RESOURCE_DIAGNOSTICS
     };
     const bool loaded = load();
-    if (!loaded && resourceDiagnostics.failures == beforeFailure) diagnosticFailure(path, "FIGHTER OPEN", errno);
+    if (!loaded && resourceDiagnostics.failures == beforeFailure) diagnosticFailure(path, resourceDiagnostics.loading.step, errno);
     return loaded;
 #endif
 }
@@ -180,8 +211,9 @@ void FighterAsset::initializeAiHits() {
 }
 
 bool FighterAsset::readCurrent(std::FILE* stream, std::size_t length, unsigned version, TextureResidency residency) {
+    loadStep("HEADER");
     Header header{};
-    if (std::fread(&header, sizeof(header), 1, stream) != 1 ||
+    if (loadRead(&header, sizeof(header), 1, stream) != 1 ||
         !header.frameCount || header.frameCount > 32768 || header.hitCount > 32768 ||
         header.eventCount > 32768 || header.clipCount < (assister_ ? 1 : RequiredClips) || header.clipCount > 512 ||
         header.strikeCount > 4096) return false;
@@ -195,14 +227,15 @@ bool FighterAsset::readCurrent(std::FILE* stream, std::size_t length, unsigned v
     const bool namedAttackers = version >= 11;
     const bool hasHurtEscape = version >= 14;
     lz4Textures_ = version == 13 || version == 15;
+    loadStep("COUNTS");
     std::uint16_t projectileCount = 0, attackerCount = 0;
     std::uint32_t textureCount = 0, tileCount = 0;
-    if (hasProjectiles && (std::fread(&projectileCount, sizeof(projectileCount), 1, stream) != 1 || projectileCount > 512)) return false;
-    if (hasAttackers && (std::fread(&attackerCount, sizeof(attackerCount), 1, stream) != 1 || attackerCount > 512)) return false;
-    if (compressed && (std::fread(&textureCount, sizeof(textureCount), 1, stream) != 1 ||
-                       std::fread(&tileCount, sizeof(tileCount), 1, stream) != 1 || tileCount > 32768 ||
+    if (hasProjectiles && (loadRead(&projectileCount, sizeof(projectileCount), 1, stream) != 1 || projectileCount > 512)) return false;
+    if (hasAttackers && (loadRead(&attackerCount, sizeof(attackerCount), 1, stream) != 1 || attackerCount > 512)) return false;
+    if (compressed && (loadRead(&textureCount, sizeof(textureCount), 1, stream) != 1 ||
+                       loadRead(&tileCount, sizeof(tileCount), 1, stream) != 1 || tileCount > 32768 ||
                        !textureCount || textureCount > header.frameCount + tileCount)) return false;
-    if (hasHurtEscape && std::fread(&hurtEscape_, sizeof(hurtEscape_), 1, stream) != 1) return false;
+    if (hasHurtEscape && loadRead(&hurtEscape_, sizeof(hurtEscape_), 1, stream) != 1) return false;
     const std::size_t bindings = version >= 12 ? defaults_.size() :
         compressed ? unsigned(FighterCommand::CatchAttack) : extended ? 18 :
         version >= 7 ? 13 : hasProjectiles ? 10 : hasGuard ? 7 : 4;
@@ -217,8 +250,10 @@ bool FighterAsset::readCurrent(std::FILE* stream, std::size_t length, unsigned v
         header.frameCount * sizeof(FighterFrame) + header.hitCount * sizeof(FighterHit) +
         header.strikeCount * strikeSize + header.eventCount * sizeof(FighterEvent) + projectileCount * projectileSize +
         attackerCount * attackerSize + textureCount * sizeof(PackedTexture) + tileCount * sizeof(FighterPose);
+    loadStep("TABLE LAYOUT");
     if (header.pixelStart != ((tableEnd + 15) & ~std::size_t(15)) || header.pixelStart >= length) return false;
 
+    loadStep("ALLOC TABLES");
     stats_ = header.stats;
     clips_.resize(header.clipCount);
     frames_.resize(header.frameCount);
@@ -230,38 +265,52 @@ bool FighterAsset::readCurrent(std::FILE* stream, std::size_t length, unsigned v
     textures_.resize(textureCount);
     tiles_.resize(tileCount);
     defaults_.fill(MoveClip::Missing);
-    if (std::fread(defaults_.data(), sizeof(MoveClip), bindings, stream) != bindings ||
-        (ranges && std::fread(aiRanges_.data(), sizeof(FighterBox), ranges, stream) != ranges) ||
-        !read(stream, clips_) || !read(stream, frames_) || !read(stream, hits_)) return false;
+    loadStep("BINDINGS");
+    if (loadRead(defaults_.data(), sizeof(MoveClip), bindings, stream) != bindings) return false;
+    loadStep("AI RANGES");
+    if (ranges && loadRead(aiRanges_.data(), sizeof(FighterBox), ranges, stream) != ranges) return false;
+    loadStep("CLIPS"); if (!read(stream, clips_)) return false;
+    loadStep("FRAMES"); if (!read(stream, frames_)) return false;
+    loadStep("HITS"); if (!read(stream, hits_)) return false;
+    loadStep("STRIKES");
     if (extended) {
         if (!read(stream, strikes_) || std::ranges::any_of(strikes_, [](const auto& strike) { return !strike.key; })) return false;
     } else if (hasGuard) {
         for (auto& strike : strikes_) {
-            if (std::fread(&strike, strikeSize, 1, stream) != 1 || strike.flags > 7 || strike.slowTimeMs) return false;
+            if (loadRead(&strike, strikeSize, 1, stream) != 1 || strike.flags > 7 || strike.slowTimeMs) return false;
         }
     } else {
         for (FighterStrike& strike : strikes_) {
             LegacyStrike old{};
-            if (std::fread(&old, sizeof(old), 1, stream) != 1) return false;
+            if (loadRead(&old, sizeof(old), 1, stream) != 1) return false;
             strike = {old.hitX, old.hitY, old.damage, old.hurtFrames, old.hitType, old.flags, 0, 0, 0};
         }
     }
+    loadStep("EVENTS");
     if (!read(stream, events_)) return false;
+    loadStep("PROJECTILES");
     for (ProjectileAsset& projectile : projectiles_) {
-        if (std::fread(&projectile, projectileSize, 1, stream) != 1) return false;
+        if (loadRead(&projectile, projectileSize, 1, stream) != 1) return false;
     }
+    loadStep("ATTACKERS");
     for (AttackerAsset& attacker : attackers_) {
-        if (std::fread(&attacker, attackerSize, 1, stream) != 1 ||
+        if (loadRead(&attacker, attackerSize, 1, stream) != 1 ||
             (namedAttackers ? !attacker.key : attacker.targetAxes > 3)) return false;
     }
+    loadStep("TEXTURE TABLE");
     if(!read(stream,textures_)||!read(stream,tiles_)||std::fseek(stream,0,SEEK_SET))return false;
+    loadStep("METADATA HASH");
     metadataIdentity_=14695981039346656037ull;
     std::array<unsigned char,256> chunk{};std::size_t remaining=header.pixelStart;
     while(remaining){
-        const auto count=std::min(remaining,chunk.size());if(std::fread(chunk.data(),1,count,stream)!=count)return false;
+        const auto count=std::min(remaining,chunk.size());if(loadRead(chunk.data(),1,count,stream)!=count)return false;
         for(std::size_t i=0;i<count;++i){metadataIdentity_^=chunk[i];metadataIdentity_*=1099511628211ull;}
         remaining-=count;
     }
+
+#ifdef BVN_RESOURCE_DIAGNOSTICS
+    resourceDiagnostics.loading.metadata = metadataIdentity_;
+#endif
     return readPixels(stream,length,header.pixelStart,residency);
 }
 
@@ -277,7 +326,7 @@ std::optional<OpticalRect> FighterAsset::objectArea(unsigned index)const{
 
 bool FighterAsset::readLegacy(std::FILE* stream, std::size_t length) {
     LegacyHeader header{};
-    if (std::fread(&header, sizeof(header), 1, stream) != 1 || !header.frameCount || header.frameCount > 8192) return false;
+    if (loadRead(&header, sizeof(header), 1, stream) != 1 || !header.frameCount || header.frameCount > 8192) return false;
     const std::size_t tableEnd = sizeof(header) + RequiredClips * sizeof(FighterClip) + header.frameCount * sizeof(LegacyFrame);
     if (header.pixelStart != ((tableEnd + 15) & ~std::size_t(15)) || header.pixelStart >= length) return false;
 
@@ -304,13 +353,16 @@ bool FighterAsset::readLegacy(std::FILE* stream, std::size_t length) {
 }
 
 bool FighterAsset::readPixels(std::FILE* stream, std::size_t length, std::size_t start, TextureResidency residency) {
+    loadStep("PAYLOAD SIZE");
     const std::size_t payload = length - start;
-    if (payload > StreamedTextureLimit || !validate(payload)) return false;
+    if (payload > StreamedTextureLimit) return false;
+    if (!validate(payload)) return false;
     const auto residentLimit = residency == TextureResidency::LowMemory && !textures_.empty() ?
         SmallTextureBudget : TextureBudget;
     if (payload > residentLimit) {
         if (textures_.empty()) return false;
         std::size_t largest = 0;
+        loadStep("PACKED BOUND");
         for (const auto& texture : textures_) {
             const std::size_t bound = lz4Textures_ ? LZ4_compressBound(texture.rawSize) : compressBound(texture.rawSize);
             if (texture.packedSize > bound) return false;
@@ -320,6 +372,7 @@ bool FighterAsset::readPixels(std::FILE* stream, std::size_t length, std::size_t
         streamedBuffer_.resize(largest);
         return true;
     }
+    loadStep("PIXEL PAYLOAD");
     if (std::fseek(stream, static_cast<long>(start), SEEK_SET)) return false;
     if (!textures_.empty()) {
         compressed_.resize(payload);
@@ -340,7 +393,7 @@ bool FighterAsset::decodePixels(const FighterPose& pose, std::span<std::byte> ou
 #endif
         if (!input) {
             if (std::fseek(streamed_.get(), static_cast<long>(streamedStart_ + texture.offset), SEEK_SET) ||
-                std::fread(streamedBuffer_.data(), 1, texture.packedSize, streamed_.get()) != texture.packedSize) return false;
+                loadRead(streamedBuffer_.data(), 1, texture.packedSize, streamed_.get()) != texture.packedSize) return false;
             input = streamedBuffer_.data();
         }
     } else {
@@ -369,6 +422,7 @@ std::optional<unsigned> FighterAsset::nextForm(MoveClip id, unsigned current) co
 }
 
 bool FighterAsset::validate(std::size_t payload) const {
+    loadStep("CHECK STATS");
     if (hurtEscape_ != MoveClip::Missing && !has(hurtEscape_)) return false;
     if (!positive(stats_.speed) || !positive(stats_.jumpPower) || !positive(stats_.weight)) return false;
     if (!std::ranges::all_of(aiRanges_, [](const FighterBox& box) { return valid(box); })) return false;
@@ -377,17 +431,20 @@ bool FighterAsset::validate(std::size_t payload) const {
 
     std::size_t first = 0;
     for (std::size_t i = 0; i < clips_.size(); ++i) {
+        loadStep("CHECK CLIPS", i);
         const FighterClip& clip = clips_[i];
         if (clip.first != first || (!clip.count && (assister_ || i < RequiredClips)) ||
             (clip.count && (!clip.timelineStart || (clip.repeat != FinishClip && clip.repeat >= clip.count)))) return false;
         first += clip.count;
     }
     if (first != frames_.size()) return false;
+    loadStep("CHECK COMMANDS");
     for (MoveClip binding : defaults_) {
         if (binding != MoveClip::Missing && (assister_ || !has(binding))) return false;
     }
     if (has(command(FighterCommand::Guard)) != has(command(FighterCommand::GuardRecover))) return false;
 
+    loadStep("CHECK TEXTURES");
     if (!textures_.empty()) {
         std::size_t position = 0;
         for (const auto& texture : textures_) {
@@ -398,6 +455,7 @@ bool FighterAsset::validate(std::size_t payload) const {
         if (position != payload) return false;
     }
     const auto validPose = [&](const FighterPose& pose) {
+        loadStep("CHECK POSE");
         if (!std::isfinite(pose.x) || !std::isfinite(pose.y) ||
             !textureExtent(pose.stride) || !textureExtent(pose.rows) || !pose.width || !pose.height ||
             pose.width > pose.stride || pose.height > pose.rows) return false;
@@ -407,6 +465,7 @@ bool FighterAsset::validate(std::size_t payload) const {
     };
     if (!std::ranges::all_of(tiles_, validPose)) return false;
     for (const FighterFrame& frame : frames_) {
+        loadStep("CHECK FRAME", unsigned(&frame - frames_.data()));
         const FighterPose& pose = frame.pose;
         if (!valid(frame.body) ||
             !validSpan(frame.hitStart, frame.hitCount, hits_.size()) ||
@@ -417,6 +476,7 @@ bool FighterAsset::validate(std::size_t payload) const {
         } else if (!validPose(pose)) {
             return false;
         }
+        loadStep("CHECK FRAME OPS", unsigned(&frame - frames_.data()));
         const auto script = events(frame);
         for (std::size_t i = 0; i < script.size(); ++i) {
             if (isFighterBranch(script[i].op) && script[i].target >= script.size() - i) return false;
@@ -428,16 +488,19 @@ bool FighterAsset::validate(std::size_t payload) const {
             }
         }
     }
+    loadStep("CHECK HITS");
     for (const FighterHit& hit : hits_) {
         if (!valid(hit.box) || hit.box.empty() || hit.kind > 2 ||
             (hit.strike() && hit.strikeIndex >= strikes_.size()) ||
             (hit.display() && (assister_ || hit.strikeIndex != FinishClip))) return false;
     }
+    loadStep("CHECK STRIKES");
     for (const FighterStrike& strike : strikes_) {
         if (!std::isfinite(strike.hitX) || !std::isfinite(strike.hitY) ||
             (strike.hitType > 11 && strike.hitType != 0xffff) || strike.flags > 63) return false;
     }
     for (const FighterEvent& event : events_) {
+        loadStep("CHECK EVENT", unsigned(&event - events_.data()));
         if (event.op >= FighterOp::Count || !std::isfinite(event.x) || !std::isfinite(event.y) ||
             (event.op == FighterOp::Allow && (event.command >= FighterCommand::Count ||
                                              (event.target != FinishClip && !has(MoveClip(event.target))))) ||

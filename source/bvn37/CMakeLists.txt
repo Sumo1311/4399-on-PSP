@@ -370,7 +370,7 @@ if(PSP)
         pspnet pspnet_adhoc pspnet_adhocctl pspwlan psputility)
     set(BVN_GAME_TITLE "Bleach vs Naruto 3.7 Alpha")
     if(BVN_RESOURCE_DIAGNOSTICS)
-        set(BVN_GAME_TITLE "BVN37 HWD1 PSP Test")
+        set(BVN_GAME_TITLE "BVN37 HWD2 IO Test")
     endif()
     create_pbp_file(TARGET bvn_versus TITLE "${BVN_GAME_TITLE}" VERSION 01.00
                     ICON_PATH "${CMAKE_CURRENT_SOURCE_DIR}/artwork/xmb/ICON0.PNG"

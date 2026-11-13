@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Replace Deidara old's held visual poses without recompiling combat events."""
+"""Repair pinned held visual poses without recompiling combat events."""
 import argparse
 import hashlib
 import json
@@ -41,11 +41,18 @@ def bind_geometry(header, before, after):
 def repair(original, exported, output, object_area_header=None):
     assert original.resolve() != output.resolve(), 'Keep the original bank intact'
     source = original.read_bytes()
-    assert digest(source) == 'c7ebb810d45476d27bdd803fe768cc9d5aa01404105a40deb9aa5916dd80d5c8', 'Expected the verified 1.0.0 Deidara old bank'
+    profiles = {
+        'c7ebb810d45476d27bdd803fe768cc9d5aa01404105a40deb9aa5916dd80d5c8':
+            ((943, 42, 387, 0), [(0, 1), (2, 45)], False),
+        '7310c81dc12edcace29cd3342ae7850109d9e11bc57fbbe052bda645be567e9b':
+            ((879, 41, 260, 136), [(0, 1)], True),
+    }
+    assert digest(source) in profiles, 'Expected a verified 1.0.0 fighter bank'
+    dimensions, held_clips, only_transparent = profiles[digest(source)]
     magic, frame_count, hits, events, pixel_start, clip_count, strikes, *_ = struct.unpack_from('<8s4I2H3f', source)
-    assert magic == b'BVNFGT14', 'Expected the verified zlib Deidara legacy bank'
+    assert magic == b'BVNFGT14', 'Expected the verified zlib fighter bank'
     projectiles, attackers, texture_count, tile_count, _ = struct.unpack_from('<HHIIH', source, 40)
-    assert (frame_count, clip_count, texture_count, tile_count) == (943, 42, 387, 0)
+    assert (frame_count, clip_count, texture_count, tile_count) == dimensions
     clip_start = 54 + 24 * 2 + 24 * 16
     frame_start = clip_start + clip_count * 8
     texture_start = frame_start + frame_count * 48 + hits * 20 + strikes * 24 + events * 12 + projectiles * 92 + attackers * 24
@@ -58,12 +65,22 @@ def repair(original, exported, output, object_area_header=None):
     # Compressed texture records are contiguous; only metadata is aligned.
     timeline = read_timeline(exported)
     baker = FighterTextures(exported)
-    changes, new_textures = [], {}
-    for clip, parent in [(0, 1), (2, 45)]:
+    changes, new_textures, retained = [], {}, []
+    for clip, parent in held_clips:
         first, count, repeat, authored = struct.unpack_from('<4H', source, clip_start + clip * 8)
         assert authored == parent and count == 12 and repeat == 0
         assert timeline.cycles[parent] == (12, 0)
         for phase in range(count):
+            at = frame_start + (first + phase) * 48
+            if only_transparent:
+                old_x, old_y, old_index, old_width, old_height, old_stride, old_rows = struct.unpack_from('<ffI4H', source, at)
+                assert old_stride > 0
+                old_offset, old_packed, old_raw_size = struct.unpack_from('<3I', source, texture_start + old_index * 12)
+                old_raw = zlib.decompress(source[pixel_start + old_offset:pixel_start + old_offset + old_packed])
+                assert len(old_raw) == old_raw_size
+                if any(old_raw[3::4]):
+                    retained.append({'clip': clip, 'phase': phase, 'frame': first + phase})
+                    continue
             visual = baker.bake(f'{parent}-{phase}', timeline.children[parent, phase], allow_tiles=False)
             x, y, raw_offset, width, height, stride, rows = visual
             assert width > 0 and height > 0
@@ -98,6 +115,7 @@ def repair(original, exported, output, object_area_header=None):
              'before_metadata_identity': f'{fnv(source[:pixel_start]):016x}',
              'after_metadata_identity': f'{fnv(result[:new_start]):016x}',
              'replaced_poses': changes, 'new_textures': len(new_textures),
+             'previously_visible_held_poses_retained_byte_identically': retained,
              'all_original_texture_records_and_compressed_bytes_retained': True,
              'all_combat_events_boxes_commands_and_clip_timings_identical': True}
     if object_area_header:

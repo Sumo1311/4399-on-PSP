@@ -1907,7 +1907,7 @@
     "ASSISTS.BVR": "e36f5c411b0193f3ec4c0438baacef50d534a4cb2b0259d8e57ac763b77ac8c1",
     "ASTARRK.BVS": "f66d422e2bbb90c613336233ec6b510de4e4e7091df458eeb4efad1ec43bc45f",
     "MUSOU.PTS": "a2629d733ace3360a70a902e5cd51dcdec5615e5937b398a4887c8de3f4c0e22",
-    "GIN.BVF": "7310c81dc12edcace29cd3342ae7850109d9e11bc57fbbe052bda645be567e9b",
+    "GIN.BVF": "640ebd74296fbcc27ef439bca709571db1587af3f373a5746fffeff1c1f10eda",
     "MUYECUN.BVN": "68142accc19bf0b5dc547f61e23c63e394375c34de9ef16d822c1b648fa0f40a",
     "IKKAKU.BVF": "826e7c732dc6bef2dfd468137e35b98c3f75e3cc2ae541e1f7d287bc5cc3b2de",
     "YORUICHI.BVF": "690ef183dfdde8c9ab143629e1135200a0f76bdcc759369cb06a175e7f0cc8ea",
@@ -1939,7 +1939,7 @@
     "ICHIGOZ.BVF": "be8fc600d29c8fa243ff7cdfa9f052fe9b94aba9ca352e845dcf8abe66fba3b9",
     "AYORUIC.BVS": "a5c499f740d2e13d65093079d5fadf684430007e624e501cdf97386612a73227",
     "ARENJI.BVS": "8caeb693f922eb869ea7b0fec0863214540a11606072dd1ead1d7454640cc341",
-    "EBOOT.PBP": "81c8f348709c3403daf4d35cc0f99829686692d257d6a5a20072b8d0414dafc6",
+    "EBOOT.PBP": "7e24ffc9d6bc27b55ade58a264871da4e7bcf3f31ef9e85ab692892b950ca5ff",
     "XIANSHI.BVB": "4fb12a23764ef2332b25dd5f81da50e8de20c83d72ae3de6c36c617782564822",
     "ROSTER.BVR": "15d50bed628b6143b266f19083d1cb7747e3ec87bc9103ffd4449236ec5c166e",
     "XBNEART1.BVF": "7dccf0c256c72791622c63b13377a224e961a1b7ace62de9fd260ed6d68a8573",
@@ -1950,7 +1950,7 @@
     "ULQUIORR.BVF": "a3e197156954d80c718512b3d3297c3a57fd99bfdff2712dc73a2e80d6e68528",
     "KILLERBE.BVF": "92e5affcd030bce40b2db395edf052fae66cbedf629426370a034ba3e1309fcf"
   },
-  "package_revision": "hwd1",
+  "package_revision": "hwd2",
   "xmb_artwork": {
     "ICON0.PNG": {
       "width": 144,
@@ -1963,8 +1963,8 @@
       "sha256": "0466bc5ebbf803ed414fca66f2a56da4108d0f3d4700605ed9225760d85ed99b"
     }
   },
-  "status": "official",
+  "status": "hardware-test-candidate",
   "resource_diagnostics": true,
-  "eboot_sha256": "81c8f348709c3403daf4d35cc0f99829686692d257d6a5a20072b8d0414dafc6",
-  "program_sha256": "a5cee3d369fb02e0e05c1854d68ffd606960231c5d3cac481adc9771470a5c3a"
+  "eboot_sha256": "7e24ffc9d6bc27b55ade58a264871da4e7bcf3f31ef9e85ab692892b950ca5ff",
+  "program_sha256": "1704b146f650b0ef9a12780c5d054e3a0215782ec82adf397f1ba87c90b0f180"
 }
