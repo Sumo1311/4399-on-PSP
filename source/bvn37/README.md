@@ -1,29 +1,25 @@
-# 死神 vs 火影 3.7 Alpha PSP 1.0.4
+# 死神 vs 火影 3.7 Alpha PSP 1.0.5
 
-修复宇智波斑持续防御、大招及其他动作的黑色矩形，并按相同原因检查全部 120 个角色／援助素材包。19 个受影响素材包从原始 SWF 重建混合图层，覆盖其中所有动作使用的相关贴图；保留角色黑发、服装与阴影。
+修复宁次、茶渡、一角、大蛇丸的待机闪烁，佩恩行走和旧版鼬部分空中动作的异常透明帧。26 个动作帧从修正后的原始 SWF 导出恢复，保留原有可见帧、动作时序、碰撞、命令和事件。新增 9 张双倍密度贴图，完整包共 27,222 张双倍密度贴图。
 
-保留 1.0.3 的 27,213 张两倍采样密度贴图和原尺寸文字／图标对齐。76 个可选形态、2 个内部形态、42 名援助和 19 张场景均保留。默认简体中文、STDIO 同步读取；按用户要求排除无双和观战模式。
+修复默认重吾 R 大招与李洛克同类动作的落地循环：物理接地早于招式登记落地动作时，按原控制器语义保留尚未处理的接地状态，等待落地收招执行。
 
-按原始顺序绘制普通、滤色、叠加、减色、乘色、反色、变亮和变暗图层。大型分层图像拆成有界贴图，保留逻辑覆盖范围，单条解码最大 2 MiB，纹理缓存仍为 3 MiB。动作事件、碰撞、数值和时序保持原样。延续 HWD3 完整 GE 列表提交与纹理回收同步；按住 L 启动可作直接提交对照。
-
-全部 120 包通过 ASan／UBSan 解码；2,546 张分层贴图通过独立混合公式检查，9 组真实游戏逻辑场景完成 594 对 DIRECT／队列画面对照，并通过普通菜单进入的实战检查。1.0.4 尚无新增实体 PSP 验收，具体边界见 KNOWN_LIMITS.md 和 BLEND_VERIFICATION.json。
+保留 1.0.4 的原始混合图层和黑矩形修复、3 MiB 纹理缓存及 STDIO/HWD3 完整 GE 提交。76 个可选形态、2 个内部形态、42 名援助和 19 张地图保留，默认简体中文，排除无双和观战。
 
 ## 安装和重建
 
-解压唯一完整安装包，正确路径为 PSP/GAME/BVN37/EBOOT.PBP。更新时完整替换 BVN37 目录，保留 PSP/SAVEDATA。新素材必须配套本版程序。
+解压完整安装 ZIP，完整替换记忆棒 PSP/GAME/BVN37 目录，保留 PSP/SAVEDATA。正确入口为 PSP/GAME/BVN37/EBOOT.PBP，新素材需配套本版程序。
 
-按 TOOLCHAIN.json 使用 PSPDEV GCC 15.2.0、CMake 3.31.10 和 SOURCE_DATE_EPOCH=1793232000：
+按 TOOLCHAIN.json 使用 PSPDEV GCC 15.2.0、CMake 3.31.10、SOURCE_DATE_EPOCH=1793232000：
 
 ```
-python3 build.py --install-zip BVN37_PSP_1.0.4_Install.zip --build-dir build --output install --require-identical
+python3 build.py --install-zip BVN37_PSP_1.0.5_Install.zip --build-dir build --output install --require-identical
 ```
 
-完整 ZIP 提供经 CONTENT_MANIFEST.json 哈希校验的外置素材。程序和全部 196 个安装文件均可核对重建身份，普通重建无需重新生成动画。
+build.py 校验外置素材并重建 196 个完整安装文件。历史 HD_TEXTURES.json、BLEND_LAYERS.json 和 BLEND_VERIFICATION.json 记录前两版生成阶段，本版最终文件身份以 CONTENT_MANIFEST.json 为准。数据格式沿用 BVNFGH15/16 与 BVNASSTL/X，原混合层尾表及元数据身份保留。
 
-## 原始素材重建
+## 验证与素材修复
 
-HD_TEXTURES.json 和 CLARITY_VERIFICATION.json 保留 1.0.3 的历史清晰度生成记录；本版结果见 BLEND_LAYERS.json 和 BLEND_VERIFICATION.json。tools/native_pose_index.py、promote_native_textures.py 和 recode_hd_lz4.py 保留原密度匹配管线。
+REGRESSION_1_0_5.json 记录本版范围。全部 120 包通过 ASan/UBSan 解码；78 个英雄包的 4,043 个待机、行走、跳跃帧无异常空白。实际绘制器对全英雄动作贴图进行独立公式核验；完整形态配置的 616 组大招对照、重吾新旧版 42 次普通菜单大招连测、6 个修复英雄的普通入场与 9 组完整对战画面对照通过。以上为软件和模拟器结果，实体 PSP 尚待新版本复测。
 
-tools/build_blend_bounds.py 与 repair/blend-layers/*.bounds.tsv 固定原有逻辑边界。ExtractFighter.java 在 -Dbvn.layers=true 下导出当前时间轴的原始可见图层，使用 -Dbvn.poseBounds 指定相应边界文件。tools/pack_blend_layers.py 将同一逻辑贴图的源图层无损编码并拆分超预算条目。Gin 原有两张小型普通待机贴图保持字节不变。
-
-BVNFGH16 和 BVNASSTX 沿用角色 v15／援助 v11 表布局及 LZ4；分层条目尾表为 (u32 texture, u64 modes)，随后 count、0x33594c42 和原始 u64 元数据身份。modes 低 4 位为图层数，随后每 4 位为图层模式；每张逻辑贴图的解码载荷由等尺寸 RGBA8888 图层顺序拼接。普通旧格式继续兼容，图像密度与图层数量分别读取。tests/blend_layers_psp.cpp 使用实际 PSP 绘制器与独立浮点公式比对。
+tools/repair_held_poses.py、repair/held-visuals/repair-spec.json 和 export/ 下的对应原始 PNG 可重做纯视觉修复，只追加贴图并修复指定透明帧的画面描述；保留其他全部载荷和混合尾表。tests/landing_actions.cpp 与修复目录中的完整形态清单可重跑落地动作对照。tests/blend_layers_psp.cpp 存在 LOCOMOTION_BANKS.TXT 时改为检查全部待机/行走/跳跃贴图，否则继续原分层贴图检查。

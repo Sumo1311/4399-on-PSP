@@ -1,5 +1,5 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
   "game": "Bleach vs Naruto 3.7 Alpha",
   "baseline": "3.7.0.0.10292026_alpha",
   "default_language": "zh-CN",
@@ -13,7 +13,7 @@
     "missing_files": 0,
     "source_selection_binary_identical": true,
     "packaged_musou_campaigns": 0,
-    "native_2x_textures": 27213
+    "native_2x_textures": 27222
   },
   "catalog_coverage": {
     "fighters": {
@@ -1804,7 +1804,7 @@
     "BYAKUYB.BVF": "dc9fbae59c15b35bebeb8b72153a1f15297abd4ff2aeeb544aeca53eafc02875",
     "BYAKUYBO.BVF": "5805bac64a78090f79584affb2f1005dc8e2ed5c33791852ff6c56796a3c5508",
     "BYAKUYNS.BVF": "f8b0cb3362dd6dbb99baab4d1f4ec6d13237449fa15a74d3fdcf82e4bd2f1bd6",
-    "CHAD.BVF": "b48bd4c7208d2ad105818a2145a9d927400509332e97d0b316a0a9103d6da2bf",
+    "CHAD.BVF": "0022c08b11cb2a083c6d7be91fa275ac1b2b759f67657aabfa847deff04de152",
     "COMBAT.BVF": "a39809c991fcada37998527932b5ef3fb97ee83abd50bb943b5d232aa4d2621f",
     "COMBO.BVU": "e102e2a435c665ad0befc4c6e6d065da3970bbab43dd8daf333c5364d51f74c1",
     "CREDITS.BVU": "3e8de566a3452470de2d4e5bbe99d2bb2cc19886d422b4d13e40ecde9fe8989e",
@@ -1812,7 +1812,7 @@
     "DEIDARAO.BVF": "16392d86b95d8a3749caa5f3bc096761fae49f7e9507141e727fca4da122b83a",
     "DESERT.BVB": "c8ccaa7cb251cfd17d58037a105be06f6a0d0121a6fbd691a0a0dcd048f141ec",
     "DESERT.BVN": "94ab9210d40620b558667f4c5b8befec572592893b224d8a38b7def4c7db545b",
-    "EBOOT.PBP": "228b0450571339baad3cb0838b02fb534dc90b5b302c131a3f22e6325a8bdcae",
+    "EBOOT.PBP": "ebe1e8221e61de50a5892ac54d12e31bc97e6bb26ce8e74901334de789e19c71",
     "GAARA.BVF": "0c476a2f2014c8dd93da5b4004e5aa5882dbf171ed5d3d3d4bab76ec80dcd406",
     "GAARAO.BVF": "d432f2ce86fd1ab1f694c8204e5c4b85e1f2fa3fb473478b9f11a496015c0687",
     "GIN.BVF": "ef278f5b0c1ffc5dc3e9c1cf1f185f59a89ec2d0cac69dbfd185506d73bfd847",
@@ -1824,9 +1824,9 @@
     "ICHIGOH.BVF": "6575487d6f7286a95b4e5e9461f072bd3d5017a8e5335bc91908619b3ea3582e",
     "ICHIGOV.BVF": "180b236eeec30948f44664c360a19d42b3a7da9f17cb983249f9b554317c8d60",
     "ICHIGOZ.BVF": "d919a9b65d96b09a128e852d0323ee7e659840b6f352a83af837e15fe02646bc",
-    "IKKAKU.BVF": "84f1a2558260f647b19a8a576c28a18f32d25756a05145cf87d5379a804e1ed7",
+    "IKKAKU.BVF": "64e593948b80b9cef42c38843b1be3fb8dfe267de90fa8bd06455bd98731876d",
     "ITACHI.BVF": "a1bd06b63e452ca1ff917c491b32e03c1482db7d6aa6aaf29a2afcecdd5c9ee8",
-    "ITACHIO.BVF": "8af6d20850a5cf218272917f0f76f9e5737925d4ca2beb0916ba324ca25ace52",
+    "ITACHIO.BVF": "d6256a52a76ce150e27d1fd1e5dfabffd8427e236a41eef52990d056a2632609",
     "JIANCHANG.BVB": "9306b3501c14e08b228ff7a13ae34a5fe4d1011de113af4665fe5da659abb84c",
     "JIANCHANG.BVN": "d054dc6e31fe5f5643e67945fa98ffce94da58bc12adf937aa8229f360949749",
     "JINGYANTIN.BVB": "648a194c3368b4ea58f18275b0c0b68e8f60256c5f1bdb836ead412ef6eedb0c",
@@ -1868,15 +1868,15 @@
     "NEIXIN.BVI": "6c6cdb40922d8220e7f20abaf87b7ce7913db7056f83ad3b52a37877ff998873",
     "NEIXIN.BVN": "66387dff3082ce86c34b6c5fbe0883ca455ccd3f40a6f9e2adee19fa91e3d0dd",
     "NEIXIN.BVO": "37a652aed6984ad7e44c99e6688e8efef686ba32f13ce88430402986b571bc09",
-    "NEJI.BVF": "043a27f65bd51dcbe31e9a5d7ac1758ebc5ea874143ddd63a75436bc26fac7d6",
+    "NEJI.BVF": "f3c2015c77172b73d2f8ab583e45b0381ccde3f161ee5c673642b68da773ea2a",
     "OBITO.BVF": "29c3dcd91828d489b08ffc49baa7e685b89afee7926c3cf3d94bfc06cc210509",
     "OBITOO.BVF": "f269fdc36dab7c5e34c6dfff54b025ada8f54ec3f134ba161c4c6a3edfb5efbd",
     "OBITOTC.BVF": "9fd5331a5f02de5d22b62388750edbad3d2eea9ba53e2fe41e11ff2e60b18079",
     "OGIHCI.BVF": "171ecea721acfc0c1e98a5b4c0edd7abe9a4dc697b7825233039df86d328f82d",
     "OGIHCIB.BVF": "fe91eaefa78729701a740e5d0e4396e60a418f8940101abc077408835211909f",
     "ORIHIME.BVF": "8ced0ad6519171b2a12dda73aeedc9f8b712757067d9707c5b2d56b9c9be2d14",
-    "OROCHIM.BVF": "1456fd7707c6796ac184661b39cc15df9f30babe00ba853ae02e815485cf8f5f",
-    "PAIN.BVF": "02ecc809ac101592b4bb61295853156ccb38b7b209d67190d749ff63f835d5b4",
+    "OROCHIM.BVF": "e2fb42dc02b201aa0039a25a4bfdf774c5c877a44c028835dc4d2e50d1798dc5",
+    "PAIN.BVF": "c3d6229cc3c6dd302ca4a4884904487f7d7c370e095011cabe284cb976816c8d",
     "PAINO.BVF": "7385c68aa4e426d7329f0cd0ee9aa8c045187a1d849b28504fe844975c4db655",
     "PUBU.BVB": "3fd20e85d2b6c143d739c77ebc48121df1b620bf3ed864cc805f85d284841c2c",
     "PUBU.BVN": "129ae4fddec26ce61a73a1ab60465fa3c77c9102f3423e631a60404c10b1e3ac",
@@ -1948,7 +1948,7 @@
     "ZOULANG.BVN": "90a30a27b8dfd934af0480223a77421f86b4c58d296ed576fcdaed9b2a612246",
     "ZOULANG.BVO": "5de05f7b39aa4e3680af6f410d64bd205edc7ec44fab03f818f93550ae6bc33c"
   },
-  "package_revision": "authored-blend-layers",
+  "package_revision": "held-poses-landing-actions",
   "xmb_artwork": {
     "ICON0.PNG": {
       "width": 144,
@@ -1963,14 +1963,14 @@
   },
   "status": "official-release-prepared",
   "resource_diagnostics": true,
-  "eboot_sha256": "228b0450571339baad3cb0838b02fb534dc90b5b302c131a3f22e6325a8bdcae",
-  "program_sha256": "a00dd66dd9cdfd275c31ddc3dedf8d910a45680b9bd377189e5a4ff5b037ea7c",
+  "eboot_sha256": "ebe1e8221e61de50a5892ac54d12e31bc97e6bb26ce8e74901334de789e19c71",
+  "program_sha256": "8351b7ea628abf830203f0a900465469d1477501c7187e2b92fb2b13028133d5",
   "install_files": 196,
   "default_reader": "stdio-only",
   "user_acceptance": "USER_ACCEPTANCE.json",
   "musou_mode_excluded": true,
   "runtime_program_identical_to_user_accepted_hwd2_patch": false,
-  "baseline_release": "1.0.3 native clarity",
+  "baseline_release": "1.0.4 authored blend layers",
   "black_rectangle_report": {
     "hero": "madara",
     "actions": "Down guard, supers and other rich effects",
@@ -1983,7 +1983,7 @@
   },
   "presentation": {
     "native_density": 2,
-    "native_textures": 27213,
+    "native_textures": 27222,
     "ui_pixel_aligned": true,
     "memory_cache_budget": 3145728,
     "codec": "LZ4",
@@ -1991,5 +1991,7 @@
     "max_decoded_entry_bytes": 2097152,
     "gameplay_tables_and_logical_coverage_preserved": true,
     "pose_graphic_tiles_changed_for_34_source_textures": true
-  }
+  },
+  "held_pose_repairs": "repair/held-visuals/held-repair.json",
+  "landing_action_repair": "REGRESSION_1_0_5.json"
 }

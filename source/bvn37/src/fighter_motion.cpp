@@ -44,6 +44,7 @@ void FighterMotion::reset(Point spawn, int facing, bool keepGauges) {
         timelineCounters_ = {};
     }
     motion_ = {};
+    sourceTouchFloor_ = false;
     if(sourcePhysics_)motion_.sourceHz(gameHz_);
     sourceHurt_.reset();sourceReactionPose_=false;sourceAlive_=true;sourceDieEvents_=sourceGuardResume_=0;sourceEvents_={};
     floorDownPlayed_ = false;
@@ -1520,6 +1521,7 @@ void FighterMotion::step(const StageGeometry& stage, FighterControls input, bool
     if (suspendGravity) motion_.applyGravity = false;
     if(selectedRender)motion_.renderVelocity();else motion_.step(stage,camera);
     if (suspendGravity) motion_.applyGravity = gravity;
+    if (sourcePhysics_ && motion_.airborne) sourceTouchFloor_ = false;
     if(sourceControlOrder_&&!sourceActionEnabled_&&!motion_.airborne&&(clip_==MoveClip::Walk||guardClip()))recover();
     if (kamui_ || (sourcePhysics_?sourceAlphaRecovery_:opacity_ != 100)) stepKamui();
     if (twinLionCooldown_ || chakraTicks_ || repeatHit_) stepHinata();
@@ -1545,20 +1547,22 @@ void FighterMotion::step(const StageGeometry& stage, FighterControls input, bool
     }
     if (!injured() && !defeated() && !transforming_) {
         const bool ghostAirBranch = motion_.airborne;
-        if (wasInAir && !motion_.airborne) {
+        if (!motion_.airborne && (sourcePhysics_ ? !sourceTouchFloor_ : wasInAir)) {
             airAttackUsed_ = false;
             if (landingClip_ != MoveClip::Missing) {
                 effects_.ground = GroundCueView{GroundCue::Land, motion_.position};
                 jumpsLeft_ = 2;
                 quickJumpDelay_ = 0;
                 startAction(landingClip_, casting_);
+                sourceTouchFloor_ = true;
                 branchedOnLanding = true;
-            } else if (!acting_) {
+            } else if (!acting_ && wasInAir) {
                 effects_.ground = GroundCueView{GroundCue::Land, motion_.position};
                 jumpsLeft_ = 2;
                 quickJumpDelay_ = 0;
                 motion_.setVelocity({});
                 enter(MoveClip::Land);
+                sourceTouchFloor_ = true;
             }
         }
         checkProbe();

@@ -1,0 +1,215 @@
+{
+  "version": "1.0.5",
+  "software_checks_passed": true,
+  "eboot_sha256": "ebe1e8221e61de50a5892ac54d12e31bc97e6bb26ce8e74901334de789e19c71",
+  "program_sha256": "8351b7ea628abf830203f0a900465469d1477501c7187e2b92fb2b13028133d5",
+  "held_pose_repairs": {
+    "hero_banks": 6,
+    "restored_frames": 26,
+    "appended_native_textures": 9,
+    "original_visible_frames_and_payloads_retained": true,
+    "gameplay_tables_unchanged": true,
+    "provenance": "repair/held-visuals"
+  },
+  "locomotion_visibility": {
+    "banks": 78,
+    "idle_frames": 1481,
+    "all_locomotion_frames": 4043,
+    "empty_idle_frames": 0,
+    "empty_locomotion_frames": 0
+  },
+  "locomotion_gpu": {
+    "pass": true,
+    "status": {
+      "status": 2,
+      "error": 0,
+      "banks": 78,
+      "textures": 1400,
+      "frames": 2844,
+      "pixels": 756504,
+      "failed": 0,
+      "maxError": 1,
+      "black": 0,
+      "bank": 78,
+      "texture": 13,
+      "quality": 3,
+      "alpha": 128,
+      "backend": 0
+    },
+    "textureCache": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ge": [
+      2844,
+      12948,
+      0,
+      1444
+    ],
+    "stream": [
+      0,
+      0
+    ],
+    "physicalPspTested": false,
+    "package": {
+      "EBOOT.PBP": "934456283c60bf2604a02e835fdac61d278dfee24b12d04bb181b2e1180fb1a6",
+      "LOCOMOTION_BANKS.TXT": "373b06b8e31ad47f78a9d60c0c9cbebb300cb450ce12511fe0beb583d9535b4c"
+    }
+  },
+  "host_decode": "PASS banks=120 textures=31546 native2x=27222 decoded_bytes=4190163840",
+  "landing_repair": {
+    "root_cause": "Physical ground contact preceded authored setTouchFloor registration; pending floor contact was lost, causing endless action loops",
+    "reference": "FighterMcAirHandler.touchFloor only acknowledges a contact after an action exists; FighterMcFloorHandler retries while unacknowledged",
+    "fixture_rows": 616,
+    "baseline_noncompletion_rows": [
+      {
+        "bank": "JUGGO.BVF",
+        "map": "ZOULANG.BVN",
+        "hz": 30,
+        "side": 0,
+        "started": 1,
+        "completed": 0,
+        "last_frame": 778
+      },
+      {
+        "bank": "JUGGO.BVF",
+        "map": "ZOULANG.BVN",
+        "hz": 60,
+        "side": 0,
+        "started": 1,
+        "completed": 0,
+        "last_frame": 777
+      },
+      {
+        "bank": "JUGGO.BVF",
+        "map": "SENLIN.BVN",
+        "hz": 30,
+        "side": 0,
+        "started": 1,
+        "completed": 0,
+        "last_frame": 778
+      },
+      {
+        "bank": "JUGGO.BVF",
+        "map": "SENLIN.BVN",
+        "hz": 60,
+        "side": 0,
+        "started": 1,
+        "completed": 0,
+        "last_frame": 777
+      },
+      {
+        "bank": "LEE.BVF",
+        "map": "SENLIN.BVN",
+        "hz": 30,
+        "side": 0,
+        "started": 1,
+        "completed": 0,
+        "last_frame": 648
+      },
+      {
+        "bank": "LEE.BVF",
+        "map": "SENLIN.BVN",
+        "hz": 60,
+        "side": 0,
+        "started": 1,
+        "completed": 0,
+        "last_frame": 647
+      }
+    ],
+    "candidate_noncompletion_rows": [],
+    "affected_reproductions": [
+      "JUGGO.BVF",
+      "LEE.BVF"
+    ],
+    "new_regressions": 0,
+    "full_form_families_loaded": true,
+    "sanitizers": "ASan+UBSan"
+  },
+  "ordinary_super": {
+    "pass_result": true,
+    "emulated_model": "PSP-1000",
+    "casts": {
+      "JUGGO.BVF": 30,
+      "JUGGOO.BVF": 12
+    },
+    "memory_writes": false,
+    "savestates": false
+  },
+  "ordinary_locomotion": {
+    "pass_result": true,
+    "emulated_model": "PSP-2000",
+    "banks": [
+      "NEJI.BVF",
+      "CHAD.BVF",
+      "IKKAKU.BVF",
+      "OROCHIM.BVF",
+      "PAIN.BVF",
+      "ITACHIO.BVF"
+    ],
+    "memory_writes": false,
+    "savestates": false
+  },
+  "live_compare": {
+    "pass": true,
+    "status": {
+      "status": 2,
+      "error": 0,
+      "scene": 8,
+      "step": 359,
+      "pairs": 594,
+      "pixels": 77552640,
+      "differingPixels": 0,
+      "directBlack": 0,
+      "queuedBlack": 0,
+      "maxError": 0,
+      "guardFrames": 162,
+      "complexFrames": 72,
+      "pillarPixels": 0
+    },
+    "textureCache": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      794
+    ],
+    "textureStream": [
+      0,
+      0
+    ],
+    "ge": [
+      3834,
+      7948,
+      0,
+      3240
+    ],
+    "physicalPspTested": false,
+    "package": {
+      "EBOOT.PBP": "c3f4b7aeda32b62a70667acf8df42bbce9592cf57472485ec37d6847833325f9"
+    }
+  },
+  "complete_install_rebuild": {
+    "byte_identical": true,
+    "files": 196,
+    "log": "rebuild-verification.log"
+  },
+  "harness_notes": [
+    "Initial locomotion driver retained the old 19-bank assertion; diagnostic itself completed 78 banks without errors. Corrected driver and exact fixture rerun retained separately.",
+    "Initial one-form super fixture could not complete Byakuya sword-swap; rerun loads complete original form families for every row. Initial reports retained."
+  ],
+  "physical_psp_1_0_5_tested": false,
+  "all_actions_physically_tested": false,
+  "sustained_hardware_60fps_claimed": false
+}

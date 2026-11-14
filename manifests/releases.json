@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "Sumo1311/4399-on-PSP",
-  "updated_at": "2026-11-14T03:29:23.908576+00:00",
+  "updated_at": "2026-11-14T04:04:13.001895+00:00",
   "publication_layout": "one-game-per-release",
   "release_assets_policy": "one-complete-game-installer-per-release",
   "games": [
@@ -64,17 +64,17 @@
     {
       "id": "bvn37",
       "package_id": "BVN37",
-      "title": "死神 vs 火影 3.7 Alpha PSP 1.0.4（透明特效修复正式版）",
-      "version": "1.0.4",
-      "package_revision": "authored-blend-layers",
-      "tag": "bvn37-v1.0.4",
-      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.4",
-      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.4/BVN37_PSP_1.0.4_Install.zip",
-      "asset_name": "BVN37_PSP_1.0.4_Install.zip",
-      "bytes": 527348440,
-      "sha256": "680cc898d02f1d05df8e95967eab0894f0828910f935e120c79482f793b9e596",
-      "eboot_sha256": "228b0450571339baad3cb0838b02fb534dc90b5b302c131a3f22e6325a8bdcae",
-      "program_sha256": "a00dd66dd9cdfd275c31ddc3dedf8d910a45680b9bd377189e5a4ff5b037ea7c"
+      "title": "死神 vs 火影 3.7 Alpha PSP 1.0.5（角色闪烁与大招修复正式版）",
+      "version": "1.0.5",
+      "package_revision": "held-poses-landing-actions",
+      "tag": "bvn37-v1.0.5",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.5",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.5/BVN37_PSP_1.0.5_Install.zip",
+      "asset_name": "BVN37_PSP_1.0.5_Install.zip",
+      "bytes": 527379559,
+      "sha256": "5cecf05f1cfa828cf622bf840c7f84ddaf945b127adfe38918bd862a642662f7",
+      "eboot_sha256": "ebe1e8221e61de50a5892ac54d12e31bc97e6bb26ce8e74901334de789e19c71",
+      "program_sha256": "8351b7ea628abf830203f0a900465469d1477501c7187e2b92fb2b13028133d5"
     },
     {
       "id": "age-of-war-2",

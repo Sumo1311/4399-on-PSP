@@ -1,0 +1,133 @@
+{
+  "banks": [
+    {
+      "bank": "NEJI.BVF",
+      "export": "neji",
+      "baseline_sha256": "043a27f65bd51dcbe31e9a5d7ac1758ebc5ea874143ddd63a75436bc26fac7d6",
+      "metadata_identity": "1547184256390220767",
+      "clips": [
+        {
+          "clip": 0,
+          "timeline": 1,
+          "count": 18,
+          "phases": [
+            2,
+            3,
+            4,
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "source_swf_sha256": "3eefb52fa8de7b69f692d18b3c06a381334896bd9469b008a9285b1675d6fa34"
+    },
+    {
+      "bank": "CHAD.BVF",
+      "export": "chad",
+      "baseline_sha256": "b48bd4c7208d2ad105818a2145a9d927400509332e97d0b316a0a9103d6da2bf",
+      "metadata_identity": "13928530362655330293",
+      "clips": [
+        {
+          "clip": 0,
+          "timeline": 1,
+          "count": 12,
+          "phases": [
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "source_swf_sha256": "0c57a7b00121b80db8c73571c4f36419da1596d81c5dee98390680e25194b0aa"
+    },
+    {
+      "bank": "IKKAKU.BVF",
+      "export": "ikkaku",
+      "baseline_sha256": "84f1a2558260f647b19a8a576c28a18f32d25756a05145cf87d5379a804e1ed7",
+      "metadata_identity": "16779657600156913225",
+      "clips": [
+        {
+          "clip": 0,
+          "timeline": 1,
+          "count": 20,
+          "phases": [
+            3,
+            4,
+            5
+          ]
+        }
+      ],
+      "source_swf_sha256": "1915ebf82d7e4c7d4ff8cdbf582d7ce017f9e4e0dd0977b1f673f18d28fbf5fd"
+    },
+    {
+      "bank": "OROCHIM.BVF",
+      "export": "orochimaru",
+      "baseline_sha256": "1456fd7707c6796ac184661b39cc15df9f30babe00ba853ae02e815485cf8f5f",
+      "metadata_identity": "15658701277206198765",
+      "clips": [
+        {
+          "clip": 0,
+          "timeline": 1,
+          "count": 12,
+          "phases": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "source_swf_sha256": "4a5cd1fb8a1da1ec336158ec143a581942aaa5f916783d3d10f284f14dd32cc9"
+    },
+    {
+      "bank": "PAIN.BVF",
+      "export": "pain",
+      "baseline_sha256": "02ecc809ac101592b4bb61295853156ccb38b7b209d67190d749ff63f835d5b4",
+      "metadata_identity": "12079428551648391523",
+      "clips": [
+        {
+          "clip": 1,
+          "timeline": 10,
+          "count": 13,
+          "phases": [
+            4,
+            5,
+            8,
+            9
+          ]
+        }
+      ],
+      "source_swf_sha256": "8508122395a85ab4310756d560a9c84a42211f0f05bc97c26a2738061df3e58b"
+    },
+    {
+      "bank": "ITACHIO.BVF",
+      "export": "itachi_old",
+      "baseline_sha256": "8af6d20850a5cf218272917f0f76f9e5737925d4ca2beb0916ba324ca25ace52",
+      "metadata_identity": "15798504002044547079",
+      "clips": [
+        {
+          "clip": 4,
+          "timeline": 51,
+          "count": 4,
+          "phases": [
+            1,
+            2
+          ]
+        },
+        {
+          "clip": 5,
+          "timeline": 56,
+          "count": 4,
+          "phases": [
+            1,
+            2
+          ]
+        }
+      ],
+      "source_swf_sha256": "edf3a730805384d1be3a6944e23cbc10e8c879a54c5cfb59571e5e964f0c49f5"
+    }
+  ]
+}

@@ -1,13 +1,11 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
   "release_authorized_by_user": true,
-  "authorization": "再优化一下画质，让画面清晰一些，然后把正式包上传到github以及卡里面",
-  "repair_scope": [
-    "宇智波斑按住下箭头、大招及其他动作黑色矩形",
-    "检查其他动作并一并处理"
+  "authorization": "继续修复最新版，正式包上传GitHub并拷入32GB卡",
+  "user_reports": [
+    "日向宁次站立闪烁，检查其他英雄",
+    "默认重吾按R大招偶发卡住"
   ],
-  "software_regressions_passed": true,
-  "physical_1_0_4_retest_performed": false,
-  "baseline_hardware_acceptance": "BASELINE_RENDER_USER_ACCEPTANCE.json",
-  "baseline_note": "Historical 1.0.2 user feedback covers earlier bounded cases; later Madara defect reproduced. It is not acceptance of 1.0.4."
+  "software_checks_passed": true,
+  "physical_1_0_5_retest_performed": false
 }

@@ -504,6 +504,9 @@ private:
     FighterCutin cutin_{};
     std::uint32_t hurtStrike_ = 0, guardStrike_ = 0;
     MoveClip probeClip_ = MoveClip::Missing, landingClip_ = MoveClip::Missing, hurtClip_ = MoveClip::Missing;
+    // FighterMcAirHandler only acknowledges a floor contact once it can run
+    // the authored landing action; the physical airborne edge can occur first.
+    bool sourceTouchFloor_ = false;
     unsigned probe_ = 0;
     FighterMotion* target_ = nullptr;
     std::optional<TargetMove> targetMove_;

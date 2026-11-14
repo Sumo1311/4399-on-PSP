@@ -97,13 +97,16 @@ bool run(const std::string& folder){
 #endif
     report=std::fopen((folder+"LAYER_AUDIT.TXT").c_str(),"w");if(!report){g_layerAuditQa.error=1;return false;}
     std::fprintf(report,"Actual game renderer, all unique authored layer textures; independent normal/screen/add/subtract/multiply/min/max RGB oracle; native-density sampling, alternating checker background, flipped/faded groups, DIRECT and queued. Not a hardware/FPS claim.\n");
-    std::ifstream names(folder+"LAYER_BANKS.TXT");std::string name;renderer.start(false);
+    std::ifstream locomotionNames(folder+"LOCOMOTION_BANKS.TXT");
+    const bool locomotion=locomotionNames.good();
+    std::ifstream names(folder+(locomotion?"LOCOMOTION_BANKS.TXT":"LAYER_BANKS.TXT"));std::string name;renderer.start(false);
+    std::fprintf(report,"mode=%s\n",locomotion?"all locomotion textures":"authored blend layers");
     while(std::getline(names,name)){
         renderer.clearFighterTextures();FighterAsset a;
         if(!a.open((folder+"../BVN37/"+name).c_str(),FighterAsset::TextureResidency::LowMemory)){g_layerAuditQa.error=2;return false;}
         std::map<unsigned,FighterPose> poses;
-        for(unsigned c=0;c<a.clipCount();++c)for(unsigned f=0;f<a.clip(MoveClip(c)).count;++f)
-            for(const auto& p:a.poseTiles(a.frame(MoveClip(c),f).pose))if(a.blendTransfer(p))poses[p.offset]=p;
+        for(unsigned c=0;c<(locomotion?std::min(std::size_t(7),a.clipCount()):a.clipCount());++c)for(unsigned f=0;f<a.clip(MoveClip(c)).count;++f)
+            for(const auto& p:a.poseTiles(a.frame(MoveClip(c),f).pose))if(locomotion||a.blendTransfer(p))poses[p.offset]=p;
         std::fprintf(report,"BANK %u %s layered_textures=%u\n",g_layerAuditQa.bank,name.c_str(),unsigned(poses.size()));std::fflush(report);
         for(const auto&[id,pose]:poses){
             g_layerAuditQa.texture=id;

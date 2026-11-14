@@ -367,7 +367,7 @@ if(PSP)
     target_link_libraries(bvn_versus PRIVATE bvn_fighter bvn_renderer pspctrl pspdebug psppower pspaudio
         pspnet pspnet_adhoc pspnet_adhocctl pspwlan psputility)
     set(BVN_GAME_TITLE "Bleach vs Naruto 3.7 Alpha")
-    create_pbp_file(TARGET bvn_versus TITLE "${BVN_GAME_TITLE}" VERSION 01.04
+    create_pbp_file(TARGET bvn_versus TITLE "${BVN_GAME_TITLE}" VERSION 01.05
                     ICON_PATH "${CMAKE_CURRENT_SOURCE_DIR}/artwork/xmb/ICON0.PNG"
                     BACKGROUND_PATH "${CMAKE_CURRENT_SOURCE_DIR}/artwork/xmb/PIC1.PNG"
                     OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/versus")

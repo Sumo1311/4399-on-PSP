@@ -1,0 +1,758 @@
+{
+  "banks": [
+    {
+      "bank": "NEJI.BVF",
+      "before_sha256": "043a27f65bd51dcbe31e9a5d7ac1758ebc5ea874143ddd63a75436bc26fac7d6",
+      "sha256": "f3c2015c77172b73d2f8ab583e45b0381ccde3f161ee5c673642b68da773ea2a",
+      "restored_frames": 6,
+      "appended_textures": 2,
+      "changes": [
+        {
+          "clip": 0,
+          "phase": 2,
+          "frame": 2,
+          "source_pose": "1-2",
+          "source_png_sha256": "c939485070c58a757e89070c5ccd69fb50764710692e9dd4d69433303fc772a0",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -7.253333333333333,
+            -22.21333333333333,
+            277,
+            15,
+            23,
+            16,
+            32
+          ],
+          "texture_sha256": "a15be6762f2c50ef70ed328030ae645e74ce004dbd8f97bc5077afddeb25980c"
+        },
+        {
+          "clip": 0,
+          "phase": 3,
+          "frame": 3,
+          "source_pose": "1-3",
+          "source_png_sha256": "c939485070c58a757e89070c5ccd69fb50764710692e9dd4d69433303fc772a0",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -7.253333333333333,
+            -22.21333333333333,
+            277,
+            15,
+            23,
+            16,
+            32
+          ],
+          "texture_sha256": "a15be6762f2c50ef70ed328030ae645e74ce004dbd8f97bc5077afddeb25980c"
+        },
+        {
+          "clip": 0,
+          "phase": 4,
+          "frame": 4,
+          "source_pose": "1-4",
+          "source_png_sha256": "c939485070c58a757e89070c5ccd69fb50764710692e9dd4d69433303fc772a0",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -7.253333333333333,
+            -22.21333333333333,
+            277,
+            15,
+            23,
+            16,
+            32
+          ],
+          "texture_sha256": "a15be6762f2c50ef70ed328030ae645e74ce004dbd8f97bc5077afddeb25980c"
+        },
+        {
+          "clip": 0,
+          "phase": 8,
+          "frame": 8,
+          "source_pose": "1-8",
+          "source_png_sha256": "7eab5f58448529504ad20cc360e929f5c713567f5384ea4079d9a09b9afcc9ad",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -7.253333333333333,
+            -21.21333333333333,
+            278,
+            16,
+            22,
+            16,
+            32
+          ],
+          "texture_sha256": "b47067ffbe6fe4518eb372e10f510e912f70ffd8757acd68bc61f920f0ab8751"
+        },
+        {
+          "clip": 0,
+          "phase": 9,
+          "frame": 9,
+          "source_pose": "1-9",
+          "source_png_sha256": "7eab5f58448529504ad20cc360e929f5c713567f5384ea4079d9a09b9afcc9ad",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -7.253333333333333,
+            -21.21333333333333,
+            278,
+            16,
+            22,
+            16,
+            32
+          ],
+          "texture_sha256": "b47067ffbe6fe4518eb372e10f510e912f70ffd8757acd68bc61f920f0ab8751"
+        },
+        {
+          "clip": 0,
+          "phase": 10,
+          "frame": 10,
+          "source_pose": "1-10",
+          "source_png_sha256": "7eab5f58448529504ad20cc360e929f5c713567f5384ea4079d9a09b9afcc9ad",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -7.253333333333333,
+            -21.21333333333333,
+            278,
+            16,
+            22,
+            16,
+            32
+          ],
+          "texture_sha256": "b47067ffbe6fe4518eb372e10f510e912f70ffd8757acd68bc61f920f0ab8751"
+        }
+      ],
+      "all_original_payloads_and_visible_frames_retained": true,
+      "gameplay_tables_unchanged": true,
+      "original_metadata_identity_preserved": true,
+      "original_blend_footer_preserved": true
+    },
+    {
+      "bank": "CHAD.BVF",
+      "before_sha256": "b48bd4c7208d2ad105818a2145a9d927400509332e97d0b316a0a9103d6da2bf",
+      "sha256": "0022c08b11cb2a083c6d7be91fa275ac1b2b759f67657aabfa847deff04de152",
+      "restored_frames": 3,
+      "appended_textures": 1,
+      "changes": [
+        {
+          "clip": 0,
+          "phase": 8,
+          "frame": 8,
+          "source_pose": "1-8",
+          "source_png_sha256": "01c087e90cb349fc542f929534490c8bb051ea3aa47b2c4cda297666a13a9510",
+          "before_pose": [
+            0.0,
+            0.0,
+            3,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -7.586666666666666,
+            -26.879999999999995,
+            284,
+            11,
+            27,
+            16,
+            32
+          ],
+          "texture_sha256": "d0ca5c35c15ce2485ab994e7aaafb5b45c00cd9c3f08b3360b8997482091ed94"
+        },
+        {
+          "clip": 0,
+          "phase": 9,
+          "frame": 9,
+          "source_pose": "1-9",
+          "source_png_sha256": "01c087e90cb349fc542f929534490c8bb051ea3aa47b2c4cda297666a13a9510",
+          "before_pose": [
+            0.0,
+            0.0,
+            3,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -7.586666666666666,
+            -26.879999999999995,
+            284,
+            11,
+            27,
+            16,
+            32
+          ],
+          "texture_sha256": "d0ca5c35c15ce2485ab994e7aaafb5b45c00cd9c3f08b3360b8997482091ed94"
+        },
+        {
+          "clip": 0,
+          "phase": 10,
+          "frame": 10,
+          "source_pose": "1-10",
+          "source_png_sha256": "01c087e90cb349fc542f929534490c8bb051ea3aa47b2c4cda297666a13a9510",
+          "before_pose": [
+            0.0,
+            0.0,
+            3,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -7.586666666666666,
+            -26.879999999999995,
+            284,
+            11,
+            27,
+            16,
+            32
+          ],
+          "texture_sha256": "d0ca5c35c15ce2485ab994e7aaafb5b45c00cd9c3f08b3360b8997482091ed94"
+        }
+      ],
+      "all_original_payloads_and_visible_frames_retained": true,
+      "gameplay_tables_unchanged": true,
+      "original_metadata_identity_preserved": true,
+      "original_blend_footer_preserved": true
+    },
+    {
+      "bank": "IKKAKU.BVF",
+      "before_sha256": "84f1a2558260f647b19a8a576c28a18f32d25756a05145cf87d5379a804e1ed7",
+      "sha256": "64e593948b80b9cef42c38843b1be3fb8dfe267de90fa8bd06455bd98731876d",
+      "restored_frames": 3,
+      "appended_textures": 1,
+      "changes": [
+        {
+          "clip": 0,
+          "phase": 3,
+          "frame": 3,
+          "source_pose": "1-3",
+          "source_png_sha256": "4190f72670fc5674290927a64eeb52ffd5de1073d4a747c4d4475903349ed852",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -14.773333333333333,
+            -18.586666666666666,
+            191,
+            36,
+            21,
+            64,
+            32
+          ],
+          "texture_sha256": "79782e416fed200972158311154c593ffc53e5538c89d8a8ea49f68be6b578dc"
+        },
+        {
+          "clip": 0,
+          "phase": 4,
+          "frame": 4,
+          "source_pose": "1-4",
+          "source_png_sha256": "4190f72670fc5674290927a64eeb52ffd5de1073d4a747c4d4475903349ed852",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -14.773333333333333,
+            -18.586666666666666,
+            191,
+            36,
+            21,
+            64,
+            32
+          ],
+          "texture_sha256": "79782e416fed200972158311154c593ffc53e5538c89d8a8ea49f68be6b578dc"
+        },
+        {
+          "clip": 0,
+          "phase": 5,
+          "frame": 5,
+          "source_pose": "1-5",
+          "source_png_sha256": "4190f72670fc5674290927a64eeb52ffd5de1073d4a747c4d4475903349ed852",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -14.773333333333333,
+            -18.586666666666666,
+            191,
+            36,
+            21,
+            64,
+            32
+          ],
+          "texture_sha256": "79782e416fed200972158311154c593ffc53e5538c89d8a8ea49f68be6b578dc"
+        }
+      ],
+      "all_original_payloads_and_visible_frames_retained": true,
+      "gameplay_tables_unchanged": true,
+      "original_metadata_identity_preserved": true,
+      "original_blend_footer_preserved": true
+    },
+    {
+      "bank": "OROCHIM.BVF",
+      "before_sha256": "1456fd7707c6796ac184661b39cc15df9f30babe00ba853ae02e815485cf8f5f",
+      "sha256": "e2fb42dc02b201aa0039a25a4bfdf774c5c877a44c028835dc4d2e50d1798dc5",
+      "restored_frames": 6,
+      "appended_textures": 2,
+      "changes": [
+        {
+          "clip": 0,
+          "phase": 2,
+          "frame": 2,
+          "source_pose": "1-2",
+          "source_png_sha256": "b09138d478fe5a57906533e06759cb2280058b3545dcc41a8a30d26c8ec37585",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -6.8,
+            -24.933333333333334,
+            393,
+            10,
+            25,
+            16,
+            32
+          ],
+          "texture_sha256": "fb4183efb273ff72b75706836d5710a8ce51f4335b49e5bf1eb782067a3d1b0e"
+        },
+        {
+          "clip": 0,
+          "phase": 3,
+          "frame": 3,
+          "source_pose": "1-3",
+          "source_png_sha256": "b09138d478fe5a57906533e06759cb2280058b3545dcc41a8a30d26c8ec37585",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -6.8,
+            -24.933333333333334,
+            393,
+            10,
+            25,
+            16,
+            32
+          ],
+          "texture_sha256": "fb4183efb273ff72b75706836d5710a8ce51f4335b49e5bf1eb782067a3d1b0e"
+        },
+        {
+          "clip": 0,
+          "phase": 4,
+          "frame": 4,
+          "source_pose": "1-4",
+          "source_png_sha256": "b09138d478fe5a57906533e06759cb2280058b3545dcc41a8a30d26c8ec37585",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -6.8,
+            -24.933333333333334,
+            393,
+            10,
+            25,
+            16,
+            32
+          ],
+          "texture_sha256": "fb4183efb273ff72b75706836d5710a8ce51f4335b49e5bf1eb782067a3d1b0e"
+        },
+        {
+          "clip": 0,
+          "phase": 5,
+          "frame": 5,
+          "source_pose": "1-5",
+          "source_png_sha256": "e9ec40a6a120516e804c4a8c7ad0e979b53e347779ad12fb92944301d9549df3",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -6.8,
+            -24.933333333333334,
+            394,
+            10,
+            25,
+            16,
+            32
+          ],
+          "texture_sha256": "ac59bbf9f58d6a0b4d1d828ccd3089a4cc7bafb0a863df7e172692f49c8cc1cb"
+        },
+        {
+          "clip": 0,
+          "phase": 6,
+          "frame": 6,
+          "source_pose": "1-6",
+          "source_png_sha256": "e9ec40a6a120516e804c4a8c7ad0e979b53e347779ad12fb92944301d9549df3",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -6.8,
+            -24.933333333333334,
+            394,
+            10,
+            25,
+            16,
+            32
+          ],
+          "texture_sha256": "ac59bbf9f58d6a0b4d1d828ccd3089a4cc7bafb0a863df7e172692f49c8cc1cb"
+        },
+        {
+          "clip": 0,
+          "phase": 7,
+          "frame": 7,
+          "source_pose": "1-7",
+          "source_png_sha256": "e9ec40a6a120516e804c4a8c7ad0e979b53e347779ad12fb92944301d9549df3",
+          "before_pose": [
+            0.0,
+            0.0,
+            1,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -6.8,
+            -24.933333333333334,
+            394,
+            10,
+            25,
+            16,
+            32
+          ],
+          "texture_sha256": "ac59bbf9f58d6a0b4d1d828ccd3089a4cc7bafb0a863df7e172692f49c8cc1cb"
+        }
+      ],
+      "all_original_payloads_and_visible_frames_retained": true,
+      "gameplay_tables_unchanged": true,
+      "original_metadata_identity_preserved": true,
+      "original_blend_footer_preserved": true
+    },
+    {
+      "bank": "PAIN.BVF",
+      "before_sha256": "02ecc809ac101592b4bb61295853156ccb38b7b209d67190d749ff63f835d5b4",
+      "sha256": "c3d6229cc3c6dd302ca4a4884904487f7d7c370e095011cabe284cb976816c8d",
+      "restored_frames": 4,
+      "appended_textures": 2,
+      "changes": [
+        {
+          "clip": 1,
+          "phase": 4,
+          "frame": 12,
+          "source_pose": "14",
+          "source_png_sha256": "a02373a4e456a8ea918715b56c6fc114b2473624828c4dc2d2c18d818c1d4ac6",
+          "before_pose": [
+            0.0,
+            0.0,
+            6,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -9.506666666666666,
+            -19.026666666666664,
+            446,
+            20,
+            19,
+            32,
+            32
+          ],
+          "texture_sha256": "3a309850d0789f3fc7f96707b18d3b14bda1f9f6f188745dcb0e50af37b29b2e"
+        },
+        {
+          "clip": 1,
+          "phase": 5,
+          "frame": 13,
+          "source_pose": "15",
+          "source_png_sha256": "a02373a4e456a8ea918715b56c6fc114b2473624828c4dc2d2c18d818c1d4ac6",
+          "before_pose": [
+            0.0,
+            0.0,
+            6,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -9.506666666666666,
+            -19.026666666666664,
+            446,
+            20,
+            19,
+            32,
+            32
+          ],
+          "texture_sha256": "3a309850d0789f3fc7f96707b18d3b14bda1f9f6f188745dcb0e50af37b29b2e"
+        },
+        {
+          "clip": 1,
+          "phase": 8,
+          "frame": 16,
+          "source_pose": "18",
+          "source_png_sha256": "47273dd6db555f3cbb0b4e8cbaf1b2da1de2b99250889ea0eb4346e2d309d6a0",
+          "before_pose": [
+            0.0,
+            0.0,
+            6,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -11.506666666666666,
+            -20.026666666666664,
+            447,
+            22,
+            20,
+            32,
+            32
+          ],
+          "texture_sha256": "97424fb8a2aa9e6afd3ac1281298dc3e46ec01a801c93fb97607e9efb0e35821"
+        },
+        {
+          "clip": 1,
+          "phase": 9,
+          "frame": 17,
+          "source_pose": "19",
+          "source_png_sha256": "47273dd6db555f3cbb0b4e8cbaf1b2da1de2b99250889ea0eb4346e2d309d6a0",
+          "before_pose": [
+            0.0,
+            0.0,
+            6,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -11.506666666666666,
+            -20.026666666666664,
+            447,
+            22,
+            20,
+            32,
+            32
+          ],
+          "texture_sha256": "97424fb8a2aa9e6afd3ac1281298dc3e46ec01a801c93fb97607e9efb0e35821"
+        }
+      ],
+      "all_original_payloads_and_visible_frames_retained": true,
+      "gameplay_tables_unchanged": true,
+      "original_metadata_identity_preserved": true,
+      "original_blend_footer_preserved": true
+    },
+    {
+      "bank": "ITACHIO.BVF",
+      "before_sha256": "8af6d20850a5cf218272917f0f76f9e5737925d4ca2beb0916ba324ca25ace52",
+      "sha256": "d6256a52a76ce150e27d1fd1e5dfabffd8427e236a41eef52990d056a2632609",
+      "restored_frames": 4,
+      "appended_textures": 1,
+      "changes": [
+        {
+          "clip": 4,
+          "phase": 1,
+          "frame": 31,
+          "source_pose": "51-1",
+          "source_png_sha256": "d73aaf739c934fb267529d9504ac19431808de716f7c8f649cfd98f816594d6c",
+          "before_pose": [
+            0.0,
+            0.0,
+            14,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -12.426666666666662,
+            -23.2,
+            309,
+            22,
+            21,
+            32,
+            32
+          ],
+          "texture_sha256": "845e80deb4316b7adf620e41f6199222353ab968aa82d3e45c3ae25adcf845e4"
+        },
+        {
+          "clip": 4,
+          "phase": 2,
+          "frame": 32,
+          "source_pose": "51-2",
+          "source_png_sha256": "d73aaf739c934fb267529d9504ac19431808de716f7c8f649cfd98f816594d6c",
+          "before_pose": [
+            0.0,
+            0.0,
+            14,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -12.426666666666662,
+            -23.2,
+            309,
+            22,
+            21,
+            32,
+            32
+          ],
+          "texture_sha256": "845e80deb4316b7adf620e41f6199222353ab968aa82d3e45c3ae25adcf845e4"
+        },
+        {
+          "clip": 5,
+          "phase": 1,
+          "frame": 35,
+          "source_pose": "56-1",
+          "source_png_sha256": "d73aaf739c934fb267529d9504ac19431808de716f7c8f649cfd98f816594d6c",
+          "before_pose": [
+            0.0,
+            0.0,
+            14,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -12.426666666666662,
+            -23.2,
+            309,
+            22,
+            21,
+            32,
+            32
+          ],
+          "texture_sha256": "845e80deb4316b7adf620e41f6199222353ab968aa82d3e45c3ae25adcf845e4"
+        },
+        {
+          "clip": 5,
+          "phase": 2,
+          "frame": 36,
+          "source_pose": "56-2",
+          "source_png_sha256": "d73aaf739c934fb267529d9504ac19431808de716f7c8f649cfd98f816594d6c",
+          "before_pose": [
+            0.0,
+            0.0,
+            14,
+            1,
+            1,
+            4,
+            4
+          ],
+          "after_pose": [
+            -12.426666666666662,
+            -23.2,
+            309,
+            22,
+            21,
+            32,
+            32
+          ],
+          "texture_sha256": "845e80deb4316b7adf620e41f6199222353ab968aa82d3e45c3ae25adcf845e4"
+        }
+      ],
+      "all_original_payloads_and_visible_frames_retained": true,
+      "gameplay_tables_unchanged": true,
+      "original_metadata_identity_preserved": true,
+      "original_blend_footer_preserved": true
+    }
+  ]
+}
