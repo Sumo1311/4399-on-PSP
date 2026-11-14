@@ -462,6 +462,7 @@ final class ExtractFighter {
                 var image = FlashLayers.render(root, startFrame, rect);
                 String filename = kind + "-" + id.replace('\t', '-') + "-" + phase;
                 FlashLayers.save(output.resolve("poses/" + filename + ".png"), image);
+                writeTransfer(output,filename,root,startFrame,rect);
                 data.write(kind + "Pose\t" + id + "\t" + phase + "\t" + filename + "\t" + rect.Xmin / unit
                     + "\t" + rect.Ymin / unit + "\t" + image.getWidth() + "\t" + image.getHeight() + "\n");
             }
@@ -560,8 +561,90 @@ final class ExtractFighter {
                                   RECT rect, String key, String file) throws IOException {
         var image = FlashLayers.render(root, startFrame, rect);
         FlashLayers.save(output.resolve("poses/" + file + ".png"), image);
+        writeTransfer(output,file,root,startFrame,rect);
         data.write(key + "\t" + rect.Xmin / FlashLayers.TWIPS + "\t" + rect.Ymin / FlashLayers.TWIPS + "\t"
             + image.getWidth() + "\t" + image.getHeight() + "\n");
+    }
+
+    private static Map<String,RECT> canonicalBounds;
+
+    private static void writeTransfer(Path output,String file,Timeline root,int startFrame,RECT rect) throws IOException {
+        String canonical=System.getProperty("bvn.poseBounds");
+        if(canonical!=null){
+            if(canonicalBounds==null){
+                canonicalBounds=new HashMap<>();
+                for(String row:Files.readAllLines(Path.of(canonical))){
+                    String[] f=row.split("\t");
+                    int x=(int)Math.round(Double.parseDouble(f[1])*20),y=(int)Math.round(Double.parseDouble(f[2])*20);
+                    canonicalBounds.put(f[0],new RECT(x,x+20*Integer.parseInt(f[3]),y,y+20*Integer.parseInt(f[4])));
+                }
+            }
+            rect=canonicalBounds.getOrDefault(file,rect);
+            Path originals=output.resolve("render-source");Files.createDirectories(originals);
+            FlashLayers.save(originals.resolve(file+".png"),FlashLayers.render(root,startFrame,rect));
+        }
+        if(Boolean.getBoolean("bvn.layers"))writeBlendLayers(output,file,root,startFrame,rect);
+        if (Boolean.getBoolean("bvn.transfer")) {
+            for (var background : List.of(java.awt.Color.BLACK, java.awt.Color.WHITE, new java.awt.Color(73,149,211),
+                    new java.awt.Color(8,8,8),new java.awt.Color(32,32,32),new java.awt.Color(96,96,96),new java.awt.Color(160,160,160),new java.awt.Color(224,224,224))) {
+                String label = background.equals(java.awt.Color.BLACK) ? "black" : background.equals(java.awt.Color.WHITE) ? "white" : background.getRed()==background.getGreen() ? "gray"+background.getRed() : "check";
+                Path folder = output.resolve("transfer-" + label);
+                Files.createDirectories(folder);
+                FlashLayers.save(folder.resolve(file + ".png"), FlashLayers.renderOn(root,startFrame,rect,background));
+            }
+        }
+    }
+
+    private record PaintNode(List<DepthState> path,int mode) {}
+
+    private static boolean hasBlend(Timeline timeline,int frame,Set<Timeline> stack) {
+        if(!stack.add(timeline))return false;
+        var f=timeline.getFrame(Math.floorMod(frame,timeline.getFrameCount()));boolean found=false;
+        for(var l:f.layers.values())if(l.isVisible){
+            if(l.blendMode>2){found=true;break;}
+            if(l.getCharacter() instanceof Timelined child && hasBlend(child.getTimeline(),l.time,stack)){found=true;break;}
+        }
+        stack.remove(timeline);return found;
+    }
+
+    private static void paintNodes(Timeline timeline,int frame,List<DepthState> parents,List<PaintNode> nodes,Set<Timeline> stack) {
+        if(!stack.add(timeline))return;
+        var f=timeline.getFrame(Math.floorMod(frame,timeline.getFrameCount()));
+        for(var l:f.layers.values())if(l.isVisible){
+            var path=new ArrayList<DepthState>(parents);path.add(l);
+            if(l.blendMode>2){
+                if(!Set.of(3,4,5,6,8,9,10,14).contains(l.blendMode))throw new IllegalArgumentException("Unhandled fighter blend mode "+l.blendMode);
+                nodes.add(new PaintNode(path,l.blendMode));
+            }else if(l.getCharacter() instanceof Timelined child && hasBlend(child.getTimeline(),l.time,new HashSet<>())){
+                paintNodes(child.getTimeline(),l.time,path,nodes,stack);
+            }else nodes.add(new PaintNode(path,0));
+        }
+        stack.remove(timeline);
+    }
+
+    private static void writeBlendLayers(Path output,String file,Timeline root,int frame,RECT rect) throws IOException {
+        if(!hasBlend(root,frame,new HashSet<>()))return;
+        var nodes=new ArrayList<PaintNode>();paintNodes(root,frame,new ArrayList<>(),nodes,new HashSet<>());
+        var all=new HashSet<DepthState>();for(var n:nodes)all.addAll(n.path());
+        var folder=output.resolve("render-layers/"+file);Files.createDirectories(folder);
+        var modes=new ArrayList<Integer>();
+        try{
+            for(int first=0;first<nodes.size();){
+                int last=first+1,mode=nodes.get(first).mode();
+                if(mode==0)while(last<nodes.size()&&nodes.get(last).mode()==0)++last;
+                var selected=new HashSet<DepthState>();for(int n=first;n<last;++n)selected.addAll(nodes.get(n).path());
+                for(var l:all)l.isVisible=selected.contains(l);
+                DepthState blend=mode==0?null:nodes.get(first).path().get(nodes.get(first).path().size()-1);
+                int previous=blend==null?0:blend.blendMode;
+                if(mode!=0 && mode!=4)blend.blendMode=0;
+                try{
+                    var image=FlashLayers.renderOn(root,frame,rect,mode==4?java.awt.Color.BLACK:null);
+                    FlashLayers.save(folder.resolve(modes.size()+".png"),image);modes.add(mode);
+                }finally{if(blend!=null)blend.blendMode=previous;}
+                first=last;
+            }
+        }finally{for(var l:all)l.isVisible=true;}
+        Files.writeString(output.resolve("render-layers/"+file+".json"),modes.toString());
     }
 
     private static void writeFacingPose(BufferedWriter data, Path output, Timeline root, int startFrame,

@@ -4,6 +4,7 @@
 #include "shadow_pixels.hpp"
 
 #include <algorithm>
+#include <bit>
 #include <cstring>
 #include <cmath>
 #include <new>
@@ -60,7 +61,7 @@ void drawTexture(const void* pixels, int stride, int rows, float x, float y, int
     const float right = x + outputWidth;
     const float bottom = y + outputHeight;
     if (x >= ViewWidth || right <= 0 || y >= Height || bottom <= 0) return;
-    sceGuTexImage(0, stride * density, rows * density, stride * density, pixels);
+    sceGuTexImage(0, std::bit_ceil(unsigned(stride*density)), rows * density, stride * density, pixels);
     auto* vertices = static_cast<Vertex*>(sceGuGetMemory(2 * sizeof(Vertex)));
     vertices[0] = {flip ? float(width * density) : 0, height * cropTop * density, color, x + Pillar, y + outputHeight * cropTop, 0};
     vertices[1] = {flip ? 0 : float(width * density), float(height * density), color, right + Pillar, bottom, 0};
@@ -84,6 +85,42 @@ void drawTile(const StageAsset& stage, const StageTile& tile, CameraView camera,
     const auto color = 0xff000000u | (255 - shade) * 0x010101u;
     drawTexture(stage.pixels(tile), tile.stride, tile.rows, x, y, tile.width, tile.height,
                 float(tile.width * zoom), float(tile.height * zoom), false, color);
+}
+
+// Two centered-stage snapshots fit beside both framebuffers in 2 MiB VRAM.
+constexpr unsigned ScratchStride=384,ScratchWidth=363,ScratchLeft=59;
+constexpr std::size_t ScratchBytes=ScratchStride*Height*4;
+static_assert(2*FrameBytes+2*ScratchBytes<=2*1024*1024);
+void* stageSnapshot(unsigned slot,void* drawBuffer){
+    auto* vram=static_cast<std::byte*>(sceGeEdramGetAddr());void* scratch=vram+2*FrameBytes+slot*ScratchBytes;
+    sceGuCopyImage(GU_PSM_8888,ScratchLeft,0,ScratchWidth,Height,Stride,vram+reinterpret_cast<std::uintptr_t>(drawBuffer),0,0,ScratchStride,scratch);
+    sceGuTexSync();sceGuTexFlush();return scratch;
+}
+void drawStageSnapshot(void* pixels,unsigned alpha=255){
+    const auto shifted=rootShift;rootShift={};const auto color=(alpha<<24)|0xffffffu;
+    sceGuTexFunc(GU_TFX_MODULATE,GU_TCC_RGB);sceGuTexFilter(GU_NEAREST,GU_NEAREST);
+    drawTexture(pixels,ScratchStride,256,ScratchLeft-Pillar,0,ScratchWidth,256,ScratchWidth,256,false,color);
+    drawTexture(static_cast<std::byte*>(pixels)+ScratchStride*256*4,ScratchStride,16,ScratchLeft-Pillar,256,ScratchWidth,16,ScratchWidth,16,false,color);
+    rootShift=shifted;sceGuTexFunc(GU_TFX_MODULATE,GU_TCC_RGBA);
+}
+// Preserve source blend passes and fade their completed composition as a group.
+void drawTransfer(const void* pixels,std::size_t planeBytes,std::uint64_t modes,int stride,int rows,float x,float y,int width,int height,
+                  float outputWidth,float outputHeight,bool flip,unsigned alpha,unsigned density,void* drawBuffer) {
+    if(!alpha)return;void* original=alpha<255?stageSnapshot(0,drawBuffer):nullptr;
+    sceGuTexFunc(GU_TFX_MODULATE,GU_TCC_RGBA);
+    for(unsigned plane=0;plane<unsigned(modes&15u);++plane){
+        const auto mode=unsigned((modes>>(4+4*plane))&15u);
+        void* before=(mode==5||mode==6)?stageSnapshot(1,drawBuffer):nullptr;
+        if(mode==4)sceGuBlendFunc(GU_ADD,GU_FIX,GU_ONE_MINUS_SRC_COLOR,0xffffff,0);
+        else if(mode==10)sceGuBlendFunc(GU_ADD,GU_ONE_MINUS_OTHER_COLOR,GU_ONE_MINUS_SRC_COLOR,0,0);
+        else if(mode==15)sceGuBlendFunc(GU_ADD,GU_FIX,GU_SRC_COLOR,0,0);
+        else if(mode==9)sceGuBlendFunc(GU_REVERSE_SUBTRACT,GU_SRC_ALPHA,GU_FIX,0,0xffffff);
+        else sceGuBlendFunc(GU_ADD,GU_SRC_ALPHA,mode==8?GU_FIX:GU_ONE_MINUS_SRC_ALPHA,0,mode==8?0xffffff:0);
+        drawTexture(static_cast<const std::byte*>(pixels)+plane*planeBytes,stride,rows,x,y,width,height,outputWidth,outputHeight,flip,0xffffffff,0,density);
+        if(before){sceGuBlendFunc(mode==5?GU_MAX:GU_MIN,GU_FIX,GU_FIX,0xffffff,0xffffff);drawStageSnapshot(before);}
+    }
+    sceGuBlendFunc(GU_ADD,GU_SRC_ALPHA,GU_ONE_MINUS_SRC_ALPHA,0,0);
+    if(original)drawStageSnapshot(original,255-alpha);
 }
 
 void drawBox(float x, float y, float width, float height, std::uint32_t color) {
@@ -275,6 +312,7 @@ const void* StageRenderer::fighterTexture(const FighterAsset& asset, const Fight
     }
 
     const std::size_t size = asset.pixelBytes(pose);
+    if(size>FighterTextureBudget)return miss(1,size);
     const auto evict=[&] {
         auto oldest = std::ranges::min_element(fighterTextures_, {}, &CachedTexture::lastFrame);
         if (oldest == fighterTextures_.end()) return false;
@@ -323,8 +361,24 @@ const void* StageRenderer::fighterTexture(const FighterAsset& asset, const Fight
         g_textureCacheQa.retryDecode=g_textureCacheQa.retryDecode+1;
         if(!evict())return miss(3,size);
     }
-    if (!(tint == ShadowTint{})) tintShadowPixels({reinterpret_cast<std::byte*>(pixels.get()), size}, tint);
-    effectSurfacePixels({reinterpret_cast<std::byte*>(pixels.get()), size},surface);
+    if(asset.blendTransfer(pose)) {
+        if(!(tint==ShadowTint{})) {
+            auto* p=reinterpret_cast<unsigned char*>(pixels.get());const auto modes=asset.textureLayerModes(pose);
+            const auto planeBytes=size/asset.textureLayers(pose);const int offsets[]{tint.red,tint.green,tint.blue};
+            for(unsigned layer=0;layer<asset.textureLayers(pose);++layer) {
+                auto* image=p+layer*planeBytes;
+                if(((modes>>(4+4*layer))&15u)==4){
+                    for(std::size_t i=0;i<planeBytes;i+=4){
+                        const auto coverage=std::max({image[i],image[i+1],image[i+2]});
+                        for(unsigned c=0;c<3;++c)image[i+c]=std::clamp(int(image[i+c])+offsets[c]*coverage/255,0,255);
+                    }
+                }else if(((modes>>(4+4*layer))&15u)!=15 && ((modes>>(4+4*layer))&15u)!=10) tintShadowPixels({reinterpret_cast<std::byte*>(image),planeBytes},tint);
+            }
+        }
+    }else{
+        if (!(tint == ShadowTint{})) tintShadowPixels({reinterpret_cast<std::byte*>(pixels.get()), size}, tint);
+        effectSurfacePixels({reinterpret_cast<std::byte*>(pixels.get()), size},surface);
+    }
     sceKernelDcacheWritebackRange(pixels.get(), size);
     const auto* address = pixels.get();
     fighterTextures_.push_back({&asset, pose.offset, frame_, size, std::move(pixels), tint,surface});
@@ -446,9 +500,13 @@ void StageRenderer::arena(const StageAsset& stage, CameraView camera, std::span<
         sceGuTexFunc(negative?GU_TFX_MODULATE:GU_TFX_ADD,GU_TCC_RGBA);
         const auto color=(alpha<<24)|(negative?0x00ffffffu:unsigned(tint.red)|(unsigned(tint.green)<<8)|(unsigned(tint.blue)<<16));
         for(const auto& pose:shadow.asset->poseTiles(*shadow.pose)){
+            sceGuTexFunc(negative?GU_TFX_MODULATE:GU_TFX_ADD,GU_TCC_RGBA);
             const float x=float(((shadow.position.x-camera.origin.x)*StageTextureScale+(flipped?-pose.x-pose.width:pose.x))*camera.zoom);
             const float y=float(((shadow.position.y-camera.origin.y)*StageTextureScale+pose.y)*camera.zoom);
-            if(const auto* pixels=fighterTexture(*shadow.asset,pose,negative?tint:ShadowTint{}))
+            if(shadow.asset->blendTransfer(pose)) {
+                if(const auto* pixels=fighterTexture(*shadow.asset,pose,tint))
+                    drawTransfer(pixels,shadow.asset->pixelBytes(pose)/shadow.asset->textureLayers(pose),shadow.asset->textureLayerModes(pose),pose.stride,pose.rows,x,y,pose.width,pose.height,float(pose.width*camera.zoom),float(pose.height*camera.zoom),flipped,alpha,shadow.asset->textureScale(pose),drawBuffer_);
+            }else if(const auto* pixels=fighterTexture(*shadow.asset,pose,negative?tint:ShadowTint{}))
                 drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,float(pose.width*camera.zoom),float(pose.height*camera.zoom),flipped,color,0,shadow.asset->textureScale(pose));
         }
         material(false);
@@ -462,8 +520,11 @@ void StageRenderer::arena(const StageAsset& stage, CameraView camera, std::span<
                 const float x=float((originX+(flipped?-pose.x-pose.width:pose.x))*camera.zoom),y=float((originY+pose.y)*camera.zoom);
                 const float width=float(pose.width*camera.zoom),height=float(pose.height*camera.zoom);
                 if(x+rootShift.x>=ViewWidth||x+width+rootShift.x<=0||y+rootShift.y>=Height||y+height+rootShift.y<=0)continue;
-                if(const auto* pixels=fighterTexture(fighter.asset,pose,fighter.tint))
-                    drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,width,height,flipped,(fighter.alpha<<24)|0x00ffffffu,0,fighter.asset.textureScale(pose));
+                if(const auto* pixels=fighterTexture(fighter.asset,pose,fighter.tint)) {
+                    if(fighter.asset.blendTransfer(pose))
+                        drawTransfer(pixels,fighter.asset.pixelBytes(pose)/fighter.asset.textureLayers(pose),fighter.asset.textureLayerModes(pose),pose.stride,pose.rows,x,y,pose.width,pose.height,width,height,flipped,fighter.alpha,fighter.asset.textureScale(pose),drawBuffer_);
+                    else drawTexture(pixels,pose.stride,pose.rows,x,y,pose.width,pose.height,width,height,flipped,(fighter.alpha<<24)|0x00ffffffu,0,fighter.asset.textureScale(pose));
+                }
             }
         };
         drawPose(fighter.pose);

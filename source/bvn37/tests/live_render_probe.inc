@@ -23,12 +23,17 @@ bool Game::liveRenderProbe(const std::string& reportFolder) {
         for(unsigned y=0;y<272;++y){for(unsigned x=0;x<480;++x){const auto p=pixels[y*512+x];row[x*3]=p&255;row[x*3+1]=(p>>8)&255;row[x*3+2]=(p>>16)&255;}std::fwrite(row.data(),1,row.size(),image);}
         std::fclose(image);
     };
-    struct Case {const char* player;const char* rival;const char* assist;const char* map;unsigned quality;};
+    struct Case {const char* player;const char* rival;const char* assist;const char* map;unsigned quality;unsigned action=0;};
     const Case cases[]{
         {"ITACHI.BVF","NARUTO.BVF","AGRIM.BVS","ZOULANG.BVN",0},
         {"GIN.BVF","NARUTO1.BVF","AGRIM.BVS","ZOULANG.BVN",0},
         {"HINATA.BVF","BYAKUYB.BVF","AINO.BVS","SENLIN.BVN",0},
         {"ITACHI.BVF","NARUTO.BVF","AGRIM.BVS","ZOULANG.BVN",3},
+        {"MADARA.BVF","NARUTO.BVF","AMADARA.BVS","ZOULANG.BVN",0,3},
+        {"MADARA.BVF","NARUTO.BVF","AMADARA.BVS","ZOULANG.BVN",3,1},
+        {"MADARA.BVF","NARUTO.BVF","AMADARA.BVS","ZOULANG.BVN",0,2},
+        {"NARUTOK.BVF","AIZENGZ.BVF","AHIRUKO.BVS","SENLIN.BVN",0,1},
+        {"SASUKESU.BVF","NARUTO.BVF","ASAKURA.BVS","ZOULANG.BVN",3,1},
     };
     const auto choose=[&](const RosterAsset& roster,const char* name,FighterPick& pick) {
         for(unsigned cell=0;cell<roster.cells().size();++cell)for(unsigned alt=0;alt<=roster.cells()[cell].moreCount;++alt){
@@ -55,7 +60,12 @@ bool Game::liveRenderProbe(const std::string& reportFolder) {
             qa.step=play;const bool playing=round_->phase()==RoundPhase::Playing;
             unsigned held=0;
             if(playing) {
-                if(play<24)held=PSP_CTRL_DOWN;
+                if(c.action){
+                    if(c.action==3)held=PSP_CTRL_DOWN;
+                    else if(play<8)held=PSP_CTRL_RTRIGGER|(c.action==1?PSP_CTRL_DOWN:PSP_CTRL_UP);
+                    else if(play>=280&&play<288)held=PSP_CTRL_LTRIGGER;
+                }
+                else if(play<24)held=PSP_CTRL_DOWN;
                 else if(play<48)held=PSP_CTRL_DOWN|PSP_CTRL_CIRCLE;
                 else if(play<88)held=PSP_CTRL_RIGHT;
                 else if(play<112)held=PSP_CTRL_SQUARE;
@@ -87,7 +97,7 @@ bool Game::liveRenderProbe(const std::string& reportFolder) {
                     maxError=std::max(maxError,error);
                 }
                 ++qa.pairs;++scenePairs;qa.pixels+=480*272;qa.differingPixels+=different;qa.directBlack+=blackDirect;qa.queuedBlack+=blackQueued;qa.maxError=std::max(qa.maxError,maxError);
-                if(play<24)++qa.guardFrames;
+                if(c.action==3||(!c.action&&play<24))++qa.guardFrames;
                 const auto effectCount=round_->match().scene().combat.size();if(effectCount)++qa.complexFrames;
                 log("FRAME scene=%u step=%u timeline=%u effects=%u different=%u direct_black=%u queued_black=%u max=%u first=%u,%u:%06x,%06x\n",scene,play,round_->match().actor(0).timelineFrame(),unsigned(effectCount),different,blackDirect,blackQueued,maxError,firstX,firstY,firstA,firstB);
                 if(play==8){writeImage("GUARD_DIRECT",liveDirectPixels);writeImage("GUARD_QUEUED",liveQueuedPixels);}

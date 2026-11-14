@@ -2,6 +2,7 @@
 #include "map_optical.hpp"
 
 #include <array>
+#include <algorithm>
 #include <cstddef>
 #include <cstdint>
 #include <cstdio>
@@ -182,13 +183,20 @@ public:
         return pose.tiled() ? std::span(tiles_).subspan(pose.offset, pose.width) : std::span(&pose, 1);
     }
     static std::size_t textureSize(const FighterPose& pose) { return 4u * pose.stride * pose.rows; }
+    std::uint64_t textureLayerModes(const FighterPose& pose) const {
+        const auto found=std::lower_bound(transferTextures_.begin(),transferTextures_.end(),pose.offset,
+            [](const auto& layer,unsigned id){return layer.texture<id;});
+        return found!=transferTextures_.end()&&found->texture==pose.offset?std::uint64_t(found->modesLow)|(std::uint64_t(found->modesHigh)<<32):0;
+    }
+    bool blendTransfer(const FighterPose& pose) const { return textureLayerModes(pose)!=0; }
+    unsigned textureLayers(const FighterPose& pose) const {return std::max(1u,unsigned(textureLayerModes(pose)&15u));}
     unsigned textureScale(const FighterPose& pose) const {
         return denseTextures_ && pose.offset < textures_.size() &&
-            textures_[pose.offset].rawSize == 4 * textureSize(pose) ? 2 : 1;
+            textures_[pose.offset].rawSize == 4 * textureSize(pose) * textureLayers(pose) ? 2 : 1;
     }
     std::size_t pixelBytes(const FighterPose& pose) const {
         const auto scale = textureScale(pose);
-        return textureSize(pose) * scale * scale;
+        return textureSize(pose) * scale * scale * textureLayers(pose);
     }
     const void* pixels(const FighterPose& pose) const {
         return textures_.empty() ? pixels_.data() + pose.offset / 16 : nullptr;
@@ -229,6 +237,8 @@ private:
     std::vector<AttackerAsset> attackers_;
     std::vector<PixelBlock> pixels_;
     std::vector<PackedTexture> textures_;
+    struct TextureLayers { std::uint32_t texture,modesLow,modesHigh; };
+    std::vector<TextureLayers> transferTextures_;
     std::vector<FighterPose> tiles_;
     std::vector<std::byte> compressed_;
     bool lz4Textures_ = false;

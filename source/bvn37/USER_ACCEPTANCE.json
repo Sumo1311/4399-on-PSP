@@ -1,10 +1,13 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "release_authorized_by_user": true,
   "authorization": "再优化一下画质，让画面清晰一些，然后把正式包上传到github以及卡里面",
+  "repair_scope": [
+    "宇智波斑按住下箭头、大招及其他动作黑色矩形",
+    "检查其他动作并一并处理"
+  ],
+  "software_regressions_passed": true,
+  "physical_1_0_4_retest_performed": false,
   "baseline_hardware_acceptance": "BASELINE_RENDER_USER_ACCEPTANCE.json",
-  "baseline_user_confirmed_black_rectangles_absent": true,
-  "physical_clarity_retest_performed": false,
-  "exact_root_cause_isolated": false,
-  "emulator_regressions_passed": true
+  "baseline_note": "Historical 1.0.2 user feedback covers earlier bounded cases; later Madara defect reproduced. It is not acceptance of 1.0.4."
 }

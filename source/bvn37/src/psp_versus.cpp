@@ -389,7 +389,7 @@ bool Game::start() {
     if (!installGameAllocationRecovery(renderer_)) return false;
 #ifdef BVN_RESOURCE_DIAGNOSTICS
     if (auto* log = std::fopen((folder_ + "BVN_DIAG.LOG").c_str(), "w")) {
-        std::fprintf(log, "BVN37 1.0.3 HWD3 HD QUEUED-GE\nreader=%s\nfirmware=0x%08x\n",
+        std::fprintf(log, "BVN37 1.0.4 HWD3 HD QUEUED-GE\nreader=%s\nfirmware=0x%08x\n",
                      resourceDiagnostics.synchronousOnly ? "stdio-only" : "original-readahead", sceKernelDevkitVersion());
         std::fclose(log);
     }
@@ -2250,7 +2250,7 @@ void Game::draw() {
         case Screen::Title:
             drawTitle();
 #ifdef BVN_RESOURCE_DIAGNOSTICS
-            renderer_.diagnosticText(resourceDiagnostics.synchronousOnly ? "HD 1.0.3: STDIO ONLY" : "HD 1.0.3: ORIGINAL IO", 2, 2);
+            renderer_.diagnosticText(resourceDiagnostics.synchronousOnly ? "HD 1.0.4: STDIO ONLY" : "HD 1.0.4: ORIGINAL IO", 2, 2);
             renderer_.diagnosticText(renderer_.deferred() ? "GE: QUEUED FRAME" : "GE: ORIGINAL DIRECT", 2, 12);
 #endif
             break;
@@ -2357,7 +2357,7 @@ int main(int argc, char** argv) {
         const auto path=launchFolder+"BVN_HWD3.LOG";
         const int boot=sceIoOpen(path.c_str(),PSP_O_WRONLY|PSP_O_CREAT|PSP_O_TRUNC,0777);
         if(boot>=0){
-            char line[384];const int n=std::snprintf(line,sizeof(line),"BVN37 1.0.3 HWD3 HD\nGE=%s\nfirmware=0x%08x\nlaunch=%s\n",game.deferred()?"queued-frame":"original-direct",sceKernelDevkitVersion(),launch.c_str());
+            char line[384];const int n=std::snprintf(line,sizeof(line),"BVN37 1.0.4 HWD3 HD\nGE=%s\nfirmware=0x%08x\nlaunch=%s\n",game.deferred()?"queued-frame":"original-direct",sceKernelDevkitVersion(),launch.c_str());
             if(n>0)sceIoWrite(boot,line,std::min(n,int(sizeof(line)-1)));
             sceIoClose(boot);sceIoSync(launchFolder.starts_with("ef0:")?"ef0:":"ms0:",0);
         }

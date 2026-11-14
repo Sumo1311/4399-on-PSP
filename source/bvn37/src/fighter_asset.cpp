@@ -144,30 +144,50 @@ bool FighterAsset::open(const char* path, TextureResidency residency) {
     std::rewind(file.get());
 
     FighterAsset next;
+    const bool transferFormat = std::memcmp(magic.data(),"BVNFGH16",8)==0 || std::memcmp(magic.data(),"BVNASSTX",8)==0;
     next.denseTextures_ = std::memcmp(magic.data(), "BVNFGH", 6) == 0 ||
-                          std::memcmp(magic.data(), "BVNASSTH", 8) == 0 || std::memcmp(magic.data(), "BVNASSTL", 8) == 0;
+                          std::memcmp(magic.data(), "BVNASSTH", 8) == 0 || std::memcmp(magic.data(), "BVNASSTL", 8) == 0 || transferFormat;
     std::uint64_t originalMetadata = 0;
     if (next.denseTextures_) {
         if (length < long(sizeof(Header) + sizeof(originalMetadata))) return false;
         length -= sizeof(originalMetadata);
         if (std::fseek(file.get(),length,SEEK_SET) ||
             std::fread(&originalMetadata,sizeof(originalMetadata),1,file.get()) != 1 || !originalMetadata) return false;
+        if (transferFormat) {
+            std::array<std::uint32_t,2> footer{};
+            if(length<8 || std::fseek(file.get(),length-8,SEEK_SET) || !read(file.get(),footer) ||
+               footer[1]!=0x33594c42u || !footer[0] || footer[0]>32768 ||
+               length < long(8+footer[0]*12+sizeof(Header))) return false;
+            length-=8+footer[0]*12;
+            next.transferTextures_.resize(footer[0]);
+            if(std::fseek(file.get(),length,SEEK_SET)||!read(file.get(),next.transferTextures_)||
+               !std::ranges::is_sorted(next.transferTextures_,{},&TextureLayers::texture)||
+               std::adjacent_find(next.transferTextures_.begin(),next.transferTextures_.end(),[](const auto& a,const auto& b){return a.texture==b.texture;})!=next.transferTextures_.end())return false;
+        }
         std::rewind(file.get());
     }
-    if (std::memcmp(magic.data(), "BVNASST1", 8) == 0 || std::memcmp(magic.data(), "BVNASSTH", 8) == 0 || std::memcmp(magic.data(), "BVNASSTL", 8) == 0) {
+    if (std::memcmp(magic.data(), "BVNASST1", 8) == 0 || std::memcmp(magic.data(), "BVNASSTH", 8) == 0 || std::memcmp(magic.data(), "BVNASSTL", 8) == 0 || std::memcmp(magic.data(),"BVNASSTX",8)==0) {
         next.assister_ = true;
-        if (!next.readCurrent(file.get(), length, 11, residency, std::memcmp(magic.data(), "BVNASSTL", 8) == 0)) return false;
+        if (!next.readCurrent(file.get(), length, 11, residency, transferFormat || std::memcmp(magic.data(), "BVNASSTL", 8) == 0)) return false;
     } else {
         if ((std::memcmp(magic.data(), "BVNFGT", 6) != 0 && std::memcmp(magic.data(), "BVNFGH", 6) != 0) ||
             magic[6] < '0' || magic[6] > '1' || magic[7] < '0' || magic[7] > '9') return false;
         const unsigned version = (magic[6] - '0') * 10 + magic[7] - '0';
-        if (version < 2 || version > 15) return false;
+        if (version < 2 || version > (transferFormat?16u:15u)) return false;
         if (!(version == 2 ? next.readLegacy(file.get(), length) :
-                            next.readCurrent(file.get(), length, version, residency))) return false;
+                            next.readCurrent(file.get(), length, transferFormat?15:version, residency))) return false;
+    }
+    for(const auto& layers:next.transferTextures_) {
+        const auto modes=std::uint64_t(layers.modesLow)|(std::uint64_t(layers.modesHigh)<<32);
+        const auto count=unsigned(modes&15u);if(!count)return false;
+        for(unsigned p=0;p<count;++p){const auto m=(modes>>(4+4*p))&15u;
+            if(m!=0&&m!=3&&m!=4&&m!=5&&m!=6&&m!=8&&m!=9&&m!=10&&m!=15)return false;}
+        if(count<15 && (modes>>(4+4*count)))return false;
     }
     // Presentation-only density changes retain the qualified script/object-area
     // identity; all logical tables are copied unchanged by the raster converter.
     if (next.denseTextures_) next.metadataIdentity_ = originalMetadata;
+    if(!next.transferTextures_.empty()&&next.transferTextures_.back().texture>=next.textures_.size())return false;
 #ifdef BVN_RESOURCE_DIAGNOSTICS
     std::snprintf(next.diagnosticPath_.data(), next.diagnosticPath_.size(), "%s", path);
 #endif
@@ -368,7 +388,7 @@ bool FighterAsset::readLegacy(std::FILE* stream, std::size_t length) {
 bool FighterAsset::readPixels(std::FILE* stream, std::size_t length, std::size_t start, TextureResidency residency) {
     loadStep("PAYLOAD SIZE");
     const std::size_t payload = length - start;
-    if (payload > StreamedTextureLimit) return false;
+    if (payload > StreamedTextureLimit * (transferTextures_.empty()?1:2)) return false;
     if (!validate(payload)) return false;
     const auto residentLimit = residency == TextureResidency::LowMemory && !textures_.empty() ?
         SmallTextureBudget : TextureBudget;
@@ -462,7 +482,7 @@ bool FighterAsset::validate(std::size_t payload) const {
         std::size_t position = 0;
         for (const auto& texture : textures_) {
             if (texture.offset != position || !texture.packedSize ||
-                !validSpan(position, texture.packedSize, payload) || texture.rawSize > 4u * 512 * 512) return false;
+                !validSpan(position, texture.packedSize, payload) || texture.rawSize > 60u * 512 * 512) return false;
             position += texture.packedSize;
         }
         if (position != payload) return false;
@@ -472,12 +492,13 @@ bool FighterAsset::validate(std::size_t payload) const {
         if (!std::isfinite(pose.x) || !std::isfinite(pose.y) ||
             !textureExtent(pose.stride) || !textureExtent(pose.rows) || !pose.width || !pose.height ||
             pose.width > pose.stride || pose.height > pose.rows) return false;
+        const auto planes=textureLayers(pose);
         return textures_.empty() ? pose.offset % sizeof(PixelBlock) == 0 &&
             validSpan(pose.offset, textureSize(pose), payload) :
             pose.offset < textures_.size() &&
-            (textures_[pose.offset].rawSize == textureSize(pose) ||
+            (textures_[pose.offset].rawSize == planes*textureSize(pose) ||
              (denseTextures_ && pose.stride <= 256 && pose.rows <= 256 &&
-              textures_[pose.offset].rawSize == 4 * textureSize(pose)));
+              textures_[pose.offset].rawSize == planes*4 * textureSize(pose)));
     };
     if (!std::ranges::all_of(tiles_, validPose)) return false;
     for (const FighterFrame& frame : frames_) {

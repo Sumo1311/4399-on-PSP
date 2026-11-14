@@ -1,0 +1,192 @@
+{
+  "version": "1.0.4",
+  "package_revision": "authored-blend-layers",
+  "program_sha256": "a00dd66dd9cdfd275c31ddc3dedf8d910a45680b9bd377189e5a4ff5b037ea7c",
+  "eboot_sha256": "228b0450571339baad3cb0838b02fb534dc90b5b302c131a3f22e6325a8bdcae",
+  "software_checks_passed": true,
+  "root_cause": "Original SWF blend placement flattened into opaque dark RGBA mattes; reproduced in Madara guard in 1.0.2 and 1.0.3",
+  "source_audit": {
+    "banks": 120,
+    "textures": 31435,
+    "pixels": 457249600,
+    "suspect_banks": 19,
+    "suspect_textures": 356
+  },
+  "converted_banks": 19,
+  "layered_textures": 2546,
+  "split_source_textures": 34,
+  "native_2x_textures": 27213,
+  "cache_budget_bytes": 3145728,
+  "maximum_decoded_entry_bytes": 2097152,
+  "gameplay_body_hit_event_stats_timing_unchanged": true,
+  "frame_graphic_descriptors_updated_for_34_split_textures": true,
+  "original_metadata_identities_preserved": true,
+  "host_decode": {
+    "sanitizers": "ASan+UBSan",
+    "banks": 120,
+    "textures": 31537,
+    "native_2x_textures": 27213,
+    "decoded_bytes": 4190040960,
+    "report": "PASS banks=120 textures=31537 native2x=27213 decoded_bytes=4190040960"
+  },
+  "authored_layer_gpu_audit": {
+    "pass": true,
+    "status": {
+      "status": 2,
+      "error": 0,
+      "banks": 19,
+      "textures": 2546,
+      "frames": 5172,
+      "pixels": 1375752,
+      "failed": 0,
+      "maxError": 1,
+      "black": 0,
+      "bank": 19,
+      "texture": 191,
+      "quality": 3,
+      "alpha": 128,
+      "backend": 0
+    },
+    "textureCache": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2343
+    ],
+    "ge": [
+      5172,
+      13344,
+      0,
+      2626
+    ],
+    "stream": [
+      0,
+      0
+    ],
+    "physicalPspTested": false,
+    "package": {
+      "EBOOT.PBP": "69062c504c4b9327333f9892e01482bba0176a890e5810710061e551ef04352e",
+      "LAYER_BANKS.TXT": "682a171d08b1964367f3fda37e8e8a8467152d99db7c6d130df2eb5e0c5dddb2"
+    }
+  },
+  "actual_game_direct_queued_compare": {
+    "pass": true,
+    "status": {
+      "status": 2,
+      "error": 0,
+      "scene": 8,
+      "step": 359,
+      "pairs": 594,
+      "pixels": 77552640,
+      "differingPixels": 0,
+      "directBlack": 0,
+      "queuedBlack": 0,
+      "maxError": 0,
+      "guardFrames": 162,
+      "complexFrames": 72,
+      "pillarPixels": 0
+    },
+    "textureCache": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      794
+    ],
+    "textureStream": [
+      0,
+      0
+    ],
+    "ge": [
+      3834,
+      7948,
+      0,
+      3240
+    ],
+    "physicalPspTested": false,
+    "package": {
+      "EBOOT.PBP": "8ce5d51d18e62495ce3eb8cc8a30407deac2d320eadd3cdf576d0959d6e36aa1"
+    }
+  },
+  "ordinary_gameplay": {
+    "pass_result": true,
+    "emulated_psp_model": "PSP-1000",
+    "memory_writes": false,
+    "savestates": false,
+    "cases": [
+      {
+        "fighters": [
+          "MADARA.BVF",
+          "NARUTO.BVF"
+        ],
+        "assists": [
+          "AMADARA.BVS",
+          "ASAKURA.BVS"
+        ],
+        "map": "ZOULANG",
+        "actions": [
+          "super",
+          "guard",
+          "skill_down"
+        ],
+        "cache_after": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          270
+        ]
+      },
+      {
+        "fighters": [
+          "AIZENGZ.BVF",
+          "NARUTOK.BVF"
+        ],
+        "assists": [
+          "AHIRUKO.BVS",
+          "ATSUNATE.BVS"
+        ],
+        "map": "SENLIN",
+        "actions": [
+          "super_down",
+          "assist"
+        ],
+        "cache_after": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          527
+        ]
+      }
+    ]
+  },
+  "comparison_image": "artwork/black-matte-comparison.png",
+  "comparison_note": "Same reported Madara guard action, independent ordinary/live runs; before/after camera and scale differ. Not a pixel-perfect SWF parity claim.",
+  "complete_install_rebuild": {
+    "byte_identical": true,
+    "files": 196,
+    "log": "rebuild-verification.log"
+  },
+  "physical_psp_1_0_4_tested": false,
+  "sustained_hardware_60fps_claimed": false,
+  "all_actions_physically_tested": false,
+  "full_flash_fidelity_claimed": false
+}

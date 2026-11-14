@@ -129,8 +129,12 @@ final class FlashLayers {
     }
 
     static BufferedImage render(Timeline timeline, int frame, RECT rect) {
+        return renderOn(timeline, frame, rect, null);
+    }
+
+    static BufferedImage renderOn(Timeline timeline, int frame, RECT rect, java.awt.Color background) {
         var canvas = SWF.frameToImageGet(timeline, frame, 0, null, 0, rect, new Matrix(), null,
-            null, 1.0, true, 2).getBufferedImage();
+            background, 1.0, true, 2).getBufferedImage();
         return canvas.getSubimage(0, 0, (rect.Xmax - rect.Xmin) / 20, (rect.Ymax - rect.Ymin) / 20);
     }
 

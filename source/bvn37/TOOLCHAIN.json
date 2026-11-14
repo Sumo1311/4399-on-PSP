@@ -4,6 +4,6 @@
   "source_date_epoch": 1793232000,
   "cmake_type": "Release",
   "target": "bvn_versus",
-  "sfo_app_version": "01.03",
+  "sfo_app_version": "01.04",
   "wlan_protocol": 100
 }

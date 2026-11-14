@@ -367,7 +367,7 @@ if(PSP)
     target_link_libraries(bvn_versus PRIVATE bvn_fighter bvn_renderer pspctrl pspdebug psppower pspaudio
         pspnet pspnet_adhoc pspnet_adhocctl pspwlan psputility)
     set(BVN_GAME_TITLE "Bleach vs Naruto 3.7 Alpha")
-    create_pbp_file(TARGET bvn_versus TITLE "${BVN_GAME_TITLE}" VERSION 01.03
+    create_pbp_file(TARGET bvn_versus TITLE "${BVN_GAME_TITLE}" VERSION 01.04
                     ICON_PATH "${CMAKE_CURRENT_SOURCE_DIR}/artwork/xmb/ICON0.PNG"
                     BACKGROUND_PATH "${CMAKE_CURRENT_SOURCE_DIR}/artwork/xmb/PIC1.PNG"
                     OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/versus")
@@ -377,6 +377,12 @@ if(PSP)
     target_link_options(bvn_live_render_qa PRIVATE "-Wl,-Map,${CMAKE_CURRENT_BINARY_DIR}/live_render.map" "-Wl,-u,sceUtilityGetSystemParamInt")
     target_link_libraries(bvn_live_render_qa PRIVATE bvn_fighter bvn_renderer pspctrl pspdebug psppower pspaudio pspnet pspnet_adhoc pspnet_adhocctl pspwlan psputility)
     create_pbp_file(TARGET bvn_live_render_qa TITLE "BVN37 Live Render Check" VERSION 00.02 OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/live-render")
+    add_executable(bvn_blend_layers_qa tests/blend_layers_psp.cpp)
+    target_compile_options(bvn_blend_layers_qa PRIVATE -Wall -Wextra -ffp-contract=off)
+    target_link_options(bvn_blend_layers_qa PRIVATE "-Wl,-Map,${CMAKE_CURRENT_BINARY_DIR}/blend_layers.map")
+    target_link_libraries(bvn_blend_layers_qa PRIVATE bvn_renderer bvn_fighter pspctrl psppower)
+    create_pbp_file(TARGET bvn_blend_layers_qa TITLE "BVN Authored Blend Audit" VERSION 00.01 OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/blend-layers")
+
 endif()
 
 if(PSP)
@@ -389,4 +395,5 @@ else()
     add_executable(bvn_asset_coverage tests/asset_coverage.cpp)
     target_compile_options(bvn_asset_coverage PRIVATE -Wall -Wextra -ffp-contract=off)
     target_link_libraries(bvn_asset_coverage PRIVATE bvn_fighter)
+
 endif()

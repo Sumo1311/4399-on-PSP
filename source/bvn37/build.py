@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild BVN37 1.0.3 using the matching verified high-density installation data."""
+"""Rebuild BVN37 1.0.4 using the matching verified high-density installation data."""
 import argparse
 from contextlib import ExitStack
 import hashlib
@@ -13,7 +13,7 @@ import zipfile
 root = Path(__file__).resolve().parent
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--install-zip', type=Path, required=True,
-                    help='Complete BVN37_PSP_1.0.3_Install.zip')
+                    help='Complete BVN37_PSP_1.0.4_Install.zip')
 parser.add_argument('--build-dir', type=Path, default=root / 'build/psp')
 parser.add_argument('--output', type=Path, default=root / 'build/install/PSP/GAME/BVN37')
 parser.add_argument('--require-identical', action='store_true',
