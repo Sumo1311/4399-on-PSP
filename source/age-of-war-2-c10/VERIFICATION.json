@@ -1,0 +1,84 @@
+{
+  "version": "C10",
+  "physical_device": {
+    "status": "user-reported-accepted",
+    "date": "2026-11-14",
+    "statement": "C10目前没检测出问题，可以作为正式包发布",
+    "scope": "Current use of installed C10; no measured hardware frame-pacing or all-scene claim"
+  },
+  "promotion": {
+    "metadata_change": "PARAM.SFO TITLE only",
+    "program_and_assets_byte_identical": true,
+    "candidate_eboot_sha256": "51fd9f4f72472e73304fe41e150fd8627798b0ca1857c11e844ffadc65da8f9c",
+    "formal_eboot_sha256": "313ac29f10aafc5ebface19c9fc43fb34cef21d9a99aadfff3633ca2725138ed",
+    "data_psp_sha256": "e387d128026099eb48f6de9a5b7f4f039c14ed8d8e595c043477477e3051382e"
+  },
+  "final_package_checks": [
+    {
+      "name": "qa-official-clean-32",
+      "status": "pass",
+      "memory_model_mib": 32,
+      "scope": "ordinary PSP input and native save in a private PPSSPP process",
+      "result_sha256": "b228f0a4a36afdb4295b1cc7e04b3b4be556021df01f053feb4225b394c895a5"
+    },
+    {
+      "name": "qa-official-restore-32",
+      "status": "pass",
+      "memory_model_mib": 32,
+      "scope": "ordinary PSP input and native save in a private PPSSPP process",
+      "result_sha256": "29dd99388e181c334a7e4c8ef98e92236aae51f8d56cccd1c49ac9656adc38af"
+    }
+  ],
+  "candidate_checks": {
+    "memory_models_mib": [
+      32,
+      64
+    ],
+    "cases": [
+      {
+        "name": "qa-controls-32",
+        "status": "pass"
+      },
+      {
+        "name": "qa-stress-32",
+        "status": "pass"
+      },
+      {
+        "name": "qa-replay-32",
+        "status": "pass"
+      },
+      {
+        "name": "qa-restore-32",
+        "status": "pass"
+      },
+      {
+        "name": "qa-release-32",
+        "status": "pass"
+      },
+      {
+        "name": "qa-controls-64",
+        "status": "pass"
+      },
+      {
+        "name": "qa-stress-64",
+        "status": "pass"
+      }
+    ],
+    "independent_flash_rows": 120,
+    "emulator_stress_rows_equal_to_C06": 300,
+    "audio_storage_equivalence": {
+      "status": "pass",
+      "clips": 52,
+      "required_clips": 43,
+      "compared_samples": 22809600,
+      "high_resident": 9242896,
+      "low_resident": 7186748,
+      "stereo_and_duration_identical": true
+    },
+    "low_memory_stress_hz": 59.94006942603051,
+    "low_memory_stress_max_frame_interval_us": 16694,
+    "low_memory_stress_missed_vblanks": 0
+  },
+  "rules_baseline": "1.0.3",
+  "alternate_1_0_4_turret_changes": false
+}

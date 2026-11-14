@@ -13,6 +13,7 @@ Flash 游戏的非官方 PSP 移植项目，支持单人游玩，部分游戏支
 | 双人旋转赛车 · Flipside | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/flipside-v1.0.3) | [1.0.3 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/flipside-v1.0.3/Flipside_PSP-1.0.3.zip) |
 | 火柴人羽毛球 2 | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/badminton2-v1.0.18) | [1.0.18 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/badminton2-v1.0.18/Badminton2_PSP-1.0.18.zip) |
 | 死神 vs 火影 3.7 Alpha（5DPLAY） | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.3) | [1.0.3 清晰画质正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.3/BVN37_PSP_1.0.3_Install.zip) |
+| 战争进化史2 | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-c10) | [C10 正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/age-of-war-2-c10/AgeOfWar2_PSP_C10_Official.zip) |
 
 ## 安装
 
@@ -29,6 +30,7 @@ PPSSPP 可直接打开游戏目录内的 `EBOOT.PBP`。
 ## 源码与构建资料
 
 - [死神 vs 火影原生源码、封面背景与重建说明](source/bvn37)
+- [战争进化史2 C10 原生源码及构建说明](source/age-of-war-2-c10)
 - [四款优化版的构建与重新链接资料](materials)
 - [当前独立发行清单与 SHA-256](manifests/releases.json)
 - [历史版本与构建清单](manifests)

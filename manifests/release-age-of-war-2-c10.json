@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/Sumo1311/4399-on-PSP",
+  "tag": "age-of-war-2-c10",
+  "title": "战争进化史2 PSP 正式版 C10",
+  "version": "C10",
+  "channel": "official",
+  "install_path": "PSP/GAME/AgeWar2/EBOOT.PBP",
+  "install_files": 68,
+  "eboot_sha256": "313ac29f10aafc5ebface19c9fc43fb34cef21d9a99aadfff3633ca2725138ed",
+  "program_sha256": "e387d128026099eb48f6de9a5b7f4f039c14ed8d8e595c043477477e3051382e",
+  "rules_baseline": "1.0.3",
+  "publication_layout": "one-game-per-release",
+  "release_assets_policy": "game-installers-only",
+  "physical_device": {
+    "status": "user-reported-accepted",
+    "date": "2026-11-14",
+    "statement": "C10目前没检测出问题，可以作为正式包发布",
+    "scope": "Current use of installed C10; no measured hardware frame-pacing or all-scene claim"
+  },
+  "support_materials": {
+    "native_source": "source/age-of-war-2-c10",
+    "verification": "source/age-of-war-2-c10/VERIFICATION.json"
+  },
+  "assets": [
+    {
+      "name": "AgeOfWar2_PSP_C10_Official.zip",
+      "kind": "installation",
+      "games": [
+        "AgeWar2"
+      ],
+      "bytes": 55436986,
+      "sha256": "bb0172155a3ab96dbb93f621fd90d9c64ffaa6c4d05b5b96a2a5e48be6c300af",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/age-of-war-2-c10/AgeOfWar2_PSP_C10_Official.zip"
+    }
+  ],
+  "games": {
+    "AgeWar2": {
+      "files": {
+        "EBOOT.PBP": {
+          "bytes": 3381398,
+          "sha256": "313ac29f10aafc5ebface19c9fc43fb34cef21d9a99aadfff3633ca2725138ed"
+        },
+        "INSTALL.txt": {
+          "bytes": 1214,
+          "sha256": "15e0e834cbb1f08efc40e93d696d278a1815b0b6b87c9b752e220592f9d90272"
+        },
+        "LICENSE_SCOPE.md": {
+          "bytes": 926,
+          "sha256": "3fb136908137331c7e9185bcc7f75307d2a8ede4caf6ea74157b31def6987d0b"
+        },
+        "NOTO-OFL.txt": {
+          "bytes": 4301,
+          "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+        },
+        "RELEASE.json": {
+          "bytes": 566,
+          "sha256": "e6972d441926f699a38a35e86794e7f84a9d7f1841357d87ed4499d2138bed01"
+        },
+        "RUNTIME.sha256": {
+          "bytes": 5750,
+          "sha256": "95b8365918548c1e201ac2442774342c899fd1bbe238e067a992605a81cebd56"
+        },
+        "THIRD_PARTY_NOTICES.md": {
+          "bytes": 2871,
+          "sha256": "a8f26e032a812911022bc21d68bde022bcd8407a0f2489c803f9dca1a7ad4035"
+        },
+        "build-identity.json": {
+          "bytes": 10232,
+          "sha256": "5d96051943e7a326b5c4a2b0a62cb5fa0c0985d3dc3126351801a5a602d1fc6d"
+        },
+        "data/art/manifest.json": {
+          "bytes": 14246,
+          "sha256": "bccad1189216f442eac42d586d1128c503693346653c5ebec84660fd2140553f"
+        },
+        "data/art/textures.bin": {
+          "bytes": 29515766,
+          "sha256": "e94b5c283bede5bbde84f739d69e23539d545defcdea2a8ab60882d3a5de82f1"
+        },
+        "data/audio/Music1.pcm": {
+          "bytes": 19526588,
+          "sha256": "aadc914877d52130b6fdfbd6c047c64577c6ecb17cf46d74e63753b2786eb87b"
+        },
+        "data/audio/Music2.pcm": {
+          "bytes": 7278524,
+          "sha256": "9cbf17d09ea3bd51b2c2095fa2bc9eb479d5e14cb88fd4154f7e3ab1c884e3e6"
+        },
+        "data/audio/arrow1.pcm": {
+          "bytes": 115200,
+          "sha256": "9f7e57c346cd9e689e4c09cb8dec24a05e804ae822435904d989b98592fb1abc"
+        },
+        "data/audio/arrow2.pcm": {
+          "bytes": 59904,
+          "sha256": "68ee56852feaf1320d376ef931c9f15347cf2f65203213811a4c411673a7646c"
+        },
+        "data/audio/explosion1.pcm": {
+          "bytes": 161280,
+          "sha256": "d1c32d794603b4df5d7ceba25fd9249f2896134deb11243b62c937f343f13d8c"
+        },
+        "data/audio/explosion2.pcm": {
+          "bytes": 857088,
+          "sha256": "4262d1142a9953e60aeb2570b235dc69252f0f8b42583a8fd3cd2176158c4773"
+        },
+        "data/audio/explosion4.pcm": {
+          "bytes": 152064,
+          "sha256": "afaf127c22a2fbf95d2f69ba124c5e5ee8707f937a53de380bc8d3fd3c251d7f"
+        },
+        "data/audio/explosion5.pcm": {
+          "bytes": 152064,
+          "sha256": "57c8082927f4586aee6ba711749925d7ef23cd8e2ac4ec24e3b79eb4ab0c2073"
+        },
+        "data/audio/explosion6.pcm": {
+          "bytes": 267264,
+          "sha256": "245f815f06d9fad80d83f0115bca92e1d7b0dbfe997efdec0d1972683f8f75d0"
+        },
+        "data/audio/fireball.pcm": {
+          "bytes": 294912,
+          "sha256": "e6e05963576bd5b05eee26ca0c856af8de38aca1860f3844a1d587595bd87391"
+        },
+        "data/audio/gun1.pcm": {
+          "bytes": 152064,
+          "sha256": "84cdbebc73c9cc557e6919c36cd3885bee28ff834dda29d5522236f88507e315"
+        },
+        "data/audio/gun10.pcm": {
+          "bytes": 124416,
+          "sha256": "f755aef3c086754e4e949c6cb29850eda44b8e2e107bebfa53c1bde628f1a0b7"
+        },
+        "data/audio/gun11.pcm": {
+          "bytes": 36864,
+          "sha256": "ec7e50504b0ef83db77d965b8d3245725f2089e8bef8606c61634f2242e8be0d"
+        },
+        "data/audio/gun12.pcm": {
+          "bytes": 41472,
+          "sha256": "22b90ef816ffddccbfabc63878c61d6db531798e0ac9459bb6dcf5e9c4510ee6"
+        },
+        "data/audio/gun13.pcm": {
+          "bytes": 170496,
+          "sha256": "98dd33b56a95781a8f5164021bfcfa8b45baea596aaf04e533c1b6bc87c3751d"
+        },
+        "data/audio/gun14.pcm": {
+          "bytes": 142848,
+          "sha256": "885ff2ed5b43ac5f830252f61c9b0357fb24b5700a69a9c789fec53a415b2311"
+        },
+        "data/audio/gun15.pcm": {
+          "bytes": 156672,
+          "sha256": "2c0109d300cf48e2330ac06a4cc8563def2e525bb4d5f902b67a75e48000ade0"
+        },
+        "data/audio/gun2.pcm": {
+          "bytes": 101376,
+          "sha256": "5eb37cde0f27312690835b0b3bb14e984bedccd5cd2f073f0f2d4b959ce08cb6"
+        },
+        "data/audio/gun3.pcm": {
+          "bytes": 129024,
+          "sha256": "de6d61c3c72199e69f6d16346dde8216aab2cb1515ff2c9d321cd77355b3eb1e"
+        },
+        "data/audio/gun4.pcm": {
+          "bytes": 119808,
+          "sha256": "19c1677e71b49efd84d2a11dae9e2ddac68525a401f6c85d20b4be8523d0d687"
+        },
+        "data/audio/gun5.pcm": {
+          "bytes": 82944,
+          "sha256": "8c45aaf4381baf41b6f6c4760ce3f7ed594cab13f2b2de7d77c1db3a6851eba9"
+        },
+        "data/audio/gun6.pcm": {
+          "bytes": 152064,
+          "sha256": "d52de4c74e105bc0697b6d365b15952cf2637b23e0d691f774677e3d2ad0ab13"
+        },
+        "data/audio/gun7.pcm": {
+          "bytes": 142848,
+          "sha256": "11614af3c7a3d4355822ed20fc4b41610bed8227d8b1fc42e8795d03e18ea7ef"
+        },
+        "data/audio/gun8.pcm": {
+          "bytes": 147456,
+          "sha256": "a8c4fb73e9392f513dd9e5ad9cddb1a620e13b06eb14cb155841c4fcc6e1e2a1"
+        },
+        "data/audio/gun9.pcm": {
+          "bytes": 175104,
+          "sha256": "3c6589347c85b463c759cbedd3a223482df131f02c3bfc0c2ca50c8e9f5a571c"
+        },
+        "data/audio/hit1.pcm": {
+          "bytes": 41472,
+          "sha256": "b31e474fcf538c0a8179aac6e10393eafa9a91f8f4818172582fa351572e98e5"
+        },
+        "data/audio/hit2.pcm": {
+          "bytes": 69120,
+          "sha256": "3502daaa5e850b15e8e893db7e55cb605f6fb7f0286fca9d11aacb911f7db1a6"
+        },
+        "data/audio/hit3.pcm": {
+          "bytes": 69120,
+          "sha256": "85391ebe46daf94c45f9f758ac1d0bf52e643531a1a601ecdc75b9bdaf89c765"
+        },
+        "data/audio/hit4.pcm": {
+          "bytes": 105984,
+          "sha256": "6888315fd1463c091e8a07ab5705a3b6f5f8867eb3334f49a165b31aa38f2a69"
+        },
+        "data/audio/hit5.pcm": {
+          "bytes": 797184,
+          "sha256": "86ae3546c5b9793034c2874f068b52d3211978375857aecee64a955ba6dd30a0"
+        },
+        "data/audio/hit6.pcm": {
+          "bytes": 654336,
+          "sha256": "586f67d636107cc468823808b1fadaa3f914bbcce26019ccb746d408dc4585f0"
+        },
+        "data/audio/hit7.pcm": {
+          "bytes": 797184,
+          "sha256": "86ae3546c5b9793034c2874f068b52d3211978375857aecee64a955ba6dd30a0"
+        },
+        "data/audio/hit8.pcm": {
+          "bytes": 258048,
+          "sha256": "24aec930bb2fd543b532499e670d6de1eb37a5a90df92871ab99195733f2fcb0"
+        },
+        "data/audio/hit9.pcm": {
+          "bytes": 198144,
+          "sha256": "f95e5696f9f4aa34127efd16c1b503ca10a6a2ef05cc924dc7f143f9d4d12e71"
+        },
+        "data/audio/hurt1.pcm": {
+          "bytes": 64512,
+          "sha256": "42741e4ecfbeaa028a97458c67fdd95d088aea25b728fde7ce4673ebe06a9696"
+        },
+        "data/audio/hurt10.pcm": {
+          "bytes": 262656,
+          "sha256": "1566fb938b4ad589b4cccceff3931da4fafc443954b9d56d322ab14efa0f3059"
+        },
+        "data/audio/hurt2.pcm": {
+          "bytes": 55296,
+          "sha256": "62af3970a6f90a961778be296768a17d6112819cfa03bb2ed08c6ebc8f4c1b08"
+        },
+        "data/audio/hurt3.pcm": {
+          "bytes": 73728,
+          "sha256": "692fbe4b633dcfa5e508dd9b4106a385038bc742ef33a931579431587a41bff7"
+        },
+        "data/audio/hurt4.pcm": {
+          "bytes": 82944,
+          "sha256": "08f46a56f99f47816040ff6f2939cb24784ceaa27ce27fcc507b49123d1de9e3"
+        },
+        "data/audio/hurt5.pcm": {
+          "bytes": 73728,
+          "sha256": "7fbaa0be3e8b14bc823680e0940207afe4911e780db4d79493d957a4f65745a3"
+        },
+        "data/audio/hurt6.pcm": {
+          "bytes": 78336,
+          "sha256": "4dcca3642bd399986d0092133cc443f91880d371edab24fafbece7aea182885f"
+        },
+        "data/audio/hurt7.pcm": {
+          "bytes": 207360,
+          "sha256": "cca54d828b6db3d062fa55a4c563863828adc1ad0fd02e243824856240fc4e6d"
+        },
+        "data/audio/hurt8.pcm": {
+          "bytes": 110592,
+          "sha256": "652ca17b8d1e5af9217afee5dfd882d29899e56b9629580d28418111241fd551"
+        },
+        "data/audio/hurt9.pcm": {
+          "bytes": 410112,
+          "sha256": "2d7485748676001b996df725b9603d96dc2070b49b06dd9f1ee7e997913e8f97"
+        },
+        "data/audio/lightning.pcm": {
+          "bytes": 290304,
+          "sha256": "afdb22ec150cf00809815546333cae8df51b7968d2625a5c94c5362bdbbca835"
+        },
+        "data/audio/lightning2.pcm": {
+          "bytes": 576000,
+          "sha256": "15c5408b896e9c25379c326e9c076cfca896c70591e4fe4f742f16e65fd33e63"
+        },
+        "data/audio/lightning3.pcm": {
+          "bytes": 626688,
+          "sha256": "fbc326b1a9f9bb37eba194d3397e35348a6519023bccdde3c1af279949e8ea22"
+        },
+        "data/audio/manifest.json": {
+          "bytes": 14352,
+          "sha256": "e5e88c08af7731eb3b0687e9c81112b9e76048645ba4407e468f2d6f00ac6c2a"
+        },
+        "data/audio/rocketLaunch.pcm": {
+          "bytes": 824832,
+          "sha256": "1feccf5ed68e7d5d7d87373ba400d94815eba5d52acc8a9ebd1658b6285f251f"
+        },
+        "data/audio/swish1.pcm": {
+          "bytes": 133632,
+          "sha256": "03a4895efea9a2081230cee356cbb55dacb7a80429ead115aca1dcb0e963e99b"
+        },
+        "data/audio/swish2.pcm": {
+          "bytes": 133632,
+          "sha256": "d96313f98779a29628ae9970977d517dfd892c4d2d1562f01c9fca8cb6a3158c"
+        },
+        "data/audio/swish3.pcm": {
+          "bytes": 124416,
+          "sha256": "e77198e9b42afc756678c141574573449bb38618906e59f44d414cc111856255"
+        },
+        "data/audio/swish4.pcm": {
+          "bytes": 179712,
+          "sha256": "7447b52798376f161667927f1c12c9bd02e6354a65706ab923e543114e362081"
+        },
+        "data/audio/sword1.pcm": {
+          "bytes": 92160,
+          "sha256": "0d9734850a72156a68422652a768cf2ccd57926e784046b6ce7dc66cea55e703"
+        },
+        "data/audio/sword2.pcm": {
+          "bytes": 78336,
+          "sha256": "a9e10f93d1eb20abd28143e1217cea35f2b22e6742184892dad2c8dcfb5efd16"
+        },
+        "data/source-ai.xml": {
+          "bytes": 8417,
+          "sha256": "43e73e9bd025da27541173671406c24f8434900deef91aa4176c38550548e4e9"
+        },
+        "data/source-data.xml": {
+          "bytes": 25847,
+          "sha256": "74ac2f79355249ea4d90269aecef4ed1c67c36901493d940dcb95e30b24a0ecb"
+        },
+        "data/timelines.json": {
+          "bytes": 3187278,
+          "sha256": "b9c572d5cb5e7aa7c404e761a4587b46f06ea8c0e60c86d30cf377b01b1687b0"
+        }
+      }
+    }
+  }
+}

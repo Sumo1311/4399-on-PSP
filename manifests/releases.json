@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "Sumo1311/4399-on-PSP",
-  "updated_at": "2026-11-13T17:47:41.457531+00:00",
+  "updated_at": "2026-11-14T09:32:16.530946+08:00",
   "publication_layout": "one-game-per-release",
   "release_assets_policy": "one-complete-game-installer-per-release",
   "games": [
@@ -75,6 +75,20 @@
       "sha256": "c62dcc331c1921b15cbe5aa05a66356167db0455729474d0ba405f1088218df9",
       "eboot_sha256": "2090e106222bc7945bc658231e43526dff6cd1874a3980bfc0f63c3e41ea118a",
       "program_sha256": "984e42f331a6219152795fce787173e0b5d99a3e31d139569c8b7a7d54e8a034"
+    },
+    {
+      "id": "age-of-war-2",
+      "package_id": "AgeWar2",
+      "title": "战争进化史2 PSP 正式版 C10",
+      "version": "C10",
+      "tag": "age-of-war-2-c10",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-c10",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/age-of-war-2-c10/AgeOfWar2_PSP_C10_Official.zip",
+      "asset_name": "AgeOfWar2_PSP_C10_Official.zip",
+      "bytes": 55436986,
+      "sha256": "bb0172155a3ab96dbb93f621fd90d9c64ffaa6c4d05b5b96a2a5e48be6c300af",
+      "eboot_sha256": "313ac29f10aafc5ebface19c9fc43fb34cef21d9a99aadfff3633ca2725138ed",
+      "program_sha256": "e387d128026099eb48f6de9a5b7f4f039c14ed8d8e595c043477477e3051382e"
     }
   ]
 }
