@@ -15,6 +15,7 @@ Flash 游戏的非官方 PSP 移植项目，支持单人游玩，部分游戏支
 | 死神 vs 火影 3.7 Alpha（5DPLAY） | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.5) | [1.0.5 角色闪烁与大招修复正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.5/BVN37_PSP_1.0.5_Install.zip) |
 | 战争进化史2 | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-c10) | [C10 正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/age-of-war-2-c10/AgeOfWar2_PSP_C10_Official.zip) |
 | 双刃战士 · Double Edged | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/double-edged-v1.0.0) | [1.0.0 单机正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/double-edged-v1.0.0/DoubleEdged_PSP_1.0.0_Official.zip) |
+| 狂扁小朋友 · Dad n Me | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/dad-n-me-v1.0.3) | [1.0.3 正式版（R24单机）](https://github.com/Sumo1311/4399-on-PSP/releases/download/dad-n-me-v1.0.3/DadNMe_PSP_1.0.3_Official.zip) |
 
 ## 安装
 
@@ -32,7 +33,13 @@ PPSSPP 可直接打开游戏目录内的 `EBOOT.PBP`。
 
 ![双刃战士 PSP 背景](source/double-edged/artwork/background-master.png)
 
+狂扁小朋友 1.0.3 沿用最新完整测试包 R24 的单机程序与运行素材，加入中文 XMB 封面及背景。原有行为与性能证据保留；发行身份不新增全程60帧或实机验证结论。
+
+![狂扁小朋友 PSP 背景](source/dad-n-me/artwork/background-master.png)
+
 ## 源码与构建资料
+
+- [狂扁小朋友正式源码、配图及独立重建方法](source/dad-n-me)
 
 - [双刃战士正式源码、封面背景、生成说明及独立重建方法](source/double-edged)
 

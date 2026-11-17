@@ -1,0 +1,9 @@
+{
+  "status": "built",
+  "eboot_sha256": "ccb7e5cfaa4642fc7229d0333328b6618d5aa8162521f33291c3f4b5d5f45716",
+  "tested_eboot_sha256": "ccb7e5cfaa4642fc7229d0333328b6618d5aa8162521f33291c3f4b5d5f45716",
+  "byte_identical_to_tested": true,
+  "native_sources_unchanged": true,
+  "cmake_unchanged": true,
+  "assets_unchanged": true
+}

@@ -1,0 +1,68 @@
+{
+  "status": "verified-original-bytecode",
+  "source_sha256": "8451e71fd98593003ec0783bb31e54049e603c22ea140e9958ef96446823575d",
+  "sprite": 1745,
+  "function": "f_Grab",
+  "body_start": 21699,
+  "body_length": 777,
+  "NULL_variable_reads": [
+    {
+      "body_pc": 48,
+      "action_buffer_pc": 21747,
+      "opcode": "ActionGetVariable 0x1c",
+      "pushed_values": [
+        {
+          "type": 8,
+          "value": "NULL"
+        }
+      ]
+    },
+    {
+      "body_pc": 469,
+      "action_buffer_pc": 22168,
+      "opcode": "ActionGetVariable 0x1c",
+      "pushed_values": [
+        {
+          "type": 8,
+          "value": "NULL"
+        }
+      ]
+    },
+    {
+      "body_pc": 515,
+      "action_buffer_pc": 22214,
+      "opcode": "ActionGetVariable 0x1c",
+      "pushed_values": [
+        {
+          "type": 8,
+          "value": "owner"
+        },
+        {
+          "type": 8,
+          "value": "NULL"
+        }
+      ]
+    },
+    {
+      "body_pc": 526,
+      "action_buffer_pc": 22225,
+      "opcode": "ActionGetVariable 0x1c",
+      "pushed_values": [
+        {
+          "type": 4,
+          "value": "register1"
+        },
+        {
+          "type": 8,
+          "value": "item"
+        },
+        {
+          "type": 8,
+          "value": "NULL"
+        }
+      ]
+    }
+  ],
+  "literal_null_pushes": 0,
+  "meaning": "Both comparisons and both ownership clears resolve the AS1 variable NULL;native literal-null stores do not preserve source type"
+}

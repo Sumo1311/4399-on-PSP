@@ -1,0 +1,9 @@
+{
+  "version": "1.0.3",
+  "channel": "official",
+  "baseline": "response56 R24",
+  "native_sources_byte_identical": true,
+  "formal_eboot_sha256": "4a14f64e4e8013ae2b27718c60d482ac4c3c1ed095b50be460386a9e073d05f7",
+  "data_psp_sha256": "41803dcdcc70180625f3f883785d8aa641c9a19315483f86fe11da8ade0c1dd3",
+  "source_date_epoch": 1794355200
+}

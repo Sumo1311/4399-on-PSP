@@ -20,3 +20,5 @@ The original games' copyright and credit screens are retained in the game conten
 No additional noncommercial restriction is added to the author's MIT-licensed original code. The MIT grant does not override the separate conditions governing third-party game content.
 
 《双刃战士 PSP 1.0.0》的对应源码、重建入口与菜单美术见 [`source/double-edged`](source/double-edged)。该目录保留 gameswf、QuickJS-NG 等依赖的许可；原 Flash 脚本及游戏素材仍保留各自第三方权利，根 MIT 协议不重新授权这些内容。具体范围见该目录 packaging/LICENSE_SCOPE.md。
+
+《狂扁小朋友 PSP 1.0.3》的对应源码、固定素材、重建入口和菜单美术位于 [`source/dad-n-me`](source/dad-n-me)。原游戏内容保留第三方权利；GameSWF、LZ4及字体遵循随附许可。范围见该目录 packaging/LICENSE_SCOPE.md。

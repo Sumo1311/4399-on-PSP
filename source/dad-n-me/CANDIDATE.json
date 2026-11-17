@@ -1,0 +1,22 @@
+{
+  "candidate": "response56",
+  "label": "R24",
+  "title": "Dad n Me Response R24 Test",
+  "install_folder": "DadNMeResponseR24",
+  "tested_eboot_sha256": "ccb7e5cfaa4642fc7229d0333328b6618d5aa8162521f33291c3f4b5d5f45716",
+  "cmake_options": [
+    "DNM_SCENE_SLOTS=5",
+    "DNM_TEXTURE_CACHE_MB=16",
+    "DNM_RESIDENT_PCM_MB=4",
+    "DNM_SOURCE_LOOKAHEAD=1"
+  ],
+  "status": "behavior-regression-passed-performance-goal-open",
+  "baseline": "response52 R20 local+card baseline;response55 R23 isolated control fix",
+  "changes": [
+    "Fix two f_Grab ownership clear values to match original NULL variable reads",
+    "Reuse supplied previous world matrix for unchanged drawing transform;local/singular fallback retained",
+    "No media/AI/damage/source cadence changes"
+  ],
+  "physical_performance_verified": false,
+  "full_migration_acceptance": false
+}

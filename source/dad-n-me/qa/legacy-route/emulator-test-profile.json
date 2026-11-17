@@ -1,0 +1,12 @@
+{
+  "cpu_mhz": 333,
+  "psp_model": 1,
+  "internal_resolution": 1,
+  "frame_skip": 0,
+  "auto_frame_skip": false,
+  "skip_buffer_effects": false,
+  "skip_gpu_readbacks": false,
+  "diagnostic_fast_forward": true,
+  "normal_speed": false,
+  "scope": "Fixed PSP clock and normal-speed settings do not reproduce physical PSP CPU/GE timing; hardware qualification remains separate."
+}

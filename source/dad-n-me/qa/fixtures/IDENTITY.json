@@ -1,0 +1,46 @@
+{
+  "dense6000.dnm": {
+    "bytes": 4188,
+    "sha256": "e7e8df36b6ee709211a09caebc54cbdd1f52d717f85dc08a39a25261edca1c33"
+  },
+  "intro-interruption-qa.swf": {
+    "bytes": 676914,
+    "sha256": "9b1b1d1d71b4c0507319113c59c6480209a67a5a8a36466d9a83d4dd136bf539"
+  },
+  "device-benchmark-1200.dnm": {
+    "bytes": 724,
+    "sha256": "1b3dbfdc471c3bb97ba66f223ae35962e7f77c56dcaecde5416b8cb941c1c977"
+  },
+  "health-and-restart-5000.dnm": {
+    "bytes": 4004,
+    "sha256": "301b03b6069a65a596f194c33d994150109016ffc7b2f2b5dde39a1cdeb5d14c"
+  },
+  "legacy-source.swf": {
+    "bytes": 676845,
+    "sha256": "1ae0ff67bfae8692e139990d338fda987cf3c78ab17bf6289a09762db16715b0"
+  },
+  "control-inputs/normal-first.dnm": {
+    "bytes": 1628,
+    "sha256": "46bac44a26d137b59629b5250ad81b6fe61f94657dd5de26e3ab0f866a2506bb"
+  },
+  "control-inputs/legacy-midgame.dnm": {
+    "bytes": 10820,
+    "sha256": "73501132b7b3ea54abd46a7f58f0f26602cfee4f26952d81f2d1346b50279fd6"
+  },
+  "control-inputs/legacy-group-birth.dnm": {
+    "bytes": 5228,
+    "sha256": "f1361c08f50cbbd424de60a320759bfac4d0f5c0b18df9012075847882c23a10"
+  },
+  "control-inputs/legacy-combat.dnm": {
+    "bytes": 2244,
+    "sha256": "405d47e75f9c1a634d4825d509cdd712ee54eb140830ef8b18b14964b60d274b"
+  },
+  "control-inputs/legacy-late.dnm": {
+    "bytes": 15220,
+    "sha256": "5e4c1faa42ec516b52cf7d8b871a25b8501a656787dc6ffc1a46fadd1cfc9135"
+  },
+  "control-inputs/normal-hit-recovery.dnm": {
+    "bytes": 2556,
+    "sha256": "73fc58d014cfc5ce1ac826727b9517f0541f2b9134ee305b749c0a032f169265"
+  }
+}

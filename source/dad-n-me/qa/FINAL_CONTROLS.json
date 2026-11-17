@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "candidate": "response56",
+  "run": "response56-r24-controls-333-normal",
+  "manual_snapshot_files": [
+    "CONTROL00.TXT",
+    "CONTROL00.CSV"
+  ],
+  "scope": "Original package,normal1x333MHz,input events only; movement,attack,pause/resume,manual control snapshot; no state writes"
+}

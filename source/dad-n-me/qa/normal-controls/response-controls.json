@@ -1,0 +1,574 @@
+{
+  "status": "pass",
+  "scope": "Fresh original package controlled only by emulated controller events; no state writes, replay or fast-forward. Sample-to-present telemetry is not hardware photon latency.",
+  "events": [
+    {
+      "label": "walk-right-down",
+      "buttons": {
+        "right": true
+      },
+      "sent_host_ms": 9163.598458,
+      "ack_host_ms": 9164.122708
+    },
+    {
+      "label": "walk-right-up",
+      "buttons": {
+        "right": false
+      },
+      "sent_host_ms": 9516.381292,
+      "ack_host_ms": 9516.626625
+    },
+    {
+      "label": "walk-left-down",
+      "buttons": {
+        "left": true
+      },
+      "sent_host_ms": 9721.121167,
+      "ack_host_ms": 9721.464792
+    },
+    {
+      "label": "walk-left-up",
+      "buttons": {
+        "left": false
+      },
+      "sent_host_ms": 10075.68825,
+      "ack_host_ms": 10075.935542
+    },
+    {
+      "label": "cross-16-down",
+      "buttons": {
+        "cross": true
+      },
+      "sent_host_ms": 10278.718708,
+      "ack_host_ms": 10278.902458
+    },
+    {
+      "label": "cross-16-up",
+      "buttons": {
+        "cross": false
+      },
+      "sent_host_ms": 10296.253333,
+      "ack_host_ms": 10296.381333
+    },
+    {
+      "label": "cross-24-down",
+      "buttons": {
+        "cross": true
+      },
+      "sent_host_ms": 10397.599833,
+      "ack_host_ms": 10397.878
+    },
+    {
+      "label": "cross-24-up",
+      "buttons": {
+        "cross": false
+      },
+      "sent_host_ms": 10423.696292,
+      "ack_host_ms": 10424.118417
+    },
+    {
+      "label": "cross-32-down",
+      "buttons": {
+        "cross": true
+      },
+      "sent_host_ms": 10526.331292,
+      "ack_host_ms": 10526.61225
+    },
+    {
+      "label": "cross-32-up",
+      "buttons": {
+        "cross": false
+      },
+      "sent_host_ms": 10560.887667,
+      "ack_host_ms": 10561.133
+    },
+    {
+      "label": "cross-48-down",
+      "buttons": {
+        "cross": true
+      },
+      "sent_host_ms": 10663.410792,
+      "ack_host_ms": 10663.592958
+    },
+    {
+      "label": "cross-48-up",
+      "buttons": {
+        "cross": false
+      },
+      "sent_host_ms": 10713.845917,
+      "ack_host_ms": 10714.101208
+    },
+    {
+      "label": "cross-80-down",
+      "buttons": {
+        "cross": true
+      },
+      "sent_host_ms": 10815.9125,
+      "ack_host_ms": 10816.144292
+    },
+    {
+      "label": "cross-80-up",
+      "buttons": {
+        "cross": false
+      },
+      "sent_host_ms": 10898.676708,
+      "ack_host_ms": 10898.925167
+    },
+    {
+      "label": "square-16-down",
+      "buttons": {
+        "square": true
+      },
+      "sent_host_ms": 11001.194083,
+      "ack_host_ms": 11001.450583
+    },
+    {
+      "label": "square-16-up",
+      "buttons": {
+        "square": false
+      },
+      "sent_host_ms": 11019.650417,
+      "ack_host_ms": 11019.860625
+    },
+    {
+      "label": "square-24-down",
+      "buttons": {
+        "square": true
+      },
+      "sent_host_ms": 11122.129417,
+      "ack_host_ms": 11122.527667
+    },
+    {
+      "label": "square-24-up",
+      "buttons": {
+        "square": false
+      },
+      "sent_host_ms": 11148.989083,
+      "ack_host_ms": 11149.174458
+    },
+    {
+      "label": "square-32-down",
+      "buttons": {
+        "square": true
+      },
+      "sent_host_ms": 11251.064417,
+      "ack_host_ms": 11251.302333
+    },
+    {
+      "label": "square-32-up",
+      "buttons": {
+        "square": false
+      },
+      "sent_host_ms": 11285.588542,
+      "ack_host_ms": 11285.825625
+    },
+    {
+      "label": "square-48-down",
+      "buttons": {
+        "square": true
+      },
+      "sent_host_ms": 11388.136333,
+      "ack_host_ms": 11388.36025
+    },
+    {
+      "label": "square-48-up",
+      "buttons": {
+        "square": false
+      },
+      "sent_host_ms": 11437.646208,
+      "ack_host_ms": 11437.822958
+    },
+    {
+      "label": "square-80-down",
+      "buttons": {
+        "square": true
+      },
+      "sent_host_ms": 11538.59475,
+      "ack_host_ms": 11538.848333
+    },
+    {
+      "label": "square-80-up",
+      "buttons": {
+        "square": false
+      },
+      "sent_host_ms": 11621.272042,
+      "ack_host_ms": 11621.48175
+    },
+    {
+      "label": "right-16-down",
+      "buttons": {
+        "right": true
+      },
+      "sent_host_ms": 11724.041042,
+      "ack_host_ms": 11724.320333
+    },
+    {
+      "label": "right-16-up",
+      "buttons": {
+        "right": false
+      },
+      "sent_host_ms": 11742.578625,
+      "ack_host_ms": 11742.780542
+    },
+    {
+      "label": "right-24-down",
+      "buttons": {
+        "right": true
+      },
+      "sent_host_ms": 11843.960375,
+      "ack_host_ms": 11844.207792
+    },
+    {
+      "label": "right-24-up",
+      "buttons": {
+        "right": false
+      },
+      "sent_host_ms": 11869.165125,
+      "ack_host_ms": 11869.346042
+    },
+    {
+      "label": "right-32-down",
+      "buttons": {
+        "right": true
+      },
+      "sent_host_ms": 11970.7095,
+      "ack_host_ms": 11970.927542
+    },
+    {
+      "label": "right-32-up",
+      "buttons": {
+        "right": false
+      },
+      "sent_host_ms": 12004.578208,
+      "ack_host_ms": 12004.877
+    },
+    {
+      "label": "right-48-down",
+      "buttons": {
+        "right": true
+      },
+      "sent_host_ms": 12105.693625,
+      "ack_host_ms": 12105.902
+    },
+    {
+      "label": "right-48-up",
+      "buttons": {
+        "right": false
+      },
+      "sent_host_ms": 12156.370667,
+      "ack_host_ms": 12156.608792
+    },
+    {
+      "label": "right-80-down",
+      "buttons": {
+        "right": true
+      },
+      "sent_host_ms": 12258.742875,
+      "ack_host_ms": 12258.948
+    },
+    {
+      "label": "right-80-up",
+      "buttons": {
+        "right": false
+      },
+      "sent_host_ms": 12341.196792,
+      "ack_host_ms": 12341.401292
+    },
+    {
+      "label": "left-16-down",
+      "buttons": {
+        "left": true
+      },
+      "sent_host_ms": 12443.656,
+      "ack_host_ms": 12443.876333
+    },
+    {
+      "label": "left-16-up",
+      "buttons": {
+        "left": false
+      },
+      "sent_host_ms": 12462.122208,
+      "ack_host_ms": 12462.279
+    },
+    {
+      "label": "left-24-down",
+      "buttons": {
+        "left": true
+      },
+      "sent_host_ms": 12564.468958,
+      "ack_host_ms": 12564.706208
+    },
+    {
+      "label": "left-24-up",
+      "buttons": {
+        "left": false
+      },
+      "sent_host_ms": 12588.963292,
+      "ack_host_ms": 12589.165917
+    },
+    {
+      "label": "left-32-down",
+      "buttons": {
+        "left": true
+      },
+      "sent_host_ms": 12689.527958,
+      "ack_host_ms": 12689.74175
+    },
+    {
+      "label": "left-32-up",
+      "buttons": {
+        "left": false
+      },
+      "sent_host_ms": 12724.077708,
+      "ack_host_ms": 12724.493458
+    },
+    {
+      "label": "left-48-down",
+      "buttons": {
+        "left": true
+      },
+      "sent_host_ms": 12826.811208,
+      "ack_host_ms": 12827.006958
+    },
+    {
+      "label": "left-48-up",
+      "buttons": {
+        "left": false
+      },
+      "sent_host_ms": 12877.258125,
+      "ack_host_ms": 12877.451208
+    },
+    {
+      "label": "left-80-down",
+      "buttons": {
+        "left": true
+      },
+      "sent_host_ms": 12978.685125,
+      "ack_host_ms": 12978.907
+    },
+    {
+      "label": "left-80-up",
+      "buttons": {
+        "left": false
+      },
+      "sent_host_ms": 13061.153417,
+      "ack_host_ms": 13061.367292
+    },
+    {
+      "label": "heavy-fight-down",
+      "buttons": {
+        "cross": true,
+        "square": true
+      },
+      "sent_host_ms": 13162.902125,
+      "ack_host_ms": 13163.147875
+    },
+    {
+      "label": "heavy-fight-up",
+      "buttons": {
+        "cross": false,
+        "square": false
+      },
+      "sent_host_ms": 16165.368583,
+      "ack_host_ms": 16165.600583
+    },
+    {
+      "label": "snapshot-down",
+      "buttons": {
+        "ltrigger": true,
+        "rtrigger": true,
+        "select": true
+      },
+      "sent_host_ms": 16468.34325,
+      "ack_host_ms": 16468.553833
+    },
+    {
+      "label": "snapshot-up",
+      "buttons": {
+        "ltrigger": false,
+        "rtrigger": false,
+        "select": false
+      },
+      "sent_host_ms": 17170.7395,
+      "ack_host_ms": 17170.99575
+    },
+    {
+      "label": "pause-down",
+      "buttons": {
+        "start": true
+      },
+      "sent_host_ms": 17471.812042,
+      "ack_host_ms": 17472.013
+    },
+    {
+      "label": "pause-up",
+      "buttons": {
+        "start": false
+      },
+      "sent_host_ms": 17553.212708,
+      "ack_host_ms": 17553.453625
+    },
+    {
+      "label": "resume-down",
+      "buttons": {
+        "cross": true
+      },
+      "sent_host_ms": 18310.547458,
+      "ack_host_ms": 18310.917333
+    },
+    {
+      "label": "resume-up",
+      "buttons": {
+        "cross": false
+      },
+      "sent_host_ms": 18393.284792,
+      "ack_host_ms": 18393.698792
+    }
+  ],
+  "observations": [
+    {
+      "name": "live-start",
+      "host_ms": 9162.940708,
+      "state": {
+        "tick": 208,
+        "rendered": 412,
+        "buttons": 0,
+        "phase": 2,
+        "x": -1152.5999755859375,
+        "y": 235,
+        "health": 100,
+        "heroFrame": 1,
+        "heapFree": 100568,
+        "presented": 206
+      }
+    },
+    {
+      "name": "before-walk",
+      "host_ms": 9163.449,
+      "state": {
+        "tick": 208,
+        "rendered": 412,
+        "buttons": 0,
+        "phase": 2,
+        "x": -1152.5999755859375,
+        "y": 235,
+        "health": 100,
+        "heroFrame": 1,
+        "heapFree": 100568,
+        "presented": 206
+      }
+    },
+    {
+      "name": "walked-right",
+      "host_ms": 9720.6625,
+      "state": {
+        "tick": 224,
+        "rendered": 445,
+        "buttons": 0,
+        "phase": 2,
+        "x": -1032.5999755859375,
+        "y": 235,
+        "health": 100,
+        "heroFrame": 1,
+        "heapFree": 240344,
+        "presented": 223
+      }
+    },
+    {
+      "name": "walked-left",
+      "host_ms": 10278.425583,
+      "state": {
+        "tick": 241,
+        "rendered": 478,
+        "buttons": 0,
+        "phase": 2,
+        "x": -1164.5999755859375,
+        "y": 235,
+        "health": 100,
+        "heroFrame": 1,
+        "heapFree": 185272,
+        "presented": 239
+      }
+    },
+    {
+      "name": "after-combat",
+      "host_ms": 16468.071417,
+      "state": {
+        "tick": 427,
+        "rendered": 850,
+        "buttons": 0,
+        "phase": 2,
+        "x": -1200.5999755859375,
+        "y": 235,
+        "health": 100,
+        "heroFrame": 1,
+        "heapFree": 505496,
+        "presented": 425
+      }
+    },
+    {
+      "name": "after-snapshot",
+      "host_ms": 17471.621333,
+      "state": {
+        "tick": 456,
+        "rendered": 911,
+        "buttons": 0,
+        "phase": 2,
+        "x": -1200.5999755859375,
+        "y": 235,
+        "health": 100,
+        "heroFrame": 1,
+        "heapFree": 527320,
+        "presented": 455
+      }
+    },
+    {
+      "name": "paused",
+      "host_ms": 17907.187208,
+      "state": {
+        "tick": 458,
+        "rendered": 937,
+        "buttons": 0,
+        "phase": 2,
+        "x": -1200.5999755859375,
+        "y": 235,
+        "health": 100,
+        "heroFrame": 1,
+        "heapFree": 527320,
+        "presented": 458
+      }
+    },
+    {
+      "name": "still-paused",
+      "host_ms": 18310.00175,
+      "state": {
+        "tick": 458,
+        "rendered": 962,
+        "buttons": 0,
+        "phase": 2,
+        "x": -1200.5999755859375,
+        "y": 235,
+        "health": 100,
+        "heroFrame": 1,
+        "heapFree": 527320,
+        "presented": 458
+      }
+    },
+    {
+      "name": "resumed",
+      "host_ms": 18997.361458,
+      "state": {
+        "tick": 478,
+        "rendered": 1003,
+        "buttons": 0,
+        "phase": 2,
+        "x": -1200.5999755859375,
+        "y": 235,
+        "health": 100,
+        "heroFrame": 1,
+        "heapFree": 523624,
+        "presented": 477
+      }
+    }
+  ]
+}

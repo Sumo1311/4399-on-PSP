@@ -1,0 +1,69 @@
+{
+  "scope": "Optional automatic benchmark source-thread observations. Kernel-reported run-clock deltas include instrumentation and require device-specific validation.",
+  "status": "complete",
+  "records": 1200,
+  "trailing_bytes": 0,
+  "source_span": [
+    1,
+    1200
+  ],
+  "window": [
+    240,
+    1100
+  ],
+  "clock_conversion_calibrated": true,
+  "clock_conversion_probe": {
+    "first": 1,
+    "second": 234567,
+    "return_code_raw": 0
+  },
+  "run_deltas_consistent_with_wall_bound": false,
+  "run_clock_fidelity": "not-established-by-format-or-emulator-check",
+  "run_clock_values_progressed": false,
+  "run_clock_usable_for_attribution": false,
+  "run_clock_unavailable_reason": "No positive valid run-clock progress, or deltas exceed wall-time bound",
+  "wall_us": {
+    "logic_wall_us": {
+      "samples": 860,
+      "mean": 7919.281395348838,
+      "p95": 10376,
+      "maximum": 20021
+    },
+    "capture_wall_us": {
+      "samples": 860,
+      "mean": 4101.140697674418,
+      "p95": 4410,
+      "maximum": 5236
+    },
+    "post_wall_us": {
+      "samples": 860,
+      "mean": 670.2883720930232,
+      "p95": 1784,
+      "maximum": 4909
+    },
+    "total_wall_us": {
+      "samples": 860,
+      "mean": 12712.491860465116,
+      "p95": 15502,
+      "maximum": 26517
+    }
+  },
+  "kernel_reported_run_us": {
+    "logic_run_us": null,
+    "capture_run_us": null,
+    "post_run_us": null,
+    "total_run_us": null
+  },
+  "recorded_commands": {
+    "samples": 860,
+    "mean": 137.29418604651164,
+    "p95": 156,
+    "maximum": 161
+  },
+  "sha256": "b70d37318c23a209a89d5ac444b848e6fcf54faf2c430ebde8560cbad16b15a8",
+  "limits": [
+    "Source records stay in RAM and are written after the fixed replay. Other PERF/CSV writes still perturb playback.",
+    "Post-capture includes probes and resource preparation; it is not a pure GE or I/O timer.",
+    "Missing/unsupported run clocks are unavailable, not zero CPU cost. Stage durations and render work overlap."
+  ]
+}

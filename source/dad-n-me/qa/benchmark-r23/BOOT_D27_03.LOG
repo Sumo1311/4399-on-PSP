@@ -1,0 +1,19 @@
+10474 main-entered code=0x00000000 heap_used=12024 heap_arena_free=2312 system_free=12777472 max_block=12515328
+ms0:/PSP/GAME/DadNMe
+31127 gpu-semaphore code=0x0000012e heap_used=12024 heap_arena_free=2312 system_free=12777472 max_block=12515328
+211548 clock-set code=0x00000000 heap_used=12264 heap_arena_free=2072 system_free=12777472 max_block=12515328
+221832 cpu-clock-mhz code=0x0000014d heap_used=12264 heap_arena_free=2072 system_free=12777472 max_block=12515328
+232116 bus-clock-mhz code=0x000000a6 heap_used=12264 heap_arena_free=2072 system_free=12777472 max_block=12515328
+300327 renderer-enter code=0x00000000 heap_used=79880 heap_arena_free=4088 system_free=12773376 max_block=12515328
+357917 art-index-ready code=0x00000000 heap_used=372424 heap_arena_free=71992 system_free=12773376 max_block=12515328
+369137 command-cache-ready code=0x08a36780 heap_used=372424 heap_arena_free=71992 system_free=12773376 max_block=12515328
+379436 gu-initialized code=0x00000000 heap_used=372424 heap_arena_free=71992 system_free=12773376 max_block=12515328
+411041 renderer-ready code=0x00000000 heap_used=372424 heap_arena_free=71992 system_free=12773376 max_block=12515328
+882886 audio-ready code=0x00000000 heap_used=5124088 heap_arena_free=34824 system_free=12740608 max_block=12515328
+1893321 source-loaded code=0x00000000 heap_used=10261784 heap_arena_free=744 system_free=12740608 max_block=12515328
+1903802 source-semaphore code=0x0000015d heap_used=10261784 heap_arena_free=744 system_free=12740608 max_block=12515328
+1934315 source-thread-create code=0x00000161 heap_used=10261864 heap_arena_free=664 system_free=12216320 max_block=11991040
+1944610 source-thread-start code=0x00000000 heap_used=10261864 heap_arena_free=664 system_free=12216320 max_block=11991040
+1944995 first-source-scene code=0x00000000 heap_used=10264536 heap_arena_free=6184 system_free=12216320 max_block=11991040
+2146120 first-scene-presented code=0x00000000 heap_used=17458456 heap_arena_free=8936 system_free=12216320 max_block=11991040
+42182420 benchmark-complete code=0x00000000 heap_used=27859336 heap_arena_free=691832 system_free=12216320 max_block=11991040

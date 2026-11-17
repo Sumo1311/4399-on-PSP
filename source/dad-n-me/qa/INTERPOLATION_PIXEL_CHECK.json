@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "source_tick": 300,
+  "scope": "Native midpoint/exact GE pixels, normal1x333MHz, original100HP assets and same input",
+  "images": [
+    {
+      "file": "MID60.RGBA",
+      "bytes": 522240,
+      "sha256": "e0bdd86a2a0e831ccee6ae24aa6b35c1eb175e6bbd51bd51e995346519e4020b",
+      "byte_exact": true
+    },
+    {
+      "file": "EXACT60.RGBA",
+      "bytes": 522240,
+      "sha256": "9b54ca708d868843405170342190abf68632ac0b3d3ebeb8d06bc2d1e486f779",
+      "byte_exact": true
+    }
+  ],
+  "candidate": "response56",
+  "run": "response56-r24-pair-333-normal"
+}

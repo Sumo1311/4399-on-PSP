@@ -1,0 +1,45 @@
+{
+  "original_source_sha256": "1bd5a0335aeb43e628d02a7e64318d89ee19db44149824ca551375ddcf7a6e64",
+  "faithful_runtime_sha256": "edfe88677d6bf17690a6ac65b9e3809d8fe2d5d9739b1f5721eff007e9308925",
+  "playable_runtime_sha256": "8451e71fd98593003ec0783bb31e54049e603c22ea140e9958ef96446823575d",
+  "changed_file_offsets": [
+    526939
+  ],
+  "changes": [
+    {
+      "sprite": 1745,
+      "function": "f_KidGroup2",
+      "instruction": "ActionPush int32",
+      "before": 4,
+      "after": 3,
+      "action_payload_offset": 65210,
+      "reason": "Three enemies are spawned; the supplied SWF requires four defeats and stalls in both reference and native runs.",
+      "reference_evidence": "work/reference-campaign-bot-02/result.json",
+      "native_evidence": "work/campaign-04/result.json"
+    }
+  ],
+  "prior_playable_runtime_sha256": "1ae0ff67bfae8692e139990d338fda987cf3c78ab17bf6289a09762db16715b0",
+  "requested_health_repair": {
+    "scope": "User requested visible damage and normal finite health.100HP is an explicit candidate balance value, not a claim of an independently recovered official maximum.",
+    "base_sha256": "1ae0ff67bfae8692e139990d338fda987cf3c78ab17bf6289a09762db16715b0",
+    "output_sha256": "8451e71fd98593003ec0783bb31e54049e603c22ea140e9958ef96446823575d",
+    "changes": [
+      {
+        "sprite": 1745,
+        "function": "f_SpawnPlayer",
+        "field": "dude1.health_max",
+        "before": 1000000,
+        "after": 100,
+        "offset": 525335,
+        "width": 4
+      }
+    ],
+    "changed_file_offsets": [
+      525335,
+      525336,
+      525337
+    ],
+    "damage_hit_rules_unchanged": true,
+    "rage_and_attack_values_unchanged": true
+  }
+}

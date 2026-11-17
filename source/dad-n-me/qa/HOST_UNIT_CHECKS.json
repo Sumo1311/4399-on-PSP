@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "test": "advance_snapshot",
+      "exit_code": 0,
+      "output": "{\"checks\":4934,\"pass\":true}\n"
+    },
+    {
+      "test": "lookup",
+      "exit_code": 0,
+      "output": "{\"checks\":241342,\"lookups\":182396,\"rejected\":6933,\"scanned\":993775,\"rebuilds\":108,\"positive_hits\":66,\"pass\":true}\n"
+    },
+    {
+      "test": "frame_event",
+      "exit_code": 0,
+      "output": "{\"checks\":1095,\"callback_calls\":133,\"gate_checks\":978,\"absence_proofs\":488,\"pass\":true}\n"
+    },
+    {
+      "test": "vm_strings",
+      "exit_code": 0,
+      "output": "{\"checks\":1418,\"pass\":true}\n"
+    },
+    {
+      "test": "liveness",
+      "exit_code": 0,
+      "output": "{\"checks\":2427,\"pass\":true}\n"
+    }
+  ]
+}

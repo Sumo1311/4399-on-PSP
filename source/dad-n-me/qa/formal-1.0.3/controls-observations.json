@@ -1,0 +1,146 @@
+[
+  {
+    "name": "live-start",
+    "host_ms": 9181.114958,
+    "state": {
+      "tick": 208,
+      "rendered": 413,
+      "buttons": 0,
+      "phase": 2,
+      "x": -1152.5999755859375,
+      "y": 235,
+      "health": 100,
+      "heroFrame": 1,
+      "heapFree": 100568,
+      "presented": 207
+    }
+  },
+  {
+    "name": "before-walk",
+    "host_ms": 9181.839833,
+    "state": {
+      "tick": 208,
+      "rendered": 413,
+      "buttons": 0,
+      "phase": 2,
+      "x": -1152.5999755859375,
+      "y": 235,
+      "health": 100,
+      "heroFrame": 1,
+      "heapFree": 100568,
+      "presented": 207
+    }
+  },
+  {
+    "name": "walked-right",
+    "host_ms": 9736.489375,
+    "state": {
+      "tick": 224,
+      "rendered": 445,
+      "buttons": 0,
+      "phase": 2,
+      "x": -1032.5999755859375,
+      "y": 235,
+      "health": 100,
+      "heroFrame": 1,
+      "heapFree": 240344,
+      "presented": 223
+    }
+  },
+  {
+    "name": "walked-left",
+    "host_ms": 10292.473333,
+    "state": {
+      "tick": 241,
+      "rendered": 479,
+      "buttons": 0,
+      "phase": 2,
+      "x": -1152.5999755859375,
+      "y": 235,
+      "health": 100,
+      "heroFrame": 1,
+      "heapFree": 185272,
+      "presented": 240
+    }
+  },
+  {
+    "name": "after-combat",
+    "host_ms": 16477.280708,
+    "state": {
+      "tick": 427,
+      "rendered": 850,
+      "buttons": 0,
+      "phase": 2,
+      "x": -1200.5999755859375,
+      "y": 235,
+      "health": 100,
+      "heroFrame": 1,
+      "heapFree": 501400,
+      "presented": 425
+    }
+  },
+  {
+    "name": "after-snapshot",
+    "host_ms": 17482.404208,
+    "state": {
+      "tick": 457,
+      "rendered": 913,
+      "buttons": 0,
+      "phase": 2,
+      "x": -1200.5999755859375,
+      "y": 235,
+      "health": 100,
+      "heroFrame": 1,
+      "heapFree": 523224,
+      "presented": 456
+    }
+  },
+  {
+    "name": "paused",
+    "host_ms": 17919.382666,
+    "state": {
+      "tick": 458,
+      "rendered": 938,
+      "buttons": 0,
+      "phase": 2,
+      "x": -1200.5999755859375,
+      "y": 235,
+      "health": 100,
+      "heroFrame": 1,
+      "heapFree": 523224,
+      "presented": 458
+    }
+  },
+  {
+    "name": "still-paused",
+    "host_ms": 18322.232083,
+    "state": {
+      "tick": 458,
+      "rendered": 963,
+      "buttons": 0,
+      "phase": 2,
+      "x": -1200.5999755859375,
+      "y": 235,
+      "health": 100,
+      "heroFrame": 1,
+      "heapFree": 523224,
+      "presented": 458
+    }
+  },
+  {
+    "name": "resumed",
+    "host_ms": 19009.833,
+    "state": {
+      "tick": 478,
+      "rendered": 1005,
+      "buttons": 0,
+      "phase": 2,
+      "x": -1200.5999755859375,
+      "y": 235,
+      "health": 100,
+      "heroFrame": 1,
+      "heapFree": 519528,
+      "presented": 477
+    }
+  }
+]

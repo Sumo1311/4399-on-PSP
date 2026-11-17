@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "completionEvidence": "sampled-VM-phase-transitions",
+  "scope": "Input-only VM state completion; emulation/fast-forward settings are separately recorded. No physical performance inference.",
+  "scenario": "gameover",
+  "fixture": null,
+  "model": 1,
+  "replay": {
+    "seed": 42,
+    "frames": 5000,
+    "segments": 498,
+    "sha256": "301b03b6069a65a596f194c33d994150109016ffc7b2f2b5dde39a1cdeb5d14c"
+  },
+  "seenEnding": true,
+  "seenRestart": true,
+  "seconds": 166.780212833,
+  "final": {
+    "presentation": {
+      "sourceTick": 5002,
+      "presentations": 10003,
+      "midpoint": 1,
+      "movingSamples": 3,
+      "vcount": 10143
+    },
+    "tick": 5003,
+    "rendered": 10003,
+    "buttons": 0,
+    "phase": 2,
+    "x": -990.9491577148438,
+    "y": 146.9499969482422,
+    "health": 100,
+    "camera": 1212.550048828125,
+    "freeMemory": 12215552,
+    "checkpoint": 0,
+    "kills": 0,
+    "goal": 1,
+    "combo": 0,
+    "heroFrame": 8,
+    "replayDone": true,
+    "heapFree": 1209192
+  }
+}

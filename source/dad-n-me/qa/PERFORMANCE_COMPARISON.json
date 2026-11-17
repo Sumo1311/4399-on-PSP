@@ -1,0 +1,394 @@
+{
+  "status": "complete-pair",
+  "scope": "Fresh matched fixed1200 input,source240:1100,normal1x333MHz,model1,480x272; emulator diagnostic timing,not physical PSP or input-to-photon acceptance.",
+  "results": {
+    "R23": {
+      "run": "response55-r23-r24baseline-333-normal",
+      "benchmark": {
+        "complete": true,
+        "records": 2400,
+        "trailing_bytes_preserved_in_original": 0,
+        "source_span": [
+          1,
+          1200
+        ],
+        "start_cpu_mhz": 333,
+        "eboot_sha256": "58b374d69671efaec6333303187a3ceabeefea7c5f4733bcd99da126217a5c52",
+        "profile_sha256": "3b05eeb05ede1d1ec767ccd2b6403aee0e4868195176fb215a85fc92d356f0fd",
+        "windows": {
+          "240:1100": {
+            "logic_elapsed_us_unique_source": {
+              "samples": 860,
+              "mean": 7922.394186046512,
+              "p95": 10397,
+              "p99": 12652,
+              "maximum": 20467
+            },
+            "ge_wait_us": {
+              "samples": 1720,
+              "mean": 11.961627906976744,
+              "p95": 12,
+              "p99": 12,
+              "maximum": 174
+            },
+            "draw_and_lock_us": {
+              "samples": 1720,
+              "mean": 539.2343023255814,
+              "p95": 647,
+              "p99": 890,
+              "maximum": 1114
+            },
+            "audio_mix_us": {
+              "samples": 1720,
+              "mean": 500.56337209302325,
+              "p95": 1354,
+              "p99": 4566,
+              "maximum": 7687
+            },
+            "source_hz": 29.952601664151207,
+            "presentation_hz": 59.94007248041435,
+            "repeated_pairs": 0
+          },
+          "400:1100": {
+            "logic_elapsed_us_unique_source": {
+              "samples": 700,
+              "mean": 8091.128571428571,
+              "p95": 10457,
+              "p99": 12652,
+              "maximum": 20467
+            },
+            "ge_wait_us": {
+              "samples": 1400,
+              "mean": 12.01,
+              "p95": 12,
+              "p99": 12,
+              "maximum": 174
+            },
+            "draw_and_lock_us": {
+              "samples": 1400,
+              "mean": 559.7678571428571,
+              "p95": 652,
+              "p99": 900,
+              "maximum": 1114
+            },
+            "audio_mix_us": {
+              "samples": 1400,
+              "mean": 515.5707142857143,
+              "p95": 1445,
+              "p99": 4619,
+              "maximum": 7687
+            },
+            "source_hz": 29.948613064304816,
+            "presentation_hz": 59.94007106861579,
+            "repeated_pairs": 0
+          }
+        }
+      },
+      "source": {
+        "scope": "Optional automatic benchmark source-thread observations. Kernel-reported run-clock deltas include instrumentation and require device-specific validation.",
+        "status": "complete",
+        "records": 1200,
+        "trailing_bytes": 0,
+        "source_span": [
+          1,
+          1200
+        ],
+        "window": [
+          240,
+          1100
+        ],
+        "clock_conversion_calibrated": true,
+        "clock_conversion_probe": {
+          "first": 1,
+          "second": 234567,
+          "return_code_raw": 0
+        },
+        "run_deltas_consistent_with_wall_bound": false,
+        "run_clock_fidelity": "not-established-by-format-or-emulator-check",
+        "run_clock_values_progressed": false,
+        "run_clock_usable_for_attribution": false,
+        "run_clock_unavailable_reason": "No positive valid run-clock progress, or deltas exceed wall-time bound",
+        "wall_us": {
+          "logic_wall_us": {
+            "samples": 860,
+            "mean": 7922.394186046512,
+            "p95": 10397,
+            "maximum": 20467
+          },
+          "capture_wall_us": {
+            "samples": 860,
+            "mean": 4734.603488372093,
+            "p95": 5075,
+            "maximum": 5793
+          },
+          "post_wall_us": {
+            "samples": 860,
+            "mean": 677.6151162790698,
+            "p95": 1793,
+            "maximum": 5467
+          },
+          "total_wall_us": {
+            "samples": 860,
+            "mean": 13355.601162790697,
+            "p95": 16825,
+            "maximum": 27274
+          }
+        },
+        "kernel_reported_run_us": {
+          "logic_run_us": null,
+          "capture_run_us": null,
+          "post_run_us": null,
+          "total_run_us": null
+        },
+        "recorded_commands": {
+          "samples": 860,
+          "mean": 137.29418604651164,
+          "p95": 156,
+          "maximum": 161
+        },
+        "sha256": "2664dc8c7e7e17de14915ba40049a68906ebb29df46bf411d3582a1d09749305",
+        "limits": [
+          "Source records stay in RAM and are written after the fixed replay. Other PERF/CSV writes still perturb playback.",
+          "Post-capture includes probes and resource preparation; it is not a pure GE or I/O timer.",
+          "Missing/unsupported run clocks are unavailable, not zero CPU cost. Stage durations and render work overlap."
+        ]
+      },
+      "normal_profile": {
+        "cpu_mhz": 333,
+        "psp_model": 1,
+        "internal_resolution": 1,
+        "frame_skip": 0,
+        "auto_frame_skip": false,
+        "skip_buffer_effects": false,
+        "skip_gpu_readbacks": false,
+        "diagnostic_fast_forward": false,
+        "normal_speed": true,
+        "scope": "Fixed PSP clock and normal-speed settings do not reproduce physical PSP CPU/GE timing; hardware qualification remains separate."
+      }
+    },
+    "R24": {
+      "run": "response56-r24-333-normal",
+      "benchmark": {
+        "complete": true,
+        "records": 2400,
+        "trailing_bytes_preserved_in_original": 0,
+        "source_span": [
+          1,
+          1200
+        ],
+        "start_cpu_mhz": 333,
+        "eboot_sha256": "ccb7e5cfaa4642fc7229d0333328b6618d5aa8162521f33291c3f4b5d5f45716",
+        "profile_sha256": "cd87a5acff438691c9a8a1dc23dc70dab8de1949d182cb153c3b237cb496780b",
+        "windows": {
+          "240:1100": {
+            "logic_elapsed_us_unique_source": {
+              "samples": 860,
+              "mean": 7919.281395348838,
+              "p95": 10376,
+              "p99": 12624,
+              "maximum": 20021
+            },
+            "ge_wait_us": {
+              "samples": 1720,
+              "mean": 12.070348837209302,
+              "p95": 12,
+              "p99": 12,
+              "maximum": 410
+            },
+            "draw_and_lock_us": {
+              "samples": 1720,
+              "mean": 538.4686046511628,
+              "p95": 645,
+              "p99": 838,
+              "maximum": 1112
+            },
+            "audio_mix_us": {
+              "samples": 1720,
+              "mean": 495.2738372093023,
+              "p95": 1385,
+              "p99": 4206,
+              "maximum": 6066
+            },
+            "source_hz": 29.952601664151207,
+            "presentation_hz": 59.94007248041435,
+            "repeated_pairs": 0
+          },
+          "400:1100": {
+            "logic_elapsed_us_unique_source": {
+              "samples": 700,
+              "mean": 8084.522857142857,
+              "p95": 10419,
+              "p99": 12640,
+              "maximum": 20021
+            },
+            "ge_wait_us": {
+              "samples": 1400,
+              "mean": 11.852142857142857,
+              "p95": 12,
+              "p99": 12,
+              "maximum": 140
+            },
+            "draw_and_lock_us": {
+              "samples": 1400,
+              "mean": 559.1585714285715,
+              "p95": 652,
+              "p99": 860,
+              "maximum": 1112
+            },
+            "audio_mix_us": {
+              "samples": 1400,
+              "mean": 508.85857142857145,
+              "p95": 1417,
+              "p99": 4365,
+              "maximum": 6066
+            },
+            "source_hz": 29.9486143474514,
+            "presentation_hz": 59.94007363674465,
+            "repeated_pairs": 0
+          }
+        }
+      },
+      "source": {
+        "scope": "Optional automatic benchmark source-thread observations. Kernel-reported run-clock deltas include instrumentation and require device-specific validation.",
+        "status": "complete",
+        "records": 1200,
+        "trailing_bytes": 0,
+        "source_span": [
+          1,
+          1200
+        ],
+        "window": [
+          240,
+          1100
+        ],
+        "clock_conversion_calibrated": true,
+        "clock_conversion_probe": {
+          "first": 1,
+          "second": 234567,
+          "return_code_raw": 0
+        },
+        "run_deltas_consistent_with_wall_bound": false,
+        "run_clock_fidelity": "not-established-by-format-or-emulator-check",
+        "run_clock_values_progressed": false,
+        "run_clock_usable_for_attribution": false,
+        "run_clock_unavailable_reason": "No positive valid run-clock progress, or deltas exceed wall-time bound",
+        "wall_us": {
+          "logic_wall_us": {
+            "samples": 860,
+            "mean": 7919.281395348838,
+            "p95": 10376,
+            "maximum": 20021
+          },
+          "capture_wall_us": {
+            "samples": 860,
+            "mean": 4101.140697674418,
+            "p95": 4410,
+            "maximum": 5236
+          },
+          "post_wall_us": {
+            "samples": 860,
+            "mean": 670.2883720930232,
+            "p95": 1784,
+            "maximum": 4909
+          },
+          "total_wall_us": {
+            "samples": 860,
+            "mean": 12712.491860465116,
+            "p95": 15502,
+            "maximum": 26517
+          }
+        },
+        "kernel_reported_run_us": {
+          "logic_run_us": null,
+          "capture_run_us": null,
+          "post_run_us": null,
+          "total_run_us": null
+        },
+        "recorded_commands": {
+          "samples": 860,
+          "mean": 137.29418604651164,
+          "p95": 156,
+          "maximum": 161
+        },
+        "sha256": "b70d37318c23a209a89d5ac444b848e6fcf54faf2c430ebde8560cbad16b15a8",
+        "limits": [
+          "Source records stay in RAM and are written after the fixed replay. Other PERF/CSV writes still perturb playback.",
+          "Post-capture includes probes and resource preparation; it is not a pure GE or I/O timer.",
+          "Missing/unsupported run clocks are unavailable, not zero CPU cost. Stage durations and render work overlap."
+        ]
+      },
+      "normal_profile": {
+        "cpu_mhz": 333,
+        "psp_model": 1,
+        "internal_resolution": 1,
+        "frame_skip": 0,
+        "auto_frame_skip": false,
+        "skip_buffer_effects": false,
+        "skip_gpu_readbacks": false,
+        "diagnostic_fast_forward": false,
+        "normal_speed": true,
+        "scope": "Fixed PSP clock and normal-speed settings do not reproduce physical PSP CPU/GE timing; hardware qualification remains separate."
+      }
+    }
+  },
+  "phase_us": {
+    "R23": {
+      "logic": {
+        "samples": 860,
+        "mean": 7922.394186046512,
+        "p95": 10397,
+        "maximum": 20467
+      },
+      "capture": {
+        "samples": 860,
+        "mean": 4734.603488372093,
+        "p95": 5075,
+        "maximum": 5793
+      },
+      "post": {
+        "samples": 860,
+        "mean": 677.6151162790698,
+        "p95": 1793,
+        "maximum": 5467
+      },
+      "total": {
+        "samples": 860,
+        "mean": 13355.601162790697,
+        "p95": 16825,
+        "maximum": 27274
+      }
+    },
+    "R24": {
+      "logic": {
+        "samples": 860,
+        "mean": 7919.281395348838,
+        "p95": 10376,
+        "maximum": 20021
+      },
+      "capture": {
+        "samples": 860,
+        "mean": 4101.140697674418,
+        "p95": 4410,
+        "maximum": 5236
+      },
+      "post": {
+        "samples": 860,
+        "mean": 670.2883720930232,
+        "p95": 1784,
+        "maximum": 4909
+      },
+      "total": {
+        "samples": 860,
+        "mean": 12712.491860465116,
+        "p95": 15502,
+        "maximum": 26517
+      }
+    }
+  },
+  "reduction_percent": {
+    "logic": 0.03929103531804534,
+    "capture": 13.379426434619546,
+    "post": 1.081254536687326,
+    "total": 4.815277833522858
+  }
+}

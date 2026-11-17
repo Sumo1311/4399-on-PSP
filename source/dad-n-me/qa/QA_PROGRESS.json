@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "candidate": "response56",
+  "finished": "2026-11-16T09:24:18.154159",
+  "checks": [
+    "41019 native source frames+23 pixels",
+    "5000 normal100HP health/gameover/restart",
+    "normal controls+snapshot",
+    "midpoint/exact pixels",
+    "interrupted-intro guard"
+  ]
+}

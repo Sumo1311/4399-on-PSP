@@ -1,0 +1,163 @@
+R8 control snapshot reason=4 (1 orphan-intro, 2 stalled-intro, 3 standing-input, 4 manual)
+game id=1745 frame=1 playing=1 loaded=1 children=383
+  total_fx=100
+  screen_height=480
+  kills_goal=1
+  screen_width=640
+  current_shadow=14
+  static23=clip 1678 tree1 depth=390890
+  static11=clip 1726 soccer1 depth=377216
+  static5=clip 1674 swing1 depth=316954
+  current_vehicle=1
+  object_index=12
+  static14=clip 1726 soccer4 depth=377272
+  fx_dm_default=600
+  score_team2=
+  static30=clip 1675 light3 depth=320854
+  total_huds=6
+  object_dm_default=200
+  static21=clip 1675 light1 depth=183786
+  static8=clip 1666 swing4 depth=266260
+  object9=clip 1663 mower depth=165052
+  game_x=1221.2172090782876
+  static28=clip 1682 ghetto3 depth=209900
+  static12=clip 1723 soccer2 depth=378218
+  static27=clip 1682 ghetto2_left depth=214848
+  static15=clip 1728 soccer5 depth=378274
+  static31=clip 1468 wrx_tire depth=233306
+  static7=clip 1670 swing3 depth=276758
+  object_dm_current=24
+  static18=clip 1708 fence1 depth=145130
+  mysteryquality=medium
+  static34=clip 1699 wrx_left depth=234212
+  pressed_q=false
+  game_y=150
+  object11=clip 1663 propaine5 depth=189056
+  static25=clip 1682 ghetto1_left depth=200844
+  static13=clip 1720 soccer3 depth=241220
+  kid_dm_current=2
+  object7=clip 1663 drugmart_trash depth=161548
+  static2=clip 1704 sandcastle depth=312598
+  object10=clip 1663 propaine4 depth=184054
+  static16=clip 1720 soccer6 depth=241276
+  static32=clip 1489 wrx depth=161858
+  static19=clip 1682 drugmart_left depth=170232
+  u_char=undefined
+  fx_dm_current=100
+  new_limit_topleft=-2600
+  static9=clip 1683 swing5 depth=320762
+  object8=clip 1717 soccerball depth=286000
+  static1=clip 1711 sign depth=174096
+  kills=0
+  static22=clip 1675 light2 depth=371888
+  static29=clip 1681 stump depth=223802
+  statics_min=1
+  static33=clip 1698 wrx_right depth=248260
+  static17=clip 1564 bballhoop depth=191278
+  checkpoint_x=0
+  static4=clip 1627 pgwall2 depth=229102
+  g_dash_timer=6
+  total_objects=0
+  static20=clip 1682 drugmart depth=170234
+  kid_dm_default=4
+  static_dm_default=400
+  object6=clip 1717 bball depth=200046
+  static3=clip 1624 pgwall1 depth=225850
+  total_statics=2
+  total_vehicles=4
+  static26=clip 1682 ghetto2 depth=214846
+  static10=clip 1683 swing6 depth=264864
+  object12=clip 1663 propaine6 depth=200058
+  gravity=3
+  i=4
+  total_kids=3
+  checkpoint=0
+  combo_count=0
+  static6=clip 1670 swing2 depth=311756
+  current_fx=98
+  master_volume=130
+  combo_timer=-426
+  static24=clip 1682 ghetto1 depth=200842
+  static_index=34
+  static_dm_current=78
+  score_team1=
+  controller depth=955 pc=-1 length=-1 fingerprint=0
+hero id=-1 frame=1 playing=1 loaded=1 children=3
+  right_last2=-27
+  bounds=true
+  punching=false
+  hitwall=false
+  weight=5
+  right_last=2
+  nohit=false
+  alive=false
+  depth_mod=2
+  shadow_pt=clip -1 shadow0 depth=16384
+  up_timer=0
+  button_punch1=65
+  onground=false
+  punched=false
+  speed_y=5
+  left_timer=-87
+  rage_goal=100
+  num=1
+  diagonalhit=false
+  left_last2=-2
+  right_timer=-109
+  punch_pow_high=33
+  punch_pow_medium=24
+  rage=720
+  walking=false
+  button_left=37
+  punch_pow_low=15
+  punch_pow_max=45
+  onfire=1
+  x=-1200.6000000000022
+  button_punch2=83
+  scroller=true
+  y=235
+  current_depth=235002
+  dashing_timer=0
+  speed_x=8
+  punch_group=0
+  button_up=38
+  left_last=3
+  punch_num=0
+  pusher=true
+  button_right=39
+  down_timer=0
+  health_max=100
+  punched2=false
+  health=100
+  insand=false
+  dashing=false
+  button_down=40
+  controller depth=10 pc=0 length=58 fingerprint=7861788057883993526
+kidline id=62 frame=1 playing=0 loaded=1 children=0
+kid1 id=-1 frame=26 playing=1 loaded=1 children=3
+  name=4
+  weight=0
+  bounces=0
+  toss_clock=0
+  depth_mod=6
+  alive=true
+  grab=true
+  nohit=false
+  shirt_type=34
+  shadow_pt=clip -1 shadow13 depth=16185
+  onfire=1
+  current_depth=256106.00000000003
+  x=-335.64999999999998
+  y=256.10000000000002
+  onground=false
+  falling=false
+  root=true
+  kid_type=1
+  speed_x=-4
+  speed_y=-2
+  item=undefined
+  lifebar=true
+  health_max=60
+  health=60
+  hat_type=14
+  controller depth=5 pc=0 length=61 fingerprint=2786154594927975249

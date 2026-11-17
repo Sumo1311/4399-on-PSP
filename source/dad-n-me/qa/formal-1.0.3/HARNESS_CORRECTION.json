@@ -1,0 +1,7 @@
+{
+  "status": "harness-configuration-error-retained",
+  "failed_run": "qa-ordinary",
+  "reason": "Selected frozen controls driver reads immutable nativeProbeSnapshot exclusively, but initial launch omitted wall sampler so session.nativeProbeSnapshot was null. The source boot log reached first-scene-presented;no observations were collected.",
+  "correction": "Use the existing read-only native sampler,1ms period/16sample snapshot;no new target QA flags,input replay or game change. Preserve failed run,create qa-ordinary-sampler for corrected functional check.",
+  "game_eboot_sha256": "4a14f64e4e8013ae2b27718c60d482ac4c3c1ed095b50be460386a9e073d05f7"
+}

@@ -1,0 +1,152 @@
+{
+  "status": "pass",
+  "scope": "Explicit old-health QA fixture for 41019 native source frames; diagnostic fast-forward enabled, so correctness/pixels only, not PSP speed evidence",
+  "source_frames": 41019,
+  "compared_values": 492228,
+  "csv_byte_exact": true,
+  "csv_sha256": "e5d7ef67f226deaebf36cf4e97f10c2a5901547e3260dae27004f25285497962",
+  "images": [
+    {
+      "file": "FRAME-12951.RGBA",
+      "bytes": 522240,
+      "sha256": "fdcd3587878a42f49d3623bf552ef9cb63236846b80abf2e2eaaf12c7f720a6d",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-1408.RGBA",
+      "bytes": 522240,
+      "sha256": "fa839207ea89b658d0eda9ac3b26fc1296463c263b2b6c6acea21e27881b4b39",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-14944.RGBA",
+      "bytes": 522240,
+      "sha256": "686bddc1213a604cc10c0f3203ed762f14139d614a951cb9c731d0d292bd6cb7",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-15547.RGBA",
+      "bytes": 522240,
+      "sha256": "c9a37f0d3b9dfdb2800b0a347ca761ad58bb9d049e9373b20f7eb90acc95c360",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-220.RGBA",
+      "bytes": 522240,
+      "sha256": "d5508b507e9b49d472a60b21509295836096f0434dba7cf970f0b9bdbb053f81",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-300.RGBA",
+      "bytes": 522240,
+      "sha256": "9b54ca708d868843405170342190abf68632ac0b3d3ebeb8d06bc2d1e486f779",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-379.RGBA",
+      "bytes": 522240,
+      "sha256": "4464674cc440e0dd17f78113bd7ad69338373ace691aa28d300a0760d3767a50",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-380.RGBA",
+      "bytes": 522240,
+      "sha256": "4464674cc440e0dd17f78113bd7ad69338373ace691aa28d300a0760d3767a50",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-381.RGBA",
+      "bytes": 522240,
+      "sha256": "85b1a7ec9f1fbfc5c0574cf6a10b282c167e4b03bf8a358cddeacbffa3d92952",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-382.RGBA",
+      "bytes": 522240,
+      "sha256": "85b1a7ec9f1fbfc5c0574cf6a10b282c167e4b03bf8a358cddeacbffa3d92952",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-383.RGBA",
+      "bytes": 522240,
+      "sha256": "c77a0ec5cec851ef66e4091dd2d20c777b49940894ee72efc33f10e5e9f67c8b",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-384.RGBA",
+      "bytes": 522240,
+      "sha256": "c8773310bad7330e6258833de4018796a3e6be356e66afdb050a87580246a74d",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-385.RGBA",
+      "bytes": 522240,
+      "sha256": "e4373c63ce8653517b07ec25ee627bd0ebf9854e27e3938e0fdedd4ab7ed3008",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-389.RGBA",
+      "bytes": 522240,
+      "sha256": "c42ab5b34bda82ace9d72e0fec767ddeea1170d1c1ba12c2cfb1f61d4a796071",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-39775.RGBA",
+      "bytes": 522240,
+      "sha256": "c19cac66ec98dd5025b81a9af486f7961c819a666886860fb29b24d31cbe24f4",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-399.RGBA",
+      "bytes": 522240,
+      "sha256": "b6c1b6d658168052ce6b0e88724f84dc8c9cccac602eeb5e1ad42c6e3909f650",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-40383.RGBA",
+      "bytes": 522240,
+      "sha256": "1756f635abeaf36a56f7f8162905dbcfb73833d98158f1c57e18b773c05b812d",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-40500.RGBA",
+      "bytes": 522240,
+      "sha256": "e963ed306c5ef697fda5db09c4e369258965e78cd14cd149a50ae920382e1d33",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-4425.RGBA",
+      "bytes": 522240,
+      "sha256": "e208288d7e05636963edb4e83b5447029c5b1ec5ccbf5c33e350dfc9f2541ccf",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-4523.RGBA",
+      "bytes": 522240,
+      "sha256": "98d058756d8912428140e21f72ffe8d1cca2535abf52ddc5602a0b9230e09689",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-600.RGBA",
+      "bytes": 522240,
+      "sha256": "f7b3026d80d5ab8525967f7c48a91ed28f3581af04fd7346b1439d6738dcefbe",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-8611.RGBA",
+      "bytes": 522240,
+      "sha256": "fd2e352af68370c38ab7bc542eee8cd33cc1526abcccd92f779740b8a2f4e1a8",
+      "byte_exact": true
+    },
+    {
+      "file": "FRAME-9746.RGBA",
+      "bytes": 522240,
+      "sha256": "02e60bea4c5624e532a20d0f943df10eb3a92e90574ecb33624bad44feddf4fb",
+      "byte_exact": true
+    }
+  ],
+  "seen_ending": true,
+  "seen_restart": true,
+  "candidate": "response56",
+  "run": "response56-r24-legacy-full-diagnostic"
+}

@@ -1,0 +1,80 @@
+{
+  "complete": true,
+  "records": 2400,
+  "trailing_bytes_preserved_in_original": 0,
+  "source_span": [
+    1,
+    1200
+  ],
+  "start_cpu_mhz": 333,
+  "eboot_sha256": "58b374d69671efaec6333303187a3ceabeefea7c5f4733bcd99da126217a5c52",
+  "profile_sha256": "3b05eeb05ede1d1ec767ccd2b6403aee0e4868195176fb215a85fc92d356f0fd",
+  "windows": {
+    "240:1100": {
+      "logic_elapsed_us_unique_source": {
+        "samples": 860,
+        "mean": 7922.394186046512,
+        "p95": 10397,
+        "p99": 12652,
+        "maximum": 20467
+      },
+      "ge_wait_us": {
+        "samples": 1720,
+        "mean": 11.961627906976744,
+        "p95": 12,
+        "p99": 12,
+        "maximum": 174
+      },
+      "draw_and_lock_us": {
+        "samples": 1720,
+        "mean": 539.2343023255814,
+        "p95": 647,
+        "p99": 890,
+        "maximum": 1114
+      },
+      "audio_mix_us": {
+        "samples": 1720,
+        "mean": 500.56337209302325,
+        "p95": 1354,
+        "p99": 4566,
+        "maximum": 7687
+      },
+      "source_hz": 29.952601664151207,
+      "presentation_hz": 59.94007248041435,
+      "repeated_pairs": 0
+    },
+    "400:1100": {
+      "logic_elapsed_us_unique_source": {
+        "samples": 700,
+        "mean": 8091.128571428571,
+        "p95": 10457,
+        "p99": 12652,
+        "maximum": 20467
+      },
+      "ge_wait_us": {
+        "samples": 1400,
+        "mean": 12.01,
+        "p95": 12,
+        "p99": 12,
+        "maximum": 174
+      },
+      "draw_and_lock_us": {
+        "samples": 1400,
+        "mean": 559.7678571428571,
+        "p95": 652,
+        "p99": 900,
+        "maximum": 1114
+      },
+      "audio_mix_us": {
+        "samples": 1400,
+        "mean": 515.5707142857143,
+        "p95": 1445,
+        "p99": 4619,
+        "maximum": 7687
+      },
+      "source_hz": 29.948613064304816,
+      "presentation_hz": 59.94007106861579,
+      "repeated_pairs": 0
+    }
+  }
+}

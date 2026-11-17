@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "baseline": "response55 R23",
+  "candidate": "response56 R24",
+  "changed_source_files": [
+    "src/recorded_renderer.hpp",
+    "tests/recorded_motion.cpp"
+  ],
+  "cmake_change": "R24 title01.35 and endpoint test target",
+  "engine_source_files_identical_to_R23": true,
+  "original100HP_media_identical_to_R20": {
+    "source.swf": "8451e71fd98593003ec0783bb31e54049e603c22ea140e9958ef96446823575d",
+    "art.pak": "5a488abe9d5f514f6296802302c2fa8fd9eec1e9b7b8bd074ffb136ead7cc2e6",
+    "audio.pak": "0d7ff48411615c9a4d348a35fcb4a9a292e7951d4d5f6054e9f76301fea3ed8b"
+  },
+  "gameplay_cadence_changed": false
+}

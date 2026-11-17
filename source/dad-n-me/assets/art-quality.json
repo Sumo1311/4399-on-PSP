@@ -1,0 +1,18 @@
+{
+  "source_tiles": 1390,
+  "split_parents": 464,
+  "output_tiles": 3631,
+  "paletted_tiles": 1824,
+  "source_storage_bytes": 215092992,
+  "output_storage_bytes": 100654976,
+  "output_rgba_bytes": 153206400,
+  "bank_bytes": 21072353,
+  "maximum_edge": 128,
+  "gutter": 1,
+  "pixel_recode": "exact",
+  "bank_sha256": "5a488abe9d5f514f6296802302c2fa8fd9eec1e9b7b8bd074ffb136ead7cc2e6",
+  "unique_decoded_storage_bytes": 95255424,
+  "image_format_version": 6,
+  "T4_tiles": 658,
+  "unique_payloads": 2968
+}

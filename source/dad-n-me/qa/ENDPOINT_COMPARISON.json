@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "baseline": {
+    "checks": 53905,
+    "source_endpoint_cases": 5873,
+    "source_endpoint_mismatches": 5566,
+    "fallback_cases": 17979,
+    "endpoint_invariant_pass": false,
+    "pass": false
+  },
+  "candidate": {
+    "checks": 53905,
+    "source_endpoint_cases": 5873,
+    "source_endpoint_mismatches": 0,
+    "fallback_cases": 17979,
+    "endpoint_invariant_pass": true,
+    "pass": true
+  },
+  "scope": "R24 direct endpoint exactness plus legacy fallback equivalence; old inverse roundoff intentionally differs; not a frame-rate benchmark"
+}

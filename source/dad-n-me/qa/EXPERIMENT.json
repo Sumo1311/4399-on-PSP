@@ -1,0 +1,22 @@
+{
+  "status": "retained-software-qualified-performance-goal-open",
+  "baseline": "response55 R23",
+  "candidate": "response56 R24",
+  "change": "Reuse supplied previous world matrix for bitwise-identical drawing transform; defer inverse fallback until needed",
+  "bottleneck": "R7 physical capture12.783ms and R20 matched emulator capture4.742ms per source step; matrix inverse/concats currently repeated even for culled/no-draw nodes",
+  "memory": "Two recorder matrices and scalar flags; no per-object allocation or growing cache",
+  "fidelity": "Exact-current rendering invariant. Previous endpoint intentionally removes inverse-rounding noise; local/singular transforms retain old fallback",
+  "gameplay_changed": false,
+  "assets_changed": false,
+  "physical_verified": false,
+  "created": "2026-11-16T09:14:14.050920",
+  "short_normal333_reduction_percent": {
+    "logic": 0.03929103531804534,
+    "capture": 13.379426434619546,
+    "post": 1.081254536687326,
+    "total": 4.815277833522858
+  },
+  "native_regression": "pass",
+  "ordinary6000": "two held pairs4424/5182 persist",
+  "decision": "Retain13.38percent capture reduction and exact endpoint invariant;does not resolve source birth spikes or establish physical PSP speed"
+}

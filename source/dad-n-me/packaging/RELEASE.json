@@ -1,0 +1,15 @@
+{
+  "title": "狂扁小朋友",
+  "version": "1.0.3",
+  "channel": "official",
+  "baseline": "response56 R24 ordinary",
+  "user_request": "狂扁小朋友游戏最新测试版加入封面和背景图,作为正式包发布",
+  "acceptance_scope": "User-selected R24 formal promotion;existing behavior and performance evidence preserved;no new physical60FPS or full-migration claim.",
+  "physical_performance_verified": false,
+  "stable60": false,
+  "wlan_included": false,
+  "candidate_eboot_sha256": "ccb7e5cfaa4642fc7229d0333328b6618d5aa8162521f33291c3f4b5d5f45716",
+  "formal_eboot_sha256": "4a14f64e4e8013ae2b27718c60d482ac4c3c1ed095b50be460386a9e073d05f7",
+  "data_psp_sha256": "41803dcdcc70180625f3f883785d8aa641c9a19315483f86fe11da8ade0c1dd3",
+  "change_scope": "PARAM.SFO TITLE/APP_VER,ICON0 andPIC1 only;DATA.PSP/DATA.PSAR andotherPBPsections exact"
+}

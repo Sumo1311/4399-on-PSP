@@ -1,0 +1,7 @@
+{
+  "status": "prepared",
+  "normal_runtime_data_psp_sha256": "41803dcdcc70180625f3f883785d8aa641c9a19315483f86fe11da8ade0c1dd3",
+  "r24_diag_eboot_sha256": "1ae044e2ef684af5e66b39202e2dd3b4de04a34c95ca154ba710fbaeb28454ed",
+  "normal_eboot_sha256": "ccb7e5cfaa4642fc7229d0333328b6618d5aa8162521f33291c3f4b5d5f45716",
+  "all_sections_after_sfo_exact": true
+}

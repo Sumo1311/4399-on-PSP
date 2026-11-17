@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "candidate": "response56",
+  "run": "response56-r24-interrupt-diagnostic",
+  "scope": "Native MIPS explicit fault-injection QA fixture; inserted original hit-reaction call. Diagnostic fast-forward; correctness only, not performance or input-only reproduction of user session",
+  "fixture": {
+    "scope": "Explicit fault-injection QA SWF; excluded from ordinary and Bench packages",
+    "base_sha256": "1ae0ff67bfae8692e139990d338fda987cf3c78ab17bf6289a09762db16715b0",
+    "output_sha256": "9b1b1d1d71b4c0507319113c59c6480209a67a5a8a36466d9a83d4dd136bf539",
+    "change": "Append original f_CallJuggle1(_parent) call to sprite688 frame10; interrupt the intro without changing damage/health/position",
+    "changes": 1
+  },
+  "result": {
+    "source_frames": 1200,
+    "pause_range": [
+      478,
+      484
+    ],
+    "pause_frames": 7,
+    "final_pause": 0.0,
+    "final_x": 140.39999999999782
+  },
+  "csv_byte_exact_to_R8": true,
+  "csv_sha256": "034397af1b6de92c4ef54783b0012fd7842a02bf136ec67b3b1db0bf06938202"
+}

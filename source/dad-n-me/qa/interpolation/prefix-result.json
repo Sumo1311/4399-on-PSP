@@ -1,0 +1,30 @@
+{
+  "status": "measurement_complete",
+  "scope": "Deliberate ordinary-input prefix; no ending or full-route claim",
+  "seconds": 11.557273833,
+  "final": {
+    "presentation": {
+      "sourceTick": 352,
+      "presentations": 703,
+      "midpoint": 1,
+      "movingSamples": 6,
+      "vcount": 840
+    },
+    "tick": 353,
+    "rendered": 703,
+    "buttons": 32912,
+    "phase": 2,
+    "x": -372.6000061035156,
+    "y": 212.5,
+    "health": 100,
+    "camera": 811.7999877929688,
+    "freeMemory": 12215552,
+    "checkpoint": 0,
+    "kills": 0,
+    "goal": 1,
+    "combo": 0,
+    "heroFrame": 8,
+    "replayDone": false,
+    "heapFree": 463448
+  }
+}

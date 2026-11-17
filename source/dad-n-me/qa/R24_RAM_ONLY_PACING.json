@@ -1,0 +1,46 @@
+{
+  "status": "not-qualified",
+  "scope": "PSP-2000 default-clock PPSSPP; source30Hz/interpolated59.94Hz. Native fixed RAM records drained read-only on host. Separate source/render/audio and physical-device gates.",
+  "source_span_exclusive": [
+    240,
+    5900
+  ],
+  "complete_native_records": 12003,
+  "capture": {
+    "status": "recorded",
+    "backend": "read-only committed PSP RAM ring, host disk only",
+    "descriptor_ready": true,
+    "records": 12003,
+    "last_presentation": 12003,
+    "read_failures": 0,
+    "overruns": 0,
+    "discarded_records": 0,
+    "last_loading_id": 0
+  },
+  "presentations_measured": 11324,
+  "presentation_hz": 59.940073689817346,
+  "fresh_transform_hz": 59.918899063414514,
+  "interval_us": {
+    "mean": 16683.32950631458,
+    "p95": 16684,
+    "p99": 16687,
+    "maximum": 16691
+  },
+  "missed_display_intervals": 0,
+  "repeated_pairs": 2,
+  "held_source_ticks": {
+    "4424": 1,
+    "5182": 1
+  },
+  "loading_intervals_excluded": 0,
+  "loading_exclusion_end": "first resumed game presentation",
+  "loads": [],
+  "source_parity": {
+    "status": "not-collected",
+    "scope": "Pacing is separate from source/visual/audio correctness"
+  },
+  "diagnostic": false,
+  "target_loading_log_absent": true,
+  "eboot_sha256": "ccb7e5cfaa4642fc7229d0333328b6618d5aa8162521f33291c3f4b5d5f45716",
+  "presentation_sha256": "fcac3adb934370c576c7850e6cac551a9a0628937f090c1610825c9c7bdad73e"
+}

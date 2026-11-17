@@ -1,0 +1,51 @@
+{
+  "status": "recoded-roundtrip-checked",
+  "art": {
+    "input_sha256": "4f3f5bdfbe2d150715288a4604a8a34ad8b2e36a9a98fffb822bac6dc9cf35d5",
+    "sha256": "5a488abe9d5f514f6296802302c2fa8fd9eec1e9b7b8bd074ffb136ead7cc2e6",
+    "tiles": 3631,
+    "T4_tiles": 658,
+    "unique_payloads": 2968,
+    "decoded_before_total": 105397888,
+    "decoded_after_total": 100654976,
+    "unique_decoded_total": 95255424,
+    "bank_before": 18747267,
+    "bank_after": 21072353,
+    "pixel_error": 0,
+    "geometry_unchanged": true,
+    "format_version": 6,
+    "swizzle_input_sha256": "fd48911a091ea4387c9cc42dcc4f60158242d9b12527440512a95acceac3912b",
+    "swizzled_tiles": 3627,
+    "swizzled_formats": {
+      "T4": 657,
+      "T8": 1104,
+      "RGBA8888": 1866
+    },
+    "verified_pixel_storage_bytes": 99482368,
+    "intermediate_input_sha256": "f0e10337e9ec67e21ab34bb47240f77afe560b225091a1189d4f48863b3259a2",
+    "transparent_rgb_repair": {
+      "changed_transparent_rgb_pixels": 695614,
+      "affected_source_tiles": 1154,
+      "source_tiles": 1390,
+      "alpha_unchanged": true,
+      "all_nontransparent_rgba_unchanged": true,
+      "bleed_radius": 2,
+      "independently_checked_source_pixels": 53773248,
+      "source_v1_sha256": "5f8aabd1a9f79a635967ceec0bcea0aae2d1dbd369e7d7b59cde9fcdeeef81ca",
+      "repaired_v1_sha256": "3af346c0aab91547fbf775fa9cb40d78f9b563d1caa7bff8cfb5913dffbc656f",
+      "scope": "Transparent RGB deliberately changed to prevent black bilinear fringes. Alpha, visible source pixels, tile geometry and order preserved; native rendering validation is separate."
+    }
+  },
+  "audio": {
+    "input_sha256": "50ee0636e24dc9f2764d1b52eb90c981b5cbdaa5a47caaf8c0127dfac3eb4f91",
+    "sha256": "0d7ff48411615c9a4d348a35fcb4a9a292e7951d4d5f6054e9f76301fea3ed8b",
+    "records": 731,
+    "mono16_records": 77,
+    "frames": 11377852,
+    "bank_before": 45528960,
+    "bank_after": 22773256,
+    "expanded_pcm_error": 0,
+    "rates_samples_channels_and_order_unchanged": true
+  },
+  "scope": "R3 recode plus exact PSP texture-layout permutation. Palette, geometry, density and audio unchanged. Runtime checks separate."
+}

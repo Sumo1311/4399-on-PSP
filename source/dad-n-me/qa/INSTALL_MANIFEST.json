@@ -1,0 +1,168 @@
+{
+  "DadNMeR24Diag": {
+    "EBOOT.PBP": {
+      "bytes": 2212484,
+      "sha256": "1ae044e2ef684af5e66b39202e2dd3b4de04a34c95ca154ba710fbaeb28454ed"
+    },
+    "PERF.QA": {
+      "bytes": 6,
+      "sha256": "564372f8572beaa0c29837dff99c39b45ec007168ed2fa0428f4138dc00a7e46"
+    },
+    "SHA256SUMS": {
+      "bytes": 876,
+      "sha256": "8b7e5579bf5bd76fac98bc39a08f265fed472197e2c9c1820686e4c8f436f739"
+    },
+    "art-quality.json": {
+      "bytes": 504,
+      "sha256": "249876e5e377d0e014be63239959ca6b5835f9e477fcee3149708ce8dccb0bec"
+    },
+    "art.pak": {
+      "bytes": 21072353,
+      "sha256": "5a488abe9d5f514f6296802302c2fa8fd9eec1e9b7b8bd074ffb136ead7cc2e6"
+    },
+    "audio.pak": {
+      "bytes": 22773256,
+      "sha256": "0d7ff48411615c9a4d348a35fcb4a9a292e7951d4d5f6054e9f76301fea3ed8b"
+    },
+    "build-identity.json": {
+      "bytes": 41398,
+      "sha256": "71b637d28a7c20648aa027da3af26f83726a89e12a6273013751f295f07af1c4"
+    },
+    "engine-COPYRIGHT.txt": {
+      "bytes": 299,
+      "sha256": "f21560fb4b535e2c6e4d74b5b61b7efb4ff9253e9c41ed747ae52aaa86417f40"
+    },
+    "font-OFL.txt": {
+      "bytes": 4377,
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb"
+    },
+    "lz4-LICENSE.txt": {
+      "bytes": 1311,
+      "sha256": "8b58c446121a109ccf32edc094bba3010a3d85e4ee3702950db55e4d3e87736c"
+    },
+    "media-recode.json": {
+      "bytes": 2147,
+      "sha256": "d42f827a8afe98b6d17e098921c1549d5094b414da51e529c2a8ee23c1342987"
+    },
+    "source-fixes.json": {
+      "bytes": 1688,
+      "sha256": "ebfded1d255f3643dafb861742f3d211655091bbea7fad5ff248a685e7384f14"
+    },
+    "source.swf": {
+      "bytes": 676845,
+      "sha256": "8451e71fd98593003ec0783bb31e54049e603c22ea140e9958ef96446823575d"
+    }
+  },
+  "DadNMeR24Bench": {
+    "BENCHMARK.QA": {
+      "bytes": 36,
+      "sha256": "e2f11b269b0c8d64900943f715fd05cd1400f18fb2d3306033037dcc38e3da11"
+    },
+    "EBOOT.PBP": {
+      "bytes": 2212484,
+      "sha256": "4a94a99420011bc4e7d565662eea9870f6a9d71dd72ee25a6f9b4ba866e1bb79"
+    },
+    "PERF.QA": {
+      "bytes": 6,
+      "sha256": "dd3c30165c70119327c37bf6e4f68639ae780d839f03643557b4e242c24587e7"
+    },
+    "REPLAY.DNM": {
+      "bytes": 724,
+      "sha256": "1b3dbfdc471c3bb97ba66f223ae35962e7f77c56dcaecde5416b8cb941c1c977"
+    },
+    "SHA256SUMS": {
+      "bytes": 1032,
+      "sha256": "9c93c3e3fa4943956d8e5e82a26cd73f65385614e802ecc43f2ce9d916f52267"
+    },
+    "art-quality.json": {
+      "bytes": 504,
+      "sha256": "249876e5e377d0e014be63239959ca6b5835f9e477fcee3149708ce8dccb0bec"
+    },
+    "art.pak": {
+      "bytes": 21072353,
+      "sha256": "5a488abe9d5f514f6296802302c2fa8fd9eec1e9b7b8bd074ffb136ead7cc2e6"
+    },
+    "audio.pak": {
+      "bytes": 22773256,
+      "sha256": "0d7ff48411615c9a4d348a35fcb4a9a292e7951d4d5f6054e9f76301fea3ed8b"
+    },
+    "build-identity.json": {
+      "bytes": 41576,
+      "sha256": "a36adad0aba06450ee66bebbf54aae5b456b44d3aaf473843e93852cd98e74d4"
+    },
+    "engine-COPYRIGHT.txt": {
+      "bytes": 299,
+      "sha256": "f21560fb4b535e2c6e4d74b5b61b7efb4ff9253e9c41ed747ae52aaa86417f40"
+    },
+    "font-OFL.txt": {
+      "bytes": 4377,
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb"
+    },
+    "lz4-LICENSE.txt": {
+      "bytes": 1311,
+      "sha256": "8b58c446121a109ccf32edc094bba3010a3d85e4ee3702950db55e4d3e87736c"
+    },
+    "media-recode.json": {
+      "bytes": 2147,
+      "sha256": "d42f827a8afe98b6d17e098921c1549d5094b414da51e529c2a8ee23c1342987"
+    },
+    "source-fixes.json": {
+      "bytes": 1688,
+      "sha256": "ebfded1d255f3643dafb861742f3d211655091bbea7fad5ff248a685e7384f14"
+    },
+    "source.swf": {
+      "bytes": 676845,
+      "sha256": "8451e71fd98593003ec0783bb31e54049e603c22ea140e9958ef96446823575d"
+    }
+  },
+  "DadNMeResponseR24": {
+    "EBOOT.PBP": {
+      "bytes": 2212484,
+      "sha256": "ccb7e5cfaa4642fc7229d0333328b6618d5aa8162521f33291c3f4b5d5f45716"
+    },
+    "SHA256SUMS": {
+      "bytes": 802,
+      "sha256": "b66e0ce94e18f3e8e9b7a4ba054345b97387c4bc0937d1931bc8bfbff54c43e6"
+    },
+    "art-quality.json": {
+      "bytes": 504,
+      "sha256": "249876e5e377d0e014be63239959ca6b5835f9e477fcee3149708ce8dccb0bec"
+    },
+    "art.pak": {
+      "bytes": 21072353,
+      "sha256": "5a488abe9d5f514f6296802302c2fa8fd9eec1e9b7b8bd074ffb136ead7cc2e6"
+    },
+    "audio.pak": {
+      "bytes": 22773256,
+      "sha256": "0d7ff48411615c9a4d348a35fcb4a9a292e7951d4d5f6054e9f76301fea3ed8b"
+    },
+    "build-identity.json": {
+      "bytes": 41004,
+      "sha256": "3334841544bc52c5b86ccfedce27add3a75633abfeec240bd15e6633449dfac8"
+    },
+    "engine-COPYRIGHT.txt": {
+      "bytes": 299,
+      "sha256": "f21560fb4b535e2c6e4d74b5b61b7efb4ff9253e9c41ed747ae52aaa86417f40"
+    },
+    "font-OFL.txt": {
+      "bytes": 4377,
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb"
+    },
+    "lz4-LICENSE.txt": {
+      "bytes": 1311,
+      "sha256": "8b58c446121a109ccf32edc094bba3010a3d85e4ee3702950db55e4d3e87736c"
+    },
+    "media-recode.json": {
+      "bytes": 2147,
+      "sha256": "d42f827a8afe98b6d17e098921c1549d5094b414da51e529c2a8ee23c1342987"
+    },
+    "source-fixes.json": {
+      "bytes": 1688,
+      "sha256": "ebfded1d255f3643dafb861742f3d211655091bbea7fad5ff248a685e7384f14"
+    },
+    "source.swf": {
+      "bytes": 676845,
+      "sha256": "8451e71fd98593003ec0783bb31e54049e603c22ea140e9958ef96446823575d"
+    }
+  }
+}

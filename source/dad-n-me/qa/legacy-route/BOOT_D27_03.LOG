@@ -1,0 +1,18 @@
+10474 main-entered code=0x00000000 heap_used=12024 heap_arena_free=1544 system_free=12776704 max_block=12514560
+ms0:/PSP/GAME/DadNMe
+31127 gpu-semaphore code=0x0000012e heap_used=12024 heap_arena_free=1544 system_free=12776704 max_block=12514560
+211548 clock-set code=0x00000000 heap_used=12264 heap_arena_free=1304 system_free=12776704 max_block=12514560
+221832 cpu-clock-mhz code=0x0000014d heap_used=12264 heap_arena_free=1304 system_free=12776704 max_block=12514560
+232116 bus-clock-mhz code=0x000000a6 heap_used=12264 heap_arena_free=1304 system_free=12776704 max_block=12514560
+300339 renderer-enter code=0x00000000 heap_used=78744 heap_arena_free=4456 system_free=12772608 max_block=12514560
+357926 art-index-ready code=0x00000000 heap_used=371288 heap_arena_free=72360 system_free=12772608 max_block=12514560
+369146 command-cache-ready code=0x08a36ac0 heap_used=371288 heap_arena_free=72360 system_free=12772608 max_block=12514560
+379445 gu-initialized code=0x00000000 heap_used=371288 heap_arena_free=72360 system_free=12772608 max_block=12514560
+411041 renderer-ready code=0x00000000 heap_used=371288 heap_arena_free=72360 system_free=12772608 max_block=12514560
+882880 audio-ready code=0x00000000 heap_used=5122952 heap_arena_free=35192 system_free=12739840 max_block=12514560
+1909032 source-loaded code=0x00000000 heap_used=10222584 heap_arena_free=2312 system_free=12739840 max_block=12514560
+1919325 source-semaphore code=0x0000015d heap_used=10222584 heap_arena_free=2312 system_free=12739840 max_block=12514560
+1949837 source-thread-create code=0x00000161 heap_used=10222664 heap_arena_free=2232 system_free=12215552 max_block=11990272
+1960133 source-thread-start code=0x00000000 heap_used=10222664 heap_arena_free=2232 system_free=12215552 max_block=11990272
+1960525 first-source-scene code=0x00000000 heap_used=10225336 heap_arena_free=3656 system_free=12215552 max_block=11990272
+2162803 first-scene-presented code=0x00000000 heap_used=17386376 heap_arena_free=10616 system_free=12215552 max_block=11990272

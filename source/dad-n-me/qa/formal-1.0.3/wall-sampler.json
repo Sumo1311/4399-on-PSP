@@ -1,0 +1,1 @@
+{"status":"recorded","clock":"host CLOCK_MONOTONIC_RAW","backend":"read-only Mach self-copy inside isolated emulator, no debugger polling","requested_period_ms":1.000,"probe_offset":64,"polls":12720,"changed_samples":1327,"unmapped_reads":307,"maximum_selfcopy_ms":1.920000,"memory_symbol_resolved":true,"elapsed_seconds":19.617719}

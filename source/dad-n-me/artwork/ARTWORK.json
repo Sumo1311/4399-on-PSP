@@ -1,0 +1,26 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "cover_prompt": "Use case: stylized-concept. Asset type: final PSP XMB cover icon key art for the cartoon Flash brawler Dad 'n Me, Chinese name 狂扁小朋友. Create a wide landscape 16:9 artwork which remains extremely readable when downsampled to 144x80. Two purple cartoon brawler characters, a huge muscular father behind his small stocky son, each wears the game's simple smooth WHITE asymmetrical teardrop-shaped skull/hockey mask with tiny BLACK eye holes and no visible human face. Purple skin, heavy black outlines, oversized fists, black belt with a little white skull buckle. Charming edgy 2000s Flash-cartoon proportions, clean 2D linework, bold flat colors, restrained cel shading. Their pose is a confident team portrait with raised fists; no people being hurt. Composition: the father's large mask and the son's mask/fist occupy the LEFT half, with a simplified urban playground fence and blue/teal sky behind. On the RIGHT half, large, perfectly legible warm ivory-yellow Chinese title exactly “狂扁” on the first line and “小朋友” on the second line, thick black outline. Keep the text and both masks fully within an 8 percent safe margin. Purple, white, black and teal palette. Fill the whole canvas, polished game cover. No fire, no blood, no gore, no victims, no HUD, no device mockup, no version number, no rating, no watermark or extra text.",
+  "background_prompt": "Use case: compositing. Asset type: final PSP XMB full-screen background for Dad 'n Me / 狂扁小朋友, wide landscape about 16:9, final use 480x272. Edit the provided cover into a matching scene background. Preserve the same two PURPLE cartoon father-and-son characters, the simple WHITE teardrop-shaped masks and tiny BLACK eye holes, large fists, black belts with skull buckles, and clean thick-outlined 2000s 2D Flash-cartoon style. Recompose them full-body as a confident team portrait on the RIGHT third and lower-right, father behind son, not harming anyone. Surroundings: urban playground, chain-link fence, a little colorful graffiti on a distant low brick wall, rounded green shrubs, blue/teal sky and simple city silhouettes. Keep the LEFT 40% quiet and gently dark teal/blue, with no characters or text there, to leave space for white PSP menu labels and icons. No rendered UI. Put a readable cream-yellow Chinese title “狂扁小朋友” in the upper-right, with much smaller English “DAD 'N ME” below. Preserve broad clean silhouettes and readable details at only 480x272, generous safe margins around text and masks. Crisp flat colors, restrained cel shading, violet/teal/white palette. No fire, no blood, no gore, no victims, no device frame, no HUD, no version number, no watermark or extra words. Opaque edge-to-edge background.",
+  "masters": {
+    "cover": "cover-master.png",
+    "background": "background-master.png"
+  },
+  "psp_assets": {
+    "icon": {
+      "path": "ICON0.png",
+      "size": [
+        144,
+        80
+      ]
+    },
+    "background": {
+      "path": "PIC1.png",
+      "size": [
+        480,
+        272
+      ]
+    }
+  },
+  "processing": "Generated originals copied into workspace,then downsampled to PSP RGB8 noninterlaced PNG dimensions. No gameplay artwork changed."
+}

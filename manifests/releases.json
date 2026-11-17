@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "Sumo1311/4399-on-PSP",
-  "updated_at": "2026-11-17T00:23:46.575349+00:00",
+  "updated_at": "2026-11-17T09:15:47.662686+00:00",
   "publication_layout": "one-game-per-release",
   "release_assets_policy": "one-complete-game-installer-per-release",
   "games": [
@@ -104,6 +104,24 @@
       "eboot_sha256": "e47d19cf943f922f7293cc12eab8e7601419a1191e40c56aa6bf5bb3793aed4e",
       "program_sha256": "4f3ef2b340b1d6d16fef1623d85e42b8c31573e694c6fffcdc521b74e00e03fc",
       "source_directory": "source/double-edged",
+      "single_player": true,
+      "wlan_included": false
+    },
+    {
+      "id": "dad-n-me",
+      "package_id": "DadNMe",
+      "title": "狂扁小朋友 PSP 1.0.3 正式版（R24单机）",
+      "version": "1.0.3",
+      "baseline": "response56 R24 ordinary",
+      "tag": "dad-n-me-v1.0.3",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/dad-n-me-v1.0.3",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/dad-n-me-v1.0.3/DadNMe_PSP_1.0.3_Official.zip",
+      "asset_name": "DadNMe_PSP_1.0.3_Official.zip",
+      "bytes": 37276175,
+      "sha256": "612d09baa2ee822395318e0eff5f739129c51f11336361959d994cac0152f6cb",
+      "eboot_sha256": "4a14f64e4e8013ae2b27718c60d482ac4c3c1ed095b50be460386a9e073d05f7",
+      "program_sha256": "41803dcdcc70180625f3f883785d8aa641c9a19315483f86fe11da8ade0c1dd3",
+      "source_directory": "source/dad-n-me",
       "single_player": true,
       "wlan_included": false
     }

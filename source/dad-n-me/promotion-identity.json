@@ -1,0 +1,94 @@
+{
+  "candidate_eboot_sha256": "ccb7e5cfaa4642fc7229d0333328b6618d5aa8162521f33291c3f4b5d5f45716",
+  "formal_eboot_sha256": "4a14f64e4e8013ae2b27718c60d482ac4c3c1ed095b50be460386a9e073d05f7",
+  "data_psp_sha256": "41803dcdcc70180625f3f883785d8aa641c9a19315483f86fe11da8ade0c1dd3",
+  "sfo_before": {
+    "MEMSIZE": 1,
+    "APP_VER": "01.35",
+    "BOOTABLE": 1,
+    "CATEGORY": "MG",
+    "DISC_ID": "UCJS10041",
+    "DISC_VERSION": "1.00",
+    "PARENTAL_LEVEL": 1,
+    "PSP_SYSTEM_VER": "1.00",
+    "REGION": 32768,
+    "TITLE": "Dad n Me Response R24 Test"
+  },
+  "sfo_after": {
+    "MEMSIZE": 1,
+    "APP_VER": "01.03",
+    "BOOTABLE": 1,
+    "CATEGORY": "MG",
+    "DISC_ID": "UCJS10041",
+    "DISC_VERSION": "1.00",
+    "PARENTAL_LEVEL": 1,
+    "PSP_SYSTEM_VER": "1.00",
+    "REGION": 32768,
+    "TITLE": "狂扁小朋友"
+  },
+  "sections": [
+    {
+      "name": "PARAM.SFO",
+      "bytes": 364,
+      "sha256": "421796b0da60d35fc48ba86ea369d4d42a41ae7204be966dd26bda0608df05fe",
+      "same_as_candidate": false
+    },
+    {
+      "name": "ICON0.PNG",
+      "bytes": 25012,
+      "sha256": "10ad476bc2585c620564f32fb9bc4b5ed3d91052c83b3fe8c4ba106fa8435b10",
+      "same_as_candidate": false
+    },
+    {
+      "name": "ICON1.PMF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_as_candidate": true
+    },
+    {
+      "name": "PIC0.PNG",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_as_candidate": true
+    },
+    {
+      "name": "PIC1.PNG",
+      "bytes": 160393,
+      "sha256": "abeedb246a5f7863fba4910c1ccbfd12ec78e38f7dbb0fc7273eee3f6a3a5ae7",
+      "same_as_candidate": false
+    },
+    {
+      "name": "SND0.AT3",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_as_candidate": true
+    },
+    {
+      "name": "DATA.PSP",
+      "bytes": 2212080,
+      "sha256": "41803dcdcc70180625f3f883785d8aa641c9a19315483f86fe11da8ade0c1dd3",
+      "same_as_candidate": true
+    },
+    {
+      "name": "DATA.PSAR",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_as_candidate": true
+    }
+  ],
+  "change_scope": "PARAM.SFO TITLE/APP_VER,ICON0 andPIC1 only;DATA.PSP/DATA.PSAR andotherPBPsections exact",
+  "version": "1.0.3",
+  "runtime_assets_unchanged": {
+    "media-recode.json": "d42f827a8afe98b6d17e098921c1549d5094b414da51e529c2a8ee23c1342987",
+    "source.swf": "8451e71fd98593003ec0783bb31e54049e603c22ea140e9958ef96446823575d",
+    "art-quality.json": "249876e5e377d0e014be63239959ca6b5835f9e477fcee3149708ce8dccb0bec",
+    "source-fixes.json": "ebfded1d255f3643dafb861742f3d211655091bbea7fad5ff248a685e7384f14",
+    "audio.pak": "0d7ff48411615c9a4d348a35fcb4a9a292e7951d4d5f6054e9f76301fea3ed8b",
+    "font-OFL.txt": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+    "art.pak": "5a488abe9d5f514f6296802302c2fa8fd9eec1e9b7b8bd074ffb136ead7cc2e6",
+    "lz4-LICENSE.txt": "8b58c446121a109ccf32edc094bba3010a3d85e4ee3702950db55e4d3e87736c",
+    "engine-COPYRIGHT.txt": "f21560fb4b535e2c6e4d74b5b61b7efb4ff9253e9c41ed747ae52aaa86417f40"
+  },
+  "package": "/Users/sumo/Documents/flash-to-psp/release-dad-n-me-v1.0.3-20261117/PSP/GAME/DadNMe",
+  "source_files_verified": 319
+}

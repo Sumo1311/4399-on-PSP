@@ -1,0 +1,80 @@
+{
+  "status": "pass",
+  "candidate": "response55 R23",
+  "results": [
+    {
+      "label": "legacy-group-birth",
+      "byte_exact": true,
+      "rows": 7401,
+      "first_difference_tick": null,
+      "candidate_sha256": "2c7099b4ad56d285d70a8cff0d4a7e8eca131751d9fea06e7f3e5c8c375642fe",
+      "interpreted_sha256": "2c7099b4ad56d285d70a8cff0d4a7e8eca131751d9fea06e7f3e5c8c375642fe",
+      "input_sha256": "f1361c08f50cbbd424de60a320759bfac4d0f5c0b18df9012075847882c23a10",
+      "candidate_elapsed_seconds": 8.25022904202342
+    },
+    {
+      "label": "normal-first",
+      "byte_exact": true,
+      "rows": 3161,
+      "first_difference_tick": null,
+      "candidate_sha256": "380e82b4cc4048e53de6242e23edc9d8b0751dc8f425c1c67368ce47cdd71f69",
+      "interpreted_sha256": "380e82b4cc4048e53de6242e23edc9d8b0751dc8f425c1c67368ce47cdd71f69",
+      "input_sha256": "46bac44a26d137b59629b5250ad81b6fe61f94657dd5de26e3ab0f866a2506bb",
+      "candidate_elapsed_seconds": 3.1341329169808887
+    },
+    {
+      "label": "normal-hit-recovery",
+      "byte_exact": true,
+      "rows": 4601,
+      "first_difference_tick": null,
+      "candidate_sha256": "e53df392bcd5a955a35424b67c6d38c6818287033fba8590980fa9bbaa1b4272",
+      "interpreted_sha256": "e53df392bcd5a955a35424b67c6d38c6818287033fba8590980fa9bbaa1b4272",
+      "input_sha256": "73fc58d014cfc5ce1ac826727b9517f0541f2b9134ee305b749c0a032f169265",
+      "candidate_elapsed_seconds": 4.317621750000399
+    },
+    {
+      "label": "legacy-combat",
+      "byte_exact": true,
+      "rows": 4201,
+      "first_difference_tick": null,
+      "candidate_sha256": "f013a30b7731e5b306efbf68db280a6caf73fe2f7aaf014d2475f61d0a91eca7",
+      "interpreted_sha256": "f013a30b7731e5b306efbf68db280a6caf73fe2f7aaf014d2475f61d0a91eca7",
+      "input_sha256": "405d47e75f9c1a634d4825d509cdd712ee54eb140830ef8b18b14964b60d274b",
+      "candidate_elapsed_seconds": 4.437050874985289
+    },
+    {
+      "label": "legacy-midgame",
+      "byte_exact": true,
+      "rows": 15901,
+      "first_difference_tick": null,
+      "candidate_sha256": "2bad7c4c02405451bfddec7c85b291075dc287da2f5b3dbe7bf857a4a41f773e",
+      "interpreted_sha256": "2bad7c4c02405451bfddec7c85b291075dc287da2f5b3dbe7bf857a4a41f773e",
+      "input_sha256": "73501132b7b3ea54abd46a7f58f0f26602cfee4f26952d81f2d1346b50279fd6",
+      "candidate_elapsed_seconds": 16.766443916014396
+    },
+    {
+      "label": "legacy-late",
+      "byte_exact": true,
+      "rows": 39001,
+      "first_difference_tick": null,
+      "candidate_sha256": "be9e71f447bf768a1554f5ddf05521ad1b64bea6b3e10671802d48707a0b03c3",
+      "interpreted_sha256": "be9e71f447bf768a1554f5ddf05521ad1b64bea6b3e10671802d48707a0b03c3",
+      "input_sha256": "5e4c1faa42ec516b52cf7d8b871a25b8501a656787dc6ffc1a46fadd1cfc9135",
+      "candidate_elapsed_seconds": 47.78671625000425
+    },
+    {
+      "label": "canonical41019",
+      "byte_exact": true,
+      "rows": 41020,
+      "first_difference_tick": null,
+      "candidate_sha256": "b2520c78943d31b81434fdf2cd47e3ecefc89a2c5d0a73b5952a7723b0504b38",
+      "interpreted_sha256": "b2520c78943d31b81434fdf2cd47e3ecefc89a2c5d0a73b5952a7723b0504b38",
+      "old_qualified_R8_hash": "b2520c78943d31b81434fdf2cd47e3ecefc89a2c5d0a73b5952a7723b0504b38",
+      "matches_old_qualified_R8": true
+    }
+  ],
+  "scope": "Host whole displayed-tree state and RNG vs original AVM1 interpreter; accepted visual policy and intro guard in both; not physical FPS or complete independent Flash verification",
+  "completed_cases": 7,
+  "source_frames": 115279,
+  "finished": "2026-11-16T09:16:40.376818"
+}

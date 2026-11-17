@@ -1,0 +1,252 @@
+{
+  "id": "dad-n-me",
+  "package_id": "DadNMe",
+  "title": "狂扁小朋友 PSP 1.0.3 正式版（R24单机）",
+  "version": "1.0.3",
+  "baseline": "response56 R24 ordinary",
+  "tag": "dad-n-me-v1.0.3",
+  "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/dad-n-me-v1.0.3",
+  "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/dad-n-me-v1.0.3/DadNMe_PSP_1.0.3_Official.zip",
+  "asset_name": "DadNMe_PSP_1.0.3_Official.zip",
+  "bytes": 37276175,
+  "sha256": "612d09baa2ee822395318e0eff5f739129c51f11336361959d994cac0152f6cb",
+  "eboot_sha256": "4a14f64e4e8013ae2b27718c60d482ac4c3c1ed095b50be460386a9e073d05f7",
+  "program_sha256": "41803dcdcc70180625f3f883785d8aa641c9a19315483f86fe11da8ade0c1dd3",
+  "source_directory": "source/dad-n-me",
+  "single_player": true,
+  "wlan_included": false,
+  "verification": {
+    "status": "passed",
+    "scope": "Affected XMB-only promotion checks for the latest delivered R24 ordinary game;not a new all-game,FPS or physical-device qualification.",
+    "base": "response56 R24 ordinary",
+    "version": "1.0.3",
+    "native_program_byte_identical": true,
+    "unchanged_runtime_files": 9,
+    "changed_pbp_sections": [
+      "PARAM.SFO",
+      "ICON0.PNG",
+      "PIC1.PNG"
+    ],
+    "sfo": {
+      "MEMSIZE": 1,
+      "APP_VER": "01.03",
+      "BOOTABLE": 1,
+      "CATEGORY": "MG",
+      "DISC_ID": "UCJS10041",
+      "DISC_VERSION": "1.00",
+      "PARENTAL_LEVEL": 1,
+      "PSP_SYSTEM_VER": "1.00",
+      "REGION": 32768,
+      "TITLE": "狂扁小朋友"
+    },
+    "artwork_embedded_exact": true,
+    "source_rebuild": {
+      "status": "passed",
+      "formal_eboot_byte_identical": true,
+      "native_sources_unchanged": true,
+      "cmake_unchanged": true
+    },
+    "ordinary_controls": {
+      "status": "passed",
+      "movement": true,
+      "attack_buttons_sent": true,
+      "pause_resume": true,
+      "no_replay": true,
+      "no_target_QA_flags": true,
+      "observations": [
+        {
+          "name": "live-start",
+          "host_ms": 9181.114958,
+          "state": {
+            "tick": 208,
+            "rendered": 413,
+            "buttons": 0,
+            "phase": 2,
+            "x": -1152.5999755859375,
+            "y": 235,
+            "health": 100,
+            "heroFrame": 1,
+            "heapFree": 100568,
+            "presented": 207
+          }
+        },
+        {
+          "name": "before-walk",
+          "host_ms": 9181.839833,
+          "state": {
+            "tick": 208,
+            "rendered": 413,
+            "buttons": 0,
+            "phase": 2,
+            "x": -1152.5999755859375,
+            "y": 235,
+            "health": 100,
+            "heroFrame": 1,
+            "heapFree": 100568,
+            "presented": 207
+          }
+        },
+        {
+          "name": "walked-right",
+          "host_ms": 9736.489375,
+          "state": {
+            "tick": 224,
+            "rendered": 445,
+            "buttons": 0,
+            "phase": 2,
+            "x": -1032.5999755859375,
+            "y": 235,
+            "health": 100,
+            "heroFrame": 1,
+            "heapFree": 240344,
+            "presented": 223
+          }
+        },
+        {
+          "name": "walked-left",
+          "host_ms": 10292.473333,
+          "state": {
+            "tick": 241,
+            "rendered": 479,
+            "buttons": 0,
+            "phase": 2,
+            "x": -1152.5999755859375,
+            "y": 235,
+            "health": 100,
+            "heroFrame": 1,
+            "heapFree": 185272,
+            "presented": 240
+          }
+        },
+        {
+          "name": "after-combat",
+          "host_ms": 16477.280708,
+          "state": {
+            "tick": 427,
+            "rendered": 850,
+            "buttons": 0,
+            "phase": 2,
+            "x": -1200.5999755859375,
+            "y": 235,
+            "health": 100,
+            "heroFrame": 1,
+            "heapFree": 501400,
+            "presented": 425
+          }
+        },
+        {
+          "name": "after-snapshot",
+          "host_ms": 17482.404208,
+          "state": {
+            "tick": 457,
+            "rendered": 913,
+            "buttons": 0,
+            "phase": 2,
+            "x": -1200.5999755859375,
+            "y": 235,
+            "health": 100,
+            "heroFrame": 1,
+            "heapFree": 523224,
+            "presented": 456
+          }
+        },
+        {
+          "name": "paused",
+          "host_ms": 17919.382666,
+          "state": {
+            "tick": 458,
+            "rendered": 938,
+            "buttons": 0,
+            "phase": 2,
+            "x": -1200.5999755859375,
+            "y": 235,
+            "health": 100,
+            "heroFrame": 1,
+            "heapFree": 523224,
+            "presented": 458
+          }
+        },
+        {
+          "name": "still-paused",
+          "host_ms": 18322.232083,
+          "state": {
+            "tick": 458,
+            "rendered": 963,
+            "buttons": 0,
+            "phase": 2,
+            "x": -1200.5999755859375,
+            "y": 235,
+            "health": 100,
+            "heroFrame": 1,
+            "heapFree": 523224,
+            "presented": 458
+          }
+        },
+        {
+          "name": "resumed",
+          "host_ms": 19009.833,
+          "state": {
+            "tick": 478,
+            "rendered": 1005,
+            "buttons": 0,
+            "phase": 2,
+            "x": -1200.5999755859375,
+            "y": 235,
+            "health": 100,
+            "heroFrame": 1,
+            "heapFree": 519528,
+            "presented": 477
+          }
+        }
+      ],
+      "probe": "read-only host snapshot;1ms sampler/16sample snapshot,not FPS evidence"
+    },
+    "settings": {
+      "model": "PSP-2000",
+      "cpu_mhz": 333,
+      "bus_mhz": 166,
+      "memory_mib": 64,
+      "resolution": [
+        480,
+        272
+      ],
+      "audio": true,
+      "io_timing": 2,
+      "normal_speed": true,
+      "frame_skip": 0
+    },
+    "first_attempt": {
+      "status": "harness-configuration-error-retained",
+      "failed_run": "qa-ordinary",
+      "reason": "Selected frozen controls driver reads immutable nativeProbeSnapshot exclusively, but initial launch omitted wall sampler so session.nativeProbeSnapshot was null. The source boot log reached first-scene-presented;no observations were collected.",
+      "correction": "Use the existing read-only native sampler,1ms period/16sample snapshot;no new target QA flags,input replay or game change. Preserve failed run,create qa-ordinary-sampler for corrected functional check.",
+      "game_eboot_sha256": "4a14f64e4e8013ae2b27718c60d482ac4c3c1ed095b50be460386a9e073d05f7"
+    },
+    "baseline_evidence": {
+      "behavior_regression": "R24 prior41019-frame source/native route and23visual witnesses;5000finite-health gameover/restart and original controls retained inqa",
+      "performance": "R24 historical pacing not qualified;physical speed/control latency and all immobilization causes remain open"
+    },
+    "physical_psp_tested": false,
+    "stable60": false,
+    "wlan_included": false,
+    "card_written": false
+  },
+  "package_manifest": {
+    "EBOOT.PBP": "4a14f64e4e8013ae2b27718c60d482ac4c3c1ed095b50be460386a9e073d05f7",
+    "INSTALL.txt": "0bc767e73c07edaeb2b02e7104fd4794e6fdb5a4751b83b01aba45dc87ad570a",
+    "LICENSE": "73b29936b79c931222a589a49019f3643fc8ba4f8fcfd43f6905a665f11e55a8",
+    "LICENSE_SCOPE.md": "8844e0882ed0dbb4ce7f4d8358a3eefa37c94143d5bfb8bd28190dabb1326107",
+    "RELEASE.json": "2ae90cdc19c1eb201f79644a1e2cfd3d24637a9b612819a5c3aa316f90bf08c3",
+    "SHA256SUMS": "771b99ff022f4ff70384454ddd603aa4c035a093e73c49f3cb08856fbce943f7",
+    "art-quality.json": "249876e5e377d0e014be63239959ca6b5835f9e477fcee3149708ce8dccb0bec",
+    "art.pak": "5a488abe9d5f514f6296802302c2fa8fd9eec1e9b7b8bd074ffb136ead7cc2e6",
+    "audio.pak": "0d7ff48411615c9a4d348a35fcb4a9a292e7951d4d5f6054e9f76301fea3ed8b",
+    "build-identity.json": "d5bacf17ecb0327650fd4b0704921c3214684b7b22cf1b61e62c70fc337fd20b",
+    "engine-COPYRIGHT.txt": "f21560fb4b535e2c6e4d74b5b61b7efb4ff9253e9c41ed747ae52aaa86417f40",
+    "font-OFL.txt": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+    "lz4-LICENSE.txt": "8b58c446121a109ccf32edc094bba3010a3d85e4ee3702950db55e4d3e87736c",
+    "media-recode.json": "d42f827a8afe98b6d17e098921c1549d5094b414da51e529c2a8ee23c1342987",
+    "source-fixes.json": "ebfded1d255f3643dafb861742f3d211655091bbea7fad5ff248a685e7384f14",
+    "source.swf": "8451e71fd98593003ec0783bb31e54049e603c22ea140e9958ef96446823575d"
+  }
+}

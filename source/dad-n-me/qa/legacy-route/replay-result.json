@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "scope": "input-only playback at default emulated clock, no frameskip, fresh PSP profile",
+  "scenario": "campaign",
+  "fixture": {
+    "path": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/dad_response_speed_20261114/work-r7/legacy-source.swf",
+    "sha256": "1ae0ff67bfae8692e139990d338fda987cf3c78ab17bf6289a09762db16715b0",
+    "scope": "instrumented QA fixture; not release data"
+  },
+  "model": 1,
+  "replay": {
+    "seed": 42,
+    "frames": 41019,
+    "segments": 1772,
+    "sha256": "1fc3de22faa206b3a3bb65a0a8e489c9ca7c8a4316175ca538343fc7ba31e4c3"
+  },
+  "seenEnding": true,
+  "seenRestart": true,
+  "seconds": 75.558062875,
+  "final": {
+    "presentation": {
+      "sourceTick": 41027,
+      "presentations": 82057,
+      "midpoint": 1,
+      "movingSamples": 6,
+      "vcount": 82380
+    },
+    "tick": 41028,
+    "rendered": 82057,
+    "buttons": 0,
+    "phase": 2,
+    "x": -1152.5999755859375,
+    "y": 235,
+    "health": 1000000,
+    "camera": 1222.5999755859375,
+    "freeMemory": 12215552,
+    "checkpoint": 0,
+    "kills": 0,
+    "goal": 1,
+    "combo": 0,
+    "heroFrame": 1,
+    "replayDone": true,
+    "heapFree": 1055576
+  }
+}
