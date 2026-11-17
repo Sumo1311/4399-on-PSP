@@ -1,0 +1,1 @@
+B7: acquire current atomic voice-playing flag without waiting for whole PCM block. Generation/start/stop/query owned by source worker; mixing and mutations retain lock. Must pass exact PCM and native source/audio timing checks.

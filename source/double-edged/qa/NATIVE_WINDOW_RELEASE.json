@@ -1,0 +1,20 @@
+{
+  "status": "all-local-native-runs-terminal-release-requested",
+  "utc": "2026-11-16T14:34:24.938716+00:00",
+  "emulator_processes": [],
+  "source_replays": {
+    "B154-ordinary1700": 0,
+    "B155-ordinary1700": 0,
+    "B155-Brute7250": 0
+  },
+  "timing_controllers": {
+    "B154-2600": 0,
+    "B155-2600": 0
+  },
+  "wlan_isolated_replay": {
+    "controller_returncode": 1,
+    "gameplay_entered": false,
+    "reason": "expected isolated-replay guard"
+  },
+  "remaining_work": "Standalone source rebuild and archives only;no further native tests or card write in this task"
+}

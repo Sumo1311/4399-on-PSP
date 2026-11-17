@@ -1,0 +1,10 @@
+{
+  "status": "prelaunch-map-dependency-corrected-no-game-change",
+  "cause": "Old B155 temporary map no longer existed at second case prelaunch. First ordinary boot passed;second had not launched.",
+  "old_map_sha256": "728e61cd50f8ef5aa17dba9fe0860eb5fa6e4ece202ff0fdbaa4d625ca853873",
+  "new_map_sha256": "a09cf9042552532624ed4933a41eb5c36e5f1e233dff6089a0c90de563d7ef22",
+  "new_map": "/Users/sumo/Documents/flash-to-psp/release-double-edged-v1.0.0-20261117/rebuild/solo/double_edged.map",
+  "proof": "REBUILD_OFFICIAL byte-identical DATA.PSP and native source;new map debug/presentation addresses match first passed session.",
+  "formal_eboot_unchanged": "e47d19cf943f922f7293cc12eab8e7601419a1191e40c56aa6bf5bb3793aed4e",
+  "game_changed": false
+}

@@ -1,0 +1,7 @@
+{
+  "status": "not-gameplay-tested-isolated-replay-rejected-by-design",
+  "controller_returncode": 1,
+  "error": "Use the solo package for an isolated source replay.",
+  "scope": "WLAN executable intentionally rejects isolated REPLAY.QA. Guard unchanged;no new WLAN gameplay/network acceptance. Matching source and independent binary rebuild remain required. Frozen B154 network evidence is separate.",
+  "physical_psp_tested": false
+}

@@ -1,0 +1,8 @@
+{
+  "status": "passed-independent-formal-source-comparison",
+  "native_source": "/Users/sumo/Documents/flash-to-psp/release-double-edged-v1.0.0-20261117/native-source",
+  "source_files_exact": 360,
+  "missing": [],
+  "changed": [],
+  "scope": "Frozen B155 CPP,CMake,vendor,classes and visual policy sources exact. Packaging wrappers/artwork/docs are separate;current independent compiled rebuild owned by publisher."
+}

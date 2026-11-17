@@ -1,0 +1,36 @@
+{
+  "status": "prepared-targeted-visual-repair-host-and-native-checks-pending",
+  "created_utc": "2026-11-16T13:46:36.059599+00:00",
+  "base": "B154",
+  "base_source": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/battle_logic_batch_20261114/source/DoubleEdgedB154",
+  "source": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/source/DoubleEdgedB155",
+  "candidate": "B155",
+  "hardware_feedback": [
+    "Static coin is edge-on and unreadable",
+    "Enemy disappears before its visible death completes"
+  ],
+  "evidence": [
+    "inspection/coin-frame-gallery.png",
+    "inspection/coin-frames.json"
+  ],
+  "changes": {
+    "visual_policy.js": "a8da359ae4cf198c84be9a5eee4eec4b4a52330285bd72f182d0cd3928030478",
+    "src/corpse_visibility.hpp": "1f70d0ba25cedcd083b18ce00900349d279622d00c45bc428fa99585b8d2add1",
+    "src/render_bridge.cpp": "b7a349782fbc6baf96265eeec1b166d88607faa5570d5aa21b17d5dc82173ef2",
+    "src/render_mirror.inc": "c2652be08b553c750dd8ad645cf6d27f776f682116bedb39a7dda4da2d19f5d8"
+  },
+  "source_classes_unchanged": true,
+  "physics_RNG_audio_save_logic_unchanged": true,
+  "art_font_audio_assets_changed": false,
+  "intended_behavior": "Coin remains static on full front frame8. Keep living/knockback/death motion;hide only grounded bodies after original corpse-flash phase starts. Preserve dying actor alpha in render packets only. Unknown special death states stay on source presentation.",
+  "required": [
+    "Actual helper normal/SAN phase cases incl live hp0,boss,airborne,grounded,revival,missing data and getter guards",
+    "Same ordinary-input state/RNG/audio/score/save comparisons;coin sprite frame/bounds/side-effect proof",
+    "Fixed PSP2000 native actual-pixel front coin and living/dying/corpse witnesses with mirror/legacy command checks",
+    "Matched affected-scene timing with added visible work explicit;not stable60 or physical proof",
+    "Matching solo/WLAN binaries,source export and reproducible package before delivery"
+  ],
+  "installed_on_card": false,
+  "stable60": false,
+  "physical_psp_tested": false
+}

@@ -1,0 +1,32 @@
+{
+  "status": "passed-minimal-source-and-resource-scope",
+  "source_changes": [
+    "src/corpse_visibility.hpp",
+    "src/render_bridge.cpp",
+    "src/render_mirror.inc",
+    "visual_policy.js"
+  ],
+  "variants": {
+    "solo": {
+      "changed_package_files": [
+        "EBOOT.PBP",
+        "SHA256SUMS",
+        "build-identity.json",
+        "visual_policy.js"
+      ],
+      "eboot_sha256": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193"
+    },
+    "wlan": {
+      "changed_package_files": [
+        "EBOOT.PBP",
+        "SHA256SUMS",
+        "build-identity.json",
+        "visual_policy.js"
+      ],
+      "eboot_sha256": "00f031baf1312e852f8c8210e79e31e7c7a0de97e00edc106ace64b7a85b05a3"
+    }
+  },
+  "source_logic_physics_rng_audio_save_unchanged": true,
+  "art_font_audio_assets_unchanged": true,
+  "wlan_input_protocol_session_code_unchanged": true
+}

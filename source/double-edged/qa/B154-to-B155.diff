@@ -1,0 +1,194 @@
+--- B154/visual_policy.js
++++ B155/visual_policy.js
+@@ -6,12 +6,12 @@
+     var first = Coin.prototype.frame1, loop = Coin.prototype.frame15;
+     Coin.prototype.frame1 = function () {
+         // Keep the original random draw and initial script side effects. While
+-        // this frame script runs, the final queued goto selects the static face.
++        // this frame script runs, the final queued goto selects the full front face (frame 8).
+         first.call(this);
+-        this.gotoAndStop(2);
++        this.gotoAndStop(8);
+     };
+     Coin.prototype.frame15 = function () {
+         loop.call(this);
+-        this.gotoAndStop(2);
++        this.gotoAndStop(8);
+     };
+ }());
+--- B154/src/corpse_visibility.hpp
++++ B155/src/corpse_visibility.hpp
+@@ -1,30 +1,46 @@
+ #pragma once
+ #include "quickjs.h"
++#include <cmath>
+ #include <cstdint>
+ 
+ namespace devisual {
+-struct CorpseCensus {unsigned actors=0,dead=0,unsupported=0;};
+-// Render policy only. Borrowed own data and dense array storage avoid getters,
+-// callbacks, object ownership, RNG, or changes to cleanup/drop/kill semantics.
+-// emit must not execute JS or mutate any source object.
++enum class DeathVisual { Dying, Corpse };
++struct CorpseCensus {unsigned actors=0,dead=0,dying=0,unsupported=0;};
++// Read-only presentation policy. Preserve living actors and the source death
++// motion. Only settled bodies in the source corpse-flash phase disappear.
++// Borrowed own data never runs getters, callbacks or source mutations.
+ template<class Emit>
+ CorpseCensus collect_corpses(JSContext* c,JSValueConst root,JSAtom game_key,
+-    JSAtom baddies_key,JSAtom health_key,JSAtom shadow_key,JSAtom uid_key,Emit emit){
++    JSAtom baddies_key,JSAtom health_key,JSAtom alive_key,JSAtom landed_key,
++    JSAtom dead_count_key,JSAtom shadow_key,JSAtom uid_key,Emit emit){
+     CorpseCensus stats;JSValue game,list;
+     if(!JS_IsObject(root)||JS_TryOwnDataPropertyBorrowed(root,game_key,&game)!=1||!JS_IsObject(game))return stats;
+     if(JS_TryOwnDataPropertyBorrowed(game,baddies_key,&list)!=1)return stats;
+     uint32_t count=0;if(!JS_TryPlainArrayLength(list,&count)||count>4096){++stats.unsupported;return stats;}
+-    auto mark=[&](JSValueConst object){JSValue value;uint32_t uid=0;
+-        if(JS_IsObject(object)&&JS_TryOwnDataPropertyBorrowed(object,uid_key,&value)==1&&JS_IsNumber(value)&&!JS_ToUint32(c,&uid,value)&&uid)emit(uid);
++    auto mark=[&](JSValueConst object,DeathVisual phase){JSValue value;uint32_t uid=0;
++        if(JS_IsObject(object)&&JS_TryOwnDataPropertyBorrowed(object,uid_key,&value)==1&&JS_IsNumber(value)&&!JS_ToUint32(c,&uid,value)&&uid)emit(uid,phase);
+     };
+     for(uint32_t i=0;i<count;++i){
+-        JSValue actor,health,shadow;
++        JSValue actor,health,alive,landed,dead_count,shadow;
+         if(!JS_TryPlainArrayValueBorrowed(list,i,&actor)||!JS_IsObject(actor)){++stats.unsupported;continue;}
+         ++stats.actors;
+         if(JS_TryOwnDataPropertyBorrowed(actor,health_key,&health)!=1||!JS_IsNumber(health)){++stats.unsupported;continue;}
+-        double hp=0;if(JS_ToFloat64(c,&hp,health)||!(hp<=0))continue;
+-        ++stats.dead;mark(actor);
+-        if(JS_TryOwnDataPropertyBorrowed(actor,shadow_key,&shadow)==1)mark(shadow);
++        double hp=0;if(JS_ToFloat64(c,&hp,health)||!std::isfinite(hp)||!(hp<=0))continue;
++        if(JS_TryOwnDataPropertyBorrowed(actor,alive_key,&alive)!=1||!JS_IsBool(alive)){++stats.unsupported;continue;}
++        if(JS_ToBool(c,alive))continue;
++        // Special bosses have their own death timeline. Without explicit own
++        // grounded/countdown state, leave their original presentation intact.
++        if(JS_TryOwnDataPropertyBorrowed(actor,landed_key,&landed)!=1||!JS_IsBool(landed)||
++           JS_TryOwnDataPropertyBorrowed(actor,dead_count_key,&dead_count)!=1||!JS_IsNumber(dead_count)){++stats.unsupported;continue;}
++        double remaining=0;if(JS_ToFloat64(c,&remaining,dead_count)||!std::isfinite(remaining)){++stats.unsupported;continue;}
++        if(JS_ToBool(c,landed)&&remaining<60){
++            ++stats.dead;mark(actor,DeathVisual::Corpse);
++            if(JS_TryOwnDataPropertyBorrowed(actor,shadow_key,&shadow)==1)mark(shadow,DeathVisual::Corpse);
++        }else{
++            // CharacterFinal blinks as soon as deadCount<60, even during a
++            // knockback. Keep only the actor's alpha steady until it settles.
++            ++stats.dying;mark(actor,DeathVisual::Dying);
++        }
+     }
+     return stats;
+ }
+--- B154/src/render_bridge.cpp
++++ B155/src/render_bridge.cpp
+@@ -75,8 +75,8 @@
+ static std::string get_string(JSContext* ctx,JSValueConst o,const char* key){JSValue v=JS_GetPropertyStr(ctx,o,key);const char* s=JS_ToCString(ctx,v);std::string result=s?s:"";JS_FreeCString(ctx,s);JS_FreeValue(ctx,v);return result;}
+ #ifdef DE_NATIVE_PAINT
+ namespace {
+-enum Prop {Visible,Children,Symbol,Definition,Kind,Matrix,Color,Uid,Text,Html,Blend,BlendMode,Filters,RawFilters,Graphics,Records,ClipDepth,TimelineDepth,Length,MatrixVersion,ColorVersion,FiltersVersion,FiltersOverride,Placement,Ratio,Game,Baddies,Health,Shadow,PropCount};
+-const char* property_names[]={"_visible","_children","_symbol","_definition","kind","_matrix","_color","_uid","_text","_html","_blend","blendMode","_scriptFilters","_filters","graphics","records","_clipDepth","_timelineDepth","length","_matrixVersion","_colorVersion","_filtersVersion","_filtersOverride","_placement","_ratio","myFightingGame","activeBaddies","health","shadow"};
++enum Prop {Visible,Children,Symbol,Definition,Kind,Matrix,Color,Uid,Text,Html,Blend,BlendMode,Filters,RawFilters,Graphics,Records,ClipDepth,TimelineDepth,Length,MatrixVersion,ColorVersion,FiltersVersion,FiltersOverride,Placement,Ratio,Game,Baddies,Health,Alive,Landed,DeadCount,Shadow,PropCount};
++const char* property_names[]={"_visible","_children","_symbol","_definition","kind","_matrix","_color","_uid","_text","_html","_blend","blendMode","_scriptFilters","_filters","graphics","records","_clipDepth","_timelineDepth","length","_matrixVersion","_colorVersion","_filtersVersion","_filtersOverride","_placement","_ratio","myFightingGame","activeBaddies","health","alive","landed","deadCount","shadow"};
+ std::array<JSAtom,PropCount> property_atoms{};
+ bool atoms_ready=false;
+ JSContext* drawing_context=nullptr;
+@@ -96,6 +96,7 @@
+     World world;
+     double local_matrix[6]{},local_color[8]{},previous_local[6]{};
+     unsigned history_frame=~0u;
++    bool preserve_death_alpha=false,composed_death_alpha=false;
+     unsigned local_matrix_version=0,local_color_version=0,parent_matrix_serial=~0u,parent_color_serial=~0u,used=0;
+     int symbol=-1,kind=-1;
+     unsigned filter_version=~0u,placement=~0u;
+@@ -154,7 +155,7 @@
+     unsigned matrix_version=unsigned(number(ctx,node,MatrixVersion)),color_version=unsigned(number(ctx,node,ColorVersion));
+     bool prior=cache.history_frame!=~0u&&cache.history_frame+1==drawing_frame;
+     if(cache.history_frame!=drawing_frame){std::copy_n(cache.local_matrix,6,cache.previous_local);cache.history_frame=drawing_frame;}
+-    bool matrix_changed=matrix_version!=cache.local_matrix_version,color_changed=color_version!=cache.local_color_version;
++    bool matrix_changed=matrix_version!=cache.local_matrix_version,color_changed=color_version!=cache.local_color_version||cache.preserve_death_alpha!=cache.composed_death_alpha;
+     if(matrix_changed){auto values=prop(ctx,node,Matrix);for(unsigned i=0;i<6;i++){Value v(ctx,JS_GetPropertyUint32(ctx,values,i));JS_ToFloat64(ctx,&cache.local_matrix[i],v);}cache.local_matrix_version=matrix_version;}
+     if(color_changed){auto values=prop(ctx,node,Color);for(unsigned i=0;i<8;i++){Value v(ctx,JS_GetPropertyUint32(ctx,values,i));JS_ToFloat64(ctx,&cache.local_color[i],v);}cache.local_color_version=color_version;}
+     auto& w=cache.world;auto m=cache.local_matrix,c=cache.local_color;
+@@ -170,6 +171,8 @@
+     }
+     if(color_changed||cache.parent_color_serial!=parent.color_serial){
+         for(unsigned i=0;i<4;i++){w.c[i]=parent.c[i]*c[i]/256;w.c[i+4]=parent.c[i]*c[i+4]/256+parent.c[i+4];}
++        if(cache.preserve_death_alpha){w.c[3]=parent.c[3];w.c[7]=parent.c[7];}
++        cache.composed_death_alpha=cache.preserve_death_alpha;
+         cache.parent_color_serial=parent.color_serial;w.color_serial=++world_serial;
+     }
+     return w;
+@@ -217,7 +220,9 @@
+     ++native_nodes;auto visible=prop(ctx,node,Visible);if(!as_mask&&JS_IsBool(visible)&&!JS_ToBool(ctx,visible))return;
+     auto children=prop(ctx,node,Children);bool container=!JS_IsUndefined(children)&&!JS_IsNull(children);unsigned count=container?length(ctx,children):0;
+     auto& cached=cached_node(ctx,node);int symbol=cached.symbol;bool native_button=cached.kind==34;
+-    if(!as_mask&&corpse_hidden(unsigned(number(ctx,node,Uid))))return;
++    unsigned visual_uid=unsigned(number(ctx,node,Uid));
++    if(!as_mask&&corpse_hidden(visual_uid))return;
++    cached.preserve_death_alpha=!as_mask&&corpse_kept_opaque(visual_uid);
+     if(container&&!count&&!native_button)return;
+     const World& world=compose(ctx,node,cached,parent_world);if(world.c[3]<=0&&!as_mask)return;
+     if(effect_census){
+@@ -388,7 +393,7 @@
+ void de_flush_render_audit(){
+ #ifdef DE_NATIVE_PAINT
+     if(graphics_log)if(FILE* f=std::fopen("VISUAL_POLICY_STATS.JSON","w")){
+-        std::fprintf(f,"{\"scope\":\"Render-only dead enemy and shadow suppression;original game objects remain owned by source logic\",\"actor_samples\":%llu,\"dead_actor_samples\":%llu,\"unsupported_samples\":%llu,\"corpse_draw_skips\":%llu}\n",corpse_actor_samples,corpse_hidden_samples,corpse_guard_fallbacks,corpse_draw_skips);std::fclose(f);
++        std::fprintf(f,"{\"scope\":\"Render-only settled corpse suppression and steady dying alpha;living actors and source game objects unchanged\",\"actor_samples\":%llu,\"dead_actor_samples\":%llu,\"dying_actor_samples\":%llu,\"unsupported_samples\":%llu,\"corpse_draw_skips\":%llu}\n",corpse_actor_samples,corpse_hidden_samples,corpse_dying_samples,corpse_guard_fallbacks,corpse_draw_skips);std::fclose(f);
+     }
+ #endif
+     if(FILE* f=std::fopen("CAPTURE_BACKEND.JSON","w")){std::fprintf(f,"{\"direct_static_tries\":%llu,\"direct_static_hits\":%llu,\"batched_render_sync_compiled\":%s,\"direct_baked_capture_compiled\":%s}\n",direct_baked_tries,direct_baked_hits,DE_BATCH_RENDER_SYNC?"true":"false",DE_DIRECT_BAKED_CAPTURE?"true":"false");std::fclose(f);}
+--- B154/src/render_mirror.inc
++++ B155/src/render_mirror.inc
+@@ -15,21 +15,22 @@
+     std::vector<MirrorNode*> child_nodes;unsigned child_nodes_epoch=0;
+     std::string text;
+     unsigned uid=0,ratio=0,depth=0,clip=0,matrix_version=0,color_version=0,used=0,parent_uid=0;
+-    bool visible=true,container=false,html=false,corpse=false;
++    bool visible=true,container=false,html=false,corpse=false,death_opaque=false;
+ };
+ std::unordered_map<unsigned,MirrorNode> mirror_nodes;
+ unsigned mirror_pointer_epoch=1;
+ bool mirror_enabled=false,mirror_check=false;
+ std::vector<unsigned> corpse_nodes;
+-unsigned long long corpse_actor_samples=0,corpse_hidden_samples=0,corpse_guard_fallbacks=0,corpse_draw_skips=0;
++unsigned long long corpse_actor_samples=0,corpse_hidden_samples=0,corpse_dying_samples=0,corpse_guard_fallbacks=0,corpse_draw_skips=0;
+ bool corpse_hidden(unsigned uid){auto found=mirror_nodes.find(uid);return found!=mirror_nodes.end()&&found->second.corpse;}
++bool corpse_kept_opaque(unsigned uid){auto found=mirror_nodes.find(uid);return found!=mirror_nodes.end()&&found->second.death_opaque;}
+ void update_corpse_visibility(JSContext* ctx,JSValueConst root){
+-    for(auto uid:corpse_nodes){auto found=mirror_nodes.find(uid);if(found!=mirror_nodes.end())found->second.corpse=false;}
++    for(auto uid:corpse_nodes){auto found=mirror_nodes.find(uid);if(found!=mirror_nodes.end()){found->second.corpse=false;found->second.death_opaque=false;}}
+     corpse_nodes.clear();
+-    auto stats=devisual::collect_corpses(ctx,root,property_atoms[Game],property_atoms[Baddies],property_atoms[Health],property_atoms[Shadow],property_atoms[Uid],[&](unsigned uid){
+-        auto found=mirror_nodes.find(uid);if(found!=mirror_nodes.end()){found->second.corpse=true;corpse_nodes.push_back(uid);}
++    auto stats=devisual::collect_corpses(ctx,root,property_atoms[Game],property_atoms[Baddies],property_atoms[Health],property_atoms[Alive],property_atoms[Landed],property_atoms[DeadCount],property_atoms[Shadow],property_atoms[Uid],[&](unsigned uid,devisual::DeathVisual phase){
++        auto found=mirror_nodes.find(uid);if(found!=mirror_nodes.end()){found->second.corpse=phase==devisual::DeathVisual::Corpse;found->second.death_opaque=phase==devisual::DeathVisual::Dying;corpse_nodes.push_back(uid);}
+     });
+-    corpse_actor_samples+=stats.actors;corpse_hidden_samples+=stats.dead;corpse_guard_fallbacks+=stats.unsupported;
++    corpse_actor_samples+=stats.actors;corpse_hidden_samples+=stats.dead;corpse_dying_samples+=stats.dying;corpse_guard_fallbacks+=stats.unsupported;
+ }
+ JSValue mirror_update(JSContext* ctx,JSValueConst,int argc,JSValueConst* argv){
+     if(argc!=2)return JS_ThrowTypeError(ctx,"Render update arguments");
+@@ -54,7 +55,7 @@
+     out[5]=float(de_round_twips(a[1]*b[4]+a[3]*b[5]))+std::floor(a[5]+.5f);
+ }
+ bool same_finite_matrix(const float* a,const float* b){for(unsigned i=0;i<6;i++)if(std::memcmp(a+i,b+i,sizeof(float))||!std::isfinite(a[i]))return false;return true;}
+-const FastWorld& mirror_world(MirrorNode& node,const FastWorld& parent){
++const FastWorld& mirror_world(MirrorNode& node,const FastWorld& parent,bool allow_death_alpha){
+     auto m=node.matrix;auto& w=node.world;
+     bool prior=node.history_frame!=~0u&&node.history_frame+1==drawing_frame;
+     // world.m was the previous frame's composed matrix, not the local matrix.
+@@ -75,6 +76,7 @@
+     else{float current[6];fast_matrix(parent.m,m,current);w.current_matches_prior=prior&&same_finite_matrix(current,w.m);w.current_finite=true;for(unsigned i=0;i<6;i++)if(!std::isfinite(current[i]))w.current_finite=false;std::copy_n(current,6,w.m);}
+     node.parent_uid=parent.owner;w.owner=node.uid;
+     for(unsigned i=0;i<4;i++){w.c[i]=parent.c[i]*node.color[i]/256.f;w.c[i+4]=parent.c[i]*node.color[i+4]/256.f+parent.c[i+4];}
++    if(allow_death_alpha&&node.death_opaque){w.c[3]=parent.c[3];w.c[7]=parent.c[7];}
+     std::copy_n(m,6,node.old_matrix);node.history_frame=drawing_frame;
+     return w;
+ }
+@@ -114,7 +116,7 @@
+     if(!as_mask&&(!node.visible||node.corpse)){if(node.corpse)++corpse_draw_skips;return;}
+     bool button=node.kind==34;
+     if(node.container&&node.children.empty()&&!button)return;
+-    const auto& world=mirror_world(node,parent_world);if(world.c[3]<=0&&!as_mask)return;
++    const auto& world=mirror_world(node,parent_world,!as_mask);if(world.c[3]<=0&&!as_mask)return;
+     if(node.container&&!button){
+         if(node.child_nodes_epoch!=mirror_pointer_epoch){
+             node.child_nodes.clear();node.child_nodes.reserve(node.children.size());

@@ -1,0 +1,85 @@
+{
+  "candidate_eboot_sha256": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193",
+  "formal_eboot_sha256": "e47d19cf943f922f7293cc12eab8e7601419a1191e40c56aa6bf5bb3793aed4e",
+  "data_psp_sha256": "4f3ef2b340b1d6d16fef1623d85e42b8c31573e694c6fffcdc521b74e00e03fc",
+  "sfo_before": {
+    "MEMSIZE": 1,
+    "APP_VER": "01.01",
+    "BOOTABLE": 1,
+    "CATEGORY": "MG",
+    "DISC_ID": "UCJS10041",
+    "DISC_VERSION": "1.00",
+    "PARENTAL_LEVEL": 1,
+    "PSP_SYSTEM_VER": "1.00",
+    "REGION": 32768,
+    "TITLE": "Double Edged B155"
+  },
+  "sfo_after": {
+    "MEMSIZE": 1,
+    "APP_VER": "01.00",
+    "BOOTABLE": 1,
+    "CATEGORY": "MG",
+    "DISC_ID": "UCJS10041",
+    "DISC_VERSION": "1.00",
+    "PARENTAL_LEVEL": 1,
+    "PSP_SYSTEM_VER": "1.00",
+    "REGION": 32768,
+    "TITLE": "双刃战士"
+  },
+  "sections": [
+    {
+      "name": "PARAM.SFO",
+      "bytes": 356,
+      "sha256": "ae33beb9323a1fd79ba586090436b7cd700f7dbd21575aba9f7d58af2f022f44",
+      "same_as_candidate": false
+    },
+    {
+      "name": "ICON0.PNG",
+      "bytes": 23408,
+      "sha256": "c61cdd149feae7974a5486eda2a3736e43b598e7e5c2a7d83e28f6dd5a5fb0d1",
+      "same_as_candidate": false
+    },
+    {
+      "name": "ICON1.PMF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_as_candidate": true
+    },
+    {
+      "name": "PIC0.PNG",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_as_candidate": true
+    },
+    {
+      "name": "PIC1.PNG",
+      "bytes": 231585,
+      "sha256": "dc5d412fbc6ebc6bf1979c1b27ceb19fb29482b499ea4430fd985cb90527e516",
+      "same_as_candidate": false
+    },
+    {
+      "name": "SND0.AT3",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_as_candidate": true
+    },
+    {
+      "name": "DATA.PSP",
+      "bytes": 3348080,
+      "sha256": "4f3ef2b340b1d6d16fef1623d85e42b8c31573e694c6fffcdc521b74e00e03fc",
+      "same_as_candidate": true
+    },
+    {
+      "name": "DATA.PSAR",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_as_candidate": true
+    }
+  ],
+  "change_scope": "PARAM.SFO TITLE/APP_VER,ICON0 andPIC1 only;DATA.PSP/DATA.PSAR andotherPBPsections exact",
+  "status": "passed",
+  "native_sources_unchanged": true,
+  "runtime_assets_unchanged": true,
+  "formal_resources_exact": true,
+  "formal_eboot_byte_identical": true
+}

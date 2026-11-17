@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "channel": "official",
+  "title": "双刃战士",
+  "package_id": "DoubleEdged",
+  "baseline": "B155 solo",
+  "target": "PSP2000 / 6.61 ARK",
+  "approval_date": "2026-11-17",
+  "user_approval": "已经达到性能要求，可以打正式包并上传；制作封面背景图后打正式包",
+  "acceptance_scope": "User accepted current performance for formal publication;no new measured physical FPS/all-Boss visual claim.",
+  "executable_and_runtime_assets_unchanged": true,
+  "change_scope": "PARAM.SFO TITLE/APP_VER,ICON0 andPIC1 only;DATA.PSP/DATA.PSAR andotherPBPsections exact",
+  "candidate_eboot_sha256": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193",
+  "formal_eboot_sha256": "e47d19cf943f922f7293cc12eab8e7601419a1191e40c56aa6bf5bb3793aed4e",
+  "data_psp_sha256": "4f3ef2b340b1d6d16fef1623d85e42b8c31573e694c6fffcdc521b74e00e03fc",
+  "wlan_included": false
+}

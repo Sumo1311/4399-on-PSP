@@ -1,0 +1,8 @@
+{
+  "status": "built",
+  "eboot_sha256": "00f031baf1312e852f8c8210e79e31e7c7a0de97e00edc106ace64b7a85b05a3",
+  "tested_eboot_sha256": "00f031baf1312e852f8c8210e79e31e7c7a0de97e00edc106ace64b7a85b05a3",
+  "byte_identical_to_tested": true,
+  "native_sources_unchanged": true,
+  "assets_unchanged": true
+}

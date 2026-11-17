@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "cases": 32,
+  "actual_quickjs_helper": true,
+  "header_sha256": "1f70d0ba25cedcd083b18ce00900349d279622d00c45bc428fa99585b8d2add1",
+  "test_sha256": "058b744736f688c8cbe6d983fb73ea4f5d47fbc7ab8928a9e5026ec5e5e5f7e0",
+  "checks": [
+    "Living positive-HP actors",
+    "Living zero-HP boss",
+    "Airborne death and settled death",
+    "Original flash boundary60 versus59",
+    "Boss/custom states without ground/countdown data remain visible",
+    "Resurrection clears hide decisions",
+    "Invalid,missing,prototype,getter and proxy data never trigger unsafe hiding or callbacks"
+  ],
+  "scope": "Normal actual QuickJS helper unit;not actual PSP pixels or performance."
+}

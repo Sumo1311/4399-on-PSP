@@ -1,0 +1,75 @@
+{
+  "status": "scoped-solo-visual-repair-test-qualified-physical-pending",
+  "candidate": "B155",
+  "created_utc": "2026-11-16T14:39:04.048924+00:00",
+  "packages": {
+    "solo": {
+      "package": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/package/DoubleEdgedB155Delivery",
+      "install_folder": "DoubleEdgedOptB155",
+      "manifest": {
+        "EBOOT.PBP": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193",
+        "SHA256SUMS": "b0c9495268e47c779eeec426db146683cfa75166ede269b363e50d8edef82900",
+        "art-clut4-report.json": "7b202069539032104f12fa9e5fc694173180d215f58dc6ecd0310b70efd765d3",
+        "art.pak": "91f09342dfcf8ebde04e51e820661a9631f04374f15dbae1677a91ce30a94811",
+        "audio.pak": "b87dab894c9292f82f29d515b148891b3585067070d88b67b9651b6cbd1f405e",
+        "build-identity.json": "6cdd0e6de85a24e35bd3793c8663c89d641e7666e0226c9e15d6a9dde70d8dfc",
+        "classes.js": "cbec15c12522a91489322c6ce97f56e77eda30b39cedf712abe12fb8fcdb7a03",
+        "fonts.pak": "d5a38e37ad6983e1d77383006ba05d33028146b1f072b1ae6e06c183f1291450",
+        "graphics.swf": "607e2741f086945af4532c306d761931c37e82652120e438c86ef1f038046632",
+        "levels/29c22ebd89bdfb77af7f8eafc298212a.xml": "38993ff58add89a832c66129fe7718354ea47fcd8a0dec5ba3c64fcdafc6f6dd",
+        "levels/2bd7ae673ef3279c92962e79234517cd.xml": "7270624acd61ae27e46b92b796a95874eec1e2dc5190a8e31ff9604bd298469e",
+        "levels/38101041d692f8f7ab14ba7f191dae78.xml": "f4af300fed813b01b610a5c2c3cc40e8f6b88963996e52681d42f2b7a13cb3d6",
+        "levels/389b3c172277726d01f1a9d5f47a6944.xml": "79625334f7e4b165e4fb0196136b5c8896525f3d91ef33644f54e2ff19540c3f",
+        "levels/48d085fe2c82298bab43476d50d3b54c.xml": "b972e61b0a23c6477948596ba27783c25fd530f7ae1f2fabb96dd104fddb76ac",
+        "levels/546396c569e723df11d862f510448c83.xml": "f4cd56e321196965a3968b29659df5112ee46aed955e652c06d6fb3e997d32f4",
+        "levels/5555938b780f2864e3eafd0b7937d5ec.xml": "ac5b98de76e69c0f04e074391d9f2a2403f25129b586860f1684f4de685c9252",
+        "levels/626e78bad49d2ce36ee7690d442cb2b2.xml": "9acd4c2291a9a355e384e8fba56274440101c6ba7de8d4a1178caa8252593549",
+        "levels/97816b814e97cf977742af328549d639.xml": "6b4006ca907bed07c8a7661b6b47ce03e74476e7ae16b1f4094dde82f6caf285",
+        "levels/b97d8da4175e1d8636d87d6ff685dacd.xml": "1f222a517e25985e42230666c0cbe9caea1ebcf666e5130a2f90bb281833b0b1",
+        "levels/cae247aad90864b354bd5dca79292362.xml": "7ec53d6e4e079eb06055a03cfc857ecd78e3bef42a86e5b9613897bd65b66229",
+        "levels/dc522947c62e790d968bd3007e767d26.xml": "4a3f6fa0f40b317ab00cf98f114220dd90a247f312971d58a1c70e0cd907b195",
+        "movie.json": "5e55c0ec06b216a59ec96dcd39af74972cc9b90faf2e39a3d75c677f2c292c7c",
+        "pad.js": "8430403f8cab1d53c054db654464dc4df4924327b40f78134324a8dcaef1d318",
+        "runtime.js": "6b0b581ff4f6b3c8a16ed1fba3c82494ebd207925d7275be6a25a42178dabf73",
+        "visual_policy.js": "a8da359ae4cf198c84be9a5eee4eec4b4a52330285bd72f182d0cd3928030478"
+      },
+      "eboot_sha256": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193",
+      "native_freeze": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/B155_FREEZE.json"
+    }
+  },
+  "source_export": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/source-export/DoubleEdgedB155",
+  "rebuild": {
+    "status": "built",
+    "variants": {
+      "solo": {
+        "status": "built",
+        "eboot_sha256": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193",
+        "tested_eboot_sha256": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193",
+        "byte_identical_to_tested": true,
+        "native_sources_unchanged": true,
+        "assets_unchanged": true
+      },
+      "wlan": {
+        "status": "built",
+        "eboot_sha256": "00f031baf1312e852f8c8210e79e31e7c7a0de97e00edc106ace64b7a85b05a3",
+        "tested_eboot_sha256": "00f031baf1312e852f8c8210e79e31e7c7a0de97e00edc106ace64b7a85b05a3",
+        "byte_identical_to_tested": true,
+        "native_sources_unchanged": true,
+        "assets_unchanged": true
+      }
+    }
+  },
+  "visual_receipt": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/B155_NATIVE_VISUAL.json",
+  "boss_receipt": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/B155_NATIVE_BOSS.json",
+  "timing_receipt": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/B155_TIMING_COMPARISON.json",
+  "wlan_candidate": {
+    "status": "built-byte-identical-rebuild-native-acceptance-pending",
+    "package": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/package/DoubleEdgedB155Wlan",
+    "receipt": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/B155_WLAN_RENDER.json",
+    "shipped": false
+  },
+  "installed_on_card": false,
+  "github_published": false,
+  "physical_psp_tested": false,
+  "stable60": false
+}

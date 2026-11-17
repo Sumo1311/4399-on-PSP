@@ -1,0 +1,79 @@
+{
+  "status": "passed-independent-official-payload-artwork-and-archive-crosscheck",
+  "package": "/Users/sumo/Documents/flash-to-psp/release-double-edged-v1.0.0-20261117/PSP/GAME/DoubleEdged",
+  "baseline": "B155 solo",
+  "runtime_files_exact": [
+    "art-clut4-report.json",
+    "art.pak",
+    "audio.pak",
+    "classes.js",
+    "fonts.pak",
+    "graphics.swf",
+    "levels/29c22ebd89bdfb77af7f8eafc298212a.xml",
+    "levels/2bd7ae673ef3279c92962e79234517cd.xml",
+    "levels/38101041d692f8f7ab14ba7f191dae78.xml",
+    "levels/389b3c172277726d01f1a9d5f47a6944.xml",
+    "levels/48d085fe2c82298bab43476d50d3b54c.xml",
+    "levels/546396c569e723df11d862f510448c83.xml",
+    "levels/5555938b780f2864e3eafd0b7937d5ec.xml",
+    "levels/626e78bad49d2ce36ee7690d442cb2b2.xml",
+    "levels/97816b814e97cf977742af328549d639.xml",
+    "levels/b97d8da4175e1d8636d87d6ff685dacd.xml",
+    "levels/cae247aad90864b354bd5dca79292362.xml",
+    "levels/dc522947c62e790d968bd3007e767d26.xml",
+    "movie.json",
+    "pad.js",
+    "runtime.js",
+    "visual_policy.js"
+  ],
+  "program_sections_identical": [
+    "DATA.PSP",
+    "DATA.PSAR"
+  ],
+  "preserved_optional_sections": [
+    "ICON1.PMF",
+    "PIC0.PNG",
+    "SND0.AT3"
+  ],
+  "sfo_before": {
+    "MEMSIZE": 1,
+    "APP_VER": "01.01",
+    "BOOTABLE": 1,
+    "CATEGORY": "MG",
+    "DISC_ID": "UCJS10041",
+    "DISC_VERSION": "1.00",
+    "PARENTAL_LEVEL": 1,
+    "PSP_SYSTEM_VER": "1.00",
+    "REGION": 32768,
+    "TITLE": "Double Edged B155"
+  },
+  "sfo_after": {
+    "MEMSIZE": 1,
+    "APP_VER": "01.00",
+    "BOOTABLE": 1,
+    "CATEGORY": "MG",
+    "DISC_ID": "UCJS10041",
+    "DISC_VERSION": "1.00",
+    "PARENTAL_LEVEL": 1,
+    "PSP_SYSTEM_VER": "1.00",
+    "REGION": 32768,
+    "TITLE": "双刃战士"
+  },
+  "sfo_changed_keys": [
+    "APP_VER",
+    "TITLE"
+  ],
+  "embedded_artwork": {
+    "ICON0.PNG": {
+      "bytes": 23408,
+      "sha256": "c61cdd149feae7974a5486eda2a3736e43b598e7e5c2a7d83e28f6dd5a5fb0d1"
+    },
+    "PIC1.PNG": {
+      "bytes": 231585,
+      "sha256": "dc5d412fbc6ebc6bf1979c1b27ceb19fb29482b499ea4430fd985cb90527e516"
+    }
+  },
+  "native_program_sha256": "4f3ef2b340b1d6d16fef1623d85e42b8c31573e694c6fffcdc521b74e00e03fc",
+  "archive": null,
+  "scope": "Read-only comparison to frozen B155 and selected imagegen assets. No new gameplay,FPS,device or WLAN inference."
+}

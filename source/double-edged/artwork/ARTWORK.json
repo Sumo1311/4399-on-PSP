@@ -1,0 +1,48 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "mode": "generate with original game references",
+  "background": {
+    "prompt": "Use case: stylized-concept. Asset type: PSP XMB game background PIC1, new artwork for the Flash game Double Edged / 双刃战士.\nInput images: reference 1 is the original title screen, use ONLY the game's visual identity, gold sword-logo lettering, ochre/olive palette; reference 2 is actual gameplay, use the golden bronze warrior helmet with red crest, stubby proportions, autumn trees and ancient dusty landscape. These are references, not an edit target. Do not reproduce window chrome, HUD, menus, web branding or screenshot borders.\nCreate a finished wide 480:272 composition (landscape, approximately 16:9) with high-quality crisp hand-placed pixel-art style, not a photo or realistic 3D. On the right half, two small heroic bronze-armored ancient Greek warriors stand back-to-back with short swords, one crimson-crested helmet, one dark-crested helmet, readable silhouettes, matching the charming game characters. Rich autumn-gold forest, distant simple Greek ruins and dusty sunlit battlefield, warm amber and muted olive tones, restrained detail. Leave the left 35 percent quiet and darker, with no main character or text, as the PSP XMB icon and labels occupy that space. Strong controlled pixel clusters and clean silhouette at only 480x272.\nUpper right title: exact readable text 'DOUBLE EDGED', gold beveled serif lettering inspired by the supplied game's original sword title; underneath a smaller clear Chinese subtitle '双刃战士'. Keep all title and figures inside a safe 5 percent margin. No version number, no technical labels, no PSP logo, no additional slogans or writing, no watermark, no interface mockup. The final image is the artwork itself filling the entire canvas, opaque background.",
+    "generated_file": "/Users/sumo/.codex/generated_images/01a1c8d1-dcd5-76a3-87a8-386bc6ab0a57/exec-e0353fc3-a9f7-4b46-8413-c52a3e736628.png",
+    "master": "background-master.png",
+    "xmb": "PIC1.png",
+    "target_size": [
+      480,
+      272
+    ]
+  },
+  "icon": {
+    "prompt": "Use case: stylized-concept. Asset type: PSP XMB game cover icon ICON0, for Double Edged / 双刃战士.\nInput images: original title screen and actual gameplay as visual references only; preserve bronze/gold palette and the red-crested Greek warrior helmet identity, not the HUD/window borders.\nProduce a polished wide small game icon composition, aspect ratio exactly 144:80, designed to remain instantly recognizable at 144 by 80 pixels. Crisp retro pixel-art illustration, opaque background. A large expressive bronze Greek warrior helmet with a crimson crest in the left half and a bright short sword diagonally behind it; restrained dark olive background with warm golden lighting. On the right half the exact title '双刃战士' in bold gold pixel lettering arranged in two short lines, with very high contrast and clean generous spacing. A subtle simple gold edge frame, no fine texture or tiny text. Strong silhouette, game-art feel matching the references, no photorealism or 3D.\nOnly these four Chinese characters are printed; no additional logos, no watermark, no software or technical text, no mockup border beyond the designed thin frame. Entire image is the icon artwork, no padding outside the frame.",
+    "generated_file": "/Users/sumo/.codex/generated_images/01a1c8d1-dcd5-76a3-87a8-386bc6ab0a57/exec-fbbc008a-df15-4cb5-a7a5-35e0bf34f7c1.png",
+    "master": "cover-master.png",
+    "xmb": "ICON0.png",
+    "target_size": [
+      144,
+      80
+    ]
+  },
+  "reference_images": [
+    "/Users/sumo/Documents/flash-to-psp/double_edged_psp/work/frontend-prefs-cold-78/restored-title.png",
+    "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/inspection/b155-MID60.png"
+  ],
+  "processing": "Technical resampling and RGB8 PNG conversion for PSP;no changes to in-game art/audio/fonts.",
+  "technical_processing": "macOS sips resample to exact PSP dimensions;PNG RGB8 format checked;no additional creative image edits",
+  "files": {
+    "artwork/ICON0.png": {
+      "sha256": "c61cdd149feae7974a5486eda2a3736e43b598e7e5c2a7d83e28f6dd5a5fb0d1",
+      "bytes": 23408
+    },
+    "artwork/PIC1.png": {
+      "sha256": "dc5d412fbc6ebc6bf1979c1b27ceb19fb29482b499ea4430fd985cb90527e516",
+      "bytes": 231585
+    },
+    "artwork/background-master.png": {
+      "sha256": "0e01e83b7e56c6c9de77f05dd8a74bbf218188950b7f71b10e5ec5f1688ccc3d",
+      "bytes": 1904279
+    },
+    "artwork/cover-master.png": {
+      "sha256": "1d0c163f655817b7e18829a7fc42eafa1da946375a4b528f0ad7ca70b739a4c2",
+      "bytes": 1558539
+    }
+  }
+}

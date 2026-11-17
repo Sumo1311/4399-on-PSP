@@ -1,0 +1,154 @@
+{
+  "status": "completed-matched-repair-cost-measurement",
+  "results": {
+    "B154": {
+      "windows": {
+        "1200-2600": {
+          "complete_ms": {
+            "count": 1400,
+            "mean": 18.464699285714286,
+            "p95": 33.221,
+            "p99": 44.235,
+            "maximum": 69.43
+          },
+          "logic_ms": {
+            "count": 1400,
+            "mean": 15.257120714285714,
+            "p95": 28.556,
+            "p99": 36.246,
+            "maximum": 54.408
+          },
+          "over_33_333ms": 65,
+          "source_hz": 29.99999978571429,
+          "marked_fresh_or_interpolated_hz": 58.739562606780325
+        },
+        "1330-1700": {
+          "complete_ms": {
+            "count": 370,
+            "mean": 29.107421621621622,
+            "p95": 38.703,
+            "p99": 55.951,
+            "maximum": 69.43
+          },
+          "logic_ms": {
+            "count": 370,
+            "mean": 24.960386486486488,
+            "p95": 34.071,
+            "p99": 39.992,
+            "maximum": 54.408
+          },
+          "over_33_333ms": 55,
+          "source_hz": 30.003440664830837,
+          "marked_fresh_or_interpolated_hz": 57.503504830497455
+        }
+      },
+      "heap_peak": 18490178,
+      "config_sha256": "ee08583c95dfd953ebe4ea8e75078826edd6b78e2406a133844dd15d7c26ab7b",
+      "eboot_sha256": "273f294e80bfc79010a9c6f3bf47d5c93b7a5ed309445057ed9bd0fbd0aeeca4",
+      "emulator_payload": [
+        {
+          "cpu": 16777223,
+          "payload_bytes": 28588704,
+          "sha256": "a2679a41db8024982a0f4d121465bcaf81bb6087ea82205301f012880e0b05fa"
+        },
+        {
+          "cpu": 16777228,
+          "payload_bytes": 24741824,
+          "sha256": "97dfa087fbacd40a8c8864a693cba5087b9266c81b171542e30a774335d42c8f"
+        }
+      ],
+      "source_backend": {
+        "scope": "Backend counters collected after the final scene was published",
+        "frames": 2600,
+        "depth_order_batches": 1545,
+        "native_depth_sorts": 1545,
+        "native_slice_bulk_copies": 11664,
+        "native_slice_const_copies": 41,
+        "audio_status_atomic_reads": 5787,
+        "scalar_bytecodes_parked_at_init": 3449,
+        "intrinsic_instanceof_fast_calls": 321476,
+        "intrinsic_instanceof_general_calls": 0
+      },
+      "native_result": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/result.json",
+      "idle_preflight_wall_seconds": 30.935553,
+      "process_receipt": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/checks/b154repair155base-timing-processes.json"
+    },
+    "B155": {
+      "windows": {
+        "1200-2600": {
+          "complete_ms": {
+            "count": 1400,
+            "mean": 18.43094357142857,
+            "p95": 33.23,
+            "p99": 44.23,
+            "maximum": 59.641
+          },
+          "logic_ms": {
+            "count": 1400,
+            "mean": 15.21356357142857,
+            "p95": 28.555,
+            "p99": 35.291,
+            "maximum": 54.513
+          },
+          "over_33_333ms": 67,
+          "source_hz": 30.000123857654213,
+          "marked_fresh_or_interpolated_hz": 58.82531253198251
+        },
+        "1330-1700": {
+          "complete_ms": {
+            "count": 370,
+            "mean": 29.004224324324323,
+            "p95": 38.656,
+            "p99": 57.609,
+            "maximum": 59.641
+          },
+          "logic_ms": {
+            "count": 370,
+            "mean": 24.8797027027027,
+            "p95": 34.033,
+            "p99": 40.692,
+            "maximum": 54.513
+          },
+          "over_33_333ms": 55,
+          "source_hz": 30.003671800700367,
+          "marked_fresh_or_interpolated_hz": 57.503504830497455
+        }
+      },
+      "heap_peak": 18481066,
+      "config_sha256": "ee08583c95dfd953ebe4ea8e75078826edd6b78e2406a133844dd15d7c26ab7b",
+      "eboot_sha256": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193",
+      "emulator_payload": [
+        {
+          "cpu": 16777223,
+          "payload_bytes": 28588704,
+          "sha256": "a2679a41db8024982a0f4d121465bcaf81bb6087ea82205301f012880e0b05fa"
+        },
+        {
+          "cpu": 16777228,
+          "payload_bytes": 24741824,
+          "sha256": "97dfa087fbacd40a8c8864a693cba5087b9266c81b171542e30a774335d42c8f"
+        }
+      ],
+      "source_backend": {
+        "scope": "Backend counters collected after the final scene was published",
+        "frames": 2600,
+        "depth_order_batches": 1545,
+        "native_depth_sorts": 1545,
+        "native_slice_bulk_copies": 11661,
+        "native_slice_const_copies": 41,
+        "audio_status_atomic_reads": 5790,
+        "scalar_bytecodes_parked_at_init": 3449,
+        "intrinsic_instanceof_fast_calls": 321419,
+        "intrinsic_instanceof_general_calls": 0
+      },
+      "native_result": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b155repair155-timing-normal/result.json",
+      "idle_preflight_wall_seconds": 30.012393,
+      "process_receipt": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/checks/b155repair155-timing-processes.json"
+    }
+  },
+  "full_timed_trace_exact": true,
+  "concurrent_load_observed": false,
+  "scope": "Same1025inputs/2600source steps,30Hz source,fixedPSP2000/333MHz/64MiB/480x272/audio/normal/no skips/realisticIO. Repaired visible work intentionally differs. No new performance gain gate;report actual cost. Marked fresh/interpolated output is distinct from complete steps and physical display.",
+  "stable60": false,
+  "physical_psp_tested": false
+}

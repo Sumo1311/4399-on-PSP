@@ -1,0 +1,99 @@
+{
+  "status": "passed-actual-native-front-coin-and-dying-body",
+  "evidence": {
+    "b154": {
+      "native_result": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/b154-ordinary1700-native/result.json",
+      "source_steps": 1700,
+      "gameplay_rng_audio_exact": true,
+      "mirror_reference_command_passes": 1700,
+      "ignored_readonly_display_allocation_uid_samples": 307,
+      "source_witness_at_death": {
+        "actors": [
+          {
+            "uid": 11309,
+            "symbol": 1310,
+            "health": 0,
+            "alive": false,
+            "landed": false,
+            "deadCount": 55,
+            "yPos": 21,
+            "x": 735.8,
+            "y": 308.2,
+            "alpha": 0,
+            "visible": true
+          }
+        ],
+        "coins": []
+      },
+      "visual_policy": {
+        "scope": "Render-only dead enemy and shadow suppression;original game objects remain owned by source logic",
+        "actor_samples": 1614,
+        "dead_actor_samples": 608,
+        "unsupported_samples": 0,
+        "corpse_draw_skips": 608
+      },
+      "actual_framebuffers": {
+        "MID60": "7f1b2dc6e9e18f9bfb0d3eac46918cda305b4ac34bb82fe8668b3c8187145310",
+        "FINAL": "b39e6f62cc9e3f8975bd4aacf0f6fdffd549c9be40b445251fdf83ea582846e4"
+      }
+    },
+    "b155": {
+      "native_result": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/b155-ordinary1700-native/result.json",
+      "source_steps": 1700,
+      "gameplay_rng_audio_exact": true,
+      "mirror_reference_command_passes": 1700,
+      "ignored_readonly_display_allocation_uid_samples": 307,
+      "source_witness_at_death": {
+        "actors": [
+          {
+            "uid": 11309,
+            "symbol": 1310,
+            "health": 0,
+            "alive": false,
+            "landed": false,
+            "deadCount": 55,
+            "yPos": 21,
+            "x": 735.8,
+            "y": 308.2,
+            "alpha": 0,
+            "visible": true
+          }
+        ],
+        "coins": []
+      },
+      "visual_policy": {
+        "scope": "Render-only settled corpse suppression and steady dying alpha;living actors and source game objects unchanged",
+        "actor_samples": 1614,
+        "dead_actor_samples": 354,
+        "dying_actor_samples": 254,
+        "unsupported_samples": 0,
+        "corpse_draw_skips": 354
+      },
+      "actual_framebuffers": {
+        "MID60": "09618870215ba237616f1517e79ed5f3d33570d8535c94c80f3776eeb31b3316",
+        "FINAL": "de16c379bf0d9cc34c58197b3dabb9ba94a35f881cb52b6076fbfed64f991afb"
+      }
+    },
+    "pixel_changes": {
+      "MID60": {
+        "bbox": [
+          327,
+          195,
+          367,
+          228
+        ]
+      },
+      "FINAL": {
+        "bbox": [
+          202,
+          216,
+          412,
+          250
+        ]
+      }
+    }
+  },
+  "note": "Frame1298 is actual fatal knockback with source alpha0,landedfalse. Final1700 includes actual dropped coin. Native images were visually inspected;mirror/source command checks pass. Extra display allocation UID values are not gameplay state. Coin frame2 versus8 is the intended repair.",
+  "timing_scope": "Intrusive mirror diagnostics;not FPS evidence",
+  "physical_psp_tested": false
+}

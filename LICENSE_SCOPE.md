@@ -18,3 +18,5 @@ The original games' copyright and credit screens are retained in the game conten
 此项目不对 LGPL 库的修改、替换，或为调试此类修改而进行的逆向工程施加额外限制。可以依照相应库的许可证和 `RELINKING.md` 使用仓库提供的源码与对象文件重新链接程序。
 
 No additional noncommercial restriction is added to the author's MIT-licensed original code. The MIT grant does not override the separate conditions governing third-party game content.
+
+《双刃战士 PSP 1.0.0》的对应源码、重建入口与菜单美术见 [`source/double-edged`](source/double-edged)。该目录保留 gameswf、QuickJS-NG 等依赖的许可；原 Flash 脚本及游戏素材仍保留各自第三方权利，根 MIT 协议不重新授权这些内容。具体范围见该目录 packaging/LICENSE_SCOPE.md。

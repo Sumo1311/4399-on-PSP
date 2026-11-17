@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "source_component_steps": 90,
+  "baseline_frame": 2,
+  "candidate_frame": 8,
+  "actual_original_coin_scripts_preserved": true,
+  "rng_bounds_clock_and_stopped_state_exact": true,
+  "scope": "Actual compiled AS3 runtime component on Node,including original random frame1 and loop frame15. No native PSP pixels or performance proof."
+}

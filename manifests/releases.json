@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "Sumo1311/4399-on-PSP",
-  "updated_at": "2026-11-14T04:04:13.001895+00:00",
+  "updated_at": "2026-11-17T00:23:46.575349+00:00",
   "publication_layout": "one-game-per-release",
   "release_assets_policy": "one-complete-game-installer-per-release",
   "games": [
@@ -89,6 +89,23 @@
       "sha256": "bb0172155a3ab96dbb93f621fd90d9c64ffaa6c4d05b5b96a2a5e48be6c300af",
       "eboot_sha256": "313ac29f10aafc5ebface19c9fc43fb34cef21d9a99aadfff3633ca2725138ed",
       "program_sha256": "e387d128026099eb48f6de9a5b7f4f039c14ed8d8e595c043477477e3051382e"
+    },
+    {
+      "id": "double-edged",
+      "package_id": "DoubleEdged",
+      "title": "双刃战士 PSP 1.0.0 正式版（单机）",
+      "version": "1.0.0",
+      "tag": "double-edged-v1.0.0",
+      "release_url": "https://github.com/Sumo1311/4399-on-PSP/releases/tag/double-edged-v1.0.0",
+      "download_url": "https://github.com/Sumo1311/4399-on-PSP/releases/download/double-edged-v1.0.0/DoubleEdged_PSP_1.0.0_Official.zip",
+      "asset_name": "DoubleEdged_PSP_1.0.0_Official.zip",
+      "bytes": 45449838,
+      "sha256": "967885cd2484d8d6b58e604a7f2c8299bf00546b98fd79780e54833be4261f8b",
+      "eboot_sha256": "e47d19cf943f922f7293cc12eab8e7601419a1191e40c56aa6bf5bb3793aed4e",
+      "program_sha256": "4f3ef2b340b1d6d16fef1623d85e42b8c31573e694c6fffcdc521b74e00e03fc",
+      "source_directory": "source/double-edged",
+      "single_player": true,
+      "wlan_included": false
     }
   ]
 }

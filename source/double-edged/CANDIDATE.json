@@ -1,0 +1,61 @@
+{
+  "candidate": "B155",
+  "variants": {
+    "solo": {
+      "cmake_options": [
+        "DE_ENABLE_EFFECTS=OFF",
+        "DE_CONST_JSON=ON",
+        "DE_SCENE_SLOTS=5",
+        "DE_GC_PHASE=0",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
+        "DE_CRISP_ART=OFF",
+        "DE_RASTER_DENSITY_SCALE=3.0",
+        "DE_PREPARE_TEXTURES=OFF",
+        "DE_RESIDENT_BANK_MB=0",
+        "DE_TEXTURE_CACHE_MB=8",
+        "DE_COMPACT_TEXTURE_ARENA=ON",
+        "DE_ART_SHAPE_INDEX=ON",
+        "DE_RESIDENT_PCM_MB=4",
+        "DE_REALTIME_FRONTEND=ON",
+        "DE_ADAPTIVE_GC=ON",
+        "DE_LATE_CAPTURE=OFF",
+        "DE_AUDIO_DELAY_BLOCKS=3",
+        "DE_NATIVE_TIMELINE=ON",
+        "DE_BATCH_RENDER_SYNC=ON",
+        "DE_DIRECT_BAKED_CAPTURE=ON",
+        "DE_WLAN=OFF",
+        "DE_BUILD_TITLE=Double Edged B155"
+      ],
+      "tested_eboot_sha256": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193",
+      "install_folder": "DoubleEdgedOptB155"
+    },
+    "wlan": {
+      "cmake_options": [
+        "DE_ENABLE_EFFECTS=OFF",
+        "DE_CONST_JSON=ON",
+        "DE_SCENE_SLOTS=5",
+        "DE_GC_PHASE=0",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION=ON",
+        "DE_CRISP_ART=OFF",
+        "DE_RASTER_DENSITY_SCALE=3.0",
+        "DE_PREPARE_TEXTURES=OFF",
+        "DE_RESIDENT_BANK_MB=0",
+        "DE_TEXTURE_CACHE_MB=8",
+        "DE_COMPACT_TEXTURE_ARENA=ON",
+        "DE_ART_SHAPE_INDEX=ON",
+        "DE_RESIDENT_PCM_MB=4",
+        "DE_REALTIME_FRONTEND=ON",
+        "DE_ADAPTIVE_GC=ON",
+        "DE_LATE_CAPTURE=OFF",
+        "DE_AUDIO_DELAY_BLOCKS=3",
+        "DE_NATIVE_TIMELINE=ON",
+        "DE_BATCH_RENDER_SYNC=ON",
+        "DE_DIRECT_BAKED_CAPTURE=ON",
+        "DE_WLAN=ON",
+        "DE_BUILD_TITLE=Double Edged B155 WLAN"
+      ],
+      "tested_eboot_sha256": "00f031baf1312e852f8c8210e79e31e7c7a0de97e00edc106ace64b7a85b05a3",
+      "install_folder": "DoubleEdgedWlanB155"
+    }
+  }
+}

@@ -14,6 +14,7 @@ Flash 游戏的非官方 PSP 移植项目，支持单人游玩，部分游戏支
 | 火柴人羽毛球 2 | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/badminton2-v1.0.18) | [1.0.18 优化版](https://github.com/Sumo1311/4399-on-PSP/releases/download/badminton2-v1.0.18/Badminton2_PSP-1.0.18.zip) |
 | 死神 vs 火影 3.7 Alpha（5DPLAY） | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/bvn37-v1.0.5) | [1.0.5 角色闪烁与大招修复正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/bvn37-v1.0.5/BVN37_PSP_1.0.5_Install.zip) |
 | 战争进化史2 | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/age-of-war-2-c10) | [C10 正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/age-of-war-2-c10/AgeOfWar2_PSP_C10_Official.zip) |
+| 双刃战士 · Double Edged | [发行页](https://github.com/Sumo1311/4399-on-PSP/releases/tag/double-edged-v1.0.0) | [1.0.0 单机正式版](https://github.com/Sumo1311/4399-on-PSP/releases/download/double-edged-v1.0.0/DoubleEdged_PSP_1.0.0_Official.zip) |
 
 ## 安装
 
@@ -27,7 +28,13 @@ PPSSPP 可直接打开游戏目录内的 `EBOOT.PBP`。
 
 ![死神 vs 火影 PSP 封面](source/bvn37/artwork/cover-master.png)
 
+双刃战士 1.0.0 采用 B155 单机程序，包含金币正面与死亡过程显示修复，内嵌中文 XMB 封面及背景，保留原作逻辑节奏和旧单机存档格式。发行范围与模拟器记录见对应源码验证说明。
+
+![双刃战士 PSP 背景](source/double-edged/artwork/background-master.png)
+
 ## 源码与构建资料
+
+- [双刃战士正式源码、封面背景、生成说明及独立重建方法](source/double-edged)
 
 - [死神 vs 火影原生源码、封面背景与重建说明](source/bvn37)
 - [战争进化史2 C10 原生源码及构建说明](source/age-of-war-2-c10)

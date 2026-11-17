@@ -1,0 +1,5 @@
+{
+  "status": "passed",
+  "output": "32 actual QuickJS death-phase,revival and no-getter cases passed",
+  "scope": "Actual QuickJS and corpse helper ASAN/UBSAN. LeakSanitizer disabled;no PSP rendering or performance proof."
+}

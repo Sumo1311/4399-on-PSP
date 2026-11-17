@@ -1,0 +1,615 @@
+{
+  "command": [
+    "python3",
+    "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/run_native.py",
+    "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal",
+    "--package",
+    "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_psp/work/logic-b154repair155base-timing-fixture-20261115",
+    "--result-name",
+    "FRONTEND_RESULT.JSON",
+    "--follow-live-run",
+    "--emulator-app",
+    "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_psp/work/observer-control-full-60/Double Edged Script QA.app",
+    "--map",
+    "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/build/DoubleEdgedB154/double_edged.map",
+    "--emulation-profile",
+    "psp2000"
+  ],
+  "returncode": 0,
+  "foreign_processes_observed": [],
+  "samples": [
+    {
+      "utc": "2026-11-16T14:19:57.605390+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:59.629716+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:01.662998+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:03.687431+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:05.734315+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:07.772283+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:09.807744+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:11.856253+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:13.904691+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:15.953619+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:18.003914+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:20.051501+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:22.104643+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:24.157531+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:26.183523+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:28.213063+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:30.245377+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:32.278259+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:34.318706+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:36.343413+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:38.374318+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:40.402381+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:42.438104+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:44.467259+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:46.496380+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:48.526448+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:50.556097+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:52.586473+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:54.612975+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:56.641871+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:20:58.670798+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:00.695337+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:02.725624+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:04.746350+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:06.773771+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:08.803896+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:10.832966+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:12.862943+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:14.889848+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:16.921617+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:18.947334+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:20.979692+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:23.010944+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:25.040688+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:27.072444+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:29.096295+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:31.128671+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:33.159477+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:35.189346+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:37.221011+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:39.251707+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    },
+    {
+      "utc": "2026-11-16T14:21:41.279619+00:00",
+      "processes": [
+        {
+          "pid": 91145,
+          "command": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/Double Edged Script QA.app/Contents/MacOS/PPSSPPSDL -j --windowed --loglevel=3 --appendconfig=/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/ppsspp.ini /Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_coin_death_20261116/runs/logic-b154repair155base-timing-normal/MemoryStick/PSP/GAME/ScriptProbe"
+        }
+      ]
+    }
+  ],
+  "preflight_samples": [
+    {
+      "utc": "2026-11-16T14:19:26.667655+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:27.698870+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:28.728594+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:29.762604+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:30.796617+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:31.832435+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:32.864873+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:33.888731+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:34.916686+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:35.950043+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:36.982058+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:38.017108+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:39.049755+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:40.086335+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:41.115998+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:42.150331+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:43.186613+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:44.219893+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:45.253207+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:46.287589+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:47.312065+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:48.341510+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:49.366368+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:50.392601+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:51.418221+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:52.452360+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:53.481554+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:54.507490+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:55.539287+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:56.570830+00:00",
+      "processes": []
+    },
+    {
+      "utc": "2026-11-16T14:19:57.603208+00:00",
+      "processes": []
+    }
+  ],
+  "diagnostic": false,
+  "emulation_profile": "psp2000",
+  "continuous_idle_preflight_seconds": 30,
+  "performance_qualification_eligible": true
+}

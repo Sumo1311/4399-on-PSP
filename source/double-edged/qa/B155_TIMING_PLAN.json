@@ -1,0 +1,18 @@
+{
+  "status": "prepared",
+  "jobs": [
+    {
+      "candidate": "B154",
+      "label": "b154repair155base",
+      "fixture": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_psp/work/logic-b154repair155base-timing-fixture-20261115",
+      "eboot_sha256": "273f294e80bfc79010a9c6f3bf47d5c93b7a5ed309445057ed9bd0fbd0aeeca4"
+    },
+    {
+      "candidate": "B155",
+      "label": "b155repair155",
+      "fixture": "/Users/sumo/Documents/flash-to-psp/performance_60fps_20261112/double_edged_psp/work/logic-b155repair155-timing-fixture-20261115",
+      "eboot_sha256": "a2a6b66fdf7095b426ba881ab55a3df600fc7f8fc92874956b0712e0af5cf193"
+    }
+  ],
+  "scope": "Same1025inputs/2600steps;B154 versus B155 repair. Each continuous30s idle; fixedPSP2000 normal audio/no skips/realisticIO. Restored visible actors intentionally add render work; report actual differences without claiming60Hz or hardware."
+}
